@@ -18,26 +18,29 @@
     </head>
 
     <body>
-        <div class="header">
-            <span class="title">Mallas FCFM</span>
-        </div>
+        <div>
+            <div class="header">
+                <span class="title">Mallas FCFM</span>
+            </div>
 
-        <div x-data="{ departmentData: departments }" class="card-grid">
-            <template x-for="item in departmentData" :key="item.code">
-                <div class="card">
-                    <a href="/">
-                        <img :src="`./images/splashes/${item.code}.jpg`" class="card-image" />
-                        <div class="card-text">
-                            <span class="card-title card-name" x-text="item.name"></span>
-                            <span class="card-title card-fullname" x-text="item.fullName"></span>
-                        </div>
-                    </a>
-                </div>
-            </template>
+            <div x-data="{ departmentData: departments }" class="card-grid">
+                <template x-for="item in departmentData" :key="item.code">
+                    <div class="card">
+                        <a :href="`./${item.code}`">
+                            <img :src="`./images/splashes/${item.code}.jpg`" class="card-image" />
+                            <div class="card-text">
+                                <span class="card-title card-name" x-text="item.name"></span>
+                                <span class="card-title card-fullname" x-text="item.fullName"></span>
+                            </div>
+                        </a>
+                    </div>
+                </template>
+            </div>
         </div>
 
 
         <script src="data/departments.js"></script>
+        <script src="js/malla.js"></script>
     </body>
 
 <!-- Site by Eric K. -->
