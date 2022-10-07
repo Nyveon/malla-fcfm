@@ -1,15 +1,29 @@
 /* Site by Eric K. */
 
 :root {
-    /* Dracula theme */
-    --background-color: #44475a;
+    /* Gooey theme */
+    --background-color: #1f222d;
+    --background-color-2: #000009;
     --text-color: #ffffff;
-    --red: #ff5555;
-    --green: #50fa7b;
-    --orange: #ffb86c;
-    --blue: #8be9fd;
-    --purple: #bd93f9;
-    --pink: #ff79c6;
+    --text-color-2: #858893;
+
+    --accent-color: #bb4f6c;
+    --accent-color-light: #ee829f;
+
+    --accent-color-2: #72ccae;
+    --accent-color-2-light: #a5ffe1;
+
+    --accent-color-3: #c65e3d;
+    --accent-color-3-light: #f99170;
+
+    --accent-color-4: #58b6ca;
+    --accent-color-4-light: #8be9fd;
+
+    --accent-color-5: #6488c4;
+    --accent-color-5-light: #97bbf7;
+
+    --accent-color-6: #8d84c6;
+    --accent-color-6-light: #c0b7f9;
 
     /* Sizes */
     --card-size: 300px;
