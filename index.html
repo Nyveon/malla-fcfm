@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <title>Malla FCFM</title>
+        <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+        <link
+            rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Lato:wght@100;900&display=swap"
+        />
+
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+
+    <body>
+        <div class="header">
+            <h1>Mallas FCFM</h1>
+        </div>
+
+        <div x-data="{ departmentData: departments }" class="card-grid">
+            <template x-for="item in departmentData" :key="item.code">
+                <div class="card">
+                    <img :src="`${item.image}`" class="card-image" />
+                    <div class="card-text">
+                        <span class="card-title" x-text="item.name"></span>
+                    </div>
+                </div>
+            </template>
+        </div>
+
+
+        <script src="data/departments.js"></script>
+    </body>
+
+</html>
