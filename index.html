@@ -7,10 +7,10 @@
 
         <title>Malla FCFM</title>
         <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-        <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Lato:wght@100;900&display=swap"
-        />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;900&display=swap" rel="stylesheet">
 
         <link rel="stylesheet" href="css/style.css" />
     </head>
@@ -23,7 +23,7 @@
         <div x-data="{ departmentData: departments }" class="card-grid">
             <template x-for="item in departmentData" :key="item.code">
                 <div class="card">
-                    <img :src="`${item.image}`" class="card-image" />
+                    <img :src="`./images/splashes/${item.code}.jpg`" class="card-image" />
                     <div class="card-text">
                         <span class="card-title" x-text="item.name"></span>
                     </div>
