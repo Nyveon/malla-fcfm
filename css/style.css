@@ -1,3 +1,5 @@
+/* Site by Eric K. */
+
 :root {
     /* Dracula theme */
     --background-color: #44475a;
@@ -15,7 +17,7 @@
 
 html {
     font-family: "Lato", sans-serif;
-    font-weight: 100;
+    font-weight: 400;
     font-style: normal;
     color: var(--text-color);
 }
@@ -31,6 +33,8 @@ body {
     align-items: center;
 }
 
+/* ----- Page header ----- */
+
 .header {
     display: flex;
     flex-direction: row;
@@ -38,14 +42,15 @@ body {
     align-items: center;
 }
 
-/* ----- Card Grid ----- */
-
-@media (max-width: var(--card-size)) {
-    .card-grid {
-        display: flex;
-        flex-direction: column;
-    }
+.title {
+    font-size: 2em;
+    font-weight: 100;
+    margin: 2rem;
+    padding: 0;
+    color: var(--text-color);
 }
+
+/* ----- Card Grid ----- */
 
 .card-grid {
     display: grid;
@@ -54,7 +59,7 @@ body {
     grid-auto-rows: 200px;
     grid-auto-flow: dense;
     padding-inline: calc(var(--card-size) / 3);
-    grid-template-columns: repeat( auto-fit, var(--card-size));
+    grid-template-columns: repeat( auto-fit, minmax(var(--card-size), 0.8fr));
 }
 
 .card {
@@ -64,10 +69,21 @@ body {
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 }
 
+.card a {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
 .card-image {
     width: 100%;
     height: 200px;
     object-fit: cover;
+    transition: transform .25s;
+    filter: contrast(120%);
+}
+
+.card:hover .card-image {
+    transform: scale(1.2);
 }
 
 .card-text {
@@ -79,11 +95,35 @@ body {
     backdrop-filter: blur(4px) brightness(66%);
     width: 100%;
     height: 25%;
+    transition: height .25s;
+}
+
+.card:hover .card-text {
+    height: 100%;
+}
+
+.card-name {
+    margin: 0.8rem;
+    display: block;
+}
+
+.card:hover .card-name {
+    display: none;
+}
+
+.card-fullname {
+    margin: 0.8rem;
+    display: none;
+    font-size: 1.5em;
+}
+
+.card:hover .card-fullname {
+    text-align: center;
+    display: block;
 }
 
 .card-title {
     font-weight: 900;
-    margin-left: 1rem;
     filter: drop-shadow(0 0 8px #000);
 }
 

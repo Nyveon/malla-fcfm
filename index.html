@@ -4,29 +4,34 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="author" content="Eric K." />
+        <meta name="description" content="Mallas curriculares FCFM Universidad de Chile" />
 
         <title>Malla FCFM</title>
         <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;900&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;900&display=swap" rel="stylesheet">
 
         <link rel="stylesheet" href="css/style.css" />
     </head>
 
     <body>
         <div class="header">
-            <h1>Mallas FCFM</h1>
+            <span class="title">Mallas FCFM</span>
         </div>
 
         <div x-data="{ departmentData: departments }" class="card-grid">
             <template x-for="item in departmentData" :key="item.code">
                 <div class="card">
-                    <img :src="`./images/splashes/${item.code}.jpg`" class="card-image" />
-                    <div class="card-text">
-                        <span class="card-title" x-text="item.name"></span>
-                    </div>
+                    <a href="/">
+                        <img :src="`./images/splashes/${item.code}.jpg`" class="card-image" />
+                        <div class="card-text">
+                            <span class="card-title card-name" x-text="item.name"></span>
+                            <span class="card-title card-fullname" x-text="item.fullName"></span>
+                        </div>
+                    </a>
                 </div>
             </template>
         </div>
@@ -35,4 +40,5 @@
         <script src="data/departments.js"></script>
     </body>
 
+<!-- Site by Eric K. -->
 </html>
