@@ -38,10 +38,9 @@
 
         <main>
             <header>
-                <span x-text="path"></span>
                 <span
                     class="title"
-                    x-text="degrees[path] ? `Malla ${degrees[path].department}` : 'Mallas FCFM'">
+                    x-text="path in degrees ? `Malla ${degrees[path].department}` : 'Mallas FCFM'">
                 </span>
             </header>
 
@@ -59,8 +58,20 @@
                 </div>
             </template>
 
-            <template x-if="path !== '/'">
-                <span x-text="path">asgasg</span>
+            <template x-if="path in degrees">
+                <template x-if="!('department' in degrees[path])">
+                    <div id="not-found">
+                        <h1>Perdón.</h1>
+                        <h2>Esta malla no se ha implementado aún.</h2>
+                    </div>
+                </template>
+            </template>
+
+            <template x-if="path !== '' && !(path in degrees)">
+                <div id="not-found">
+                    <h1>Error 404</h1>
+                    <h2>Malla no existe.</h2>
+                </div>
             </template>
         </main>
 
