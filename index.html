@@ -16,30 +16,35 @@
 
         <link rel="stylesheet" href="css/style.css" />
     </head>
+    <body
+        x-data="{ page: 'home', degrees: [] }"
+        x-init="degrees = await (await fetch('/data/degrees.json')).json()">
 
-    <body>
-        <div>
-            <div class="header">
-                <span class="title">Mallas FCFM</span>
-            </div>
+        <main>
+            <header>
+                <span
+                    class="title"
+                    x-text="degrees[page] ? `Malla ${degrees[page].department}` : 'Mallas FCFM'">
+                </span>
+            </header>
 
-            <div x-data="{ departmentData: departments }" class="card-grid">
-                <template x-for="item in departmentData" :key="item.code">
-                    <div class="card">
-                        <a :href="`./${item.code}`">
-                            <img :src="`./images/splashes/${item.code}.jpg`" class="card-image" />
-                            <div class="card-text">
-                                <span class="card-title card-name" x-text="item.name"></span>
-                                <span class="card-title card-fullname" x-text="item.fullName"></span>
-                            </div>
-                        </a>
-                    </div>
+            <div x-show="page === 'home'" class="card-grid">
+                <template x-for="item in degrees" :key="item.code">
+                    <article class="card" x-on:click="page = `${item.code}`">
+                        <img :src="`./images/splashes/${item.code}.jpg`" class="card-image" />
+                        <div class="card-text">
+                            <span class="card-title card-name" x-text="item.name"></span>
+                            <span class="card-title card-fullname" x-text="item.fullName"></span>
+                        </div>
+                    </article>
                 </template>
             </div>
-        </div>
 
+            <div x-show="page !== 'home'">
+                <span x-text="page"></span>
+            </div>
+        </main>
 
-        <script src="data/departments.js"></script>
         <script src="js/malla.js"></script>
     </body>
 
