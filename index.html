@@ -32,32 +32,36 @@
         </script>
     </head>
     <body
-        x-data="{ page: 'home', degrees: [] }"
-        x-init="degrees = await (await fetch('/data/degrees.json')).json()">
+        x-data="{ path: location.pathname.replace(/^\/|\/$/g, ''), degrees: []}"
+        x-init="degrees = await (await fetch('/data/degrees.json')).json();"
+        @popstate.window="path = location.pathname.replace(/^\/|\/$/g, '');">
 
         <main>
             <header>
+                <span x-text="path"></span>
                 <span
                     class="title"
-                    x-text="degrees[page] ? `Malla ${degrees[page].department}` : 'Mallas FCFM'">
+                    x-text="degrees[path] ? `Malla ${degrees[path].department}` : 'Mallas FCFM'">
                 </span>
             </header>
 
-            <div x-show="page === 'home'" class="card-grid">
-                <template x-for="item in degrees" :key="item.code">
-                    <article class="card" x-on:click="page = `${item.code}`">
-                        <img :src="`./images/splashes/${item.code}.jpg`" class="card-image" />
-                        <div class="card-text">
-                            <span class="card-title card-name" x-text="item.name"></span>
-                            <span class="card-title card-fullname" x-text="item.fullName"></span>
-                        </div>
-                    </article>
-                </template>
-            </div>
+            <template x-if="path === ''">
+                <div class="card-grid">
+                    <template x-for="item in degrees" :key="item.code">
+                        <article class="card" x-on:click="location.href = `${item.code}`">
+                            <img :src="`./images/splashes/${item.code}.jpg`" class="card-image" />
+                            <div class="card-text">
+                                <span class="card-title card-name" x-text="item.name"></span>
+                                <span class="card-title card-fullname" x-text="item.fullName"></span>
+                            </div>
+                        </article>
+                    </template>
+                </div>
+            </template>
 
-            <div x-show="page !== 'home'">
-                <span x-text="page"></span>
-            </div>
+            <template x-if="path !== '/'">
+                <span x-text="path">asgasg</span>
+            </template>
         </main>
 
         <script src="js/malla.js"></script>

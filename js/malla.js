@@ -7,9 +7,7 @@
 
 
 // Intercept navigation (SPA-ification)
-/*
 navigation.addEventListener('navigate', navigateEvent => {
-
     const url = new URL(navigateEvent.destination.url);
 
     if (url.pathname === '/') {
@@ -27,4 +25,4 @@ navigation.addEventListener('navigate', navigateEvent => {
         });
     }
 });
-*/
+
