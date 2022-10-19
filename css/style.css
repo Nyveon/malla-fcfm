@@ -47,6 +47,11 @@ body {
     align-items: center;
 }
 
+.page-link {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
 /* ----- Page header ----- */
 
 header {

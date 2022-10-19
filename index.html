@@ -47,13 +47,15 @@
             <template x-if="path === ''">
                 <div class="card-grid">
                     <template x-for="item in degrees" :key="item.code">
-                        <article class="card" x-on:click="location.href = `${item.code}`">
-                            <img :src="`./images/splashes/${item.code}.jpg`" class="card-image" />
-                            <div class="card-text">
-                                <span class="card-title card-name" x-text="item.name"></span>
-                                <span class="card-title card-fullname" x-text="item.fullName"></span>
-                            </div>
-                        </article>
+                        <a class="page-link" :href="`${item.code}`">
+                            <article class="card">
+                                <img :src="`./images/splashes/${item.code}.jpg`" class="card-image" />
+                                <div class="card-text">
+                                    <span class="card-title card-name" x-text="item.name"></span>
+                                    <span class="card-title card-fullname" x-text="item.fullName"></span>
+                                </div>
+                            </article>
+                        </a>
                     </template>
                 </div>
             </template>
