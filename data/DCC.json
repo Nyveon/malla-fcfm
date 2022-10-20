@@ -1,0 +1,125 @@
+{
+    "v3": {
+        "semesters": [
+            {
+                "number": 1,
+                "courses": [
+                    {
+                        "type": "{course/category",
+                        "code": "XX1003",
+                        "name": "Intro a la Nada",
+                        "requirements": ["XX1001", "XX1002/XX1015"],
+                        "simultanous": ["XX1004 (optional)"],
+                        "credits": 6
+                    }
+                ]
+            },
+            {
+                "number": 2,
+                "courses": []
+            },
+            {
+                "number": 3,
+                "courses": []
+            },
+            {
+                "number": 4,
+                "courses": []
+            },
+            {
+                "number": 5,
+                "courses": []
+            },
+            {
+                "number": 6,
+                "courses": []
+            },
+            {
+                "number": 7,
+                "courses": []
+            },
+            {
+                "number": 8,
+                "courses": []
+            },
+            {
+                "number": 9,
+                "courses": []
+            },
+            {
+                "number": 10,
+                "courses": []
+            },
+            {
+                "number": 11,
+                "courses": []
+            }
+        ]
+    },
+    "v5":  {
+        "phases": [
+            {
+                "number": 1,
+                "name": "Plan Común",
+                "semesters": [
+                    {
+                        "number": 1,
+                        "courses": []
+                    },
+                    {
+                        "number": 2,
+                        "courses": []
+                    },
+                    {
+                        "number": 3,
+                        "courses": []
+                    },
+                    {
+                        "number": 4,
+                        "courses": []
+                    }
+                ]
+            },
+            {
+                "number": 2,
+                "name": "Licenciatura",
+                "semesters": [
+                    {
+                        "number": 5,
+                        "courses": []
+                    },
+                    {
+                        "number": 6,
+                        "courses": []
+                    },
+                    {
+                        "number": 7,
+                        "courses": []
+                    },
+                    {
+                        "number": 8,
+                        "courses": []
+                    }
+                ]
+            },
+            {
+                "number": 3,
+                "name": "Especialidad",
+                "semesters": [
+                    {
+                        "number": 9,
+                        "courses": []
+                    },
+                    {
+                        "number": 10,
+                        "courses": []
+                    },
+                    {
+                        "number": 11,
+                        "courses": []
+                    }
+                ]
+            }
+        ]
+    }
+}

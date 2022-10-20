@@ -23,14 +23,29 @@
         x-init="degrees = await (await fetch('/data/degrees.json')).json();"
         @popstate.window="path = location.pathname.replace(/^\/|\/$/g, '');">
 
-        <main>
-            <header>
+        <nav>
+            <div id="nav-left" class="nav-col">
+                <template x-if="getPageState(path, degrees) == 1">
+                    <div class="breadcrumb">
+                        <a href="/">Mallas</a>
+                        <span x-text="`> ${degrees[path].code}`"></span>
+                    </div>
+                </template>
+            </div>
+
+            <div id="nav-mid" class="nav-col">
                 <span
                     class="title"
-                    x-text="path in degrees ? `Malla ${degrees[path].department}` : 'Mallas FCFM'">
+                    x-text="path in degrees ? `Malla ${degrees[path].code}` : 'Mallas FCFM'">
                 </span>
-            </header>
+            </div>
 
+            <div id="nav-right" class="nav-col">
+                <span>Placeholder</span>
+            </div>
+        </nav>
+
+        <main>
             <template x-if="getPageState(path, degrees) == 0">
                 <div class="card-grid">
                     <template x-for="item in degrees" :key="item.code">

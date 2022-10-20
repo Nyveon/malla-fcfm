@@ -1,29 +1,16 @@
 /* Site by Eric K. */
 
 :root {
-    /* Gooey theme */
-    --background-color: #1f222d;
-    --background-color-2: #000009;
     --text-color: #ffffff;
     --text-color-2: #858893;
-
-    --accent-color: #bb4f6c;
-    --accent-color-light: #ee829f;
-
-    --accent-color-2: #72ccae;
-    --accent-color-2-light: #a5ffe1;
-
-    --accent-color-3: #c65e3d;
-    --accent-color-3-light: #f99170;
-
-    --accent-color-4: #58b6ca;
-    --accent-color-4-light: #8be9fd;
-
-    --accent-color-5: #6488c4;
-    --accent-color-5-light: #97bbf7;
-
-    --accent-color-6: #8d84c6;
-    --accent-color-6-light: #c0b7f9;
+    --background-color: #000814;
+    --background-color-2: #031020;
+    /*
+    #001d3d
+    #003566
+    #ffc300
+    #ffd60a
+    */
 
     /* Sizes */
     --card-size: 300px;
@@ -47,27 +34,70 @@ body {
     align-items: center;
 }
 
+main {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
 .page-link {
     color: var(--text-color);
     text-decoration: none;
 }
 
-/* ----- Page header ----- */
+/* ----- Navbar ----- */
 
-header {
-    display: flex;
-    flex-direction: row;
+nav {
+    display: grid;
     justify-content: center;
     align-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    background-color: var(--background-color-2);
+    padding-inline: 2em;
+    padding-block: 1.2em;
+}
+
+.nav-col {
+    width: 100%;
+}
+
+#nav-left {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+
+#nav-mid {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#nav-right {
+    display: flex;
+    align-items: center;
+    justify-content: right;
 }
 
 .title {
     font-size: 2em;
     font-weight: 100;
-    margin: 2rem;
-    padding: 0;
+    color: var(--text-color);
+    text-align: center;
+}
+
+.breadcrumb {
+    font-size: 1.3em;
+}
+
+.breadcrumb a {
+    color: var(--text-color-2);
+    text-decoration: none;
+}
+
+.breadcrumb a:hover {
     color: var(--text-color);
 }
+
 
 /* ----- Card Grid ----- */
 
@@ -86,11 +116,6 @@ header {
     position: relative;
     overflow: hidden;
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
-}
-
-.card a {
-    text-decoration: none;
-    color: var(--text-color);
 }
 
 .card-image {
