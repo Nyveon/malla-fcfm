@@ -6,8 +6,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <meta name="author" content="Eric K." />
         <meta name="description" content="Mallas curriculares FCFM Universidad de Chile" />
-
         <title>Malla FCFM</title>
+
         <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,20 +16,7 @@
 
         <link rel="stylesheet" href="css/style.css" />
 
-        <script type="text/javascript">
-            // Single Page Apps for GitHub Pages, MIT License
-            // https://github.com/rafgraph/spa-github-pages
-            (function(l) {
-            if (l.search[1] === '/' ) {
-                var decoded = l.search.slice(1).split('&').map(function(s) {
-                return s.replace(/~and~/g, '&')
-                }).join('?');
-                window.history.replaceState(null, null,
-                    l.pathname.slice(0, -1) + decoded + l.hash
-                );
-            }
-            }(window.location))
-        </script>
+        <script src="js/malla.js" type="text/javascript"></script>
     </head>
     <body
         x-data="{ path: location.pathname.replace(/^\/|\/$/g, ''), degrees: []}"
@@ -44,7 +31,7 @@
                 </span>
             </header>
 
-            <template x-if="path === ''">
+            <template x-if="getPageState(path, degrees) == 0">
                 <div class="card-grid">
                     <template x-for="item in degrees" :key="item.code">
                         <a class="page-link" :href="`${item.code}`">
@@ -60,7 +47,7 @@
                 </div>
             </template>
 
-            <template x-if="path in degrees">
+            <template x-if="getPageState(path, degrees) == 1">
                 <template x-if="!('department' in degrees[path])">
                     <div id="not-found">
                         <h1>Perdón.</h1>
@@ -69,15 +56,13 @@
                 </template>
             </template>
 
-            <template x-if="path !== '' && !(path in degrees)">
+            <template x-if="getPageState(path, degrees) == -1">
                 <div id="not-found">
                     <h1>Error 404</h1>
                     <h2>Malla no existe.</h2>
                 </div>
             </template>
         </main>
-
-        <script src="js/malla.js"></script>
     </body>
 
 <!-- Site by Eric K. -->

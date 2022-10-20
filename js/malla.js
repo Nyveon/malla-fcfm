@@ -5,8 +5,9 @@
 /* jshint browser: true */
 /* globals navigation */
 
+/*  Routing --------------------------------------------- */
 
-// Intercept navigation (SPA-ification)
+// Interception of  navigation events.
 navigation.addEventListener('navigate', navigateEvent => {
     const url = new URL(navigateEvent.destination.url);
 
@@ -26,3 +27,35 @@ navigation.addEventListener('navigate', navigateEvent => {
     }
 });
 
+
+// Single Page Apps for GitHub Pages, MIT License
+// https://github.com/rafgraph/spa-github-pages
+(function(l) {
+    if (l.search[1] === '/' ) {
+        var decoded = l.search.slice(1).split('&').map(function(s) {
+        return s.replace(/~and~/g, '&')
+        }).join('?');
+        window.history.replaceState(null, null,
+            l.pathname.slice(0, -1) + decoded + l.hash
+        );
+    }
+    }(window.location))
+
+
+/**
+ * Gets the current page state from the path
+ * @param {string} path
+ * @param {object} degrees
+ * @returns {number} integer. 0 for homepage, 1 for roadmap, -1 otherwise.
+ */
+function getPageState(path, degrees) {
+    console.log(path)
+    if (path === '') {
+        console.log(0)
+        return 0;
+    } else if (path in degrees) {
+        return 1;
+    } else {
+        return -1;
+    }
+}
