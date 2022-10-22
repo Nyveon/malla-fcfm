@@ -1,5 +1,5 @@
 {
-    "v3": {
+    "v3": [{
         "semesters": [
             {
                 "number": 1,
@@ -55,71 +55,118 @@
                 "courses": []
             }
         ]
-    },
-    "v5":  {
-        "phases": [
-            {
-                "number": 1,
-                "name": "Plan Común",
-                "semesters": [
-                    {
-                        "number": 1,
-                        "courses": []
-                    },
-                    {
-                        "number": 2,
-                        "courses": []
-                    },
-                    {
-                        "number": 3,
-                        "courses": []
-                    },
-                    {
-                        "number": 4,
-                        "courses": []
-                    }
-                ]
-            },
-            {
-                "number": 2,
-                "name": "Licenciatura",
-                "semesters": [
-                    {
-                        "number": 5,
-                        "courses": []
-                    },
-                    {
-                        "number": 6,
-                        "courses": []
-                    },
-                    {
-                        "number": 7,
-                        "courses": []
-                    },
-                    {
-                        "number": 8,
-                        "courses": []
-                    }
-                ]
-            },
-            {
-                "number": 3,
-                "name": "Especialidad",
-                "semesters": [
-                    {
-                        "number": 9,
-                        "courses": []
-                    },
-                    {
-                        "number": 10,
-                        "courses": []
-                    },
-                    {
-                        "number": 11,
-                        "courses": []
-                    }
-                ]
-            }
-        ]
-    }
+    }],
+    "v5": [
+        {
+            "number": 1,
+            "name": "Plan Común",
+            "semesters": [
+                {
+                    "number": 1,
+                    "courses": [
+                        {
+                            "type": "course",
+                            "code": "MA1001",
+                            "name": "Introducción al Cálculo",
+                            "requirements": [],
+                            "simultanous": [],
+                            "credits": 6
+                        },
+                        {
+                            "type": "course",
+                            "code": "MA1101",
+                            "name": "Introducción al Algebra",
+                            "requirements": [],
+                            "simultanous": [],
+                            "credits": 6
+                        },
+                        {
+                            "type": "course",
+                            "code": "FI1000",
+                            "name": "Introducción a la Física Clásica",
+                            "requirements": [],
+                            "simultanous": [],
+                            "credits": 6
+                        },
+                        {
+                            "type": "course",
+                            "code": "CC1000",
+                            "name": "Herramientas Computacionales para Ingeniería Y Ciencias",
+                            "requirements": [],
+                            "simultanous": [],
+                            "credits": 3
+                        },
+                        {
+                            "type": "course",
+                            "code": "CD1100",
+                            "name": "Desafíos de Innovación en Ingeniería y Ciencias",
+                            "requirements": [],
+                            "simultanous": [],
+                            "credits": 6
+                        },
+                        {
+                            "type": "course",
+                            "code": "MA1001",
+                            "name": "Aplicaciones de la Biología a la Ingeniería y Ciencias",
+                            "requirements": [],
+                            "simultanous": [],
+                            "credits": 3
+                        }
+                    ]
+                },
+                {
+                    "number": 2,
+                    "courses": []
+                },
+                {
+                    "number": 3,
+                    "courses": []
+                },
+                {
+                    "number": 4,
+                    "courses": []
+                }
+            ]
+        },
+        {
+            "number": 2,
+            "name": "Licenciatura",
+            "semesters": [
+                {
+                    "number": 5,
+                    "courses": []
+                },
+                {
+                    "number": 6,
+                    "courses": []
+                },
+                {
+                    "number": 7,
+                    "courses": []
+                },
+                {
+                    "number": 8,
+                    "courses": []
+                }
+            ]
+        },
+        {
+            "number": 3,
+            "name": "Especialidad",
+            "semesters": [
+                {
+                    "number": 9,
+                    "courses": []
+                },
+                {
+                    "number": 10,
+                    "courses": []
+                },
+                {
+                    "number": 11,
+                    "courses": []
+                }
+            ]
+        }
+    ]
 }

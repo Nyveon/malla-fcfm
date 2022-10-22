@@ -8,6 +8,7 @@
         <meta name="description" content="Mallas curriculares FCFM Universidad de Chile" />
         <title>Malla FCFM</title>
 
+        <script defer src="https://unpkg.com/@alpinejs/persist@3.x.x/dist/cdn.min.js"></script>
         <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,7 +20,11 @@
         <script src="js/malla.js" type="text/javascript"></script>
     </head>
     <body
-        x-data="{ path: location.pathname.replace(/^\/|\/$/g, ''), degrees: []}"
+        x-data="{
+            path: location.pathname.replace(/^\/|\/$/g, ''),
+            degrees: [],
+            version: $persist('v5')
+        }"
         x-init="degrees = await (await fetch('/data/degrees.json')).json();"
         @popstate.window="path = location.pathname.replace(/^\/|\/$/g, '');">
 
@@ -48,7 +53,7 @@
         <main>
             <template x-if="getPageState(path, degrees) == 0">
                 <div class="card-grid">
-                    <template x-for="item in degrees" :key="item.code">
+                    <template x-for="item in degrees">
                         <a class="page-link" :href="`${item.code}`">
                             <article class="card">
                                 <img :src="`./images/splashes/${item.code}.jpg`" class="card-image" />
@@ -63,12 +68,50 @@
             </template>
 
             <template x-if="getPageState(path, degrees) == 1">
-                <template x-if="!('department' in degrees[path])">
-                    <div id="not-found">
-                        <h1>Perdón.</h1>
-                        <h2>Esta malla no se ha implementado aún.</h2>
-                    </div>
-                </template>
+                <div id="interior">
+                    <template x-if="!('department' in degrees[path])">
+                        <div id="not-found">
+                            <h1>Perdón.</h1>
+                            <h2>Esta malla no se ha implementado aún.</h2>
+                        </div>
+                    </template>
+
+                    <template
+                        x-if="'department' in degrees[path]"
+                        x-data="{malla: {}}"
+                        x-init="malla = await (await fetch(`/data/${degrees[path].code}.json`)).json();">
+                        <div id="malla">
+                            <span class="banner-title" x-text="`${degrees[path].fullName} ${version}`"></span>
+                            <div class="phases">
+                                <template x-for="phase in malla[version]">
+                                    <section class="phase">
+                                        <span class="banner-title" x-text="phase.name"></span>
+                                        <div class="semesters">
+                                            <template x-for="semester in phase.semesters">
+                                                <section class="semester">
+                                                    <span class="banner-title" x-text=semester.number></span>
+                                                    <div class="courses">
+                                                        <template x-for="course in semester.courses">
+                                                            <div class="course">
+                                                                <div class="course-bar">
+                                                                    <span class="course-code" x-text="course.code"></span>
+                                                                    <span class="course-credits" x-text="course.credits"></span>
+                                                                </div>
+                                                                <div class="course-body">
+                                                                    <span class="course-name" x-text="course.name"></span>
+                                                                </div>
+                                                            </div>
+                                                        </template>
+                                                    </div>
+                                                </section>
+                                            </template>
+                                        </div>
+                                    </section>
+                                </template>
+                            </div>
+                        </div>
+                    </template>
+                </div>
             </template>
 
             <template x-if="getPageState(path, degrees) == -1">

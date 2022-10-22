@@ -49,6 +49,7 @@ navigation.addEventListener('navigate', navigateEvent => {
  * @returns {number} integer. 0 for homepage, 1 for roadmap, -1 otherwise.
  */
 function getPageState(path, degrees) {
+    // Split path by slashes, remove any trailing or leading slashes and empty strings
     if (path === '') {
         return 0;
     } else if (path in degrees) {
