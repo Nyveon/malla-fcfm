@@ -1,6 +1,7 @@
 /* Site by Eric K. */
 
 /* General ---------- */
+/* Todo: learn sass */
 
 :root {
     /* https://flatuicolors.com/palette/es */
@@ -312,6 +313,17 @@ nav {
     text-align: center;
 }
 
+/* Selection effects */
+
+.course.selected {
+    filter: brightness(1.5);
+}
+
+.course.prerequisite {
+    filter: brightness(0.5);
+}
+
+
 /* Department Decorators */
 
 .MA .course-bar {
@@ -348,14 +360,4 @@ nav {
 
 .XT .course-bar {
     background: var(--XT);
-}
-
-/* Selection effects */
-
-.course.selected {
-    filter: brightness(1.5);
-}
-
-.course.prerequisite {
-    filter: brightness(0.5);
 }

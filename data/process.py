@@ -44,14 +44,13 @@ def main():
             }
             semester_index += 1
 
-    print(malla)
-
     # save dict as json file
     with open(f"{code}.json", "w", encoding="utf-8") as f:
         json.dump(malla, f, indent=4, ensure_ascii=False)
 
     # todo get degrees from files and iterate
     # todo create reverse-requisistes
+    print("Done.")
     return 0
 
 
