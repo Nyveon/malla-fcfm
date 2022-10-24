@@ -81,34 +81,44 @@
                         x-data="{malla: {}}"
                         x-init="malla = await (await fetch(`/data/${degrees[path].code}.json`)).json();">
                         <div id="malla">
-                            <span class="banner-title" x-text="`${degrees[path].fullName} ${version}`"></span>
-                            <div class="phases">
-                                <template x-for="phase in malla[version]">
-                                    <section class="phase">
-                                        <span class="banner-title" x-text="phase.name"></span>
-                                        <div class="semesters">
-                                            <template x-for="semester in phase.semesters">
-                                                <section class="semester">
-                                                    <span class="banner-title" x-text=semester.number></span>
-                                                    <div class="courses">
-                                                        <template x-for="course in semester.courses">
-                                                            <div class="course">
-                                                                <div class="course-bar">
-                                                                    <span class="course-code" x-text="course.code"></span>
-                                                                    <span class="course-credits" x-text="course.credits"></span>
-                                                                </div>
-                                                                <div class="course-body">
-                                                                    <span class="course-name" x-text="course.name"></span>
-                                                                </div>
+                            <template x-for="phase in malla[version]">
+                                <section class="phase">
+                                    <span class="banner-title" x-text="phase.name"></span>
+                                    <div class="semesters">
+                                        <template x-for="semester in phase.semesters">
+                                            <section class="semester">
+                                                <span class="banner-title" x-text=semester.number></span>
+                                                <div class="courses">
+                                                    <template x-for="course in semester.courses">
+                                                        <div class="course"
+                                                            :id="course.code"
+                                                            x-data="{
+                                                                prerequisites: course.prerequisites,
+                                                                selected: false
+                                                            }"
+                                                            @mouseenter="selected = true; courseSelected($data);"
+                                                            @mouseleave="selected = false; courseSelected($data);"
+                                                            @mousedown="selected = !selected; courseSelected($data);"
+                                                            :class="[
+                                                                course.department,
+                                                                selected ? 'selected' : ''
+                                                            ]"
+                                                        >
+                                                            <div class="course-bar">
+                                                                <span class="course-code" x-text="course.code"></span>
+                                                                <span class="course-credits" x-text="course.credits"></span>
                                                             </div>
-                                                        </template>
-                                                    </div>
-                                                </section>
-                                            </template>
-                                        </div>
-                                    </section>
-                                </template>
-                            </div>
+                                                            <div class="course-body">
+                                                                <span class="course-name" x-text="course.name"></span>
+                                                            </div>
+                                                        </div>
+                                                    </template>
+                                                </div>
+                                            </section>
+                                        </template>
+                                    </div>
+                                </section>
+                            </template>
                         </div>
                     </template>
                 </div>

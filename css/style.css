@@ -3,17 +3,48 @@
 /* General ---------- */
 
 :root {
+    /* https://flatuicolors.com/palette/es */
+    --white: #f7f1e3;
+    --grey1: #d1ccc0;
+    --grey2: #aaa69d;
+    --grey3: #84817a;
+
+    --purple1: #706fd3;
+    --purple2: #474787;
+
+    --green1: #33d9b2;
+    --green2: #218c74;
+
     --text-color: #ffffff;
     --text-color-2: #858893;
-    --background-color: #000814;
-    --background-color-2: #031020;
-    --phase-color: #003566;
-    /*
-    #001d3d
-    #003566
-    #ffc300
-    #ffd60a
-    */
+
+    /* Gradients  https://uigradients.com/#Behongo */
+    --background-color: var(--white);
+    --navbar-color: var(--grey1);
+    --course-background: var(--grey1);
+
+    /* Departments */
+    --AS: linear-gradient(to right, #0f0c29, #302b63); /* Astronomy */
+    --CC: linear-gradient(to right, #22b9a5, #61b961); /* Computer Science */
+    --CI: linear-gradient(to right, #3e5151, #decba4); /* Civil Engineering */
+    --CM: linear-gradient(to right, #be93c5, #7bc6cc); /* Material Sciences */
+    --FI: linear-gradient(to right, #41295a, #2f0743); /* Sports, Humanities and Languages */
+
+    --EI: linear-gradient(to right, #7b4397, #dc2430); /* Engineering and Innovation */
+    --CD: var(--EI);
+
+    --EL: linear-gradient(to right, #007991, #78ffd6); /* Electrical Engineering */
+    --FI: linear-gradient(to right, #000000, #434343); /* Physics */
+    --GF: linear-gradient(to right, #000000, #c21500); /* Geophysics */
+    --GL: linear-gradient(to right, #1e130c, #9a8478); /* Geology */
+    --IN: linear-gradient(to right, #cbc754, #b59e42); /* Industrial Engineering */
+    --MA: linear-gradient(to right, #35459e, #2768a8);; /* Mathematics */
+    --ME: linear-gradient(to right, #485563, #29323c); /* Mechanical Engineering */
+    --MI: linear-gradient(to right, #eb5757, #000000); /* Mining Engineering */
+
+    --QB: linear-gradient(to right, #dce35b, #45b649); /* Chemistry and Biotech */
+    --IQ: linear-gradient(to right, #c17636, #cc8c13); /* Chemistry */
+    --BT: linear-gradient(to right, #4fae38, #28e02e); /* Biotechnology */
 
     /* Sizes */
     --card-size: 300px;
@@ -27,7 +58,7 @@ html {
 }
 
 body {
-    background-color: var(--background-color);
+    background: var(--background-color);
     height: 100vh;
     width: 100vw;
     margin: 0;
@@ -54,7 +85,7 @@ nav {
     justify-content: center;
     align-items: center;
     grid-template-columns: repeat(3, 1fr);
-    background-color: var(--background-color-2);
+    background-color: var(--navbar-color);
     padding-inline: 2em;
     padding-block: 1.2em;
 }
@@ -119,6 +150,7 @@ nav {
     position: relative;
     overflow: hidden;
     box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+    height: 100%;
 }
 
 .card-image {
@@ -207,19 +239,17 @@ nav {
     transform: rotate(180deg);
     font-size: 1.5em;
     padding-inline: 0.5em;
-    background-color: var(--phase-color);
     text-align: center;
+    color: var(--grey3);
 }
 
 .phases {
     display: flex;
     flex-direction: column;
-    width: 100%;
 }
 
 .phase {
     display: flex;
-    height: 100%;
     flex-direction: row;
 }
 
@@ -250,7 +280,7 @@ nav {
     margin-bottom: 10px;
     display: flex;
     flex-direction: column;
-    background-color: #858893;
+    background-color: var(--course-background);
 }
 
 .course-bar {
@@ -280,4 +310,44 @@ nav {
     padding-block: 0.2em;
     color: #000;
     text-align: center;
+}
+
+/* Department Decorators */
+
+.MA .course-bar {
+    background: var(--MA);
+}
+
+.CC .course-bar {
+    background: var(--CC);
+}
+
+.FI .course-bar {
+    background: var(--FI);
+}
+
+.CD .course-bar {
+    background: var(--CD);
+}
+
+.IQ .course-bar {
+    background: var(--IQ);
+}
+
+.BT .course-bar {
+    background: var(--BT);
+}
+
+.IN .course-bar {
+    background: var(--IN);
+}
+
+/* Selection effects */
+
+.course.selected {
+    filter: brightness(1.5);
+}
+
+.course.prerequisite {
+    filter: brightness(0.5);
 }

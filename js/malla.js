@@ -58,3 +58,21 @@ function getPageState(path, degrees) {
         return -1;
     }
 }
+
+
+function courseSelected({prerequisites, selected}) {
+
+    if (selected) {
+        /* Highlight prerequisites */
+        for (let i = 0; i < prerequisites.length; i++) {
+            let prereq = document.getElementById(prerequisites[i]);
+            prereq.classList.add("prerequisite");
+        }
+    } else {
+        /* Remove highlight from prerequisites */
+        for (let i = 0; i < prerequisites.length; i++) {
+            let prereq = document.getElementById(prerequisites[i]);
+            prereq.classList.remove("prerequisite");
+        }
+    }
+}
