@@ -70,6 +70,7 @@ Visualización interactiva de mallas académicas de la Facultad de Ciencias Fís
 - [ ] Corequisite highlighting.
 - [ ] Multiple course layer propagation.
 - [ ] Propagation depth configuration.
+- [ ] Hide/show 0 credit courses.
 
 ### Mallas
 

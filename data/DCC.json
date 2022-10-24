@@ -141,9 +141,10 @@
                                 "EH",
                                 "FG",
                                 "DR",
-                                "EI"
+                                "EI",
+                                "FT"
                             ],
-                            "code": "EH/FG/DR/EI",
+                            "code": "EH/FG/DR/EI/FT",
                             "department": "XF"
                         }
                     }
@@ -299,9 +300,10 @@
                                 "EH",
                                 "FG",
                                 "DR",
-                                "EI"
+                                "EI",
+                                "FT"
                             ],
-                            "code": "EH/FG/DR/EI",
+                            "code": "EH/FG/DR/EI/FT",
                             "department": "XF"
                         }
                     }
@@ -310,7 +312,310 @@
         },
         "Licenciatura": {
             "name": "Licenciatura",
-            "semesters": {}
+            "semesters": {
+                "5": {
+                    "number": 5,
+                    "courses": {
+                        "MA3403": {
+                            "name": "Probabilidades y Estadística",
+                            "shortname": "Proba y Esta",
+                            "credits": 6,
+                            "prerequisites": [
+                                "MA2001"
+                            ],
+                            "corequisites": [],
+                            "type": "course",
+                            "code": "MA3403",
+                            "department": "MA"
+                        },
+                        "CC3501": {
+                            "name": "Modelación y Computación Gráfica para Ingenieros",
+                            "shortname": "Computación Gráfica",
+                            "credits": 6,
+                            "prerequisites": [
+                                "MA2001",
+                                "MA2601",
+                                "CC1002",
+                                "FI2001"
+                            ],
+                            "corequisites": [],
+                            "type": "course",
+                            "code": "CC3501",
+                            "department": "CC"
+                        },
+                        "CC3001": {
+                            "name": "Algoritmos y Estructuras de Datos",
+                            "shortname": "Algoritmos",
+                            "credits": 6,
+                            "prerequisites": [
+                                "CC1002"
+                            ],
+                            "corequisites": [],
+                            "type": "course",
+                            "code": "CC3001",
+                            "department": "CC"
+                        },
+                        "CC3101": {
+                            "name": "Matemáticas Discretas para la Computación",
+                            "shortname": "Mates Discretas",
+                            "credits": 6,
+                            "prerequisites": [
+                                "CC1002",
+                                "MA1101"
+                            ],
+                            "corequisites": [],
+                            "type": "course",
+                            "code": "CC3101",
+                            "department": "CC"
+                        },
+                        "XFILI": {
+                            "name": "Formación Integral",
+                            "shortname": "Formación Integral",
+                            "credits": 3,
+                            "prerequisites": [],
+                            "corequisites": [],
+                            "type": "plan",
+                            "codes": [
+                                "EH",
+                                "FG"
+                            ],
+                            "code": "EH/FG",
+                            "department": "XF"
+                        }
+                    }
+                },
+                "6": {
+                    "number": 6,
+                    "courses": {
+                        "CC3201": {
+                            "name": "Bases de Datos",
+                            "shortname": "BDD",
+                            "credits": 6,
+                            "prerequisites": [
+                                "CC3001"
+                            ],
+                            "corequisites": [],
+                            "type": "course",
+                            "code": "CC3201",
+                            "department": "CC"
+                        },
+                        "CC3002": {
+                            "name": "Metodologías de Diseño y Programación",
+                            "shortname": "Metodologías",
+                            "credits": 6,
+                            "prerequisites": [
+                                "CC3001"
+                            ],
+                            "corequisites": [],
+                            "type": "course",
+                            "code": "CC3002",
+                            "department": "CC"
+                        },
+                        "CC3102": {
+                            "name": "Teoría de la Computación",
+                            "shortname": "Teoría",
+                            "credits": 6,
+                            "prerequisites": [
+                                "CC3101"
+                            ],
+                            "corequisites": [],
+                            "type": "course",
+                            "code": "CC3102",
+                            "department": "CC"
+                        },
+                        "CC3301": {
+                            "name": "Programación de Software de Sistemas",
+                            "shortname": "PSS",
+                            "credits": 6,
+                            "prerequisites": [
+                                "CC3001"
+                            ],
+                            "corequisites": [],
+                            "type": "course",
+                            "code": "CC3301",
+                            "department": "CC"
+                        },
+                        "XELEC": {
+                            "name": "Electivo Licenciatura",
+                            "shortname": "Electivo",
+                            "credits": 6,
+                            "prerequisites": [],
+                            "corequisites": [],
+                            "type": "plan",
+                            "codes": [
+                                "XELEC"
+                            ],
+                            "code": "XELEC",
+                            "department": "XE"
+                        },
+                        "CC4900": {
+                            "name": "Taller de Práctica Profesional I",
+                            "shortname": "Taller de Práctica I",
+                            "credits": 0,
+                            "prerequisites": [],
+                            "corequisites": [],
+                            "type": "course",
+                            "code": "CC4900",
+                            "department": "CC"
+                        }
+                    }
+                },
+                "7": {
+                    "number": 7,
+                    "courses": {
+                        "CC5205": {
+                            "name": "Minería de Datos",
+                            "shortname": "Minería",
+                            "credits": 6,
+                            "prerequisites": [
+                                "CC3001"
+                            ],
+                            "corequisites": [],
+                            "type": "course",
+                            "code": "CC5205",
+                            "department": "CC"
+                        },
+                        "CC4401": {
+                            "name": "Ingeniería de Software",
+                            "shortname": "Ing. de Software",
+                            "credits": 6,
+                            "prerequisites": [
+                                "CC3002",
+                                "CC3201"
+                            ],
+                            "corequisites": [],
+                            "type": "course",
+                            "code": "CC4401",
+                            "department": "CC"
+                        },
+                        "CC4102": {
+                            "name": "Diseño y Análisis de Algoritmos",
+                            "shortname": "Logaritmos",
+                            "credits": 6,
+                            "prerequisites": [
+                                "CC3102",
+                                "CC3001",
+                                "MA3403"
+                            ],
+                            "corequisites": [],
+                            "type": "course",
+                            "code": "CC4102",
+                            "department": "CC"
+                        },
+                        "CC4302": {
+                            "name": "Sistemas Operativos",
+                            "shortname": "Sistemas Operativos",
+                            "credits": 6,
+                            "prerequisites": [
+                                "CC3001"
+                            ],
+                            "corequisites": [],
+                            "type": "course",
+                            "code": "CC4302",
+                            "department": "CC"
+                        },
+                        "XELEC": {
+                            "name": "Electivo Licenciatura",
+                            "shortname": "Electivo",
+                            "credits": 6,
+                            "prerequisites": [],
+                            "corequisites": [],
+                            "type": "plan",
+                            "codes": [
+                                "XELEC"
+                            ],
+                            "code": "XELEC",
+                            "department": "XE"
+                        },
+                        "CC4901": {
+                            "name": "Práctica Profesional I",
+                            "shortname": "Práctica I",
+                            "credits": 7,
+                            "prerequisites": [],
+                            "corequisites": [],
+                            "type": "course",
+                            "code": "CC4901",
+                            "department": "CC"
+                        }
+                    }
+                },
+                "8": {
+                    "number": 8,
+                    "courses": {
+                        "CC4402": {
+                            "name": "Formulación, Evaluación y Gestión de Proyectos",
+                            "shortname": "Evalua",
+                            "credits": 6,
+                            "prerequisites": [
+                                "CC4401",
+                                "IN2201",
+                                "CD2201"
+                            ],
+                            "corequisites": [],
+                            "type": "course",
+                            "code": "CC4402",
+                            "department": "CC"
+                        },
+                        "CC4101": {
+                            "name": "Lenguajes de Programación",
+                            "shortname": "Lenguajes",
+                            "credits": 6,
+                            "prerequisites": [
+                                "CC3102"
+                            ],
+                            "corequisites": [],
+                            "type": "course",
+                            "code": "CC4101",
+                            "department": "CC"
+                        },
+                        "CC4303": {
+                            "name": "Redes",
+                            "shortname": "Redes",
+                            "credits": 6,
+                            "prerequisites": [
+                                "CC4302"
+                            ],
+                            "corequisites": [],
+                            "type": "course",
+                            "code": "CC4303",
+                            "department": "CC"
+                        },
+                        "XELEC": {
+                            "name": "Electivo Licenciatura",
+                            "shortname": "Electivo",
+                            "credits": 6,
+                            "prerequisites": [],
+                            "corequisites": [],
+                            "type": "plan",
+                            "codes": [
+                                "XELEC"
+                            ],
+                            "code": "XELEC",
+                            "department": "XE"
+                        },
+                        "EI1090": {
+                            "name": "Examen de Suficiencia en Inglés I",
+                            "shortname": "Examen Inglés I",
+                            "credits": 0,
+                            "prerequisites": [],
+                            "corequisites": [],
+                            "type": "course",
+                            "code": "EI1090",
+                            "department": "EI"
+                        },
+                        "CC5900": {
+                            "name": "Taller de Práctica Profesional II",
+                            "shortname": "Taller de Práctica II",
+                            "credits": 0,
+                            "prerequisites": [],
+                            "corequisites": [],
+                            "type": "course",
+                            "code": "CC5900",
+                            "department": "CC"
+                        }
+                    }
+                }
+            }
         },
         "Especialidad": {
             "name": "Especialidad",

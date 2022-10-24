@@ -32,13 +32,16 @@
     /* Gradients  https://uigradients.com */
     /* Departments */
     --AS: linear-gradient(to right, #0f0c29, #302b63); /* Astronomy */
-    --CC: linear-gradient(to right, #22b9a5, #61b961); /* Computer Science */
+    --CC: linear-gradient(to right, #1d8a7c, #458d45); /* Computer Science */
     --CI: linear-gradient(to right, #3e5151, #decba4); /* Civil Engineering */
     --CM: linear-gradient(to right, #be93c5, #7bc6cc); /* Material Sciences */
-    --XF: linear-gradient(to right, #41295a, #2f0743); /* Sports, Humanities and Languages */
 
-    --EI: linear-gradient(to right, #7b4397, #dc2430); /* Engineering and Innovation */
-    --CD: var(--EI);
+    --XE: linear-gradient(to right, #d12f1c, #ca398e); /* Electivos Licenciatura */
+
+    --EI: linear-gradient(to right, #9e23a0, #6d139b); /* Languages */
+    --XF: linear-gradient(to right, #41295a, #6d139b); /* Formación Integral */
+
+    --CD: linear-gradient(to right, #7b4397, #dc2430);
 
     --EL: linear-gradient(to right, #007991, #78ffd6); /* Electrical Engineering */
     --GF: linear-gradient(to right, #000000, #c21500); /* Geophysics */
@@ -287,6 +290,13 @@ nav {
     flex-direction: row;
 }
 
+.phase>.banner-title {
+    margin: 8px;
+    padding-left: 8px;
+    color: var(--grey2);
+    border-left: 1px solid var(--grey1);
+}
+
 .semesters {
     display: flex;
     flex-direction: column;
@@ -300,7 +310,7 @@ nav {
 
 @media only screen and (max-width: 1140px) {
     .semester>.banner-title {
-        border-left: 1px solid var(--grey3);
+        border-left: 1px solid var(--grey2);
     }
 }
 
@@ -436,10 +446,18 @@ nav {
     background: var(--IN);
 }
 
+.EI .course-bar {
+    background: var(--EI);
+}
+
 .XF .course-bar {
     background: var(--XF);
 }
 
 .XT .course-bar {
     background: var(--XT);
+}
+
+.XE .course-bar {
+    background: var(--XE);
 }

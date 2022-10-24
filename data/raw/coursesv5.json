@@ -95,7 +95,7 @@
         "prerequisites": [],
         "corequisites": [],
         "type": "plan",
-        "codes": ["EH","FG","DR","EI"]
+        "codes": ["EH","FG","DR","EI", "FT"]
     },
     "MA2001": {
         "name": "Cálculo en Varias Variables",
@@ -178,5 +178,185 @@
         "corequisites": [],
         "type": "course"
     },
-    "-------------------- Licenciatura DCC --------------------": 0
+    "-------------------- Licenciatura General --------------------": 0,
+    "MA3403": {
+        "name": "Probabilidades y Estadística",
+        "shortname": "Proba y Esta",
+        "credits": 6,
+        "prerequisites": ["MA2001"],
+        "corequisites": [],
+        "type": "course"
+    },
+    "XFILI": {
+        "name": "Formación Integral",
+        "shortname": "Formación Integral",
+        "credits": 3,
+        "prerequisites": [],
+        "corequisites": [],
+        "type": "plan",
+        "codes": ["EH","FG"]
+    },
+    "XELEC": {
+        "name": "Electivo Licenciatura",
+        "shortname": "Electivo",
+        "credits": 6,
+        "prerequisites": [],
+        "corequisites": [],
+        "type": "plan",
+        "codes": ["XELEC"]
+    },
+    "EI1090": {
+        "name": "Examen de Suficiencia en Inglés I",
+        "shortname": "Examen Inglés I",
+        "credits": 0,
+        "prerequisites": [],
+        "corequisites": [],
+        "type": "course"
+    },
+    "-------------------- Licenciatura DCC --------------------": 0,
+    "CC3501": {
+        "name": "Modelación y Computación Gráfica para Ingenieros",
+        "shortname": "Computación Gráfica",
+        "credits": 6,
+        "prerequisites": ["MA2001", "MA2601", "CC1002", "FI2001"],
+        "corequisites": [],
+        "type": "course"
+    },
+    "CC3001": {
+        "name": "Algoritmos y Estructuras de Datos",
+        "shortname": "Algoritmos",
+        "credits": 6,
+        "prerequisites": ["CC1002"],
+        "corequisites": [],
+        "type": "course"
+    },
+    "CC3101": {
+        "name": "Matemáticas Discretas para la Computación",
+        "shortname": "Mates Discretas",
+        "credits": 6,
+        "prerequisites": ["CC1002", "MA1101"],
+        "corequisites": [],
+        "type": "course"
+    },
+    "CC3201": {
+        "name": "Bases de Datos",
+        "shortname": "BDD",
+        "credits": 6,
+        "prerequisites": ["CC3001"],
+        "corequisites": [],
+        "type": "course"
+    },
+    "CC3002": {
+        "name": "Metodologías de Diseño y Programación",
+        "shortname": "Metodologías",
+        "credits": 6,
+        "prerequisites": ["CC3001"],
+        "corequisites": [],
+        "type": "course"
+    },
+    "CC3102": {
+        "name": "Teoría de la Computación",
+        "shortname": "Teoría",
+        "credits": 6,
+        "prerequisites": ["CC3101"],
+        "corequisites": [],
+        "type": "course"
+    },
+    "CC3301": {
+        "name": "Programación de Software de Sistemas",
+        "shortname": "PSS",
+        "credits": 6,
+        "prerequisites": ["CC3001"],
+        "corequisites": [],
+        "type": "course"
+    },
+    "CC4900": {
+        "name": "Taller de Práctica Profesional I",
+        "shortname": "Taller de Práctica I",
+        "credits": 0,
+        "prerequisites": [],
+        "corequisites": [],
+        "type": "course"
+    },
+    "CC5205": {
+        "name": "Minería de Datos",
+        "shortname": "Minería",
+        "credits": 6,
+        "prerequisites": ["CC3001"],
+        "corequisites": [],
+        "type": "course"
+    },
+    "CC4401": {
+        "name": "Ingeniería de Software",
+        "shortname": "Ing. de Software",
+        "credits": 6,
+        "prerequisites": ["CC3002", "CC3201"],
+        "corequisites": [],
+        "type": "course"
+    },
+    "CC4102": {
+        "name": "Diseño y Análisis de Algoritmos",
+        "shortname": "Logaritmos",
+        "credits": 6,
+        "prerequisites": ["CC3102", "CC3001", "MA3403"],
+        "corequisites": [],
+        "type": "course"
+    },
+    "CC4302": {
+        "name": "Sistemas Operativos",
+        "shortname": "Sistemas Operativos",
+        "credits": 6,
+        "prerequisites": ["CC3001"],
+        "corequisites": [],
+        "type": "course"
+    },
+    "CC4901": {
+        "name": "Práctica Profesional I",
+        "shortname": "Práctica I",
+        "credits": 7,
+        "prerequisites": [],
+        "corequisites": [],
+        "type": "course"
+    },
+    "CC4402": {
+        "name": "Formulación, Evaluación y Gestión de Proyectos",
+        "shortname": "Evalua",
+        "credits": 6,
+        "prerequisites": ["CC4401", "IN2201", "CD2201"],
+        "corequisites": [],
+        "type": "course"
+    },
+    "CC4101": {
+        "name": "Lenguajes de Programación",
+        "shortname": "Lenguajes",
+        "credits": 6,
+        "prerequisites": ["CC3102"],
+        "corequisites": [],
+        "type": "course"
+    },
+    "CC4303": {
+        "name": "Redes",
+        "shortname": "Redes",
+        "credits": 6,
+        "prerequisites": ["CC4302"],
+        "corequisites": [],
+        "type": "course"
+    },
+    "CC5900": {
+        "name": "Taller de Práctica Profesional II",
+        "shortname": "Taller de Práctica II",
+        "credits": 0,
+        "prerequisites": [],
+        "corequisites": [],
+        "type": "course"
+    },
+    "-------------------- Especialidad General --------------------": 0,
+    "EI2090": {
+        "name": "Examen de Suficiencia en Inglés II",
+        "shortname": "Examen Inglés II",
+        "credits": 0,
+        "prerequisites": [],
+        "corequisites": [],
+        "type": "course"
+    }
 }
