@@ -28,13 +28,12 @@
     --CC: linear-gradient(to right, #22b9a5, #61b961); /* Computer Science */
     --CI: linear-gradient(to right, #3e5151, #decba4); /* Civil Engineering */
     --CM: linear-gradient(to right, #be93c5, #7bc6cc); /* Material Sciences */
-    --FI: linear-gradient(to right, #41295a, #2f0743); /* Sports, Humanities and Languages */
+    --XF: linear-gradient(to right, #41295a, #2f0743); /* Sports, Humanities and Languages */
 
     --EI: linear-gradient(to right, #7b4397, #dc2430); /* Engineering and Innovation */
     --CD: var(--EI);
 
     --EL: linear-gradient(to right, #007991, #78ffd6); /* Electrical Engineering */
-    --FI: linear-gradient(to right, #000000, #434343); /* Physics */
     --GF: linear-gradient(to right, #000000, #c21500); /* Geophysics */
     --GL: linear-gradient(to right, #1e130c, #9a8478); /* Geology */
     --IN: linear-gradient(to right, #cbc754, #b59e42); /* Industrial Engineering */
@@ -43,8 +42,10 @@
     --MI: linear-gradient(to right, #eb5757, #000000); /* Mining Engineering */
 
     --QB: linear-gradient(to right, #dce35b, #45b649); /* Chemistry and Biotech */
-    --IQ: linear-gradient(to right, #c17636, #cc8c13); /* Chemistry */
     --BT: linear-gradient(to right, #4fae38, #28e02e); /* Biotechnology */
+    --IQ: linear-gradient(to right, #c17636, #cc8c13); /* Chemistry */
+    --XT: linear-gradient(to right, #000000, #434343, #c17636, #cc8c13); /* ^v Mix */
+    --FI: linear-gradient(to right, #000000, #434343); /* Physics */
 
     /* Sizes */
     --card-size: 300px;
@@ -230,8 +231,7 @@ nav {
 #malla {
     margin-inline: 10px;
     display: flex;
-    flex-direction: row;
-    height: 100vh;
+    flex-direction: column;
 }
 
 .banner-title {
@@ -340,6 +340,14 @@ nav {
 
 .IN .course-bar {
     background: var(--IN);
+}
+
+.XF .course-bar {
+    background: var(--XF);
+}
+
+.XT .course-bar {
+    background: var(--XT);
 }
 
 /* Selection effects */

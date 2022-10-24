@@ -30,8 +30,13 @@ def main():
         for semester in semesters:
             semester_courses = dict()
             for course in semester:  # todo: code for plans
-                semester_courses[course] = courses.get(course)
-                semester_courses[course]["code"] = course
+                course_data = courses.get(course)
+                semester_courses[course] = course_data
+                if course_data["type"] == "course":
+                    semester_courses[course]["code"] = course
+                elif course_data["type"] == "plan":
+                    codes = course_data["codes"]
+                    semester_courses[course]["code"] = "/".join(codes)
                 semester_courses[course]["department"] = course[:2]
             malla[version][phase]["semesters"][semester_index] = {
                 "number": semester_index,
@@ -46,9 +51,7 @@ def main():
         json.dump(malla, f, indent=4, ensure_ascii=False)
 
     # todo get degrees from files and iterate
-    # todo build thing
     # todo create reverse-requisistes
-    # todo save file
     return 0
 
 
