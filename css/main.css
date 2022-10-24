@@ -1,48 +1,15 @@
-@charset "UTF-8";
 :root {
   /* https://flatuicolors.com/palette/es */
-  --white: #f7f1e3;
-  --grey1: #d1ccc0;
-  --grey2: #aaa69d;
-  --grey3: #84817a;
-  --black1: #413a52;
-  --black2: #0b0b1d;
-  --purple1: #706fd3;
-  --purple2: #474787;
-  --green1: #33d9b2;
-  --green2: #218c74;
   /* Colors */
-  --text-color-light: var(--white);
-  --text-color-mid: var(--grey3);
-  --text-color-dark: var(--black1);
+  --text-color-light: #f7f1e3;
+  --text-color-mid: #84817a;
+  --text-color-dark: #413a52;
   --background-gradient: linear-gradient(to bottom, #f7f1e3, #f6e7d6);
-  --navbar-color: var(--grey1);
-  --course-background: var(--grey1);
-  --course-text: var(--black2);
-  --link-color: var(--purple2);
-  --link-color-hover: var(--purple1);
-  /* Gradients  https://uigradients.com */
-  /* Departments */
-  --AS: linear-gradient(to right, #0f0c29, #302b63); /* Astronomy */
-  --CC: linear-gradient(to right, #1d8a7c, #458d45); /* Computer Science */
-  --CI: linear-gradient(to right, #3e5151, #decba4); /* Civil Engineering */
-  --CM: linear-gradient(to right, #be93c5, #7bc6cc); /* Material Sciences */
-  --XE: linear-gradient(to right, #d12f1c, #ca398e); /* Electivos Licenciatura */
-  --EI: linear-gradient(to right, #9e23a0, #6d139b); /* Languages */
-  --XF: linear-gradient(to right, #41295a, #6d139b); /* Formación Integral */
-  --CD: linear-gradient(to right, #7b4397, #dc2430);
-  --EL: linear-gradient(to right, #007991, #78ffd6); /* Electrical Engineering */
-  --GF: linear-gradient(to right, #000000, #c21500); /* Geophysics */
-  --GL: linear-gradient(to right, #1e130c, #9a8478); /* Geology */
-  --IN: linear-gradient(to right, #cbc754, #b59e42); /* Industrial Engineering */
-  --MA: linear-gradient(to right, #35459e, #2768a8); /* Mathematics */
-  --ME: linear-gradient(to right, #485563, #29323c); /* Mechanical Engineering */
-  --MI: linear-gradient(to right, #eb5757, #000000); /* Mining Engineering */
-  --QB: linear-gradient(to right, #dce35b, #45b649); /* Chemistry and Biotech */
-  --BT: linear-gradient(to right, #4fae38, #28e02e); /* Biotechnology */
-  --IQ: linear-gradient(to right, #c17636, #cc8c13); /* Chemistry */
-  --XT: linear-gradient(to right, #000000, #434343, #c17636, #cc8c13); /* ^v Mix */
-  --FI: linear-gradient(to right, #000000, #434343); /* Physics */
+  --navbar-color: #d1ccc0;
+  --course-background: #d1ccc0;
+  --course-text: #0b0b1d;
+  --link-color: #474787;
+  --link-color-hover: #706fd3;
 }
 
 html {
@@ -286,6 +253,7 @@ main {
   display: flex;
   flex-direction: column;
   background-color: var(--course-background);
+  box-shadow: 0 1px 1px hsla(45deg, 0%, 0%, 0.075), 0 2px 2px hsla(45deg, 0%, 0%, 0.075), 0 4px 4px hsla(45deg, 0%, 0%, 0.075), 0 8px 8px hsla(45deg, 0%, 0%, 0.075);
 }
 
 @media only screen and (max-width: 600px) {
@@ -305,8 +273,7 @@ main {
   padding-bottom: 0.2em;
   background-color: #003566;
 }
-
-.course-bar > span {
+.course-bar span {
   margin-inline: 0.3em;
   color: var(--text-color-light);
 }
@@ -336,48 +303,84 @@ main {
 }
 
 /* Department Decorators */
-.MA .course-bar {
-  background: var(--MA);
+.AS .course-bar {
+  background: linear-gradient(to right, #0f0c29, #302b63);
 }
 
 .CC .course-bar {
-  background: var(--CC);
+  background: linear-gradient(to right, #1d8a7c, #458d45);
 }
 
-.FI .course-bar {
-  background: var(--FI);
+.CI .course-bar {
+  background: linear-gradient(to right, #3e5151, #decba4);
 }
 
-.CD .course-bar {
-  background: var(--CD);
-}
-
-.IQ .course-bar {
-  background: var(--IQ);
-}
-
-.BT .course-bar {
-  background: var(--BT);
-}
-
-.IN .course-bar {
-  background: var(--IN);
-}
-
-.EI .course-bar {
-  background: var(--EI);
-}
-
-.XF .course-bar {
-  background: var(--XF);
-}
-
-.XT .course-bar {
-  background: var(--XT);
+.CM .course-bar {
+  background: linear-gradient(to right, #be93c5, #7bc6cc);
 }
 
 .XE .course-bar {
-  background: var(--XE);
+  background: linear-gradient(to right, #d12f1c, #ca398e);
+}
+
+.EI .course-bar {
+  background: linear-gradient(to right, #9e23a0, #6d139b);
+}
+
+.XF .course-bar {
+  background: linear-gradient(to right, #41295a, #6d139b);
+}
+
+.CD .course-bar {
+  background: linear-gradient(to right, #7b4397, #dc2430);
+}
+
+.EL .course-bar {
+  background: linear-gradient(to right, #007991, #78ffd6);
+}
+
+.GF .course-bar {
+  background: linear-gradient(to right, #000000, #c21500);
+}
+
+.GL .course-bar {
+  background: linear-gradient(to right, #1e130c, #9a8478);
+}
+
+.IN .course-bar {
+  background: linear-gradient(to right, #cbc754, #b59e42);
+}
+
+.MA .course-bar {
+  background: linear-gradient(to right, #35459e, #2768a8);
+}
+
+.ME .course-bar {
+  background: linear-gradient(to right, #485563, #29323c);
+}
+
+.MI .course-bar {
+  background: linear-gradient(to right, #eb5757, #000000);
+}
+
+.QB .course-bar {
+  background: linear-gradient(to right, #dce35b, #45b649);
+}
+
+.BT .course-bar {
+  background: linear-gradient(to right, #4fae38, #28e02e);
+}
+
+.IQ .course-bar {
+  background: linear-gradient(to right, #c17636, #cc8c13);
+}
+
+.XT .course-bar {
+  background: linear-gradient(to right, #000000, #434343, #c17636, #cc8c13);
+}
+
+.FI .course-bar {
+  background: linear-gradient(to right, #000000, #434343);
 }
 
 nav {
@@ -423,17 +426,16 @@ nav {
 .breadcrumb {
   font-size: 1.3em;
 }
-
 .breadcrumb a {
   color: var(--link-color);
   text-decoration: none;
+}
+.breadcrumb a:hover {
+  color: var(--link-color-hover);
 }
 
 @media only screen and (max-width: 450px) {
   .breadcrumb span {
     display: none;
   }
-}
-.breadcrumb a:hover {
-  color: var(--link-color-hover);
 }/*# sourceMappingURL=main.css.map */

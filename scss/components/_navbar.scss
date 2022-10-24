@@ -40,12 +40,17 @@ nav {
 
 .breadcrumb {
     font-size: 1.3em;
+
+    a {
+        color: var(--link-color);
+        text-decoration: none;
+    }
+
+    a:hover {
+        color: var(--link-color-hover);
+    }
 }
 
-.breadcrumb a {
-    color: var(--link-color);
-    text-decoration: none;
-}
 
 @media only screen and (max-width: 450px) {
     .breadcrumb span {
@@ -53,6 +58,3 @@ nav {
     }
 }
 
-.breadcrumb a:hover {
-    color: var(--link-color-hover);
-}

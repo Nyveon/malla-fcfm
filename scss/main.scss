@@ -1,7 +1,7 @@
-@import 'colors';
-@import 'base';
+@use 'colors';
+@use 'base';
 
-@import 'components/cards';
-@import 'components/malla';
-@import 'components/courses';
-@import 'components/navbar';
+@use 'components/cards';
+@use 'components/malla';
+@use 'components/courses';
+@use 'components/navbar';
