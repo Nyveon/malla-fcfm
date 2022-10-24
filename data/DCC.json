@@ -443,9 +443,9 @@
                             "corequisites": [],
                             "type": "plan",
                             "codes": [
-                                "XELEC"
+                                "Electivo"
                             ],
-                            "code": "XELEC",
+                            "code": "Electivo",
                             "department": "XE"
                         },
                         "CC4900": {
@@ -522,9 +522,9 @@
                             "corequisites": [],
                             "type": "plan",
                             "codes": [
-                                "XELEC"
+                                "Electivo"
                             ],
-                            "code": "XELEC",
+                            "code": "Electivo",
                             "department": "XE"
                         },
                         "CC4901": {
@@ -588,9 +588,9 @@
                             "corequisites": [],
                             "type": "plan",
                             "codes": [
-                                "XELEC"
+                                "Electivo"
                             ],
-                            "code": "XELEC",
+                            "code": "Electivo",
                             "department": "XE"
                         },
                         "EI1090": {

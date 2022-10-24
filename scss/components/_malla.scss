@@ -1,0 +1,84 @@
+#interior {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+#malla {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.banner-title {
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    font-size: 1.5em;
+    padding-inline: 0.5em;
+    text-align: center;
+    color: var(--grey3);
+}
+
+.phases {
+    display: flex;
+    flex-direction: column;
+}
+
+.phase {
+    display: flex;
+    flex-direction: row;
+}
+
+.phase>.banner-title {
+    margin: 8px;
+    padding-left: 8px;
+    color: var(--grey2);
+    border-left: 1px solid var(--grey1);
+}
+
+.semesters {
+    display: flex;
+    flex-direction: column;
+}
+
+.semester {
+    display: flex;
+    flex-direction: row;
+    margin-block: 0.3em;
+}
+
+@media only screen and (max-width: 1140px) {
+    .semester>.banner-title {
+        border-left: 1px solid var(--grey2);
+    }
+}
+
+@media only screen and (max-width: 660px) {
+    .phase>.banner-title {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .banner-title {
+        writing-mode: horizontal-tb;
+        transform: rotate(0deg);
+        font-size: 1rem;
+        width: auto;
+        display: flex;
+        margin-top: 0.5em;
+        position: sticky;
+        top: 0;
+        height: auto;
+    }
+    .semester {
+        flex-direction: column;
+        border-top: 1px solid var(--grey3);
+    }
+    .semester>.banner-title {
+        border-left: none;
+    }
+}

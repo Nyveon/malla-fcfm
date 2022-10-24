@@ -1,0 +1,439 @@
+@charset "UTF-8";
+:root {
+  /* https://flatuicolors.com/palette/es */
+  --white: #f7f1e3;
+  --grey1: #d1ccc0;
+  --grey2: #aaa69d;
+  --grey3: #84817a;
+  --black1: #413a52;
+  --black2: #0b0b1d;
+  --purple1: #706fd3;
+  --purple2: #474787;
+  --green1: #33d9b2;
+  --green2: #218c74;
+  /* Colors */
+  --text-color-light: var(--white);
+  --text-color-mid: var(--grey3);
+  --text-color-dark: var(--black1);
+  --background-gradient: linear-gradient(to bottom, #f7f1e3, #f6e7d6);
+  --navbar-color: var(--grey1);
+  --course-background: var(--grey1);
+  --course-text: var(--black2);
+  --link-color: var(--purple2);
+  --link-color-hover: var(--purple1);
+  /* Gradients  https://uigradients.com */
+  /* Departments */
+  --AS: linear-gradient(to right, #0f0c29, #302b63); /* Astronomy */
+  --CC: linear-gradient(to right, #1d8a7c, #458d45); /* Computer Science */
+  --CI: linear-gradient(to right, #3e5151, #decba4); /* Civil Engineering */
+  --CM: linear-gradient(to right, #be93c5, #7bc6cc); /* Material Sciences */
+  --XE: linear-gradient(to right, #d12f1c, #ca398e); /* Electivos Licenciatura */
+  --EI: linear-gradient(to right, #9e23a0, #6d139b); /* Languages */
+  --XF: linear-gradient(to right, #41295a, #6d139b); /* Formación Integral */
+  --CD: linear-gradient(to right, #7b4397, #dc2430);
+  --EL: linear-gradient(to right, #007991, #78ffd6); /* Electrical Engineering */
+  --GF: linear-gradient(to right, #000000, #c21500); /* Geophysics */
+  --GL: linear-gradient(to right, #1e130c, #9a8478); /* Geology */
+  --IN: linear-gradient(to right, #cbc754, #b59e42); /* Industrial Engineering */
+  --MA: linear-gradient(to right, #35459e, #2768a8); /* Mathematics */
+  --ME: linear-gradient(to right, #485563, #29323c); /* Mechanical Engineering */
+  --MI: linear-gradient(to right, #eb5757, #000000); /* Mining Engineering */
+  --QB: linear-gradient(to right, #dce35b, #45b649); /* Chemistry and Biotech */
+  --BT: linear-gradient(to right, #4fae38, #28e02e); /* Biotechnology */
+  --IQ: linear-gradient(to right, #c17636, #cc8c13); /* Chemistry */
+  --XT: linear-gradient(to right, #000000, #434343, #c17636, #cc8c13); /* ^v Mix */
+  --FI: linear-gradient(to right, #000000, #434343); /* Physics */
+}
+
+html {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--text-color-dark);
+}
+
+body {
+  background: var(--background-gradient);
+  width: 100vw;
+  max-width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  display: block;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  padding: 10px;
+}
+
+.page-link {
+  color: var(--text-color-light);
+  text-decoration: none;
+}
+
+#not-found {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  font-size: 2em;
+}
+
+:root {
+  --card-size: 300px;
+}
+
+.card-grid {
+  display: grid;
+  justify-content: center;
+  grid-gap: 1rem;
+  grid-auto-rows: 200px;
+  grid-auto-flow: dense;
+  padding-inline: calc(var(--card-size) / 3);
+  grid-template-columns: repeat(auto-fit, minmax(var(--card-size), 1fr));
+  color: var(--text-color-light);
+}
+
+@media only screen and (max-width: 1140px) {
+  .card-grid {
+    grid-template-columns: repeat(auto-fit, minmax(calc(var(--card-size) * 0.8), 1fr));
+    padding-inline: 10px;
+    font-size: 0.8em;
+  }
+}
+@media only screen and (max-width: 600px) {
+  .card-grid {
+    grid-template-columns: repeat(auto-fit, minmax(calc(var(--card-size) * 0.5), 0.8fr));
+    padding-inline: 8px;
+    font-size: 0.7em;
+  }
+}
+.card {
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  height: 100%;
+}
+
+.card-image {
+  width: 100%;
+  height: 200px;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: transform 0.25s;
+  filter: contrast(120%);
+}
+
+.card:hover .card-image {
+  transform: scale(1.2);
+}
+
+.card-text {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  top: 0;
+  -webkit-backdrop-filter: blur(4px) brightness(66%);
+          backdrop-filter: blur(4px) brightness(66%);
+  width: 100%;
+  height: 25%;
+  transition: height 0.25s;
+}
+
+.card:hover .card-text {
+  height: 100%;
+}
+
+.card-name {
+  margin: 0.8rem;
+  display: block;
+}
+
+.card:hover .card-name {
+  display: none;
+}
+
+.card-fullname {
+  margin: 0.8rem;
+  display: none;
+  font-size: 1.5em;
+}
+
+.card:hover .card-fullname {
+  text-align: center;
+  display: block;
+}
+
+.card-title {
+  font-weight: 900;
+  filter: drop-shadow(0 0 8px #000);
+}
+
+#interior {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+#malla {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.banner-title {
+  -ms-writing-mode: tb-rl;
+      writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 1.5em;
+  padding-inline: 0.5em;
+  text-align: center;
+  color: var(--grey3);
+}
+
+.phases {
+  display: flex;
+  flex-direction: column;
+}
+
+.phase {
+  display: flex;
+  flex-direction: row;
+}
+
+.phase > .banner-title {
+  margin: 8px;
+  padding-left: 8px;
+  color: var(--grey2);
+  border-left: 1px solid var(--grey1);
+}
+
+.semesters {
+  display: flex;
+  flex-direction: column;
+}
+
+.semester {
+  display: flex;
+  flex-direction: row;
+  margin-block: 0.3em;
+}
+
+@media only screen and (max-width: 1140px) {
+  .semester > .banner-title {
+    border-left: 1px solid var(--grey2);
+  }
+}
+@media only screen and (max-width: 660px) {
+  .phase > .banner-title {
+    display: none;
+  }
+}
+@media only screen and (max-width: 450px) {
+  .banner-title {
+    -ms-writing-mode: lr-tb;
+        writing-mode: horizontal-tb;
+    transform: rotate(0deg);
+    font-size: 1rem;
+    width: auto;
+    display: flex;
+    margin-top: 0.5em;
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    height: auto;
+  }
+  .semester {
+    flex-direction: column;
+    border-top: 1px solid var(--grey3);
+  }
+  .semester > .banner-title {
+    border-left: none;
+  }
+}
+:root {
+  --course-size: 160px;
+}
+
+.courses {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+@media only screen and (max-width: 1140px) {
+  .courses {
+    align-items: center;
+    justify-content: center;
+  }
+}
+.course {
+  min-width: var(--course-size);
+  max-width: var(--course-size);
+  height: 80px;
+  margin-inline: 10px;
+  margin-block: 5px;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--course-background);
+}
+
+@media only screen and (max-width: 600px) {
+  .course {
+    min-width: 120px;
+    max-width: 120px;
+    font-size: 0.9em;
+    margin-inline: 5px;
+  }
+}
+.course-bar {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  height: 1em;
+  padding-bottom: 0.2em;
+  background-color: #003566;
+}
+
+.course-bar > span {
+  margin-inline: 0.3em;
+  color: var(--text-color-light);
+}
+
+.course-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.course-name {
+  font-size: 0.8em;
+  padding-inline: 0.2em;
+  padding-block: 0.2em;
+  color: var(--course-text);
+  text-align: center;
+}
+
+/* Selection effects */
+.course.selected {
+  filter: brightness(1.5);
+}
+
+.course.prerequisite {
+  filter: brightness(0.5);
+}
+
+/* Department Decorators */
+.MA .course-bar {
+  background: var(--MA);
+}
+
+.CC .course-bar {
+  background: var(--CC);
+}
+
+.FI .course-bar {
+  background: var(--FI);
+}
+
+.CD .course-bar {
+  background: var(--CD);
+}
+
+.IQ .course-bar {
+  background: var(--IQ);
+}
+
+.BT .course-bar {
+  background: var(--BT);
+}
+
+.IN .course-bar {
+  background: var(--IN);
+}
+
+.EI .course-bar {
+  background: var(--EI);
+}
+
+.XF .course-bar {
+  background: var(--XF);
+}
+
+.XT .course-bar {
+  background: var(--XT);
+}
+
+.XE .course-bar {
+  background: var(--XE);
+}
+
+nav {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  grid-template-columns: repeat(3, 1fr);
+  background-color: var(--navbar-color);
+  padding-inline: 2em;
+  padding-block: 1.2em;
+  color: var(--text-color-dark);
+}
+
+.nav-col {
+  width: 100%;
+}
+
+#nav-left {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+
+#nav-mid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#nav-right {
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+
+.title {
+  font-size: 2em;
+  font-weight: 100;
+  color: var(--text-color);
+  text-align: center;
+}
+
+.breadcrumb {
+  font-size: 1.3em;
+}
+
+.breadcrumb a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+@media only screen and (max-width: 450px) {
+  .breadcrumb span {
+    display: none;
+  }
+}
+.breadcrumb a:hover {
+  color: var(--link-color-hover);
+}/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,37 @@
+html {
+    font-family: "Lato", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--text-color-dark);
+}
+
+body {
+    background: var(--background-gradient);
+    width: 100vw;
+    max-width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: block;
+    justify-content: center;
+    align-items: center;
+}
+
+main {
+    padding: 10px;
+}
+
+.page-link {
+    color: var(--text-color-light);
+    text-decoration: none;
+}
+
+#not-found {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    font-size: 2em;
+}
