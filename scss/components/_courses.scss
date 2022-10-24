@@ -39,12 +39,9 @@
 
 .course-bar {
     width: 100%;
-    height: 100%;
     display: flex;
     justify-content: space-between;
-    height: 1em;
-    padding-bottom: 0.2em;
-    background-color: #003566;
+    background-color: #ff0000; // Error color
 
     span {
         margin-inline: 0.3em;

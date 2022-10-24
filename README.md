@@ -6,9 +6,10 @@ Visualización interactiva de mallas académicas de la Facultad de Ciencias Fís
 
 ## Implementation
 
-- UI Framework: [AlpineJS](https://alpinejs.dev)
-- Hosting: [SPA Github Pages](https://github.com/rafgraph/spa-github-pages)
-- Data processing: Python and lots of manual data entry.
+- **JS & HTML:** [AlpineJS](https://alpinejs.dev)
+- **CSS:** [SASS](https://sass-lang.com)
+- **Hosting:** [SPA Github Pages](https://github.com/rafgraph/spa-github-pages)
+- **Data:** [Python](https://www.python.org) (and lots of manual data entry).
 
 ## Agradecimientos (spanish)
 
@@ -27,9 +28,9 @@ Visualización interactiva de mallas académicas de la Facultad de Ciencias Fís
 
 ### General features
 
-- [ ] SASS for repetitive CSS.
+- [x] SASS for repetitive CSS.
 - [ ] Typescript for better code quality.
-- [ ] Maybe look into a templating engine.
+- [x] Maybe look into a templating engine. (Looked into it, not necessary for the scope of this project)
 - [ ] Installation and contribution documentation.
 - [ ] Perfect responsive design.
 - [ ] Check load times and accesibility data.
@@ -55,7 +56,7 @@ Visualización interactiva de mallas académicas de la Facultad de Ciencias Fís
 - [x] Static SPA Routing.
 - [x] Degree catalogue.
 - [x] Redirects and 404.
-- [ ] v3/v5 propmt.
+- [ ] v3/v5 prompt.
 
 ### Malla features
 
@@ -63,14 +64,17 @@ Visualización interactiva de mallas académicas de la Facultad de Ciencias Fís
 - [x] Basic course rendering.
 - [x] Course credits and code.
 - [x] Phase and semester indicators.
-- [ ] Responsive phases and semesters.
+- [x] Responsive phases and semesters.
 - [ ] Prerequisite highlighting.
 - [ ] Altprequisite highlighting.
 - [ ] Postrequisite highlighting.
 - [ ] Corequisite highlighting.
+- [ ] Color code legend.
+- [ ] Fix: Click to keep highlighted.
 - [ ] Multiple course layer propagation.
 - [ ] Propagation depth configuration.
 - [ ] Hide/show 0 credit courses.
+- [ ] Semester alternating color.
 
 ### Mallas
 
