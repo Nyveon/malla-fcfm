@@ -68,7 +68,6 @@ html {
 
 body {
     background: var(--background-gradient);
-    height: 100vh;
     width: 100vw;
     margin: 0;
     padding: 0;
@@ -152,8 +151,24 @@ nav {
     grid-auto-rows: 200px;
     grid-auto-flow: dense;
     padding-inline: calc(var(--card-size) / 3);
-    grid-template-columns: repeat( auto-fit, minmax(var(--card-size), 0.8fr));
+    grid-template-columns: repeat( auto-fit, minmax(var(--card-size), 1fr));
     color: var(--text-color-light);
+}
+
+@media only screen and (max-width: 1140px) {
+    .card-grid {
+        grid-template-columns: repeat( auto-fit, minmax(calc(var(--card-size) * 0.8), 1fr));
+        padding-inline: 10px;
+        font-size: 0.8em;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .card-grid {
+        grid-template-columns: repeat( auto-fit, minmax(calc(var(--card-size) * 0.6), 0.8fr));
+        padding-inline: 8px;
+        font-size: 0.7em;
+    }
 }
 
 .card {
