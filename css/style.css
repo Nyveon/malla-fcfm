@@ -69,6 +69,7 @@ html {
 body {
     background: var(--background-gradient);
     width: 100vw;
+    min-height: 100vh;
     margin: 0;
     padding: 0;
     display: block;
@@ -135,6 +136,12 @@ nav {
 .breadcrumb a {
     color: var(--link-color);
     text-decoration: none;
+}
+
+@media only screen and (max-width: 450px) {
+    .breadcrumb span {
+        display: none;
+    }
 }
 
 .breadcrumb a:hover {
