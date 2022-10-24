@@ -1,0 +1,68 @@
+{
+    "-------------------- Plan Común --------------------": 0,
+    "CC1000": {
+        "name": "Herramientas Computacionales para Ingeniería y Ciencias",
+        "shortname": "Herramientas",
+        "credits": 6,
+        "prerequisites": [],
+        "corequisites": [],
+        "type": "course"
+    },
+    "EI1101": {
+        "name": "Introducción a la Ingeniería I",
+        "shortname": "Intro a la Ingeniería",
+        "credits": 3,
+        "prerequisites": [],
+        "corequisites": [],
+        "type": "course"
+    },
+    "FI1001": {
+        "name": "Introducción a la Física Newtoniana",
+        "shortname": "Intro a la Física",
+        "credits": 6,
+        "prerequisites": [],
+        "corequisites": [],
+        "type": "course"
+    },
+    "MA1101": {
+        "name": "Introducción al Álgebra",
+        "shortname": "Intro al Álgebra",
+        "credits": 6,
+        "prerequisites": [],
+        "corequisites": [],
+        "type": "course"
+    },
+    "MA1001": {
+        "name": "Introducción al Cálculo",
+        "shortname": "Intro al Cálculo",
+        "credits": 6,
+        "prerequisites": [],
+        "corequisites": [],
+        "type": "course"
+    },
+    "CM1001": {
+        "name": "Química",
+        "shortname": "Química",
+        "credits": 6,
+        "prerequisites": [],
+        "corequisites": [],
+        "type": "course"
+    },
+    "XFIPC": {
+        "name": "Formación Integral",
+        "shortname": "Formación Integral",
+        "credits": 3,
+        "prerequisites": [],
+        "corequisites": [],
+        "type": "plan",
+        "codes": ["EH","FG","DR","EI"]
+    },
+    "MA1002": {
+        "name": "Cálculo Diferencial e Integral",
+        "shortname": "Cálculo Diferencial",
+        "credits": 6,
+        "prerequisites": ["MA1001"],
+        "corequisites": [],
+        "type": "course"
+    }
+}

@@ -1,172 +1,320 @@
 {
-    "v3": [{
-        "semesters": [
-            {
-                "number": 1,
-                "courses": [
-                    {
-                        "type": "{course/category",
-                        "code": "XX1003",
-                        "name": "Intro a la Nada",
-                        "requirements": ["XX1001", "XX1002/XX1015"],
-                        "simultanous": ["XX1004 (optional)"],
-                        "credits": 6
-                    }
-                ]
-            },
-            {
-                "number": 2,
-                "courses": []
-            },
-            {
-                "number": 3,
-                "courses": []
-            },
-            {
-                "number": 4,
-                "courses": []
-            },
-            {
-                "number": 5,
-                "courses": []
-            },
-            {
-                "number": 6,
-                "courses": []
-            },
-            {
-                "number": 7,
-                "courses": []
-            },
-            {
-                "number": 8,
-                "courses": []
-            },
-            {
-                "number": 9,
-                "courses": []
-            },
-            {
-                "number": 10,
-                "courses": []
-            },
-            {
-                "number": 11,
-                "courses": []
-            }
-        ]
-    }],
-    "v5": [
-        {
-            "number": 1,
+    "v3": {},
+    "v5": {
+        "Plan Común": {
             "name": "Plan Común",
-            "semesters": [
-                {
+            "semesters": {
+                "1": {
                     "number": 1,
-                    "courses": [
-                        {
+                    "courses": {
+                        "MA1001": {
+                            "name": "Introducción al Cálculo",
+                            "shortname": "Intro al Cálculo",
+                            "credits": 6,
+                            "prerequisites": [],
+                            "corequisites": [],
                             "type": "course",
                             "code": "MA1001",
-                            "name": "Introducción al Cálculo",
-                            "requirements": [],
-                            "simultanous": [],
-                            "credits": 6
+                            "department": "MA"
                         },
-                        {
+                        "MA1101": {
+                            "name": "Introducción al Algebra",
+                            "shortname": "Intro al Algebra",
+                            "credits": 6,
+                            "prerequisites": [],
+                            "corequisites": [],
                             "type": "course",
                             "code": "MA1101",
-                            "name": "Introducción al Algebra",
-                            "requirements": [],
-                            "simultanous": [],
-                            "credits": 6
+                            "department": "MA"
                         },
-                        {
+                        "FI1000": {
+                            "name": "Introducción a la Física Clásica",
+                            "shortname": "Física Clásica",
+                            "credits": 6,
+                            "prerequisites": [],
+                            "corequisites": [],
                             "type": "course",
                             "code": "FI1000",
-                            "name": "Introducción a la Física Clásica",
-                            "requirements": [],
-                            "simultanous": [],
-                            "credits": 6
+                            "department": "FI"
                         },
-                        {
+                        "CC1000": {
+                            "name": "Herramientas Computacionales para Ingeniería y Ciencias",
+                            "shortname": "Herramientas",
+                            "credits": 3,
+                            "prerequisites": [],
+                            "corequisites": [],
                             "type": "course",
                             "code": "CC1000",
-                            "name": "Herramientas Computacionales para Ingeniería Y Ciencias",
-                            "requirements": [],
-                            "simultanous": [],
-                            "credits": 3
+                            "department": "CC"
                         },
-                        {
+                        "CD1100": {
+                            "name": "Desafíos de Innovación en Ingeniería y Ciencias",
+                            "shortname": "Desafíos de Innovación",
+                            "credits": 6,
+                            "prerequisites": [],
+                            "corequisites": [],
                             "type": "course",
                             "code": "CD1100",
-                            "name": "Desafíos de Innovación en Ingeniería y Ciencias",
-                            "requirements": [],
-                            "simultanous": [],
-                            "credits": 6
+                            "department": "CD"
                         },
-                        {
-                            "type": "course",
-                            "code": "MA1001",
+                        "BT1211": {
                             "name": "Aplicaciones de la Biología a la Ingeniería y Ciencias",
-                            "requirements": [],
-                            "simultanous": [],
-                            "credits": 3
+                            "shortname": "Biología",
+                            "credits": 6,
+                            "prerequisites": [],
+                            "corequisites": [],
+                            "type": "course",
+                            "code": "BT1211",
+                            "department": "BT"
                         }
-                    ]
+                    }
                 },
-                {
+                "2": {
                     "number": 2,
-                    "courses": []
+                    "courses": {
+                        "MA1002": {
+                            "name": "Cálculo Diferencial e Integral",
+                            "shortname": "Cálculo Diferencial",
+                            "credits": 6,
+                            "prerequisites": [
+                                "MA1001"
+                            ],
+                            "corequisites": [],
+                            "type": "course",
+                            "code": "MA1002",
+                            "department": "MA"
+                        },
+                        "MA1102": {
+                            "name": "Álgebra Lineal",
+                            "shortname": "Álgebra Lineal",
+                            "credits": 6,
+                            "prerequisites": [
+                                "MA1101"
+                            ],
+                            "corequisites": [],
+                            "type": "course",
+                            "code": "MA1102",
+                            "department": "MA"
+                        },
+                        "FI1100": {
+                            "name": "Introducción a la Física Moderna",
+                            "shortname": "Física Moderna",
+                            "credits": 6,
+                            "prerequisites": [
+                                "FI1000",
+                                "MA1001",
+                                "MA1101"
+                            ],
+                            "corequisites": [],
+                            "type": "course",
+                            "code": "FI1100",
+                            "department": "FI"
+                        },
+                        "CC1002": {
+                            "name": "Introducción a la Programación",
+                            "shortname": "Intro a la Programación",
+                            "credits": 6,
+                            "prerequisites": [],
+                            "corequisites": [],
+                            "type": "course",
+                            "code": "CC1002",
+                            "department": "CC"
+                        },
+                        "CD1201": {
+                            "name": "Proyecto de Inovación en Ingeniería y Ciencias",
+                            "shortname": "Proyecto de Innovación",
+                            "credits": 3,
+                            "prerequisites": [],
+                            "corequisites": [],
+                            "type": "course",
+                            "code": "CD1201",
+                            "department": "CD"
+                        },
+                        "XFIPC": {
+                            "name": "Formación Integral",
+                            "shortname": "Formación Integral",
+                            "credits": 3,
+                            "prerequisites": [],
+                            "corequisites": [],
+                            "type": "plan",
+                            "codes": [
+                                "EH",
+                                "FG",
+                                "DR",
+                                "EI"
+                            ],
+                            "code": "XFIPC",
+                            "department": "XF"
+                        }
+                    }
                 },
-                {
+                "3": {
                     "number": 3,
-                    "courses": []
+                    "courses": {
+                        "MA2001": {
+                            "name": "Cálculo en Varias Variables",
+                            "shortname": "CVV",
+                            "credits": 6,
+                            "prerequisites": [
+                                "MA1002",
+                                "MA1102"
+                            ],
+                            "corequisites": [],
+                            "type": "course",
+                            "code": "MA2001",
+                            "department": "MA"
+                        },
+                        "MA2601": {
+                            "name": "Ecuaciones Diferenciales Ordinarias",
+                            "shortname": "EDO",
+                            "credits": 6,
+                            "prerequisites": [
+                                "MA1002",
+                                "MA1102"
+                            ],
+                            "corequisites": [],
+                            "type": "course",
+                            "code": "MA2601",
+                            "department": "MA"
+                        },
+                        "FI2001": {
+                            "name": "Mecánica",
+                            "shortname": "Mecánica",
+                            "credits": 6,
+                            "prerequisites": [
+                                "FI1100",
+                                "MA1002",
+                                "MA1102"
+                            ],
+                            "corequisites": [],
+                            "type": "course",
+                            "code": "FI2001",
+                            "department": "FI"
+                        },
+                        "FI2003": {
+                            "name": "Métodos Experimentales",
+                            "shortname": "Métodos",
+                            "credits": 6,
+                            "prerequisites": [
+                                "FI1100",
+                                "MA1002"
+                            ],
+                            "corequisites": [],
+                            "type": "course",
+                            "code": "FI2003",
+                            "department": "FI"
+                        },
+                        "IQ2211": {
+                            "name": "Química",
+                            "shortname": "Química",
+                            "credits": 6,
+                            "prerequisites": [],
+                            "corequisites": [],
+                            "type": "course",
+                            "code": "IQ2211",
+                            "department": "IQ"
+                        }
+                    }
                 },
-                {
+                "4": {
                     "number": 4,
-                    "courses": []
+                    "courses": {
+                        "MA2002": {
+                            "name": "Cálculo Avanzado y Aplicaciones",
+                            "shortname": "CAA",
+                            "credits": 6,
+                            "prerequisites": [
+                                "MA2001",
+                                "MA2601"
+                            ],
+                            "corequisites": [],
+                            "type": "course",
+                            "code": "MA2002",
+                            "department": "MA"
+                        },
+                        "IN2201": {
+                            "name": "Economía",
+                            "shortname": "Economía",
+                            "credits": 6,
+                            "prerequisites": [
+                                "MA2001"
+                            ],
+                            "corequisites": [],
+                            "type": "course",
+                            "code": "IN2201",
+                            "department": "IN"
+                        },
+                        "FI2002": {
+                            "name": "Electromagnetismo",
+                            "shortname": "Electro",
+                            "credits": 6,
+                            "prerequisites": [
+                                "FI2003",
+                                "MA2001",
+                                "MA2601"
+                            ],
+                            "corequisites": [],
+                            "type": "course",
+                            "code": "FI2002",
+                            "department": "FI"
+                        },
+                        "XTQTF": {
+                            "name": "Termodinámica o Termodinámica Química",
+                            "shortname": "Termo",
+                            "credits": 6,
+                            "prerequisites": [
+                                "IQ2211",
+                                "MA2001",
+                                "FI2001"
+                            ],
+                            "corequisites": [],
+                            "type": "plan",
+                            "codes": [
+                                "FI2004",
+                                "IQ2212"
+                            ],
+                            "code": "XTQTF",
+                            "department": "XT"
+                        },
+                        "CD2201": {
+                            "name": "Modulo Interdisciplinario",
+                            "shortname": "Modulo",
+                            "credits": 3,
+                            "prerequisites": [
+                                "CD1201"
+                            ],
+                            "corequisites": [],
+                            "type": "course",
+                            "code": "CD2201",
+                            "department": "CD"
+                        },
+                        "XFIPC": {
+                            "name": "Formación Integral",
+                            "shortname": "Formación Integral",
+                            "credits": 3,
+                            "prerequisites": [],
+                            "corequisites": [],
+                            "type": "plan",
+                            "codes": [
+                                "EH",
+                                "FG",
+                                "DR",
+                                "EI"
+                            ],
+                            "code": "XFIPC",
+                            "department": "XF"
+                        }
+                    }
                 }
-            ]
+            }
         },
-        {
-            "number": 2,
+        "Licenciatura": {
             "name": "Licenciatura",
-            "semesters": [
-                {
-                    "number": 5,
-                    "courses": []
-                },
-                {
-                    "number": 6,
-                    "courses": []
-                },
-                {
-                    "number": 7,
-                    "courses": []
-                },
-                {
-                    "number": 8,
-                    "courses": []
-                }
-            ]
+            "semesters": {}
         },
-        {
-            "number": 3,
+        "Especialidad": {
             "name": "Especialidad",
-            "semesters": [
-                {
-                    "number": 9,
-                    "courses": []
-                },
-                {
-                    "number": 10,
-                    "courses": []
-                },
-                {
-                    "number": 11,
-                    "courses": []
-                }
-            ]
+            "semesters": {}
         }
-    ]
+    }
 }
