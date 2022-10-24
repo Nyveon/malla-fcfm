@@ -9,6 +9,8 @@
     --grey1: #d1ccc0;
     --grey2: #aaa69d;
     --grey3: #84817a;
+    --black1: #413a52;
+    --black2: #0b0b1d;
 
     --purple1: #706fd3;
     --purple2: #474787;
@@ -16,14 +18,18 @@
     --green1: #33d9b2;
     --green2: #218c74;
 
-    --text-color: #ffffff;
-    --text-color-2: #858893;
-
-    /* Gradients  https://uigradients.com/#Behongo */
-    --background-color: var(--white);
+    /* Colors */
+    --text-color-light: var(--white);
+    --text-color-mid: var(--grey3);
+    --text-color-dark: var(--black1);
+    --background-gradient: linear-gradient(to bottom, #f7f1e3, #f6e7d6);;
     --navbar-color: var(--grey1);
     --course-background: var(--grey1);
+    --course-text: var(--black2);
+    --link-color: var(--purple2);
+    --link-color-hover: var(--purple1);
 
+    /* Gradients  https://uigradients.com */
     /* Departments */
     --AS: linear-gradient(to right, #0f0c29, #302b63); /* Astronomy */
     --CC: linear-gradient(to right, #22b9a5, #61b961); /* Computer Science */
@@ -50,17 +56,18 @@
 
     /* Sizes */
     --card-size: 300px;
+    --course-size: 160px;
 }
 
 html {
     font-family: "Lato", sans-serif;
     font-weight: 400;
     font-style: normal;
-    color: var(--text-color);
+    color: var(--text-color-dark);
 }
 
 body {
-    background: var(--background-color);
+    background: var(--background-gradient);
     height: 100vh;
     width: 100vw;
     margin: 0;
@@ -76,7 +83,7 @@ main {
 }
 
 .page-link {
-    color: var(--text-color);
+    color: var(--text-color-light);
     text-decoration: none;
 }
 
@@ -90,6 +97,7 @@ nav {
     background-color: var(--navbar-color);
     padding-inline: 2em;
     padding-block: 1.2em;
+    color: var(--text-color-dark);
 }
 
 .nav-col {
@@ -126,12 +134,12 @@ nav {
 }
 
 .breadcrumb a {
-    color: var(--text-color-2);
+    color: var(--link-color);
     text-decoration: none;
 }
 
 .breadcrumb a:hover {
-    color: var(--text-color);
+    color: var(--link-color-hover);
 }
 
 
@@ -145,6 +153,7 @@ nav {
     grid-auto-flow: dense;
     padding-inline: calc(var(--card-size) / 3);
     grid-template-columns: repeat( auto-fit, minmax(var(--card-size), 0.8fr));
+    color: var(--text-color-light);
 }
 
 .card {
@@ -227,12 +236,14 @@ nav {
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    width: 100%;
 }
 
 #malla {
-    margin-inline: 10px;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    width: 100%;
 }
 
 .banner-title {
@@ -257,12 +268,43 @@ nav {
 .semesters {
     display: flex;
     flex-direction: column;
-    width: 100%;
 }
 
 .semester {
     display: flex;
     flex-direction: row;
+    margin-block: 0.3em;
+}
+
+@media only screen and (max-width: 1140px) {
+    .semester>.banner-title {
+        border-left: 1px solid var(--grey3);
+    }
+}
+
+@media only screen and (max-width: 660px) {
+    .phase>.banner-title {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    .banner-title {
+        writing-mode: horizontal-tb;
+        transform: rotate(0deg);
+        font-size: 1rem;
+        height: 1rem;
+        width: 100%;
+        display: flex;
+        margin-top: 0.5em;
+    }
+    .semester {
+        flex-direction: column;
+        border-top: 1px solid var(--grey3);
+    }
+    .semester>.banner-title {
+        border-left: none;
+    }
 }
 
 /* Courses ---------- */
@@ -271,17 +313,34 @@ nav {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    width: 100%;
+}
+
+@media only screen and (max-width: 1140px) {
+    .courses {
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 .course {
-    min-width: 160px;
-    max-width: 160px;
+    min-width: var(--course-size);
+    max-width: var(--course-size);
     height: 80px;
     margin-inline: 10px;
-    margin-bottom: 10px;
+    margin-block: 5px;
     display: flex;
     flex-direction: column;
     background-color: var(--course-background);
+}
+
+@media only screen and (max-width: 600px) {
+    .course {
+        min-width: 120px;
+        max-width: 120px;
+        font-size: 0.9em;
+        margin-inline: 5px;
+    }
 }
 
 .course-bar {
@@ -296,6 +355,7 @@ nav {
 
 .course-bar > span {
     margin-inline: 0.3em;
+    color: var(--text-color-light);
 }
 
 .course-body {
@@ -309,7 +369,7 @@ nav {
     font-size: 0.8em;
     padding-inline: 0.2em;
     padding-block: 0.2em;
-    color: #000;
+    color: var(--course-text);
     text-align: center;
 }
 
