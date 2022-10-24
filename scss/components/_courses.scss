@@ -1,43 +1,35 @@
-@use "../colors" as colors;
-
-:root {
-    --course-size: 160px;
-}
-
+@use "../values/colors" as c;
+@use "../values/sizes" as s;
 
 .courses {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     width: 100%;
-}
 
-@media only screen and (max-width: 1140px) {
-    .courses {
+    @media only screen and (max-width: s.$breakpoint-medium) {
         align-items: center;
         justify-content: center;
     }
 }
 
 .course {
-    min-width: var(--course-size);
-    max-width: var(--course-size);
-    height: 80px;
+    min-width: s.$course-width;
+    max-width: s.$course-width;
+    height: s.$course-height;
     margin-inline: 10px;
     margin-block: 5px;
     display: flex;
     flex-direction: column;
-    background-color: var(--course-background);
+    background-color: c.$course-color;
     box-shadow:
         0 1px 1px hsla(45deg, 0%, 0%, 0.075),
         0 2px 2px hsla(45deg, 0%, 0%, 0.075),
         0 4px 4px hsla(45deg, 0%, 0%, 0.075),
         0 8px 8px hsla(45deg, 0%, 0%, 0.075),
     ;
-}
 
-@media only screen and (max-width: 600px) {
-    .course {
+    @media only screen and (max-width: s.$breakpoint-medium) {
         min-width: 120px;
         max-width: 120px;
         font-size: 0.9em;
@@ -56,7 +48,7 @@
 
     span {
         margin-inline: 0.3em;
-        color: var(--text-color-light);
+        color: c.$text-white;
     }
 }
 
@@ -71,11 +63,10 @@
     font-size: 0.8em;
     padding-inline: 0.2em;
     padding-block: 0.2em;
-    color: var(--course-text);
     text-align: center;
 }
 
-/* Selection effects */
+// Selection effects
 
 .course.selected {
     filter: brightness(1.5);
@@ -85,10 +76,9 @@
     filter: brightness(0.5);
 }
 
+// Department decorators
 
-/* Department Decorators */
-
-@each $department, $gradient in colors.$department-gradients {
+@each $department, $gradient in c.$department-gradients {
     .#{$department} .course-bar {
         background: $gradient;
     }

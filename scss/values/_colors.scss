@@ -1,4 +1,4 @@
-// Colors
+// Color Palette
 $white: #f7f1e3;
 $grey1: #d1ccc0;
 $grey2: #aaa69d;
@@ -7,6 +7,25 @@ $black1: #413a52;
 $black2: #0b0b1d;
 $purple1: #706fd3;
 $purple2: #474787;
+
+
+// Element colors and gradients
+$text-white: $white;
+$text-mid: $grey1;
+$text-dark: $black1;
+$text-black: $black2;
+
+$background-gradient: linear-gradient(to bottom, #f7f1e3, #f6e7d6);
+$navbar-color: $grey1;
+
+$link-color: $purple2;
+$link-color-hover: $purple1;
+
+$phase-color: $grey2;
+$phase-color-line: $grey1;
+
+$course-color: $grey1;
+
 
 // Department gradients
 // https://uigradients.com
@@ -37,18 +56,3 @@ $department-gradients: (
     "XT": linear-gradient(to right, #000000, #434343, #c17636, #cc8c13), /* ^v Mix */
     "FI": linear-gradient(to right, #000000, #434343) /* Physics */
 );
-
-:root {
-    /* https://flatuicolors.com/palette/es */
-
-    /* Colors */
-    --text-color-light: #{$white};
-    --text-color-mid: #{$grey3};
-    --text-color-dark: #{$black1};
-    --background-gradient: linear-gradient(to bottom, #f7f1e3, #f6e7d6);;
-    --navbar-color: #{$grey1};
-    --course-background: #{$grey1};
-    --course-text: #{$black2};
-    --link-color: #{$purple2};
-    --link-color-hover: #{$purple1};
-}

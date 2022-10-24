@@ -1,60 +1,60 @@
+@use "../values/colors" as c;
+@use "../values/sizes" as s;
+
 nav {
     display: grid;
     justify-content: center;
     align-items: center;
     grid-template-columns: repeat(3, 1fr);
-    background-color: var(--navbar-color);
     padding-inline: 2em;
     padding-block: 1.2em;
-    color: var(--text-color-dark);
+    background-color: c.$navbar-color;
+    color: c.$text-dark;
 }
 
 .nav-col {
     width: 100%;
+    display: flex;
+    align-items: center;
 }
 
 #nav-left {
-    display: flex;
-    align-items: center;
     justify-content: left;
 }
 
 #nav-mid {
-    display: flex;
-    align-items: center;
     justify-content: center;
 }
 
 #nav-right {
-    display: flex;
-    align-items: center;
     justify-content: right;
 }
 
 .title {
     font-size: 2em;
     font-weight: 100;
-    color: var(--text-color);
     text-align: center;
+
+    @media screen and (max-width: s.$breakpoint-small) {
+        font-size: 1.5em;
+    }
 }
 
 .breadcrumb {
     font-size: 1.3em;
 
     a {
-        color: var(--link-color);
+        color: c.$link-color;
         text-decoration: none;
+
+        &:hover {
+            color: c.$link-color-hover;
+        }
     }
 
-    a:hover {
-        color: var(--link-color-hover);
+    @media screen and (max-width: s.$breakpoint-small) {
+        span {
+            display: none;
+        }
     }
 }
-
-
-@media only screen and (max-width: 450px) {
-    .breadcrumb span {
-        display: none;
-    }
-}
-

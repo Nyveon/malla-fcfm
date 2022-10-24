@@ -1,3 +1,6 @@
+@use "../values/colors" as c;
+@use "../values/sizes" as s;
+
 #interior {
     display: flex;
     flex-direction: row;
@@ -19,7 +22,20 @@
     font-size: 1.5em;
     padding-inline: 0.5em;
     text-align: center;
-    color: var(--grey3);
+    color: c.$phase-color;
+
+    @media only screen and (max-width: s.$breakpoint-small) {
+        writing-mode: horizontal-tb;
+        transform: rotate(0deg);
+        font-size: 1rem;
+        width: auto;
+        height: 0;
+        display: flex;
+        margin-top: 0.5em;
+        position: sticky;
+        top: 0;
+        height: auto;
+    }
 }
 
 .phases {
@@ -30,13 +46,16 @@
 .phase {
     display: flex;
     flex-direction: row;
-}
 
-.phase>.banner-title {
-    margin: 8px;
-    padding-left: 8px;
-    color: var(--grey2);
-    border-left: 1px solid var(--grey1);
+    > .banner-title {
+        margin: 8px;
+        padding-left: 8px;
+        border-left: 1px solid c.$phase-color-line;
+
+        @media only screen and (max-width: s.$breakpoint-medium) {
+            display: none;
+        }
+    }
 }
 
 .semesters {
@@ -48,37 +67,19 @@
     display: flex;
     flex-direction: row;
     margin-block: 0.3em;
-}
 
-@media only screen and (max-width: 1140px) {
-    .semester>.banner-title {
-        border-left: 1px solid var(--grey2);
-    }
-}
-
-@media only screen and (max-width: 660px) {
-    .phase>.banner-title {
-        display: none;
-    }
-}
-
-@media only screen and (max-width: 450px) {
-    .banner-title {
-        writing-mode: horizontal-tb;
-        transform: rotate(0deg);
-        font-size: 1rem;
-        width: auto;
-        display: flex;
-        margin-top: 0.5em;
-        position: sticky;
-        top: 0;
-        height: auto;
-    }
-    .semester {
+    @media only screen and (max-width: s.$breakpoint-small) {
         flex-direction: column;
-        border-top: 1px solid var(--grey3);
+        border-top: 1px solid c.$phase-color-line;
     }
-    .semester>.banner-title {
-        border-left: none;
+
+    > .banner-title {
+        @media only screen and (max-width: s.$breakpoint-large) {
+            border-left: 1px solid c.$phase-color-line;
+        }
+
+        @media only screen and (max-width: s.$breakpoint-small) {
+            border-left: none;
+        }
     }
 }
