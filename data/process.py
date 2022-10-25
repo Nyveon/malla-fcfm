@@ -29,15 +29,19 @@ def main():
         malla[version][phase] = {"name": phase, "semesters": dict()}
         for semester in semesters:
             semester_courses = dict()
+            course_id = 0
             for course in semester:  # todo: code for plans
                 course_data = courses.get(course)
-                semester_courses[course] = course_data
                 if course_data["type"] == "course":
+                    semester_courses[course] = course_data
                     semester_courses[course]["code"] = course
                 elif course_data["type"] == "plan":
+                    course = f"{course}{course_id}"
+                    semester_courses[course] = course_data
                     codes = course_data["codes"]
                     semester_courses[course]["code"] = "/".join(codes)
                 semester_courses[course]["department"] = course[:2]
+                course_id += 1
             malla[version][phase]["semesters"][semester_index] = {
                 "number": semester_index,
                 "courses": semester_courses

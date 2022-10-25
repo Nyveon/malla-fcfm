@@ -333,6 +333,10 @@ main {
   background: linear-gradient(to right, #cbc754, #b59e42);
 }
 
+.XN .course-bar {
+  background: linear-gradient(to right, #cbc754, #ca6439);
+}
+
 .MA .course-bar {
   background: linear-gradient(to right, #35459e, #2768a8);
 }

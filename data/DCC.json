@@ -130,7 +130,7 @@
                             "code": "CD1201",
                             "department": "CD"
                         },
-                        "XFIPC": {
+                        "XFIPC5": {
                             "name": "Formación Integral",
                             "shortname": "Formación Integral",
                             "credits": 3,
@@ -259,7 +259,7 @@
                             "code": "FI2002",
                             "department": "FI"
                         },
-                        "XTQTF": {
+                        "XTQTF3": {
                             "name": "Termodinámica o Termodinámica Química",
                             "shortname": "Termo",
                             "credits": 6,
@@ -289,7 +289,7 @@
                             "code": "CD2201",
                             "department": "CD"
                         },
-                        "XFIPC": {
+                        "XFIPC5": {
                             "name": "Formación Integral",
                             "shortname": "Formación Integral",
                             "credits": 3,
@@ -368,7 +368,21 @@
                             "code": "CC3101",
                             "department": "CC"
                         },
-                        "XFILI": {
+                        "XFILI4": {
+                            "name": "Formación Integral",
+                            "shortname": "Formación Integral",
+                            "credits": 3,
+                            "prerequisites": [],
+                            "corequisites": [],
+                            "type": "plan",
+                            "codes": [
+                                "EH",
+                                "FG"
+                            ],
+                            "code": "EH/FG",
+                            "department": "XF"
+                        },
+                        "XFILI5": {
                             "name": "Formación Integral",
                             "shortname": "Formación Integral",
                             "credits": 3,
@@ -435,8 +449,8 @@
                             "code": "CC3301",
                             "department": "CC"
                         },
-                        "XELEC": {
-                            "name": "Electivo Licenciatura",
+                        "XELEC4": {
+                            "name": "Electivo de Licenciatura",
                             "shortname": "Electivo",
                             "credits": 6,
                             "prerequisites": [],
@@ -514,8 +528,8 @@
                             "code": "CC4302",
                             "department": "CC"
                         },
-                        "XELEC": {
-                            "name": "Electivo Licenciatura",
+                        "XELEC4": {
+                            "name": "Electivo de Licenciatura",
                             "shortname": "Electivo",
                             "credits": 6,
                             "prerequisites": [],
@@ -580,8 +594,21 @@
                             "code": "CC4303",
                             "department": "CC"
                         },
-                        "XELEC": {
-                            "name": "Electivo Licenciatura",
+                        "XELEC3": {
+                            "name": "Electivo de Licenciatura",
+                            "shortname": "Electivo",
+                            "credits": 6,
+                            "prerequisites": [],
+                            "corequisites": [],
+                            "type": "plan",
+                            "codes": [
+                                "Electivo"
+                            ],
+                            "code": "Electivo",
+                            "department": "XE"
+                        },
+                        "XELEC4": {
+                            "name": "Electivo de Licenciatura",
                             "shortname": "Electivo",
                             "credits": 6,
                             "prerequisites": [],
@@ -619,7 +646,201 @@
         },
         "Especialidad": {
             "name": "Especialidad",
-            "semesters": {}
+            "semesters": {
+                "9": {
+                    "number": 9,
+                    "courses": {
+                        "XESPE0": {
+                            "name": "Electivo de Especialidad",
+                            "shortname": "Electivo Especialidad",
+                            "credits": 6,
+                            "prerequisites": [],
+                            "corequisites": [],
+                            "type": "plan",
+                            "codes": [
+                                "Electivo"
+                            ],
+                            "code": "Electivo",
+                            "department": "XE"
+                        },
+                        "XESPE1": {
+                            "name": "Electivo de Especialidad",
+                            "shortname": "Electivo Especialidad",
+                            "credits": 6,
+                            "prerequisites": [],
+                            "corequisites": [],
+                            "type": "plan",
+                            "codes": [
+                                "Electivo"
+                            ],
+                            "code": "Electivo",
+                            "department": "XE"
+                        },
+                        "XESPE2": {
+                            "name": "Electivo de Especialidad",
+                            "shortname": "Electivo Especialidad",
+                            "credits": 6,
+                            "prerequisites": [],
+                            "corequisites": [],
+                            "type": "plan",
+                            "codes": [
+                                "Electivo"
+                            ],
+                            "code": "Electivo",
+                            "department": "XE"
+                        },
+                        "XNGPE3": {
+                            "name": "Núcleo Gestión para Ingenieros",
+                            "shortname": "Núcleo Gestión",
+                            "credits": 6,
+                            "prerequisites": [],
+                            "corequisites": [],
+                            "type": "plan",
+                            "codes": [
+                                "Electivo"
+                            ],
+                            "code": "Electivo",
+                            "department": "XN"
+                        },
+                        "XFIES4": {
+                            "name": "Formación Integral de Especialidad",
+                            "shortname": "Formación Integral Esp.",
+                            "credits": 3,
+                            "prerequisites": [],
+                            "corequisites": [],
+                            "type": "plan",
+                            "codes": [
+                                "Electivo"
+                            ],
+                            "code": "Electivo",
+                            "department": "XF"
+                        },
+                        "XFIES5": {
+                            "name": "Formación Integral de Especialidad",
+                            "shortname": "Formación Integral Esp.",
+                            "credits": 3,
+                            "prerequisites": [],
+                            "corequisites": [],
+                            "type": "plan",
+                            "codes": [
+                                "Electivo"
+                            ],
+                            "code": "Electivo",
+                            "department": "XF"
+                        },
+                        "CC5901": {
+                            "name": "Práctica Profesional II",
+                            "shortname": "Práctica II",
+                            "credits": 7,
+                            "prerequisites": [
+                                "CC4901",
+                                "CC4401",
+                                "CC4101"
+                            ],
+                            "corequisites": [],
+                            "type": "course",
+                            "code": "CC5901",
+                            "department": "CC"
+                        }
+                    }
+                },
+                "10": {
+                    "number": 10,
+                    "courses": {
+                        "CC6907": {
+                            "name": "Introducción al Trabajo de Título",
+                            "shortname": "El E",
+                            "credits": 6,
+                            "prerequisites": [
+                                "CC4402"
+                            ],
+                            "corequisites": [],
+                            "type": "course",
+                            "code": "CC6907",
+                            "department": "CC"
+                        },
+                        "XESPE1": {
+                            "name": "Electivo de Especialidad",
+                            "shortname": "Electivo Especialidad",
+                            "credits": 6,
+                            "prerequisites": [],
+                            "corequisites": [],
+                            "type": "plan",
+                            "codes": [
+                                "Electivo"
+                            ],
+                            "code": "Electivo",
+                            "department": "XE"
+                        },
+                        "XESPE2": {
+                            "name": "Electivo de Especialidad",
+                            "shortname": "Electivo Especialidad",
+                            "credits": 6,
+                            "prerequisites": [],
+                            "corequisites": [],
+                            "type": "plan",
+                            "codes": [
+                                "Electivo"
+                            ],
+                            "code": "Electivo",
+                            "department": "XE"
+                        },
+                        "CC5402": {
+                            "name": "Proyecto de Software",
+                            "shortname": "Proyecto",
+                            "credits": 12,
+                            "prerequisites": [
+                                "CC5205",
+                                "CC4402"
+                            ],
+                            "corequisites": [],
+                            "type": "course",
+                            "code": "CC5402",
+                            "department": "CC"
+                        }
+                    }
+                },
+                "11": {
+                    "number": 11,
+                    "courses": {
+                        "CC6919": {
+                            "name": "Trabajo de Título",
+                            "shortname": "El F",
+                            "credits": 24,
+                            "prerequisites": [
+                                "CC6907"
+                            ],
+                            "corequisites": [],
+                            "type": "course",
+                            "code": "CC6919",
+                            "department": "CC"
+                        },
+                        "XESPE1": {
+                            "name": "Electivo de Especialidad",
+                            "shortname": "Electivo Especialidad",
+                            "credits": 6,
+                            "prerequisites": [],
+                            "corequisites": [],
+                            "type": "plan",
+                            "codes": [
+                                "Electivo"
+                            ],
+                            "code": "Electivo",
+                            "department": "XE"
+                        },
+                        "EI2090": {
+                            "name": "Examen de Suficiencia en Inglés II",
+                            "shortname": "Examen Inglés II",
+                            "credits": 0,
+                            "prerequisites": [],
+                            "corequisites": [],
+                            "type": "course",
+                            "code": "EI2090",
+                            "department": "EI"
+                        }
+                    }
+                }
+            }
         }
     }
 }

@@ -197,7 +197,7 @@
         "codes": ["EH","FG"]
     },
     "XELEC": {
-        "name": "Electivo Licenciatura",
+        "name": "Electivo de Licenciatura",
         "shortname": "Electivo",
         "credits": 6,
         "prerequisites": [],
@@ -356,6 +356,66 @@
         "shortname": "Examen Inglés II",
         "credits": 0,
         "prerequisites": [],
+        "corequisites": [],
+        "type": "course"
+    },
+    "XESPE": {
+        "name": "Electivo de Especialidad",
+        "shortname": "Electivo Especialidad",
+        "credits": 6,
+        "prerequisites": [],
+        "corequisites": [],
+        "type": "plan",
+        "codes": ["Electivo"]
+    },
+    "XFIES": {
+        "name": "Formación Integral de Especialidad",
+        "shortname": "Formación Integral Esp.",
+        "credits": 3,
+        "prerequisites": [],
+        "corequisites": [],
+        "type": "plan",
+        "codes": ["Electivo"]
+    },
+    "XNGPE": {
+        "name": "Núcleo Gestión para Ingenieros",
+        "shortname": "Núcleo Gestión",
+        "credits": 6,
+        "prerequisites": [],
+        "corequisites": [],
+        "type": "plan",
+        "codes": ["Electivo"]
+    },
+    "-------------------- Especialidad DCC --------------------": 0,
+    "CC5901": {
+        "name": "Práctica Profesional II",
+        "shortname": "Práctica II",
+        "credits": 7,
+        "prerequisites": ["CC4901", "CC4401", "CC4101"],
+        "corequisites": [],
+        "type": "course"
+    },
+    "CC6907": {
+        "name": "Introducción al Trabajo de Título",
+        "shortname": "El E",
+        "credits": 6,
+        "prerequisites": ["CC4402"],
+        "corequisites": [],
+        "type": "course"
+    },
+    "CC5402": {
+        "name": "Proyecto de Software",
+        "shortname": "Proyecto",
+        "credits": 12,
+        "prerequisites": ["CC5205", "CC4402"],
+        "corequisites": [],
+        "type": "course"
+    },
+    "CC6919": {
+        "name": "Trabajo de Título",
+        "shortname": "El F",
+        "credits": 24,
+        "prerequisites": ["CC6907"],
         "corequisites": [],
         "type": "course"
     }
