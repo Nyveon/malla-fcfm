@@ -35,6 +35,7 @@ Visualización interactiva de mallas académicas de la Facultad de Ciencias Fís
 - [ ] Perfect responsive design.
 - [ ] Check load times and accesibility data.
 - [ ] Perfect color palettes.
+- [ ] Fix 404 page flashing on load.
 
 #### Data processing
 
@@ -75,6 +76,7 @@ Visualización interactiva de mallas académicas de la Facultad de Ciencias Fís
 - [ ] Propagation depth configuration.
 - [ ] Hide/show 0 credit courses.
 - [ ] Semester alternating color.
+- [ ] Combine same-code courses into one card.
 
 ### Mallas
 
@@ -83,7 +85,8 @@ Visualización interactiva de mallas académicas de la Facultad de Ciencias Fís
 - [ ] Civil ECG.
 - [ ] Civil HSA.
 - [ ] Civil Transporte.
-- [ ] Computación (first).
+- [x] Computación (first).
+  - [ ] Double check requisites
 - [ ] Electrica.
 - [ ] Industrial.
 - [ ] Matemática.
