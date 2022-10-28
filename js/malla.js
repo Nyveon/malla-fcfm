@@ -59,12 +59,20 @@ function getPageState(path, degrees) {
     }
 }
 
+const lines = [];
 
-function courseSelected({prerequisites, selected, depthpre, depthpost}) {
-    propagatePrereq(prerequisites, 0, depthpre, selected);
+function courseSelected({prerequisites, selected, depthpre, depthpost, id}) {
+    propagatePrereq(prerequisites, 0, depthpre, selected, id);
+
+    if (!selected) {
+        for (let i = lines.length - 1; i >= 0; i--) {
+            lines[i].remove();
+            lines.splice(i, 1);
+        }
+    }
 }
 
-function propagatePrereq(prerequisites, depth, maxdepth, state) {
+function propagatePrereq(prerequisites, depth, maxdepth, state, id) {
     if (depth == maxdepth) {
         return;
     }
@@ -78,6 +86,14 @@ function propagatePrereq(prerequisites, depth, maxdepth, state) {
             if (!prereq.classList.contains('prerequisite')) {
                 prereq.classList.add('prerequisite');
                 prereq.classList.add(`depth-${Math.floor(10 * depth / maxdepth)}`);
+                const line = new LeaderLine(prereq, id, {
+                    color: 'red',
+                    startSocket: 'bottom',
+                    endSocket: 'top',
+                    path: 'straight',
+                    size: 2,
+                });
+                lines.push(line);
             }
         } else {
             if (prereq.classList.contains('prerequisite')) {
@@ -92,7 +108,7 @@ function propagatePrereq(prerequisites, depth, maxdepth, state) {
         }
         let prereqPrereqs = prereq.dataset.prereqs;
         let prereqPrereqsList = prereqPrereqs.split(',');
-        propagatePrereq(prereqPrereqsList, depth + 1, maxdepth, state);
+        propagatePrereq(prereqPrereqsList, depth + 1, maxdepth, state, prereq);
     }
 }
 

@@ -10,6 +10,7 @@
 
         <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.10.5/dist/cdn.min.js"></script>
         <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.10.5/dist/cdn.min.js"></script>
+        <script defer src="https://cdn.jsdelivr.net/npm/leader-line-new@1.1.9/leader-line.min.js" integrity="sha256-rrbG35jgbcQm/bNRhX2z6sianA80kyS3GqeTjFRpCkU=" crossorigin="anonymous"></script>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -98,7 +99,8 @@
                                                                 prerequisites: course.prerequisites,
                                                                 selected: false,
                                                                 depthpre: depthpre,
-                                                                depthpost: depthpost
+                                                                depthpost: depthpost,
+                                                                id: $el
                                                             }"
                                                             @mouseenter="selected = true; courseSelected($data);"
                                                             @mouseleave="selected = false; courseSelected($data);"
