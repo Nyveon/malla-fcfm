@@ -12,14 +12,14 @@
         template-columns: repeat( auto-fit, minmax(s.$card-width , 1fr));
     }
 
-    padding-inline: calc(s.$card-width / 3);
+    padding-inline: 10%;
     color: c.$text-white;
 
     @media only screen and (max-width: s.$breakpoint-large) {
         $factor: 0.8;
         grid-template-columns: repeat( auto-fit, minmax(calc(s.$card-width * $factor), 1fr));
         grid-auto-rows: calc(200px * $factor);
-        padding-inline: 10px;
+        padding-inline: 5%;
         font-size: 0.9em;
     }
 

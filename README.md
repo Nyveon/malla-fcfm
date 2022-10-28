@@ -36,6 +36,7 @@ Visualización interactiva de mallas académicas de la Facultad de Ciencias Fís
 - [ ] Check load times and accesibility data.
 - [ ] Perfect color palettes.
 - [ ] Fix 404 page flashing on load.
+- [ ] Webscraping for course data
 
 #### Data processing
 
@@ -69,7 +70,7 @@ Visualización interactiva de mallas académicas de la Facultad de Ciencias Fís
 - [ ] Prerequisite highlighting.
 - [ ] Altprequisite highlighting.
 - [ ] Postrequisite highlighting.
-- [ ] Corequisite highlighting.
+- [x] ~~Corequisite highlighting.~~ No longer exists!
 - [ ] Color code legend.
 - [ ] Fix: Click to keep highlighted.
 - [ ] Multiple course layer propagation.
