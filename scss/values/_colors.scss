@@ -15,6 +15,8 @@ $text-mid: $grey1;
 $text-dark: $black1;
 $text-black: $black2;
 
+$line-color: $purple1;
+
 $background-gradient: linear-gradient(to bottom, #f7f1e3, #f6e7d6);
 $navbar-color: $grey1;
 
@@ -59,3 +61,8 @@ $department-gradients: (
     "XT": linear-gradient(to right, #000000, #434343, #c17636, #cc8c13), /* ^v Mix */
     "FI": linear-gradient(to right, #000000, #434343) /* Physics */
 );
+
+
+:root {
+    --line-color: #{$line-color};
+}

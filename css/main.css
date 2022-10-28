@@ -1,3 +1,7 @@
+:root {
+  --line-color: #706fd3;
+}
+
 *, *:before, *:after {
   box-sizing: border-box;
 }

@@ -36,13 +36,14 @@ Visualización interactiva de mallas académicas de la Facultad de Ciencias Fís
 - [ ] Check load times and accesibility data.
 - [ ] Perfect color palettes.
 - [ ] Fix 404 page flashing on load.
-- [ ] Webscraping for course data
+- [ ] Fix tap on mobile
 
 #### Data processing
 
 - [x] Basic single degree data processing.
 - [ ] Postrequisite processing.
 - [ ] Automatic data processing for all degrees.
+- [x] Webscraping for course data
 
 #### UI
 

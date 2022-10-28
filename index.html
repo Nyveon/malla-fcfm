@@ -25,7 +25,7 @@
             path: location.pathname.replace(/^\/|\/$/g, ''),
             degrees: [],
             version: $persist('v5'),
-            depthpre: 5,
+            depthpre: 6,
             depthpost: $persist(1)
         }"
         x-init="degrees = await (await fetch('/data/degrees.json')).json();"

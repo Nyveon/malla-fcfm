@@ -89,9 +89,14 @@ function propagatePrereq(prerequisites, depth, maxdepth, state, id) {
                 const line = new LeaderLine(prereq, id, {
                     color: 'red',
                     startSocket: 'bottom',
+                    startSocketGravity: 0,
                     endSocket: 'top',
-                    path: 'straight',
+                    endSocketGravity: 0,
+                    path: 'grid',
                     size: 2,
+                    dropShadow: {blur: 5, dx: 3, dy: 3},
+                    color: getComputedStyle(document.documentElement)
+                            .getPropertyValue('--line-color'),
                 });
                 lines.push(line);
             }
