@@ -95,10 +95,10 @@ function createLine(start, end, color) {
     const line = new LeaderLine(start, end, {
         color: 'red',
         startSocket: 'bottom',
-        startSocketGravity: 0,
+        startSocketGravity: 10,
         endSocket: 'top',
-        endSocketGravity: 0,
-        path: 'fluid',
+        endSocketGravity: 10,
+        path: 'magnet',
         size: 2,
         dropShadow: {blur: 5, dx: 3, dy: 3},
         color: getComputedStyle(document.documentElement)
