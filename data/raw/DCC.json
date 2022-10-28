@@ -1,8 +1,8 @@
 {
     "v3": {},
     "v5": {
-        "Plan Común": "PC_v5.json",
-        "Licenciatura": "DCC_L_v5.json",
-        "Especialidad": "DCC_E_v5.json"
+        "Plan Común": "sub_v5/PC.json",
+        "Licenciatura": "sub_v5/DCC_L.json",
+        "Especialidad": "sub_v5/DCC_E.json"
     }
 }

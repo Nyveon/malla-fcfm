@@ -5,5 +5,8 @@
             "extensionName": ".css",
             "savePath": "/css"
         }
-    ]
+    ],
+    "python.linting.banditEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.linting.enabled": true
 }
