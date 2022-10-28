@@ -39,8 +39,9 @@ ES: Visualización interactiva de mallas académicas de la Facultad de Ciencias 
 - [ ] Check load times and accesibility data.
 - [ ] Perfect color palettes.
 - [ ] Fix 404 page flashing on load.
-- [ ] Fix tap on mobile.
+- [x] Fix tap on mobile.
 - [ ] Fix incompatiability with firefox due to navigation api.
+- [ ] Fix leader lines being drawn after leaving.
 
 #### Data processing
 
@@ -77,16 +78,16 @@ ES: Visualización interactiva de mallas académicas de la Facultad de Ciencias 
 - [x] Postrequisite highlighting.
 - [x] ~~Corequisite highlighting.~~ No longer exists!
 - [ ] Color code legend.
-- [ ] Fix: Click to keep highlighted.
+- [x] Fix: Click to keep highlighted.
 - [x] Multiple course layer propagation.
 - [ ] Propagation depth configuration.
 - [ ] Hide/show 0 credit courses.
 - [ ] Semester alternating color.
 - [ ] Combine same-code courses into one card.
-- [ ] Fix: On mobile you can selected multiple courses
+- [x] Fix: On mobile you can select multiple courses
 - [x] Leader lines for prerequisites.
 - [ ] Hide/show leader-lines
-- [ ] Hight quality pre/postrequisite highlighting
+- [ ] High quality pre/postrequisite highlighting
 
 ### Mallas
 

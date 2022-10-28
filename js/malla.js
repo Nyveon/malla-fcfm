@@ -100,7 +100,7 @@ function courseSelected({prerequisites, postrequisites, depthpre, depthpost, ele
     let selected = element.classList.contains('selected');
 
     if (isTouchEvent()) {
-        if (event === 'touchstart') {
+        if (event === 'click') {
             if (selected) {
                 element.classList.remove('selected');
                 propagatePrereq(prerequisites, 0, 12, false, element);

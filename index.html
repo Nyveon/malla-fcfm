@@ -104,7 +104,7 @@
                                                             }"
                                                             @mouseenter="courseSelected($data, 'mouseenter');"
                                                             @mouseleave="courseSelected($data, 'mouseleave');"
-                                                            @touchstart="courseSelected($data, 'touchstart');"
+                                                            @click="courseSelected($data, 'click');"
                                                             :class="course.department"
                                                             :data-prereqs="course.prerequisites"
                                                             :data-postreqs="course.postrequisites">
