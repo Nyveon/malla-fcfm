@@ -6,7 +6,7 @@ Visualización interactiva de mallas académicas de la Facultad de Ciencias Fís
 
 ## Implementation
 
-- **JS & HTML:** [AlpineJS](https://alpinejs.dev)
+- **JS & HTML:** [AlpineJS](https://alpinejs.dev) (*3.10.5*)
 - **CSS:** [SASS](https://sass-lang.com)
 - **Hosting:** [SPA Github Pages](https://github.com/rafgraph/spa-github-pages)
 - **Data:** [Python](https://www.python.org) (and lots of manual data entry).
