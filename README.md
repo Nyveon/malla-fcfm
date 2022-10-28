@@ -67,7 +67,7 @@ Visualización interactiva de mallas académicas de la Facultad de Ciencias Fís
 - [x] Course credits and code.
 - [x] Phase and semester indicators.
 - [x] Responsive phases and semesters.
-- [ ] Prerequisite highlighting.
+- [x] Prerequisite highlighting.
 - [ ] Altprequisite highlighting.
 - [ ] Postrequisite highlighting.
 - [x] ~~Corequisite highlighting.~~ No longer exists!

@@ -486,7 +486,8 @@
                             "prerequisites": [
                                 "CC3002",
                                 "CC3201",
-                                "CC3301"
+                                "CC3301",
+                                "CC4900"
                             ],
                             "type": "course",
                             "department": "CC"
@@ -665,7 +666,8 @@
                             "prerequisites": [
                                 "CC4901",
                                 "CC4401",
-                                "CC4101"
+                                "CC4101",
+                                "CC5900"
                             ],
                             "type": "course",
                             "department": "CC"

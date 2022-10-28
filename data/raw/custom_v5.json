@@ -8,6 +8,31 @@
         "corequisites": [],
         "type": "course"
     },
+    "CC4901": {
+        "code": "CC4901",
+        "name": "Práctica Profesional I",
+        "credits": 7,
+        "prerequisites": [
+            "CC3002",
+            "CC3201",
+            "CC3301",
+            "CC4900",
+            "AUTOR"
+        ],
+        "type": "course"
+    },
+    "CC5901": {
+        "code": "CC5901",
+        "name": "Práctica Profesional II",
+        "credits": 7,
+        "prerequisites": [
+            "CC4901",
+            "CC4401",
+            "CC4101",
+            "CC5900"
+        ],
+        "type": "course"
+    },
     "CC6907": {
         "name": "Introducción al Trabajo de Título",
         "shortname": "El E",
