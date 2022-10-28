@@ -8,63 +8,51 @@
                     "number": 1,
                     "courses": {
                         "MA1001": {
+                            "code": "MA1001",
                             "name": "Introducción al Cálculo",
-                            "shortname": "Intro al Cálculo",
                             "credits": 6,
                             "prerequisites": [],
-                            "corequisites": [],
                             "type": "course",
-                            "code": "MA1001",
                             "department": "MA"
                         },
                         "MA1101": {
-                            "name": "Introducción al Algebra",
-                            "shortname": "Intro al Algebra",
+                            "code": "MA1101",
+                            "name": "Introducción al Álgebra",
                             "credits": 6,
                             "prerequisites": [],
-                            "corequisites": [],
                             "type": "course",
-                            "code": "MA1101",
                             "department": "MA"
                         },
                         "FI1000": {
+                            "code": "FI1000",
                             "name": "Introducción a la Física Clásica",
-                            "shortname": "Física Clásica",
                             "credits": 6,
                             "prerequisites": [],
-                            "corequisites": [],
                             "type": "course",
-                            "code": "FI1000",
                             "department": "FI"
                         },
                         "CC1000": {
+                            "code": "CC1000",
                             "name": "Herramientas Computacionales para Ingeniería y Ciencias",
-                            "shortname": "Herramientas",
                             "credits": 3,
                             "prerequisites": [],
-                            "corequisites": [],
                             "type": "course",
-                            "code": "CC1000",
                             "department": "CC"
                         },
                         "CD1100": {
+                            "code": "CD1100",
                             "name": "Desafíos de Innovación en Ingeniería y Ciencias",
-                            "shortname": "Desafíos de Innovación",
                             "credits": 6,
                             "prerequisites": [],
-                            "corequisites": [],
                             "type": "course",
-                            "code": "CD1100",
                             "department": "CD"
                         },
                         "BT1211": {
-                            "name": "Aplicaciones de la Biología a la Ingeniería y Ciencias",
-                            "shortname": "Biología",
-                            "credits": 6,
-                            "prerequisites": [],
-                            "corequisites": [],
-                            "type": "course",
                             "code": "BT1211",
+                            "name": "Aplicaciones de la Biología a la Ingeniería y Ciencias",
+                            "credits": 3,
+                            "prerequisites": [],
+                            "type": "course",
                             "department": "BT"
                         }
                     }
@@ -73,61 +61,53 @@
                     "number": 2,
                     "courses": {
                         "MA1002": {
+                            "code": "MA1002",
                             "name": "Cálculo Diferencial e Integral",
-                            "shortname": "Cálculo Diferencial",
                             "credits": 6,
                             "prerequisites": [
                                 "MA1001"
                             ],
-                            "corequisites": [],
                             "type": "course",
-                            "code": "MA1002",
                             "department": "MA"
                         },
                         "MA1102": {
+                            "code": "MA1102",
                             "name": "Álgebra Lineal",
-                            "shortname": "Álgebra Lineal",
                             "credits": 6,
                             "prerequisites": [
                                 "MA1101"
                             ],
-                            "corequisites": [],
                             "type": "course",
-                            "code": "MA1102",
                             "department": "MA"
                         },
                         "FI1100": {
+                            "code": "FI1100",
                             "name": "Introducción a la Física Moderna",
-                            "shortname": "Física Moderna",
                             "credits": 6,
                             "prerequisites": [
                                 "FI1000",
-                                "MA1001",
-                                "MA1101"
+                                "MA1101",
+                                "MA1001"
                             ],
-                            "corequisites": [],
                             "type": "course",
-                            "code": "FI1100",
                             "department": "FI"
                         },
                         "CC1002": {
+                            "code": "CC1002",
                             "name": "Introducción a la Programación",
-                            "shortname": "Intro a la Programación",
                             "credits": 6,
                             "prerequisites": [],
-                            "corequisites": [],
                             "type": "course",
-                            "code": "CC1002",
                             "department": "CC"
                         },
                         "CD1201": {
-                            "name": "Proyecto de Inovación en Ingeniería y Ciencias",
-                            "shortname": "Proyecto de Innovación",
-                            "credits": 3,
-                            "prerequisites": [],
-                            "corequisites": [],
-                            "type": "course",
                             "code": "CD1201",
+                            "name": "Proyecto de Innovación en Ingeniería y Ciencias",
+                            "credits": 3,
+                            "prerequisites": [
+                                "CD1100"
+                            ],
+                            "type": "course",
                             "department": "CD"
                         },
                         "XFIPC5": {
@@ -153,66 +133,56 @@
                     "number": 3,
                     "courses": {
                         "MA2001": {
+                            "code": "MA2001",
                             "name": "Cálculo en Varias Variables",
-                            "shortname": "CVV",
                             "credits": 6,
                             "prerequisites": [
                                 "MA1002",
                                 "MA1102"
                             ],
-                            "corequisites": [],
                             "type": "course",
-                            "code": "MA2001",
                             "department": "MA"
                         },
                         "MA2601": {
+                            "code": "MA2601",
                             "name": "Ecuaciones Diferenciales Ordinarias",
-                            "shortname": "EDO",
                             "credits": 6,
                             "prerequisites": [
                                 "MA1002",
                                 "MA1102"
                             ],
-                            "corequisites": [],
                             "type": "course",
-                            "code": "MA2601",
                             "department": "MA"
                         },
                         "FI2001": {
+                            "code": "FI2001",
                             "name": "Mecánica",
-                            "shortname": "Mecánica",
                             "credits": 6,
                             "prerequisites": [
                                 "FI1100",
                                 "MA1002",
                                 "MA1102"
                             ],
-                            "corequisites": [],
                             "type": "course",
-                            "code": "FI2001",
                             "department": "FI"
                         },
                         "FI2003": {
+                            "code": "FI2003",
                             "name": "Métodos Experimentales",
-                            "shortname": "Métodos",
                             "credits": 6,
                             "prerequisites": [
-                                "FI1100",
-                                "MA1002"
+                                "MA1002",
+                                "FI1100"
                             ],
-                            "corequisites": [],
                             "type": "course",
-                            "code": "FI2003",
                             "department": "FI"
                         },
                         "IQ2211": {
+                            "code": "IQ2211",
                             "name": "Química",
-                            "shortname": "Química",
                             "credits": 6,
                             "prerequisites": [],
-                            "corequisites": [],
                             "type": "course",
-                            "code": "IQ2211",
                             "department": "IQ"
                         }
                     }
@@ -221,42 +191,36 @@
                     "number": 4,
                     "courses": {
                         "MA2002": {
+                            "code": "MA2002",
                             "name": "Cálculo Avanzado y Aplicaciones",
-                            "shortname": "CAA",
                             "credits": 6,
                             "prerequisites": [
                                 "MA2001",
                                 "MA2601"
                             ],
-                            "corequisites": [],
                             "type": "course",
-                            "code": "MA2002",
                             "department": "MA"
                         },
                         "IN2201": {
+                            "code": "IN2201",
                             "name": "Economía",
-                            "shortname": "Economía",
                             "credits": 6,
                             "prerequisites": [
                                 "MA2001"
                             ],
-                            "corequisites": [],
                             "type": "course",
-                            "code": "IN2201",
                             "department": "IN"
                         },
                         "FI2002": {
+                            "code": "FI2002",
                             "name": "Electromagnetismo",
-                            "shortname": "Electro",
                             "credits": 6,
                             "prerequisites": [
                                 "FI2003",
                                 "MA2001",
                                 "MA2601"
                             ],
-                            "corequisites": [],
                             "type": "course",
-                            "code": "FI2002",
                             "department": "FI"
                         },
                         "XTQTF3": {
@@ -278,15 +242,13 @@
                             "department": "XT"
                         },
                         "CD2201": {
-                            "name": "Modulo Interdisciplinario",
-                            "shortname": "Modulo",
+                            "code": "CD2201",
+                            "name": "Módulo Interdisciplinario",
                             "credits": 3,
                             "prerequisites": [
                                 "CD1201"
                             ],
-                            "corequisites": [],
                             "type": "course",
-                            "code": "CD2201",
                             "department": "CD"
                         },
                         "XFIPC5": {
@@ -317,55 +279,47 @@
                     "number": 5,
                     "courses": {
                         "MA3403": {
+                            "code": "MA3403",
                             "name": "Probabilidades y Estadística",
-                            "shortname": "Proba y Esta",
                             "credits": 6,
                             "prerequisites": [
                                 "MA2001"
                             ],
-                            "corequisites": [],
                             "type": "course",
-                            "code": "MA3403",
                             "department": "MA"
                         },
                         "CC3501": {
+                            "code": "CC3501",
                             "name": "Modelación y Computación Gráfica para Ingenieros",
-                            "shortname": "Computación Gráfica",
                             "credits": 6,
                             "prerequisites": [
+                                "CC1002",
                                 "MA2001",
                                 "MA2601",
-                                "CC1002",
                                 "FI2001"
                             ],
-                            "corequisites": [],
                             "type": "course",
-                            "code": "CC3501",
                             "department": "CC"
                         },
                         "CC3001": {
+                            "code": "CC3001",
                             "name": "Algoritmos y Estructuras de Datos",
-                            "shortname": "Algoritmos",
                             "credits": 6,
                             "prerequisites": [
                                 "CC1002"
                             ],
-                            "corequisites": [],
                             "type": "course",
-                            "code": "CC3001",
                             "department": "CC"
                         },
                         "CC3101": {
+                            "code": "CC3101",
                             "name": "Matemáticas Discretas para la Computación",
-                            "shortname": "Mates Discretas",
                             "credits": 6,
                             "prerequisites": [
                                 "CC1002",
                                 "MA1101"
                             ],
-                            "corequisites": [],
                             "type": "course",
-                            "code": "CC3101",
                             "department": "CC"
                         },
                         "XFILI4": {
@@ -402,51 +356,43 @@
                     "number": 6,
                     "courses": {
                         "CC3201": {
+                            "code": "CC3201",
                             "name": "Bases de Datos",
-                            "shortname": "BDD",
                             "credits": 6,
                             "prerequisites": [
                                 "CC3001"
                             ],
-                            "corequisites": [],
                             "type": "course",
-                            "code": "CC3201",
                             "department": "CC"
                         },
                         "CC3002": {
+                            "code": "CC3002",
                             "name": "Metodologías de Diseño y Programación",
-                            "shortname": "Metodologías",
                             "credits": 6,
                             "prerequisites": [
                                 "CC3001"
                             ],
-                            "corequisites": [],
                             "type": "course",
-                            "code": "CC3002",
                             "department": "CC"
                         },
                         "CC3102": {
+                            "code": "CC3102",
                             "name": "Teoría de la Computación",
-                            "shortname": "Teoría",
                             "credits": 6,
                             "prerequisites": [
                                 "CC3101"
                             ],
-                            "corequisites": [],
                             "type": "course",
-                            "code": "CC3102",
                             "department": "CC"
                         },
                         "CC3301": {
+                            "code": "CC3301",
                             "name": "Programación de Software de Sistemas",
-                            "shortname": "PSS",
                             "credits": 6,
                             "prerequisites": [
                                 "CC3001"
                             ],
-                            "corequisites": [],
                             "type": "course",
-                            "code": "CC3301",
                             "department": "CC"
                         },
                         "XELEC4": {
@@ -478,54 +424,46 @@
                     "number": 7,
                     "courses": {
                         "CC5205": {
+                            "code": "CC5205",
                             "name": "Minería de Datos",
-                            "shortname": "Minería",
                             "credits": 6,
                             "prerequisites": [
                                 "CC3001"
                             ],
-                            "corequisites": [],
                             "type": "course",
-                            "code": "CC5205",
                             "department": "CC"
                         },
                         "CC4401": {
+                            "code": "CC4401",
                             "name": "Ingeniería de Software",
-                            "shortname": "Ing. de Software",
                             "credits": 6,
                             "prerequisites": [
                                 "CC3002",
                                 "CC3201"
                             ],
-                            "corequisites": [],
                             "type": "course",
-                            "code": "CC4401",
                             "department": "CC"
                         },
                         "CC4102": {
+                            "code": "CC4102",
                             "name": "Diseño y Análisis de Algoritmos",
-                            "shortname": "Logaritmos",
                             "credits": 6,
                             "prerequisites": [
-                                "CC3102",
+                                "MA3403",
                                 "CC3001",
-                                "MA3403"
+                                "CC3102"
                             ],
-                            "corequisites": [],
                             "type": "course",
-                            "code": "CC4102",
                             "department": "CC"
                         },
                         "CC4302": {
+                            "code": "CC4302",
                             "name": "Sistemas Operativos",
-                            "shortname": "Sistemas Operativos",
                             "credits": 6,
                             "prerequisites": [
-                                "CC3001"
+                                "CC3301"
                             ],
-                            "corequisites": [],
                             "type": "course",
-                            "code": "CC4302",
                             "department": "CC"
                         },
                         "XELEC4": {
@@ -542,13 +480,15 @@
                             "department": "XE"
                         },
                         "CC4901": {
-                            "name": "Práctica Profesional I",
-                            "shortname": "Práctica I",
-                            "credits": 7,
-                            "prerequisites": [],
-                            "corequisites": [],
-                            "type": "course",
                             "code": "CC4901",
+                            "name": "Práctica Profesional I",
+                            "credits": 7,
+                            "prerequisites": [
+                                "CC3002",
+                                "CC3201",
+                                "CC3301"
+                            ],
+                            "type": "course",
                             "department": "CC"
                         }
                     }
@@ -557,41 +497,35 @@
                     "number": 8,
                     "courses": {
                         "CC4402": {
+                            "code": "CC4402",
                             "name": "Formulación, Evaluación y Gestión de Proyectos",
-                            "shortname": "Evalua",
                             "credits": 6,
                             "prerequisites": [
                                 "CC4401",
-                                "IN2201",
-                                "CD2201"
+                                "CD2201",
+                                "IN2201"
                             ],
-                            "corequisites": [],
                             "type": "course",
-                            "code": "CC4402",
                             "department": "CC"
                         },
                         "CC4101": {
+                            "code": "CC4101",
                             "name": "Lenguajes de Programación",
-                            "shortname": "Lenguajes",
                             "credits": 6,
                             "prerequisites": [
                                 "CC3102"
                             ],
-                            "corequisites": [],
                             "type": "course",
-                            "code": "CC4101",
                             "department": "CC"
                         },
                         "CC4303": {
+                            "code": "CC4303",
                             "name": "Redes",
-                            "shortname": "Redes",
                             "credits": 6,
                             "prerequisites": [
                                 "CC4302"
                             ],
-                            "corequisites": [],
                             "type": "course",
-                            "code": "CC4303",
                             "department": "CC"
                         },
                         "XELEC3": {
@@ -621,23 +555,19 @@
                             "department": "XE"
                         },
                         "EI1090": {
+                            "code": "EI1090",
                             "name": "Examen de Suficiencia en Inglés I",
-                            "shortname": "Examen Inglés I",
                             "credits": 0,
                             "prerequisites": [],
-                            "corequisites": [],
                             "type": "course",
-                            "code": "EI1090",
                             "department": "EI"
                         },
                         "CC5900": {
+                            "code": "CC5900",
                             "name": "Taller de Práctica Profesional II",
-                            "shortname": "Taller de Práctica II",
                             "credits": 0,
                             "prerequisites": [],
-                            "corequisites": [],
                             "type": "course",
-                            "code": "CC5900",
                             "department": "CC"
                         }
                     }
@@ -729,17 +659,15 @@
                             "department": "XF"
                         },
                         "CC5901": {
+                            "code": "CC5901",
                             "name": "Práctica Profesional II",
-                            "shortname": "Práctica II",
                             "credits": 7,
                             "prerequisites": [
                                 "CC4901",
                                 "CC4401",
                                 "CC4101"
                             ],
-                            "corequisites": [],
                             "type": "course",
-                            "code": "CC5901",
                             "department": "CC"
                         }
                     }
@@ -786,16 +714,14 @@
                             "department": "XE"
                         },
                         "CC5402": {
+                            "code": "CC5402",
                             "name": "Proyecto de Software",
-                            "shortname": "Proyecto",
                             "credits": 12,
                             "prerequisites": [
-                                "CC5205",
-                                "CC4402"
+                                "CC4303",
+                                "CC4102"
                             ],
-                            "corequisites": [],
                             "type": "course",
-                            "code": "CC5402",
                             "department": "CC"
                         }
                     }
@@ -829,13 +755,13 @@
                             "department": "XE"
                         },
                         "EI2090": {
-                            "name": "Examen de Suficiencia en Inglés II",
-                            "shortname": "Examen Inglés II",
-                            "credits": 0,
-                            "prerequisites": [],
-                            "corequisites": [],
-                            "type": "course",
                             "code": "EI2090",
+                            "name": "Examen de Suficiencia en Inglés II",
+                            "credits": 0,
+                            "prerequisites": [
+                                "EI1090"
+                            ],
+                            "type": "course",
                             "department": "EI"
                         }
                     }

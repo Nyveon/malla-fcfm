@@ -66,7 +66,8 @@ class Ramo:
                 "code": self.code,
                 "name": self.nombre,
                 "credits": self.creditos,
-                "prerequsites": self.requisitos,
+                "prerequisites": self.requisitos,
+                "type": "course"
                 }
 
     def parse_requisites(self, line) -> list[str | list]:
@@ -79,12 +80,16 @@ class Ramo:
             list[str | list]: List of strings and lists (of strings)
             corresponding to the course codes. A sub-list means it's an or.
         """
+
+        # THIS IS VERY WRONG
+        # But it works for v5 courses I guess ¯\_(ツ)_/¯
         parsed = []
-        and_split = line.split(",")
-        for course in and_split:
+        line = line.replace("(", "")
+        line = line.replace(")", "")
+        line = line.split(",")
+
+        for course in line:
             if "/" in course:
-                course = course.replace("(", "")
-                course = course.replace(")", "")
                 course = course.split("/")
             parsed.append(course)
         return parsed
@@ -130,7 +135,8 @@ def output_json(ramos: dict, code: str) -> None:
         ramos (list): Parsed Ramos Objects
         code (str): The identifier for the file (v3, v5)
     """
-    with open(f"raw/ramos{code}.json", "w", encoding="utf-8") as output_file:
+    with open(f"raw/courses_{code}.json", "w",
+              encoding="utf-8") as output_file:
         output_file.write(
             json.dumps(
                 ramos,
@@ -161,7 +167,7 @@ def scrape(semesters: list[int], code: str) -> None:
 
 def main() -> None:
     os.chdir(os.path.dirname(__file__))
-    scrape([20211, 20212], "v5")
+    scrape([20211, 20212, 20221, 20222], "v5")
 
 
 if __name__ == "__main__":

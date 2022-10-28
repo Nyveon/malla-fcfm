@@ -11,6 +11,16 @@ def read_json(path: str) -> dict:
         return json.load(f)
 
 
+def flatten(thing: list | str):
+    output = []
+    for item in thing:
+        if type(item) == list:
+            output.extend(item)
+        else:
+            output.append(item)
+    return output
+
+
 def main():
     os.chdir(os.path.dirname(__file__))
     # todo get course list from degrees.json
@@ -18,10 +28,13 @@ def main():
     code = "DCC"
     version = "v5"
 
-    courses = read_json("raw/coursesv5.json")
+    courses_v5 = read_json("raw/courses_v5.json")
+    courses_v5 = courses_v5 | read_json("raw/custom_v5.json")
     degree = read_json(f"raw/{code}.json").get("v5")
 
     malla = {"v3": dict(), "v5": dict()}
+
+    added_courses = set()
 
     semester_index = 1
     for phase in degree:
@@ -31,7 +44,11 @@ def main():
             semester_courses = dict()
             course_id = 0
             for course in semester:  # todo: code for plans
-                course_data = courses.get(course)
+                if course not in courses_v5:
+                    raise Exception(f"Course {course} not found")
+                course_data = courses_v5.get(course)
+                course_data["prerequisites"] = flatten(
+                    course_data["prerequisites"])
                 if course_data["type"] == "course":
                     semester_courses[course] = course_data
                     semester_courses[course]["code"] = course
@@ -42,15 +59,29 @@ def main():
                     semester_courses[course]["code"] = "/".join(codes)
                 semester_courses[course]["department"] = course[:2]
                 course_id += 1
+                added_courses.add(course)
             malla[version][phase]["semesters"][semester_index] = {
                 "number": semester_index,
                 "courses": semester_courses
             }
             semester_index += 1
 
-    # save dict as json file
+    # Remove irrelevant requirements
+    for phase in malla[version]:
+        for semester in malla[version][phase]["semesters"]:
+            for course in malla[version][phase]["semesters"][
+                            semester]["courses"]:
+                course_data = malla[version][phase]["semesters"][
+                            semester]["courses"][course]
+                if course_data["type"] == "course":
+                    course_data["prerequisites"] = [
+                        x for x in course_data["prerequisites"]
+                        if x in added_courses]
+
+    # Save dict as json file
     with open(f"{code}.json", "w", encoding="utf-8") as f:
-        json.dump(malla, f, indent=4, ensure_ascii=False)
+        json.dump(malla, f, ensure_ascii=False,
+                  separators=(',', ': '), indent=4)
 
     # todo get degrees from files and iterate
     # todo create reverse-requisistes

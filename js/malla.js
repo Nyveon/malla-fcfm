@@ -61,7 +61,6 @@ function getPageState(path, degrees) {
 
 
 function courseSelected({prerequisites, selected}) {
-
     if (selected) {
         /* Highlight prerequisites */
         for (let i = 0; i < prerequisites.length; i++) {

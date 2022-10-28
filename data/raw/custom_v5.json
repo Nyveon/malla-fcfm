@@ -1,0 +1,91 @@
+{
+    "----- DCC Custom": 0,
+    "CC4900": {
+        "name": "Taller de Práctica Profesional I",
+        "shortname": "Taller de Práctica I",
+        "credits": 0,
+        "prerequisites": [],
+        "corequisites": [],
+        "type": "course"
+    },
+    "CC6907": {
+        "name": "Introducción al Trabajo de Título",
+        "shortname": "El E",
+        "credits": 6,
+        "prerequisites": ["CC4402"],
+        "corequisites": [],
+        "type": "course"
+    },
+    "CC6919": {
+        "name": "Trabajo de Título",
+        "shortname": "El F",
+        "credits": 24,
+        "prerequisites": ["CC6907"],
+        "corequisites": [],
+        "type": "course"
+    },
+    "----- Plans and electives": 0,
+    "XFIPC": {
+        "name": "Formación Integral",
+        "shortname": "Formación Integral",
+        "credits": 3,
+        "prerequisites": [],
+        "corequisites": [],
+        "type": "plan",
+        "codes": ["EH","FG","DR","EI", "FT"]
+    },
+    "XTQTF": {
+        "name": "Termodinámica o Termodinámica Química",
+        "shortname": "Termo",
+        "credits": 6,
+        "prerequisites": ["IQ2211", "MA2001", "FI2001"],
+        "corequisites": [],
+        "type": "plan",
+        "codes": ["FI2004", "IQ2212"]
+    },
+    "XFILI": {
+        "name": "Formación Integral",
+        "shortname": "Formación Integral",
+        "credits": 3,
+        "prerequisites": [],
+        "corequisites": [],
+        "type": "plan",
+        "codes": ["EH","FG"]
+    },
+    "XELEC": {
+        "name": "Electivo de Licenciatura",
+        "shortname": "Electivo",
+        "credits": 6,
+        "prerequisites": [],
+        "corequisites": [],
+        "type": "plan",
+        "codes": ["Electivo"]
+    },
+    "XESPE": {
+        "name": "Electivo de Especialidad",
+        "shortname": "Electivo Especialidad",
+        "credits": 6,
+        "prerequisites": [],
+        "corequisites": [],
+        "type": "plan",
+        "codes": ["Electivo"]
+    },
+    "XFIES": {
+        "name": "Formación Integral de Especialidad",
+        "shortname": "Formación Integral Esp.",
+        "credits": 3,
+        "prerequisites": [],
+        "corequisites": [],
+        "type": "plan",
+        "codes": ["Electivo"]
+    },
+    "XNGPE": {
+        "name": "Núcleo Gestión para Ingenieros",
+        "shortname": "Núcleo Gestión",
+        "credits": 6,
+        "prerequisites": [],
+        "corequisites": [],
+        "type": "plan",
+        "codes": ["Electivo"]
+    }
+}
