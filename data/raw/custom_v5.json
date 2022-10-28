@@ -5,7 +5,7 @@
         "shortname": "Taller de Práctica I",
         "credits": 0,
         "prerequisites": [],
-        "corequisites": [],
+        "postrequisites": [],
         "type": "course"
     },
     "CC4901": {
@@ -19,6 +19,7 @@
             "CC4900",
             "AUTOR"
         ],
+        "postrequisites": [],
         "type": "course"
     },
     "CC5901": {
@@ -31,6 +32,7 @@
             "CC4101",
             "CC5900"
         ],
+        "postrequisites": [],
         "type": "course"
     },
     "CC6907": {
@@ -39,6 +41,7 @@
         "credits": 6,
         "prerequisites": ["CC4402"],
         "corequisites": [],
+        "postrequisites": [],
         "type": "course"
     },
     "CC6919": {
@@ -47,6 +50,7 @@
         "credits": 24,
         "prerequisites": ["CC6907"],
         "corequisites": [],
+        "postrequisites": [],
         "type": "course"
     },
     "----- Plans and electives": 0,

@@ -7,7 +7,7 @@ $black1: #413a52;
 $black2: #0b0b1d;
 $purple1: #706fd3;
 $purple2: #474787;
-
+$green1: #509e44;
 
 // Element colors and gradients
 $text-white: $white;
@@ -15,7 +15,8 @@ $text-mid: $grey1;
 $text-dark: $black1;
 $text-black: $black2;
 
-$line-color: $purple1;
+$line-color-pre: $purple1;
+$line-color-post: $green1;
 
 $background-gradient: linear-gradient(to bottom, #f7f1e3, #f6e7d6);
 $navbar-color: $grey1;
@@ -64,5 +65,6 @@ $department-gradients: (
 
 
 :root {
-    --line-color: #{$line-color};
+    --line-color-pre: #{$line-color-pre};
+    --line-color-post: #{$line-color-post};
 }

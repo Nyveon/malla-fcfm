@@ -29,19 +29,20 @@ Visualización interactiva de mallas académicas de la Facultad de Ciencias Fís
 ### General features
 
 - [x] SASS for repetitive CSS.
-- [ ] Typescript for better code quality.
+- [x] ~~Typescript for better code quality.~~ (not needed at current scope?)
 - [x] Maybe look into a templating engine. (Looked into it, not necessary for the scope of this project)
 - [ ] Installation and contribution documentation.
 - [ ] Perfect responsive design.
 - [ ] Check load times and accesibility data.
 - [ ] Perfect color palettes.
 - [ ] Fix 404 page flashing on load.
-- [ ] Fix tap on mobile
+- [ ] Fix tap on mobile.
+- [ ] Fix incompatiability with firefox due to navigation api.
 
 #### Data processing
 
 - [x] Basic single degree data processing.
-- [ ] Postrequisite processing.
+- [x] Postrequisite processing.
 - [ ] Automatic data processing for all degrees.
 - [x] Webscraping for course data
 
@@ -70,16 +71,19 @@ Visualización interactiva de mallas académicas de la Facultad de Ciencias Fís
 - [x] Responsive phases and semesters.
 - [x] Prerequisite highlighting.
 - [ ] Altprequisite highlighting.
-- [ ] Postrequisite highlighting.
+- [x] Postrequisite highlighting.
 - [x] ~~Corequisite highlighting.~~ No longer exists!
 - [ ] Color code legend.
 - [ ] Fix: Click to keep highlighted.
-- [ ] Multiple course layer propagation.
+- [x] Multiple course layer propagation.
 - [ ] Propagation depth configuration.
 - [ ] Hide/show 0 credit courses.
 - [ ] Semester alternating color.
 - [ ] Combine same-code courses into one card.
 - [ ] Fix: On mobile you can selected multiple courses
+- [x] Leader lines for prerequisites.
+- [ ] Hide/show leader-lines
+- [ ] Hight quality pre/postrequisite highlighting
 
 ### Mallas
 

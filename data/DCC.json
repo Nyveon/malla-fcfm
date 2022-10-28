@@ -13,6 +13,10 @@
                             "credits": 6,
                             "prerequisites": [],
                             "type": "course",
+                            "postrequisites": [
+                                "MA1002",
+                                "FI1100"
+                            ],
                             "department": "MA"
                         },
                         "MA1101": {
@@ -21,6 +25,11 @@
                             "credits": 6,
                             "prerequisites": [],
                             "type": "course",
+                            "postrequisites": [
+                                "MA1102",
+                                "FI1100",
+                                "CC3101"
+                            ],
                             "department": "MA"
                         },
                         "FI1000": {
@@ -29,6 +38,9 @@
                             "credits": 6,
                             "prerequisites": [],
                             "type": "course",
+                            "postrequisites": [
+                                "FI1100"
+                            ],
                             "department": "FI"
                         },
                         "CC1000": {
@@ -37,6 +49,7 @@
                             "credits": 3,
                             "prerequisites": [],
                             "type": "course",
+                            "postrequisites": [],
                             "department": "CC"
                         },
                         "CD1100": {
@@ -45,6 +58,9 @@
                             "credits": 6,
                             "prerequisites": [],
                             "type": "course",
+                            "postrequisites": [
+                                "CD1201"
+                            ],
                             "department": "CD"
                         },
                         "BT1211": {
@@ -53,6 +69,7 @@
                             "credits": 3,
                             "prerequisites": [],
                             "type": "course",
+                            "postrequisites": [],
                             "department": "BT"
                         }
                     }
@@ -68,6 +85,12 @@
                                 "MA1001"
                             ],
                             "type": "course",
+                            "postrequisites": [
+                                "MA2001",
+                                "MA2601",
+                                "FI2001",
+                                "FI2003"
+                            ],
                             "department": "MA"
                         },
                         "MA1102": {
@@ -78,6 +101,11 @@
                                 "MA1101"
                             ],
                             "type": "course",
+                            "postrequisites": [
+                                "MA2001",
+                                "MA2601",
+                                "FI2001"
+                            ],
                             "department": "MA"
                         },
                         "FI1100": {
@@ -90,6 +118,10 @@
                                 "MA1001"
                             ],
                             "type": "course",
+                            "postrequisites": [
+                                "FI2001",
+                                "FI2003"
+                            ],
                             "department": "FI"
                         },
                         "CC1002": {
@@ -98,6 +130,11 @@
                             "credits": 6,
                             "prerequisites": [],
                             "type": "course",
+                            "postrequisites": [
+                                "CC3501",
+                                "CC3001",
+                                "CC3101"
+                            ],
                             "department": "CC"
                         },
                         "CD1201": {
@@ -108,6 +145,9 @@
                                 "CD1100"
                             ],
                             "type": "course",
+                            "postrequisites": [
+                                "CD2201"
+                            ],
                             "department": "CD"
                         },
                         "XFIPC5": {
@@ -124,6 +164,7 @@
                                 "EI",
                                 "FT"
                             ],
+                            "postrequisites": [],
                             "code": "EH/FG/DR/EI/FT",
                             "department": "XF"
                         }
@@ -141,6 +182,13 @@
                                 "MA1102"
                             ],
                             "type": "course",
+                            "postrequisites": [
+                                "MA2002",
+                                "IN2201",
+                                "FI2002",
+                                "MA3403",
+                                "CC3501"
+                            ],
                             "department": "MA"
                         },
                         "MA2601": {
@@ -152,6 +200,11 @@
                                 "MA1102"
                             ],
                             "type": "course",
+                            "postrequisites": [
+                                "MA2002",
+                                "FI2002",
+                                "CC3501"
+                            ],
                             "department": "MA"
                         },
                         "FI2001": {
@@ -164,6 +217,9 @@
                                 "MA1102"
                             ],
                             "type": "course",
+                            "postrequisites": [
+                                "CC3501"
+                            ],
                             "department": "FI"
                         },
                         "FI2003": {
@@ -175,6 +231,9 @@
                                 "FI1100"
                             ],
                             "type": "course",
+                            "postrequisites": [
+                                "FI2002"
+                            ],
                             "department": "FI"
                         },
                         "IQ2211": {
@@ -183,6 +242,7 @@
                             "credits": 6,
                             "prerequisites": [],
                             "type": "course",
+                            "postrequisites": [],
                             "department": "IQ"
                         }
                     }
@@ -199,6 +259,7 @@
                                 "MA2601"
                             ],
                             "type": "course",
+                            "postrequisites": [],
                             "department": "MA"
                         },
                         "IN2201": {
@@ -209,6 +270,9 @@
                                 "MA2001"
                             ],
                             "type": "course",
+                            "postrequisites": [
+                                "CC4402"
+                            ],
                             "department": "IN"
                         },
                         "FI2002": {
@@ -221,6 +285,7 @@
                                 "MA2601"
                             ],
                             "type": "course",
+                            "postrequisites": [],
                             "department": "FI"
                         },
                         "XTQTF3": {
@@ -238,6 +303,7 @@
                                 "FI2004",
                                 "IQ2212"
                             ],
+                            "postrequisites": [],
                             "code": "FI2004/IQ2212",
                             "department": "XT"
                         },
@@ -249,6 +315,9 @@
                                 "CD1201"
                             ],
                             "type": "course",
+                            "postrequisites": [
+                                "CC4402"
+                            ],
                             "department": "CD"
                         },
                         "XFIPC5": {
@@ -265,6 +334,7 @@
                                 "EI",
                                 "FT"
                             ],
+                            "postrequisites": [],
                             "code": "EH/FG/DR/EI/FT",
                             "department": "XF"
                         }
@@ -286,6 +356,9 @@
                                 "MA2001"
                             ],
                             "type": "course",
+                            "postrequisites": [
+                                "CC4102"
+                            ],
                             "department": "MA"
                         },
                         "CC3501": {
@@ -299,6 +372,7 @@
                                 "FI2001"
                             ],
                             "type": "course",
+                            "postrequisites": [],
                             "department": "CC"
                         },
                         "CC3001": {
@@ -309,6 +383,13 @@
                                 "CC1002"
                             ],
                             "type": "course",
+                            "postrequisites": [
+                                "CC3201",
+                                "CC3002",
+                                "CC3301",
+                                "CC5205",
+                                "CC4102"
+                            ],
                             "department": "CC"
                         },
                         "CC3101": {
@@ -320,6 +401,9 @@
                                 "MA1101"
                             ],
                             "type": "course",
+                            "postrequisites": [
+                                "CC3102"
+                            ],
                             "department": "CC"
                         },
                         "XFILI4": {
@@ -333,6 +417,7 @@
                                 "EH",
                                 "FG"
                             ],
+                            "postrequisites": [],
                             "code": "EH/FG",
                             "department": "XF"
                         },
@@ -347,6 +432,7 @@
                                 "EH",
                                 "FG"
                             ],
+                            "postrequisites": [],
                             "code": "EH/FG",
                             "department": "XF"
                         }
@@ -363,6 +449,10 @@
                                 "CC3001"
                             ],
                             "type": "course",
+                            "postrequisites": [
+                                "CC4401",
+                                "CC4901"
+                            ],
                             "department": "CC"
                         },
                         "CC3002": {
@@ -373,6 +463,10 @@
                                 "CC3001"
                             ],
                             "type": "course",
+                            "postrequisites": [
+                                "CC4401",
+                                "CC4901"
+                            ],
                             "department": "CC"
                         },
                         "CC3102": {
@@ -383,6 +477,10 @@
                                 "CC3101"
                             ],
                             "type": "course",
+                            "postrequisites": [
+                                "CC4102",
+                                "CC4101"
+                            ],
                             "department": "CC"
                         },
                         "CC3301": {
@@ -393,6 +491,10 @@
                                 "CC3001"
                             ],
                             "type": "course",
+                            "postrequisites": [
+                                "CC4302",
+                                "CC4901"
+                            ],
                             "department": "CC"
                         },
                         "XELEC4": {
@@ -405,6 +507,7 @@
                             "codes": [
                                 "Electivo"
                             ],
+                            "postrequisites": [],
                             "code": "Electivo",
                             "department": "XE"
                         },
@@ -413,7 +516,9 @@
                             "shortname": "Taller de Práctica I",
                             "credits": 0,
                             "prerequisites": [],
-                            "corequisites": [],
+                            "postrequisites": [
+                                "CC4901"
+                            ],
                             "type": "course",
                             "code": "CC4900",
                             "department": "CC"
@@ -431,6 +536,7 @@
                                 "CC3001"
                             ],
                             "type": "course",
+                            "postrequisites": [],
                             "department": "CC"
                         },
                         "CC4401": {
@@ -442,6 +548,10 @@
                                 "CC3201"
                             ],
                             "type": "course",
+                            "postrequisites": [
+                                "CC4402",
+                                "CC5901"
+                            ],
                             "department": "CC"
                         },
                         "CC4102": {
@@ -454,6 +564,9 @@
                                 "CC3102"
                             ],
                             "type": "course",
+                            "postrequisites": [
+                                "CC5402"
+                            ],
                             "department": "CC"
                         },
                         "CC4302": {
@@ -464,6 +577,9 @@
                                 "CC3301"
                             ],
                             "type": "course",
+                            "postrequisites": [
+                                "CC4303"
+                            ],
                             "department": "CC"
                         },
                         "XELEC4": {
@@ -476,6 +592,7 @@
                             "codes": [
                                 "Electivo"
                             ],
+                            "postrequisites": [],
                             "code": "Electivo",
                             "department": "XE"
                         },
@@ -488,6 +605,9 @@
                                 "CC3201",
                                 "CC3301",
                                 "CC4900"
+                            ],
+                            "postrequisites": [
+                                "CC5901"
                             ],
                             "type": "course",
                             "department": "CC"
@@ -507,6 +627,9 @@
                                 "IN2201"
                             ],
                             "type": "course",
+                            "postrequisites": [
+                                "CC6907"
+                            ],
                             "department": "CC"
                         },
                         "CC4101": {
@@ -517,6 +640,9 @@
                                 "CC3102"
                             ],
                             "type": "course",
+                            "postrequisites": [
+                                "CC5901"
+                            ],
                             "department": "CC"
                         },
                         "CC4303": {
@@ -527,6 +653,9 @@
                                 "CC4302"
                             ],
                             "type": "course",
+                            "postrequisites": [
+                                "CC5402"
+                            ],
                             "department": "CC"
                         },
                         "XELEC3": {
@@ -539,6 +668,7 @@
                             "codes": [
                                 "Electivo"
                             ],
+                            "postrequisites": [],
                             "code": "Electivo",
                             "department": "XE"
                         },
@@ -552,6 +682,7 @@
                             "codes": [
                                 "Electivo"
                             ],
+                            "postrequisites": [],
                             "code": "Electivo",
                             "department": "XE"
                         },
@@ -561,6 +692,9 @@
                             "credits": 0,
                             "prerequisites": [],
                             "type": "course",
+                            "postrequisites": [
+                                "EI2090"
+                            ],
                             "department": "EI"
                         },
                         "CC5900": {
@@ -569,6 +703,9 @@
                             "credits": 0,
                             "prerequisites": [],
                             "type": "course",
+                            "postrequisites": [
+                                "CC5901"
+                            ],
                             "department": "CC"
                         }
                     }
@@ -591,6 +728,7 @@
                             "codes": [
                                 "Electivo"
                             ],
+                            "postrequisites": [],
                             "code": "Electivo",
                             "department": "XE"
                         },
@@ -604,6 +742,7 @@
                             "codes": [
                                 "Electivo"
                             ],
+                            "postrequisites": [],
                             "code": "Electivo",
                             "department": "XE"
                         },
@@ -617,6 +756,7 @@
                             "codes": [
                                 "Electivo"
                             ],
+                            "postrequisites": [],
                             "code": "Electivo",
                             "department": "XE"
                         },
@@ -630,6 +770,7 @@
                             "codes": [
                                 "Electivo"
                             ],
+                            "postrequisites": [],
                             "code": "Electivo",
                             "department": "XN"
                         },
@@ -643,6 +784,7 @@
                             "codes": [
                                 "Electivo"
                             ],
+                            "postrequisites": [],
                             "code": "Electivo",
                             "department": "XF"
                         },
@@ -656,6 +798,7 @@
                             "codes": [
                                 "Electivo"
                             ],
+                            "postrequisites": [],
                             "code": "Electivo",
                             "department": "XF"
                         },
@@ -669,6 +812,7 @@
                                 "CC4101",
                                 "CC5900"
                             ],
+                            "postrequisites": [],
                             "type": "course",
                             "department": "CC"
                         }
@@ -685,6 +829,9 @@
                                 "CC4402"
                             ],
                             "corequisites": [],
+                            "postrequisites": [
+                                "CC6919"
+                            ],
                             "type": "course",
                             "code": "CC6907",
                             "department": "CC"
@@ -699,6 +846,7 @@
                             "codes": [
                                 "Electivo"
                             ],
+                            "postrequisites": [],
                             "code": "Electivo",
                             "department": "XE"
                         },
@@ -712,6 +860,7 @@
                             "codes": [
                                 "Electivo"
                             ],
+                            "postrequisites": [],
                             "code": "Electivo",
                             "department": "XE"
                         },
@@ -724,6 +873,7 @@
                                 "CC4102"
                             ],
                             "type": "course",
+                            "postrequisites": [],
                             "department": "CC"
                         }
                     }
@@ -739,6 +889,7 @@
                                 "CC6907"
                             ],
                             "corequisites": [],
+                            "postrequisites": [],
                             "type": "course",
                             "code": "CC6919",
                             "department": "CC"
@@ -753,6 +904,7 @@
                             "codes": [
                                 "Electivo"
                             ],
+                            "postrequisites": [],
                             "code": "Electivo",
                             "department": "XE"
                         },
@@ -764,6 +916,7 @@
                                 "EI1090"
                             ],
                             "type": "course",
+                            "postrequisites": [],
                             "department": "EI"
                         }
                     }

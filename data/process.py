@@ -49,6 +49,7 @@ def main():
                 course_data = courses_v5.get(course)
                 course_data["prerequisites"] = flatten(
                     course_data["prerequisites"])
+                course_data["postrequisites"] = []
                 if course_data["type"] == "course":
                     semester_courses[course] = course_data
                     semester_courses[course]["code"] = course
@@ -78,13 +79,42 @@ def main():
                         x for x in course_data["prerequisites"]
                         if x in added_courses]
 
+    # Add postrequisites
+    for phase in malla[version]:
+        for semester in malla[version][phase]["semesters"]:
+            for course in malla[version][phase]["semesters"][
+                            semester]["courses"]:
+                course_data = malla[version][phase]["semesters"][
+                            semester]["courses"][course]
+                if course_data["type"] == "course":
+                    for prereq in course_data["prerequisites"]:
+                        prereq_data = None
+                        for phase2 in malla[version]:
+                            for semester2 in malla[version][
+                                    phase2]["semesters"]:
+                                for course2 in malla[version][
+                                        phase2]["semesters"][
+                                            semester2]["courses"]:
+                                    if course2 == prereq:
+                                        prereq_data = malla[version][
+                                            phase2]["semesters"][
+                                                semester2]["courses"][course2]
+                                        break
+                                if prereq_data:
+                                    break
+                            if prereq_data:
+                                break
+                        if prereq_data:
+                            if "postrequisites" not in prereq_data:
+                                prereq_data["postrequisites"] = []
+                            prereq_data["postrequisites"].append(course)
+
     # Save dict as json file
     with open(f"{code}.json", "w", encoding="utf-8") as f:
         json.dump(malla, f, ensure_ascii=False,
                   separators=(',', ': '), indent=4)
 
     # todo get degrees from files and iterate
-    # todo create reverse-requisistes
     print("Done.")
     return 0
 

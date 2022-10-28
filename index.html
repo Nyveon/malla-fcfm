@@ -26,7 +26,7 @@
             degrees: [],
             version: $persist('v5'),
             depthpre: 6,
-            depthpost: $persist(1)
+            depthpost: 6
         }"
         x-init="degrees = await (await fetch('/data/degrees.json')).json();"
         @popstate.window="path = location.pathname.replace(/^\/|\/$/g, '');">
@@ -97,6 +97,7 @@
                                                             :id="course.code"
                                                             x-data="{
                                                                 prerequisites: course.prerequisites,
+                                                                postrequisites: course.postrequisites,
                                                                 selected: false,
                                                                 depthpre: depthpre,
                                                                 depthpost: depthpost,
@@ -109,7 +110,8 @@
                                                                 course.department,
                                                                 selected ? 'selected' : ''
                                                             ]"
-                                                            :data-prereqs="course.prerequisites">
+                                                            :data-prereqs="course.prerequisites"
+                                                            :data-postreqs="course.postrequisites">
                                                             <div class="course-bar">
                                                                 <span class="course-code" x-text="course.code"></span>
                                                                 <span class="course-credits" x-text="course.credits"></span>

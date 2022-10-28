@@ -75,9 +75,17 @@ $darken-prereq: 0.5;
     filter: brightness($darken-prereq);
 }
 
+.course.postrequisite {
+    filter: brightness(calc(1 + $darken-prereq));
+}
+
 @for $i from 1 through 10 {
     .course.prerequisite.depth-#{$i} {
         filter: brightness(calc(#{$darken-prereq} + #{$i} / 20));
+    }
+
+    .course.postrequisite.depth-#{$i} {
+        filter: brightness(calc(#{$darken-prereq} + 1 - #{$i} / 20));
     }
 }
 

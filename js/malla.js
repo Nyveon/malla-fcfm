@@ -61,9 +61,21 @@ function getPageState(path, degrees) {
 
 const lines = [];
 
-function courseSelected({prerequisites, selected, depthpre, depthpost, id}) {
+/**
+ * Selects the current course, and propagates changes as necessary
+ * @param {object} params:
+ *  @param {list} prerequisites list of preqrequisite course IDs
+ *  @param {list} postrequisites list of postrequisite course IDs
+ *  @param {boolean} selected true for selected, false for unselected
+ *  @param {int} depthpre the depth of the prerequisite tree
+ *  @param {int} depthpost the depth of the postrequisite tree
+ *  @param {string} id ID of the course to select
+ */
+function courseSelected({prerequisites, postrequisites, selected, depthpre, depthpost, id}) {
     propagatePrereq(prerequisites, 0, depthpre, selected, id);
+    propagatePostreq(postrequisites, 0, depthpost, selected, id);
 
+    // Delete all leader-lines
     if (!selected) {
         for (let i = lines.length - 1; i >= 0; i--) {
             lines[i].remove();
@@ -72,48 +84,100 @@ function courseSelected({prerequisites, selected, depthpre, depthpost, id}) {
     }
 }
 
-function propagatePrereq(prerequisites, depth, maxdepth, state, id) {
-    if (depth == maxdepth) {
-        return;
+/**
+ * Creates a leader line between two elements
+ * @param {id} start element id
+ * @param {id} end element id
+ * @param {string} color CSS variable name
+ * @param {boolean} flipped true if the line should be flipped
+ */
+function createLine(start, end, color) {
+    const line = new LeaderLine(start, end, {
+        color: 'red',
+        startSocket: 'bottom',
+        startSocketGravity: 0,
+        endSocket: 'top',
+        endSocketGravity: 0,
+        path: 'fluid',
+        size: 2,
+        dropShadow: {blur: 5, dx: 3, dy: 3},
+        color: getComputedStyle(document.documentElement)
+        .getPropertyValue(color)
+    });
+    lines.push(line);
+}
+
+/**
+ * Adds the corresponding relative depth class to an element
+ * @param {element} element element to add the class to
+ * @param {int} depth current depth
+ * @param {int} maxdepth maximum depth
+ */
+function addDepthClass(element, depth, maxdepth) {
+    element.classList.add(`depth-${Math.floor(10 * depth / maxdepth)}`);
+}
+
+/**
+ * Removes all depth classes from an element
+ * @param {element} element element to remove the classes from
+ */
+function removeDepthClasses(element) {
+    for (let i = element.classList.length - 1; i >= 0; i--) {
+        const className = element.classList[i];
+        if (className.startsWith('depth-')) {
+            element.classList.remove(className);
+        }
     }
+}
+
+
+function propagatePrereq(prerequisites, depth, maxdepth, state, id) {
+    if (depth == maxdepth) {return;}
 
     for (let i = 0; i < prerequisites.length; i++) {
         let prereq = document.getElementById(prerequisites[i]);
-        if (!prereq) {
-            continue;
-        }
+        if (!prereq) {continue;}
+
         if (state) {
             if (!prereq.classList.contains('prerequisite')) {
                 prereq.classList.add('prerequisite');
-                prereq.classList.add(`depth-${Math.floor(10 * depth / maxdepth)}`);
-                const line = new LeaderLine(prereq, id, {
-                    color: 'red',
-                    startSocket: 'bottom',
-                    startSocketGravity: 0,
-                    endSocket: 'top',
-                    endSocketGravity: 0,
-                    path: 'grid',
-                    size: 2,
-                    dropShadow: {blur: 5, dx: 3, dy: 3},
-                    color: getComputedStyle(document.documentElement)
-                            .getPropertyValue('--line-color'),
-                });
-                lines.push(line);
+                addDepthClass(prereq, depth, maxdepth);
+                createLine(prereq, id, '--line-color-pre', false);
             }
         } else {
             if (prereq.classList.contains('prerequisite')) {
                 prereq.classList.remove('prerequisite');
-                for (let i = prereq.classList.length - 1; i >= 0; i--) {
-                    const className = prereq.classList[i];
-                    if (className.startsWith('depth-')) {
-                        prereq.classList.remove(className);
-                    }
-                }
+                removeDepthClasses(prereq);
             }
         }
         let prereqPrereqs = prereq.dataset.prereqs;
         let prereqPrereqsList = prereqPrereqs.split(',');
         propagatePrereq(prereqPrereqsList, depth + 1, maxdepth, state, prereq);
+    }
+}
+
+function propagatePostreq(postrequisites, depth, maxdepth, state, id) {
+    if (depth == maxdepth) {return;}
+
+    for (let i = 0; i < postrequisites.length; i++) {
+        let postreq = document.getElementById(postrequisites[i]);
+        if (!postreq) {continue;}
+
+        if (state) {
+            if (!postreq.classList.contains('postrequisite')) {
+                postreq.classList.add('postrequisite');
+                addDepthClass(postreq, depth, maxdepth);
+                createLine(id, postreq, '--line-color-post');
+            }
+        } else {
+            if (postreq.classList.contains('postrequisite')) {
+                postreq.classList.remove('postrequisite');
+                removeDepthClasses(postreq);
+            }
+        }
+        let postreqPostreqs = postreq.dataset.postreqs;
+        let postreqPostreqsList = postreqPostreqs.split(',');
+        propagatePostreq(postreqPostreqsList, depth + 1, maxdepth, state, postreq);
     }
 }
 
