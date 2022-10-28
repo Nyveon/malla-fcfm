@@ -69,8 +69,16 @@
     filter: brightness(1.5);
 }
 
+$darken-prereq: 0.5;
+
 .course.prerequisite {
-    filter: brightness(0.5);
+    filter: brightness($darken-prereq);
+}
+
+@for $i from 1 through 10 {
+    .course.prerequisite.depth-#{$i} {
+        filter: brightness(calc(#{$darken-prereq} + #{$i} / 20));
+    }
 }
 
 // Department decorators

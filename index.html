@@ -23,7 +23,9 @@
         x-data="{
             path: location.pathname.replace(/^\/|\/$/g, ''),
             degrees: [],
-            version: $persist('v5')
+            version: $persist('v5'),
+            depthpre: 5,
+            depthpost: $persist(1)
         }"
         x-init="degrees = await (await fetch('/data/degrees.json')).json();"
         @popstate.window="path = location.pathname.replace(/^\/|\/$/g, '');">
@@ -94,7 +96,9 @@
                                                             :id="course.code"
                                                             x-data="{
                                                                 prerequisites: course.prerequisites,
-                                                                selected: false
+                                                                selected: false,
+                                                                depthpre: depthpre,
+                                                                depthpost: depthpost
                                                             }"
                                                             @mouseenter="selected = true; courseSelected($data);"
                                                             @mouseleave="selected = false; courseSelected($data);"
@@ -103,7 +107,7 @@
                                                                 course.department,
                                                                 selected ? 'selected' : ''
                                                             ]"
-                                                        >
+                                                            :data-prereqs="course.prerequisites">
                                                             <div class="course-bar">
                                                                 <span class="course-code" x-text="course.code"></span>
                                                                 <span class="course-credits" x-text="course.credits"></span>

@@ -60,18 +60,39 @@ function getPageState(path, degrees) {
 }
 
 
-function courseSelected({prerequisites, selected}) {
-    if (selected) {
-        /* Highlight prerequisites */
-        for (let i = 0; i < prerequisites.length; i++) {
-            let prereq = document.getElementById(prerequisites[i]);
-            prereq.classList.add("prerequisite");
+function courseSelected({prerequisites, selected, depthpre, depthpost}) {
+    propagatePrereq(prerequisites, 0, depthpre, selected);
+}
+
+function propagatePrereq(prerequisites, depth, maxdepth, state) {
+    if (depth == maxdepth) {
+        return;
+    }
+
+    for (let i = 0; i < prerequisites.length; i++) {
+        let prereq = document.getElementById(prerequisites[i]);
+        if (!prereq) {
+            continue;
         }
-    } else {
-        /* Remove highlight from prerequisites */
-        for (let i = 0; i < prerequisites.length; i++) {
-            let prereq = document.getElementById(prerequisites[i]);
-            prereq.classList.remove("prerequisite");
+        if (state) {
+            if (!prereq.classList.contains('prerequisite')) {
+                prereq.classList.add('prerequisite');
+                prereq.classList.add(`depth-${Math.floor(10 * depth / maxdepth)}`);
+            }
+        } else {
+            if (prereq.classList.contains('prerequisite')) {
+                prereq.classList.remove('prerequisite');
+                for (let i = prereq.classList.length - 1; i >= 0; i--) {
+                    const className = prereq.classList[i];
+                    if (className.startsWith('depth-')) {
+                        prereq.classList.remove(className);
+                    }
+                }
+            }
         }
+        let prereqPrereqs = prereq.dataset.prereqs;
+        let prereqPrereqsList = prereqPrereqs.split(',');
+        propagatePrereq(prereqPrereqsList, depth + 1, maxdepth, state);
     }
 }
+

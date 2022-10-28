@@ -78,6 +78,7 @@ Visualización interactiva de mallas académicas de la Facultad de Ciencias Fís
 - [ ] Hide/show 0 credit courses.
 - [ ] Semester alternating color.
 - [ ] Combine same-code courses into one card.
+- [ ] Fix: On mobile you can selected multiple courses
 
 ### Mallas
 

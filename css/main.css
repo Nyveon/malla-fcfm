@@ -273,6 +273,46 @@ main {
   filter: brightness(0.5);
 }
 
+.course.prerequisite.depth-1 {
+  filter: brightness(calc(0.5 + 1 / 20));
+}
+
+.course.prerequisite.depth-2 {
+  filter: brightness(calc(0.5 + 2 / 20));
+}
+
+.course.prerequisite.depth-3 {
+  filter: brightness(calc(0.5 + 3 / 20));
+}
+
+.course.prerequisite.depth-4 {
+  filter: brightness(calc(0.5 + 4 / 20));
+}
+
+.course.prerequisite.depth-5 {
+  filter: brightness(calc(0.5 + 5 / 20));
+}
+
+.course.prerequisite.depth-6 {
+  filter: brightness(calc(0.5 + 6 / 20));
+}
+
+.course.prerequisite.depth-7 {
+  filter: brightness(calc(0.5 + 7 / 20));
+}
+
+.course.prerequisite.depth-8 {
+  filter: brightness(calc(0.5 + 8 / 20));
+}
+
+.course.prerequisite.depth-9 {
+  filter: brightness(calc(0.5 + 9 / 20));
+}
+
+.course.prerequisite.depth-10 {
+  filter: brightness(calc(0.5 + 10 / 20));
+}
+
 .AS .course-bar {
   background: linear-gradient(to right, #0f0c29, #302b63);
 }
