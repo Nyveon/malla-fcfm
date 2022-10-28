@@ -59,7 +59,31 @@ function getPageState(path, degrees) {
     }
 }
 
+/* Course interaction --------------------------------------------- */
+
+/**
+ * Returns if the window is a touch device
+ * @returns {boolean} true if the window is a touch device, else false
+ */
+function isTouchEvent() {
+    return 'ontouchstart' in document.documentElement
+            || navigator.maxTouchPoints > 0
+            || navigator.msMaxTouchPoints > 0;
+}
+
 const lines = [];
+let currentSelected = null;
+
+/**
+ * Removes all leader lines from the page
+ */
+function removeLines() {
+    for (let i = lines.length - 1; i >= 0; i--) {
+        lines[i].remove();
+        lines.splice(i, 1);
+    }
+}
+
 
 /**
  * Selects the current course, and propagates changes as necessary
@@ -69,17 +93,47 @@ const lines = [];
  *  @param {boolean} selected true for selected, false for unselected
  *  @param {int} depthpre the depth of the prerequisite tree
  *  @param {int} depthpost the depth of the postrequisite tree
- *  @param {string} id ID of the course to select
+ *  @param {string} element the course element to select
+ * @param {string} event the name of the event that triggered the selection
  */
-function courseSelected({prerequisites, postrequisites, selected, depthpre, depthpost, id}) {
-    propagatePrereq(prerequisites, 0, depthpre, selected, id);
-    propagatePostreq(postrequisites, 0, depthpost, selected, id);
+function courseSelected({prerequisites, postrequisites, depthpre, depthpost, element}, event) {
+    let selected = element.classList.contains('selected');
 
-    // Delete all leader-lines
-    if (!selected) {
-        for (let i = lines.length - 1; i >= 0; i--) {
-            lines[i].remove();
-            lines.splice(i, 1);
+    if (isTouchEvent()) {
+        if (event === 'touchstart') {
+            if (selected) {
+                element.classList.remove('selected');
+                propagatePrereq(prerequisites, 0, 12, false, element);
+                propagatePostreq(postrequisites, 0, 12, false, element);
+                removeLines();
+                currentSelected = null;
+            } else {
+                element.classList.add('selected');
+                if (currentSelected) { // Unpropagate and unselect whatever was already selected
+                    currentSelected.classList.remove('selected');
+                    propagatePrereq(getPrereqs(currentSelected), 0, 12, false, currentSelected);
+                    propagatePostreq(getPostreqs(currentSelected), 0, 12, false, currentSelected);
+                    removeLines();
+                }
+                propagatePrereq(prerequisites, 0, depthpre, true, element);
+                propagatePostreq(postrequisites, 0, depthpost, true, element);
+                currentSelected = element;
+            }
+        }
+    } else {
+        if (event === 'mouseenter') { selected = true; }
+        if (event === 'mouseleave') { selected = false; }
+
+        propagatePrereq(prerequisites, 0, depthpre, selected, element);
+        propagatePostreq(postrequisites, 0, depthpost, selected, element);
+
+        // Delete all leader-lines and update selected class
+        if (selected) {
+            element.classList.add('selected');
+            currentSelected = element;
+        } else {
+            removeLines();
+            element.classList.remove('selected');
         }
     }
 }
@@ -98,12 +152,14 @@ function createLine(start, end, color) {
         startSocketGravity: 10,
         endSocket: 'top',
         endSocketGravity: 10,
-        path: 'magnet',
+        path: 'flow',
         size: 2,
         dropShadow: {blur: 5, dx: 3, dy: 3},
         color: getComputedStyle(document.documentElement)
-        .getPropertyValue(color)
+            .getPropertyValue(color),
+        hide: true
     });
+    line.show('draw', {duration: 200, easing: 'linear'});
     lines.push(line);
 }
 
@@ -130,8 +186,35 @@ function removeDepthClasses(element) {
     }
 }
 
+/**
+ * Gets the prerequisites of a course from the data attribute
+ * @param {element} element element to get the prerequisites from
+ * @returns {list} list of prerequisite course IDs
+ */
+function getPrereqs(element) {
+    const prereqPrereqs = element.dataset.prereqs;
+    return prereqPrereqs.split(',')
+}
 
-function propagatePrereq(prerequisites, depth, maxdepth, state, id) {
+/**
+ * Gets the postrequisites of a course from the data attribute
+ * @param {element} element element to get the postrequisites from
+ * @returns {list} list of postrequisite course IDs
+ */
+function getPostreqs(element) {
+    const postreqPostreqs = element.dataset.postreqs;
+    return postreqPostreqs.split(',')
+}
+
+/**
+ * Propagaste classes for prerequisites tree
+ * @param {list} prerequisites list of string IDs of prerequisite courses
+ * @param {int} depth current depth of the tree
+ * @param {int} maxdepth maximum depth of the tree
+ * @param {boolean} state true for selected, false for unselected
+ * @param {element} element element to propagate from
+ */
+function propagatePrereq(prerequisites, depth, maxdepth, state, element) {
     if (depth == maxdepth) {return;}
 
     for (let i = 0; i < prerequisites.length; i++) {
@@ -142,7 +225,7 @@ function propagatePrereq(prerequisites, depth, maxdepth, state, id) {
             if (!prereq.classList.contains('prerequisite')) {
                 prereq.classList.add('prerequisite');
                 addDepthClass(prereq, depth, maxdepth);
-                createLine(prereq, id, '--line-color-pre', false);
+                createLine(prereq, element, '--line-color-pre', false);
             }
         } else {
             if (prereq.classList.contains('prerequisite')) {
@@ -150,13 +233,20 @@ function propagatePrereq(prerequisites, depth, maxdepth, state, id) {
                 removeDepthClasses(prereq);
             }
         }
-        let prereqPrereqs = prereq.dataset.prereqs;
-        let prereqPrereqsList = prereqPrereqs.split(',');
+        const prereqPrereqsList = getPrereqs(prereq);
         propagatePrereq(prereqPrereqsList, depth + 1, maxdepth, state, prereq);
     }
 }
 
-function propagatePostreq(postrequisites, depth, maxdepth, state, id) {
+/**
+ * Propagaste classes for postrequisites tree
+ * @param {list} prerequisites list of string IDs of postrequisites courses
+ * @param {int} depth current depth of the tree
+ * @param {int} maxdepth maximum depth of the tree
+ * @param {boolean} state true for selected, false for unselected
+ * @param {element} element element to propagate from
+ */
+function propagatePostreq(postrequisites, depth, maxdepth, state, element) {
     if (depth == maxdepth) {return;}
 
     for (let i = 0; i < postrequisites.length; i++) {
@@ -167,7 +257,7 @@ function propagatePostreq(postrequisites, depth, maxdepth, state, id) {
             if (!postreq.classList.contains('postrequisite')) {
                 postreq.classList.add('postrequisite');
                 addDepthClass(postreq, depth, maxdepth);
-                createLine(id, postreq, '--line-color-post');
+                createLine(element, postreq, '--line-color-post');
             }
         } else {
             if (postreq.classList.contains('postrequisite')) {
@@ -175,8 +265,7 @@ function propagatePostreq(postrequisites, depth, maxdepth, state, id) {
                 removeDepthClasses(postreq);
             }
         }
-        let postreqPostreqs = postreq.dataset.postreqs;
-        let postreqPostreqsList = postreqPostreqs.split(',');
+        const postreqPostreqsList = getPostreqs(postreq);
         propagatePostreq(postreqPostreqsList, depth + 1, maxdepth, state, postreq);
     }
 }
