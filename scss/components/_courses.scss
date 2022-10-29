@@ -133,20 +133,18 @@
 }
 
 // Selection effects
-
 $base-opacity: 80%;
 
 @for $i from 0 through 9 {
     .course.prerequisite.depth-#{$i}, .course.postrequisite.depth-#{$i} {
         &:before {
-            opacity: $base-opacity - ($i * 7%) !important;
+            opacity: $base-opacity - ($i * 7%);
         }
     }
 }
 
 
 // Department decorators
-
 @each $department, $gradient in c.$department-gradients {
     .#{$department} .course-bar {
         &:before {
