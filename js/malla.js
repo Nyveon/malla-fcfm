@@ -153,8 +153,8 @@ function createLine(start, end, color) {
         endSocket: 'top',
         endSocketGravity: 10,
         path: 'flow',
-        size: 2,
-        dropShadow: {blur: 5, dx: 3, dy: 3},
+        size: 3,
+        dropShadow: {blur: 4, dx: 3, dy: 3},
         color: getComputedStyle(document.documentElement)
             .getPropertyValue(color),
         hide: true

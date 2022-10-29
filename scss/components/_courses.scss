@@ -21,6 +21,7 @@
     margin-block: 5px;
     display: flex;
     flex-direction: column;
+    position: relative;
     background-color: c.$course-color;
     box-shadow:
         0 1px 1px hsla(45deg, 0%, 0%, 0.075),
@@ -35,17 +36,85 @@
         font-size: 0.9em;
         margin-inline: 5px;
     }
+
+    $outerBorderWidth: 2px;
+	$innerBorderWidth: 2px;
+
+    &:before {
+        content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		transition-duration: 200ms;
+		transition-property: top right bottom left;
+        transition-timing-function: ease-in-out;
+        z-index: -1;
+    }
+
+    &.selected {
+        background: c.$background-gradient;
+
+        &:before {
+            top: -($outerBorderWidth + $innerBorderWidth);
+            right: -($outerBorderWidth + $innerBorderWidth);
+            bottom: -($outerBorderWidth + $innerBorderWidth);
+            left: -($outerBorderWidth + $innerBorderWidth);
+        }
+
+        .course-bar {
+            background: transparent;
+
+            span {
+                color: c.$text-black;
+            }
+
+            &:before {
+                height: 0%;
+            }
+        }
+    }
+}
+
+.course.prerequisite, .course.postrequisite {
+    //background: c.$background-gradient;
+    background: transparent;
+
+    &:before {
+        transition: all 200ms ease-in;
+    }
+
+    .course-bar {
+        background: transparent;
+
+        span {
+            color: c.$text-black;
+        }
+
+        &:before {
+            height: 0%;
+        }
+    }
 }
 
 .course-bar {
     width: 100%;
+    position: relative;
+    height: auto;
     display: flex;
     justify-content: space-between;
-    background-color: #ff0000; // Error color
 
     span {
         margin-inline: 0.3em;
         color: c.$text-white;
+
+        z-index: 1;
+    }
+
+    &:before {
+        height: 100%;
+        transition: all 200ms ease-in;
     }
 }
 
@@ -65,34 +134,43 @@
 
 // Selection effects
 
-.course.selected {
-    filter: brightness(1.5);
-}
+$base-opacity: 80%;
 
-$darken-prereq: 0.5;
-
-.course.prerequisite {
-    filter: brightness($darken-prereq);
-}
-
-.course.postrequisite {
-    filter: brightness(calc(1 + $darken-prereq));
-}
-
-@for $i from 1 through 10 {
-    .course.prerequisite.depth-#{$i} {
-        filter: brightness(calc(#{$darken-prereq} + #{$i} / 20));
-    }
-
-    .course.postrequisite.depth-#{$i} {
-        filter: brightness(calc(#{$darken-prereq} + 1 - #{$i} / 20));
+@for $i from 0 through 9 {
+    .course.prerequisite.depth-#{$i}, .course.postrequisite.depth-#{$i} {
+        &:before {
+            opacity: $base-opacity - ($i * 7%) !important;
+        }
     }
 }
+
 
 // Department decorators
 
 @each $department, $gradient in c.$department-gradients {
     .#{$department} .course-bar {
-        background: $gradient;
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background: $gradient;
+        }
+    }
+
+    .#{$department}.course {
+        &:before {
+            background: $gradient;
+        }
+
+        &.prerequisite:before{
+            background: c.$highlight-gradient-1;
+        }
+
+        &.postrequisite:before{
+            background: c.$highlight-gradient-2;
+        }
     }
 }

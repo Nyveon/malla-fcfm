@@ -8,6 +8,7 @@ $black2: #0b0b1d;
 $purple1: #706fd3;
 $purple2: #474787;
 $green1: #509e44;
+$green2: #2b7442;
 
 // Element colors and gradients
 $text-white: $white;
@@ -18,6 +19,7 @@ $text-black: $black2;
 $line-color-pre: $purple1;
 $line-color-post: $green1;
 
+$background-color: #f7f1e3;
 $background-gradient: linear-gradient(to bottom, #f7f1e3, #f6e7d6);
 $navbar-color: $grey1;
 
@@ -29,6 +31,8 @@ $phase-color-line: $grey1;
 
 $course-color: $grey1;
 
+$highlight-gradient-1: linear-gradient(to bottom, #{$purple1}, #{$purple2});
+$highlight-gradient-2: linear-gradient(to bottom, #{$green1}, #{$green2});
 
 // Department gradients
 // https://uigradients.com

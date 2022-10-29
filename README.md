@@ -87,7 +87,7 @@ ES: Visualización interactiva de mallas académicas de la Facultad de Ciencias 
 - [x] Fix: On mobile you can select multiple courses
 - [x] Leader lines for prerequisites.
 - [ ] Hide/show leader-lines
-- [ ] High quality pre/postrequisite highlighting
+- [x] High quality pre/postrequisite highlighting
 
 ### Mallas
 
