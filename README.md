@@ -38,10 +38,11 @@ ES: Visualización interactiva de mallas académicas de la Facultad de Ciencias 
 - [ ] Perfect responsive design.
 - [ ] Check load times and accesibility data.
 - [ ] Perfect color palettes.
-- [ ] Fix 404 page flashing on load.
+- [x] Fix 404 page flashing on load.
 - [x] Fix tap on mobile.
-- [ ] Fix incompatiability with firefox due to navigation api.
-- [ ] Fix leader lines being drawn after leaving.
+- [x] Fix incompatiability with firefox due to navigation api.
+- [x] Fix firefox writing orientation causing sizing issues
+- [x] Fix leader lines being drawn after leaving.
 
 #### Data processing
 

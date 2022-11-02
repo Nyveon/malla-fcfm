@@ -22,20 +22,21 @@
     </head>
     <body
         x-data="{
-            path: location.pathname.replace(/^\/|\/$/g, ''),
+            path: getPathname(),
             degrees: [],
             version: $persist('v5'),
             depthpre: 1,
             depthpost: 1
         }"
         x-init="degrees = await (await fetch('/data/degrees.json')).json();"
-        @popstate.window="path = location.pathname.replace(/^\/|\/$/g, '');">
+        @popstate.window="path = getPathname();"
+        @pushstate.window="path = getPathname();">
 
         <nav>
             <div id="nav-left" class="nav-col">
                 <template x-if="getPageState(path, degrees) == 1">
                     <div class="breadcrumb">
-                        <a href="/">Mallas</a>
+                        <a class="page-link" @click.prevent="navigate($el);$dispatch('pushstate');" href="/">Mallas</a>
                         <span x-text="`> ${degrees[path].code}`"></span>
                     </div>
                 </template>
@@ -57,7 +58,7 @@
             <template x-if="getPageState(path, degrees) == 0">
                 <div class="card-grid">
                     <template x-for="item in degrees">
-                        <a class="page-link" :href="`${item.code}`">
+                        <a class="page-link" :href="`${item.code}`" @click.prevent="navigate($el);$dispatch('pushstate');">
                             <article class="card">
                                 <img :src="`./images/splashes/${item.code}.jpg`" class="card-image" />
                                 <div class="card-text">

@@ -1,18 +1,6 @@
 @use "../values/colors" as c;
 @use "../values/sizes" as s;
 
-.courses {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    width: 100%;
-
-    @media only screen and (max-width: s.$breakpoint-medium) {
-        align-items: center;
-        justify-content: center;
-    }
-}
-
 .course {
     min-width: s.$course-width;
     max-width: s.$course-width;
@@ -115,6 +103,10 @@
     &:before {
         height: 100%;
         transition: all 200ms ease-in;
+    }
+
+    @media only screen and (max-width: s.$breakpoint-small) {
+        font-size: 0.8rem;
     }
 }
 

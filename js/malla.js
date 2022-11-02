@@ -7,26 +7,24 @@
 
 /*  Routing --------------------------------------------- */
 
-// Interception of  navigation events.
-navigation.addEventListener('navigate', navigateEvent => {
-    const url = new URL(navigateEvent.destination.url);
+/**
+ * Pushes a new state without changing the page. Element must prevent default.
+ * @param {element} element the element calling the navigation
+ */
+function navigate(element) {
+    const url = new URL(element.href);
+    history.pushState({}, '', url.pathname);
+}
 
-    if (url.pathname === '/') {
-        navigateEvent.intercept({
-            async handler() {
-                state.page = "home";
-            }
-        });
-    } else {
-        navigateEvent.intercept({
-            async handler() {
-                state.page = url.pathname.slice(1);
-                console.log(state)
-            }
-        });
-    }
-});
-
+/**
+ * Parses the path name. Removes any lead lines
+ * Note: This should ONLY run on state push or pop
+ * @returns {string} the important part of the current path
+ */
+function getPathname() {
+    removeLines();
+    return location.pathname.replace(/^\/|\/$/g, '');
+}
 
 // Single Page Apps for GitHub Pages, MIT License
 // https://github.com/rafgraph/spa-github-pages
