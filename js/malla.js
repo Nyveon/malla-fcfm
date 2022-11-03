@@ -144,6 +144,7 @@ function courseSelected({prerequisites, postrequisites, depthpre, depthpost, ele
  * @param {boolean} flipped true if the line should be flipped
  */
 function createLine(start, end, color) {
+    if (window.getComputedStyle(start).display === 'none') { return; }
     const line = new LeaderLine(start, end, {
         color: 'red',
         startSocket: 'bottom',

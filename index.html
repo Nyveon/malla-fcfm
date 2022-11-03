@@ -106,7 +106,10 @@
                                                             @mouseenter="courseSelected($data, 'mouseenter');"
                                                             @mouseleave="courseSelected($data, 'mouseleave');"
                                                             @click="courseSelected($data, 'click');"
-                                                            :class="course.department"
+                                                            :class="[
+                                                                course.department,
+                                                                course.credits == 0 ? 'course-zero' : '',
+                                                            ]"
                                                             :data-prereqs="course.prerequisites"
                                                             :data-postreqs="course.postrequisites">
                                                             <div class="course-bar">
