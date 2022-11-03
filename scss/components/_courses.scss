@@ -1,6 +1,20 @@
 @use "../values/colors" as c;
 @use "../values/sizes" as s;
 
+@mixin hide-bar {
+    .course-bar {
+        background: transparent;
+
+        span {
+            color: c.$text-black;
+        }
+
+        &::before {
+            height: 0%;
+        }
+    }
+}
+
 .course {
     min-width: s.$course-width;
     max-width: s.$course-width;
@@ -25,65 +39,55 @@
         margin-inline: 5px;
     }
 
-    $outerBorderWidth: 2px;
-	$innerBorderWidth: 2px;
-
-    &:before {
+    &::before, &::after {
         content: '';
 		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		transition-duration: 200ms;
-		transition-property: top right bottom left;
-        transition-timing-function: ease-in-out;
+        inset: 0;
         z-index: -1;
     }
+
+    &::before {
+        transition: inset 0.3s ease;
+    }
+
+    &::after {
+		transition: opacity 0.3s ease;
+        opacity: 0;
+    }
+
+    $outerBorderWidth: 2px;
+	$innerBorderWidth: 2px;
 
     &.selected {
         background: c.$background-gradient;
 
-        &:before {
+        &::before {
             top: -($outerBorderWidth + $innerBorderWidth);
             right: -($outerBorderWidth + $innerBorderWidth);
             bottom: -($outerBorderWidth + $innerBorderWidth);
             left: -($outerBorderWidth + $innerBorderWidth);
         }
 
-        .course-bar {
-            background: transparent;
-
-            span {
-                color: c.$text-black;
-            }
-
-            &:before {
-                height: 0%;
-            }
-        }
+        @include hide-bar;
     }
 }
 
 .course.prerequisite, .course.postrequisite {
-    //background: c.$background-gradient;
     background: transparent;
 
-    &:before {
-        transition: all 200ms ease-in;
+    &::before {
+        opacity: 0;
     }
 
-    .course-bar {
-        background: transparent;
+    @include hide-bar;
+}
 
-        span {
-            color: c.$text-black;
-        }
+.course.prerequisite::after{
+    background: c.$highlight-gradient-1;
+}
 
-        &:before {
-            height: 0%;
-        }
-    }
+.course.postrequisite::after{
+    background: c.$highlight-gradient-2;
 }
 
 .course-bar {
@@ -96,11 +100,10 @@
     span {
         margin-inline: 0.3em;
         color: c.$text-white;
-
         z-index: 1;
     }
 
-    &:before {
+    &::before {
         height: 100%;
         transition: all 200ms ease-in;
     }
@@ -129,7 +132,7 @@ $base-opacity: 80%;
 
 @for $i from 0 through 9 {
     .course.prerequisite.depth-#{$i}, .course.postrequisite.depth-#{$i} {
-        &:before {
+        &::after {
             opacity: $base-opacity - ($i * 7%);
         }
     }
@@ -139,28 +142,15 @@ $base-opacity: 80%;
 // Department decorators
 @each $department, $gradient in c.$department-gradients {
     .#{$department} .course-bar {
-        &:before {
+        &::before {
             content: '';
             position: absolute;
-            top: 0;
-            right: 0;
-            bottom: 0;
-            left: 0;
+            inset: 0;
             background: $gradient;
         }
     }
 
-    .#{$department}.course {
-        &:before {
-            background: $gradient;
-        }
-
-        &.prerequisite:before{
-            background: c.$highlight-gradient-1;
-        }
-
-        &.postrequisite:before{
-            background: c.$highlight-gradient-2;
-        }
+    .#{$department}.course::before {
+        background: $gradient;
     }
 }
