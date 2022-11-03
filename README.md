@@ -35,9 +35,9 @@ ES: Visualización interactiva de mallas académicas de la Facultad de Ciencias 
 - [x] ~~Typescript for better code quality.~~ (not needed at current scope?)
 - [x] Maybe look into a templating engine. (Looked into it, not necessary for the scope of this project)
 - [ ] Installation and contribution documentation.
-- [ ] Perfect responsive design.
+- [x] Perfect responsive design.
 - [ ] Check load times and accesibility data.
-- [ ] Perfect color palettes.
+- [ x Perfect color palettes.
 - [x] Fix 404 page flashing on load.
 - [x] Fix tap on mobile.
 - [x] Fix incompatiability with firefox due to navigation api.
@@ -59,6 +59,7 @@ ES: Visualización interactiva de mallas académicas de la Facultad de Ciencias 
 - [ ] About modal.
 - [ ] Theme selector (Expand this into actual color themes as well).
 - [ ] v3/v5 selector.
+- [x] Basic footer
 
 ### Homepage features
 
@@ -91,6 +92,8 @@ ES: Visualización interactiva de mallas académicas de la Facultad de Ciencias 
 - [x] High quality pre/postrequisite highlighting
 
 ### Mallas
+
+- [ ] Fix IQ2211, FI2001, MA2001 Post reuqisites
 
 #### v5
 

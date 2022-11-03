@@ -43,15 +43,6 @@ nav {
 .breadcrumb {
     font-size: 1.3em;
 
-    a {
-        color: c.$link-color;
-        text-decoration: none;
-
-        &:hover {
-            color: c.$link-color-hover;
-        }
-    }
-
     @media screen and (max-width: s.$breakpoint-small) {
         span {
             display: none;

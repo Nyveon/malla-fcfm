@@ -1,0 +1,25 @@
+@use "../values/colors" as c;
+
+footer {
+    width: 100%;
+    background-color: c.$footer-color;
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 1.5rem;
+    padding-block: 1rem;
+    color: c.$text-dark;
+}
+
+.footer-credit {
+    font-size: 1.2em;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: right;
+    a {
+        margin-inline: 1rem;
+    }
+}

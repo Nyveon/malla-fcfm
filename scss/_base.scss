@@ -1,4 +1,5 @@
 @use "values/colors" as c;
+@use "values/sizes" as s;
 
 *, *:before, *:after {
     box-sizing: border-box;
@@ -20,13 +21,15 @@ body {
     min-height: 100vh;
     margin: 0;
     padding: 0;
-    display: block;
-    justify-content: center;
-    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 main {
-    padding: 10px;
+    padding-inline: 1rem;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
 }
 
 // Unstyled link
@@ -48,4 +51,14 @@ main {
 
 .hidden {
     display: none;
+}
+
+
+a.link {
+    color: c.$link-color;
+    text-decoration: none;
+
+    &:hover {
+        color: c.$link-color-hover;
+    }
 }

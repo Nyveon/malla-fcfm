@@ -37,7 +37,7 @@
             <div id="nav-left" class="nav-col">
                 <template x-if="getPageState(path, degrees) == 1">
                     <div class="breadcrumb">
-                        <a class="page-link" @click.prevent="navigate($el);$dispatch('pushstate');" href="/">Mallas</a>
+                        <a class="link" @click.prevent="navigate($el);$dispatch('pushstate');" href="/">Mallas</a>
                         <span x-text="`> ${degrees[path].code}`"></span>
                     </div>
                 </template>
@@ -140,7 +140,17 @@
                 </div>
             </template>
         </main>
-    </body>
 
+        <footer>
+            <div class="footer-credit">
+                <span>Página por:</span>
+                <a class="link" href="https://eri.cl" target="_blank">Eric K.</a>
+            </div>
+            <div class="footer-links">
+                <a class="link" href="https://github.com/Nyveon/malla-fcfm/issues" target="_blank">Reportar Problema</a>
+                <a class="link" href="https://github.com/Nyveon/malla-fcfm/" target="_blank">Github</a>
+            </div>
+        </footer>
+    </body>
 <!-- Site by Eric K. -->
 </html>
