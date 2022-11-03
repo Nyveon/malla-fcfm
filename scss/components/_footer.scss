@@ -1,4 +1,5 @@
 @use "../values/colors" as c;
+@use "../values/sizes" as s;
 
 footer {
     width: 100%;
@@ -13,7 +14,14 @@ footer {
 }
 
 .footer-credit {
-    font-size: 1.2em;
+    font-size: 1.2rem;
+
+    @media screen and (max-width: s.$breakpoint-small) {
+        span {
+            font-size: 1rem;
+            display: none;
+        }
+    }
 }
 
 .footer-links {

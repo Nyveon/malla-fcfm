@@ -37,7 +37,7 @@ ES: Visualización interactiva de mallas académicas de la Facultad de Ciencias 
 - [ ] Installation and contribution documentation.
 - [x] Perfect responsive design.
 - [ ] Check load times and accesibility data.
-- [ x Perfect color palettes.
+- [x] Perfect color palettes.
 - [x] Fix 404 page flashing on load.
 - [x] Fix tap on mobile.
 - [x] Fix incompatiability with firefox due to navigation api.
@@ -55,7 +55,7 @@ ES: Visualización interactiva de mallas académicas de la Facultad de Ciencias 
 
 - [x] Basic navbar.
 - [ ] Improve breadcrumb.
-- [ ] Settings hamburger menu.
+- [x] Settings hamburger menu.
 - [ ] About modal.
 - [ ] Theme selector (Expand this into actual color themes as well).
 - [ ] v3/v5 selector.
@@ -82,7 +82,7 @@ ES: Visualización interactiva de mallas académicas de la Facultad de Ciencias 
 - [ ] Color code legend.
 - [x] Fix: Click to keep highlighted.
 - [x] Multiple course layer propagation.
-- [ ] Propagation depth configuration.
+- [x] Propagation depth configuration.
 - [ ] Hide/show 0 credit courses.
 - [ ] Semester alternating color.
 - [ ] Combine same-code courses into one card.

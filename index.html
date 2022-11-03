@@ -26,8 +26,9 @@
             path: getPathname(),
             degrees: [],
             version: $persist('v5'),
-            depthpre: 1,
-            depthpost: 1
+            depthpre: $persist(1),
+            depthpost: $persist(1),
+            settingsOpen: false,
         }"
         x-init="degrees = await (await fetch('/data/degrees.json')).json();"
         @popstate.window="path = getPathname();"
@@ -51,7 +52,41 @@
             </div>
 
             <div id="nav-right" class="nav-col">
-                <span>Placeholder</span>
+                <button class="open-settings" @click="settingsOpen = !settingsOpen;" :class="settingsOpen ? 'open' : ''">
+                    <img src="/images/icons/settings-gear-icon.svg" />
+                </button>
+
+                <ul class="settings" x-show="settingsOpen" @click.away="settingsOpen = false;" x-transition>
+                    <li class="setting-section">
+                        Propagación del arbol:
+                    </li>
+                    <li class="setting number-input">
+                        <div class="setting-label">
+                            <span>↓ Requisitos:</span>
+                        </div>
+                        <div class="setting-input">
+                            <button @click="$el.nextElementSibling.stepDown();">-</button>
+                            <input type="number" id="depthpre" name="depthpre"
+                                min="1" max="10" x-model.number="depthpre">
+                            <button @click="$el.previousElementSibling.stepUp();">+</button>
+                        </div>
+                    </li>
+                    <li class="setting number-input">
+                        <div class="setting-label">
+                            <span>↑ Requerientes:</span>
+                        </div>
+                        <div class="setting-input">
+                            <button @click="$el.nextElementSibling.stepDown();">-</button>
+                            <input type="number" id="depthpost" name="depthpost"
+                                min="1" max="10" x-model.number="depthpost">
+                            <button @click="$el.previousElementSibling.stepUp();">+</button>
+                        </div>
+                    </li>
+                    <hr/>
+                    <li class="setting-section">
+                        Placeholder
+                    </li>
+                </ul>
             </div>
         </nav>
 
@@ -147,7 +182,7 @@
                 <a class="link" href="https://eri.cl" target="_blank">Eric K.</a>
             </div>
             <div class="footer-links">
-                <a class="link" href="https://github.com/Nyveon/malla-fcfm/issues" target="_blank">Reportar Problema</a>
+                <a class="link" href="https://github.com/Nyveon/malla-fcfm/issues" target="_blank">Reportes/Sugerencias</a>
                 <a class="link" href="https://github.com/Nyveon/malla-fcfm/" target="_blank">Github</a>
             </div>
         </footer>
