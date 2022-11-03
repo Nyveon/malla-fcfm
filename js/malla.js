@@ -5,57 +5,8 @@
 /* jshint browser: true */
 /* globals navigation */
 
-/*  Routing --------------------------------------------- */
-
-/**
- * Pushes a new state without changing the page. Element must prevent default.
- * @param {element} element the element calling the navigation
- */
-function navigate(element) {
-    const url = new URL(element.href);
-    history.pushState({}, '', url.pathname);
-}
-
-/**
- * Parses the path name. Removes any lead lines
- * Note: This should ONLY run on state push or pop
- * @returns {string} the important part of the current path
- */
-function getPathname() {
-    removeLines();
-    return location.pathname.replace(/^\/|\/$/g, '');
-}
-
-// Single Page Apps for GitHub Pages, MIT License
-// https://github.com/rafgraph/spa-github-pages
-(function(l) {
-    if (l.search[1] === '/' ) {
-        var decoded = l.search.slice(1).split('&').map(function(s) {
-        return s.replace(/~and~/g, '&')
-        }).join('?');
-        window.history.replaceState(null, null,
-            l.pathname.slice(0, -1) + decoded + l.hash
-        );
-    }
-    }(window.location))
-
-
-/**
- * Gets the current page state from the path
- * @param {string} path
- * @param {object} degrees
- * @returns {number} integer. 0 for homepage, 1 for roadmap, -1 otherwise.
- */
-function getPageState(path, degrees) {
-    // Split path by slashes, remove any trailing or leading slashes and empty strings
-    if (path === '') {
-        return 0;
-    } else if (path in degrees) {
-        return 1;
-    } else {
-        return -1;
-    }
-}
+const lines = [];
+let currentSelected = null;
 
 /* Course interaction --------------------------------------------- */
 
@@ -69,8 +20,6 @@ function isTouchEvent() {
             || navigator.msMaxTouchPoints > 0;
 }
 
-const lines = [];
-let currentSelected = null;
 
 /**
  * Removes all leader lines from the page
@@ -136,6 +85,7 @@ function courseSelected({prerequisites, postrequisites, depthpre, depthpost, ele
     }
 }
 
+
 /**
  * Creates a leader line between two elements
  * @param {id} start element id
@@ -162,6 +112,7 @@ function createLine(start, end, color) {
     lines.push(line);
 }
 
+
 /**
  * Adds the corresponding relative depth class to an element
  * @param {element} element element to add the class to
@@ -171,6 +122,7 @@ function createLine(start, end, color) {
 function addDepthClass(element, depth, maxdepth) {
     element.classList.add(`depth-${Math.floor(10 * depth / maxdepth)}`);
 }
+
 
 /**
  * Removes all depth classes from an element
@@ -185,6 +137,7 @@ function removeDepthClasses(element) {
     }
 }
 
+
 /**
  * Gets the prerequisites of a course from the data attribute
  * @param {element} element element to get the prerequisites from
@@ -195,6 +148,7 @@ function getPrereqs(element) {
     return prereqPrereqs.split(',')
 }
 
+
 /**
  * Gets the postrequisites of a course from the data attribute
  * @param {element} element element to get the postrequisites from
@@ -204,6 +158,7 @@ function getPostreqs(element) {
     const postreqPostreqs = element.dataset.postreqs;
     return postreqPostreqs.split(',')
 }
+
 
 /**
  * Propagaste classes for prerequisites tree
@@ -237,6 +192,7 @@ function propagatePrereq(prerequisites, depth, maxdepth, state, element) {
     }
 }
 
+
 /**
  * Propagaste classes for postrequisites tree
  * @param {list} prerequisites list of string IDs of postrequisites courses
@@ -268,4 +224,3 @@ function propagatePostreq(postrequisites, depth, maxdepth, state, element) {
         propagatePostreq(postreqPostreqsList, depth + 1, maxdepth, state, postreq);
     }
 }
-
