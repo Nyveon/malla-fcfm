@@ -39,13 +39,13 @@ function removeLines() {
  *  @param {list} prerequisites list of preqrequisite course IDs
  *  @param {list} postrequisites list of postrequisite course IDs
  *  @param {boolean} selected true for selected, false for unselected
- *  @param {int} depthpre the depth of the prerequisite tree
- *  @param {int} depthpost the depth of the postrequisite tree
  *  @param {string} element the course element to select
  * @param {string} event the name of the event that triggered the selection
  * @param {boolean} showingLines if lead lines should be shown
+ * @param {int} depthpre the depth of the prerequisite tree
+ * @param {int} depthpost the depth of the postrequisite tree
  */
-function courseSelected({prerequisites, postrequisites, depthpre, depthpost, element}, event, showingLines) {
+function courseSelected({prerequisites, postrequisites, element}, event, showingLines, depthpre, depthpost) {
     let selected = element.classList.contains('selected');
     showLines = showingLines;
 

@@ -65,19 +65,19 @@
                     <li class="setting number-input">
                         <label for="depthpre">↓ Requisitos:</label>
                         <div class="setting-input">
-                            <button @click="$el.nextElementSibling.stepDown();">-</button>
+                            <button @click="depthpre--;">-</button>
                             <input type="number" id="depthpre" name="depthpre"
                                 min="1" max="10" x-model.number="depthpre">
-                            <button @click="$el.previousElementSibling.stepUp();">+</button>
+                            <button @click="depthpre++;">+</button>
                         </div>
                     </li>
                     <li class="setting number-input">
                         <label for="depthpost">↑ Requerientes:</label>
                         <div class="setting-input">
-                            <button @click="$el.nextElementSibling.stepDown();">-</button>
+                            <button @click="depthpost--;">-</button>
                             <input type="number" id="depthpost" name="depthpost"
                                 min="1" max="10" x-model.number="depthpost">
-                            <button @click="$el.previousElementSibling.stepUp();">+</button>
+                            <button @click="depthpost++;">+</button>
                         </div>
                     </li>
                     <hr/>
@@ -147,13 +147,11 @@
                                                             x-data="{
                                                                 prerequisites: course.prerequisites,
                                                                 postrequisites: course.postrequisites,
-                                                                depthpre: depthpre,
-                                                                depthpost: depthpost,
                                                                 element: $el,
                                                             }"
-                                                            @mouseenter="courseSelected($data, 'mouseenter', showLines);"
-                                                            @mouseleave="courseSelected($data, 'mouseleave', showLines);"
-                                                            @click="courseSelected($data, 'click', showLines);"
+                                                            @mouseenter="courseSelected($data, 'mouseenter', showLines, depthpre, depthpost);"
+                                                            @mouseleave="courseSelected($data, 'mouseleave', showLines, depthpre, depthpost);"
+                                                            @click="courseSelected($data, 'click', showLines, depthpre, depthpost);"
                                                             :class="[
                                                                 course.department,
                                                                 course.credits == 0 && !showZeros ? 'hidden' : '',
