@@ -49,7 +49,7 @@ function getPathname() {
  * @returns {number} integer. 0 for homepage, 1 for roadmap, -1 otherwise.
  */
 function getPageState(path, degrees) {
-    console.log(path);
+    if (!degrees) { return -2 };
     if (path === '') {
         return 0;
     } else if (path in degrees) {
