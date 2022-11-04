@@ -50,9 +50,8 @@ main {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
-
 
 a.link {
     color: c.$link-color;

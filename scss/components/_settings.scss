@@ -1,5 +1,7 @@
 @use "../values/colors" as c;
 
+$setting-height: 1.5rem;
+
 .open-settings {
     $size: 2.5rem;
     width: $size;
@@ -61,13 +63,26 @@
 
 .setting {
     width: 220px;
-}
-
-.number-input {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+}
 
+.setting-input {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
+    margin-bottom: 0.5em;
+}
+
+.setting-section {
+    margin-bottom: 0.5em;
+    font-weight: bold;
+}
+
+
+.number-input {
     input {
         width: 2em;
         text-align: center;
@@ -77,9 +92,8 @@
     }
 
     button {
-        $size: 1.5rem;
-        width: $size;
-        height: $size;
+        width: $setting-height;
+        height: $setting-height;
         border-radius: 0.25em;
         display: flex;
         justify-content: center;
@@ -87,13 +101,49 @@
     }
 }
 
-.setting-input {
-    display: flex;
-    flex-direction: row;
-    justify-content: right;
-    margin-bottom: 0.5em;
-}
+.checkbox-input {
+    position: relative;
+    display: inline-block;
+    width: $setting-height * 2;
+    height: $setting-height;
+    margin-right: 0.65em;
 
-.setting-section {
-    margin-bottom: 0.5em;
+    input {
+        display: none;
+    }
+
+    input:checked {
+        &+.slider {
+            background-color: c.$text-white;
+
+            &::before {
+                transform: translateX($setting-height);
+                background-color: c.$checkbox-selected;
+            }
+        }
+    }
+
+    .slider {
+        position: absolute;
+        inset: 0;
+        cursor: pointer;
+        background-color: c.$text-mid;
+        transition: all 0.2s ease-in-out;
+        border-radius: $setting-height;
+        box-shadow: 0 0 0.5em 0.1em rgba(0, 0, 0, 0.2);
+
+        &::before {
+            position: absolute;
+            content: "";
+            height: $setting-height;
+            width: $setting-height;
+            $position: 0em;
+            left: $position;
+            bottom: $position;
+            background-color: c.$checkbox-unselected;
+            transition: all 0.2s ease-in-out;
+            border-radius: 50%;
+            border: 1px solid c.$text-mid;
+        }
+    }
 }

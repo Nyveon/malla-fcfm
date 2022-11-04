@@ -83,12 +83,12 @@ ES: Visualización interactiva de mallas académicas de la Facultad de Ciencias 
 - [x] Fix: Click to keep highlighted.
 - [x] Multiple course layer propagation.
 - [x] Propagation depth configuration.
-- [ ] Hide/show 0 credit courses.
+- [x] Hide/show 0 credit courses.
 - [ ] Semester alternating color.
 - [ ] Combine same-code courses into one card.
 - [x] Fix: On mobile you can select multiple courses
 - [x] Leader lines for prerequisites.
-- [ ] Hide/show leader-lines
+- [x] Hide/show leader-lines
 - [x] High quality pre/postrequisite highlighting
 
 ### Mallas

@@ -29,6 +29,8 @@
             depthpre: $persist(1),
             depthpost: $persist(1),
             settingsOpen: false,
+            showLines: $persist(true),
+            showZeros: $persist(false),
         }"
         x-init="degrees = await (await fetch('/data/degrees.json')).json();"
         @popstate.window="path = getPathname();"
@@ -61,9 +63,7 @@
                         Propagación del arbol:
                     </li>
                     <li class="setting number-input">
-                        <div class="setting-label">
-                            <span>↓ Requisitos:</span>
-                        </div>
+                        <label for="depthpre">↓ Requisitos:</label>
                         <div class="setting-input">
                             <button @click="$el.nextElementSibling.stepDown();">-</button>
                             <input type="number" id="depthpre" name="depthpre"
@@ -72,9 +72,7 @@
                         </div>
                     </li>
                     <li class="setting number-input">
-                        <div class="setting-label">
-                            <span>↑ Requerientes:</span>
-                        </div>
+                        <label for="depthpost">↑ Requerientes:</label>
                         <div class="setting-input">
                             <button @click="$el.nextElementSibling.stepDown();">-</button>
                             <input type="number" id="depthpost" name="depthpost"
@@ -84,7 +82,21 @@
                     </li>
                     <hr/>
                     <li class="setting-section">
-                        Placeholder
+                        Visualización:
+                    </li>
+                    <li class="setting">
+                        <span class="setting-label">↔ Flechas:</span>
+                        <label class="setting-input checkbox-input" for="showLines">
+                            <input type="checkbox" id="showLines" name="showLines" x-model="showLines">
+                            <div class="slider"></div>
+                        </label>
+                    </li>
+                    <li class="setting">
+                        <span class="setting-label">0 Creditos:</span>
+                        <label class="setting-input checkbox-input" for="showZeros">
+                            <input type="checkbox" id="showZeros" name="showZeros" x-model="showZeros">
+                            <div class="slider"></div>
+                        </label>
                     </li>
                 </ul>
             </div>
@@ -137,14 +149,14 @@
                                                                 postrequisites: course.postrequisites,
                                                                 depthpre: depthpre,
                                                                 depthpost: depthpost,
-                                                                element: $el
+                                                                element: $el,
                                                             }"
-                                                            @mouseenter="courseSelected($data, 'mouseenter');"
-                                                            @mouseleave="courseSelected($data, 'mouseleave');"
-                                                            @click="courseSelected($data, 'click');"
+                                                            @mouseenter="courseSelected($data, 'mouseenter', showLines);"
+                                                            @mouseleave="courseSelected($data, 'mouseleave', showLines);"
+                                                            @click="courseSelected($data, 'click', showLines);"
                                                             :class="[
                                                                 course.department,
-                                                                course.credits == 0 ? 'course-zero' : '',
+                                                                course.credits == 0 && !showZeros ? 'hidden' : '',
                                                             ]"
                                                             :data-prereqs="course.prerequisites"
                                                             :data-postreqs="course.postrequisites">

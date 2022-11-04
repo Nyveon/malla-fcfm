@@ -7,6 +7,7 @@
 
 const lines = [];
 let currentSelected = null;
+let showLines = true;
 
 /* Course interaction --------------------------------------------- */
 
@@ -42,9 +43,11 @@ function removeLines() {
  *  @param {int} depthpost the depth of the postrequisite tree
  *  @param {string} element the course element to select
  * @param {string} event the name of the event that triggered the selection
+ * @param {boolean} showingLines if lead lines should be shown
  */
-function courseSelected({prerequisites, postrequisites, depthpre, depthpost, element}, event) {
+function courseSelected({prerequisites, postrequisites, depthpre, depthpost, element}, event, showingLines) {
     let selected = element.classList.contains('selected');
+    showLines = showingLines;
 
     if (isTouchEvent()) {
         if (event === 'click') {
@@ -95,6 +98,7 @@ function courseSelected({prerequisites, postrequisites, depthpre, depthpost, ele
  */
 function createLine(start, end, color) {
     if (window.getComputedStyle(start).display === 'none') { return; }
+    if (!showLines) { return; }
     const line = new LeaderLine(start, end, {
         color: 'red',
         startSocket: 'bottom',
