@@ -1,0 +1,73 @@
+// Color Palette
+$white: #f7f1e3;
+$grey1: #d1ccc0;
+$grey2: #aaa69d;
+$grey3: #84817a;
+$black1: #413a52;
+$black2: #0b0b1d;
+$purple1: #706fd3;
+$purple2: #474787;
+$green1: #509e44;
+$green2: #2b7442;
+
+// Element colors and gradients
+$text-white: $white;
+$text-mid: $grey1;
+$text-dark: $black1;
+$text-black: $black2;
+
+$line-color-pre: $purple1;
+$line-color-post: $green1;
+
+$background-color: #f7f1e3;
+$background-gradient: linear-gradient(to bottom, #f7f1e3, #f6e7d6);
+$navbar-color: $grey1;
+$footer-color: $grey1;
+
+$link-color: $purple1;
+$link-color-hover: $purple2;
+
+$phase-color: $grey2;
+$phase-color-line: $grey1;
+
+$course-color: $grey1;
+
+$settings-color: $grey3;
+$checkbox-selected: $green1;
+$checkbox-unselected: $grey2;
+$checkbox-back: $grey1;
+
+$highlight-gradient-1: linear-gradient(to bottom, #{$purple1}, #{$purple2});
+$highlight-gradient-2: linear-gradient(to bottom, #{$green1}, #{$green2});
+
+// Department gradients
+// https://uigradients.com
+$department-gradients: (
+    "AS": linear-gradient(to right, #0f0c29, #302b63), // Astronomy
+    "CC": linear-gradient(to right, #0e4f46, #458d74), // Computer Science
+    "CI": linear-gradient(to right, #3e5151, #decba4), // Civil Engineering
+    "CM": linear-gradient(to right, #be93c5, #7bc6cc), // Material Sciences
+    "XE": linear-gradient(to right, #d12f1c, #ca398e), // Electivos Licenciatura
+    "XF": linear-gradient(to right, #41295a, #89139b), // Formación Integral
+    "EI": linear-gradient(to right, #41295a, #89139b), // Languages
+    "CD": linear-gradient(to right, #7b4397, #dc2430), // Something engineering related
+    "EL": linear-gradient(to right, #007991, #78ffd6), // Electrical Engineering
+    "GF": linear-gradient(to right, #000000, #c21500), // Geophysics
+    "GL": linear-gradient(to right, #1e130c, #9a8478), // Geology
+    "IN": linear-gradient(to right, #479d00, #4f732e), // Industrial Engineering
+    "XN": linear-gradient(to right, #479d00, #ca6439), // Nucleo Gestión
+    "MA": linear-gradient(to right, #35459e, #2768a8), // Mathematics
+    "ME": linear-gradient(to right, #485563, #29323c), // Mechanical Engineering
+    "MI": linear-gradient(to right, #eb5757, #000000), // Mining Engineering
+    "QB": linear-gradient(to right, #dce35b, #45b649), // Chemistry and Biotech
+    "BT": linear-gradient(to right, #428d2f, #1fc525), // Biotechnology
+    "IQ": linear-gradient(to right, #c17636, #cc8c13), // Chemistry
+    "XT": linear-gradient(to right, #000000, #434343, #c17636, #cc8c13), // ^v Mix
+    "FI": linear-gradient(to right, #000000, #434343) // Physics
+);
+
+
+:root {
+    --line-color-pre: #{$line-color-pre};
+    --line-color-post: #{$line-color-post};
+}

@@ -1,26 +1,23 @@
-@use "../values/colors" as c;
-
-$setting-height: 1.5rem;
+@use "../abstracts/colors" as c;
+@use "../abstracts/sizes" as s;
+@use "../abstracts/mixins" as m;
 
 .open-settings {
-    $size: 2.5rem;
-    width: $size;
-    height: $size;
+    width: s.$very-large;
+    height: s.$very-large;
     background: transparent;
     border: none;
     border-radius: 25%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    @include m.flex-center;
     cursor: pointer;
-    transition: all 0.2s ease-in-out;
+    @include m.default-animate;
 
     &:hover {
         background-color: c.$settings-color;
     }
 
     &>img {
-        transition: all 0.2s ease-in-out;
+        @include m.default-animate;
     }
 
     &.open>img {
@@ -29,18 +26,17 @@ $setting-height: 1.5rem;
 }
 
 .settings {
+    @include m.basic-shadow;
     position: absolute;
     list-style-type: none;
     color: c.$text-white;
     background-color: c.$settings-color;
     text-align: left;
-    padding: 1em;
-    margin: 0;
-    border-radius: 0.25em;
-    box-shadow: 0 0 0.5em 0.1em rgba(0, 0, 0, 0.2);
+    padding: s.$medium;
+    border-radius: 5%;
     z-index: 100;
-    top: 4em;
-    font-size: 1.2em;
+    top: s.$very-large;
+    font-size: s.$medium;
 
     input::-webkit-outer-spin-button,
     input::-webkit-inner-spin-button,
@@ -57,12 +53,18 @@ $setting-height: 1.5rem;
         border: none;
         color: c.$text-white;
         cursor: pointer;
-        box-shadow: 0 0 0.5em 0.1em rgba(0, 0, 0, 0.2);
+        @include m.pretty-shadow;
+    }
+
+    &> * + * {
+        margin-top: s.$medium;
     }
 }
 
+
+
 .setting {
-    width: 220px;
+    width: s.$setting-size;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -73,18 +75,17 @@ $setting-height: 1.5rem;
     flex-direction: row;
     justify-content: right;
     align-items: center;
-    margin-bottom: 0.5em;
 }
 
 .setting-section {
-    margin-bottom: 0.5em;
     font-weight: bold;
 }
 
+$setting-height: s.$large;
 
 .number-input {
     input {
-        width: 2em;
+        width: s.$very-large;
         text-align: center;
         background: transparent;
         border: none;
@@ -94,10 +95,17 @@ $setting-height: 1.5rem;
     button {
         width: $setting-height;
         height: $setting-height;
-        border-radius: 0.25em;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        border-radius: s.$space-thick;
+        @include m.flex-center;
+
+        &:hover {
+            background-color: c.$text-white;
+            color: c.$settings-color;
+        }
+
+        &:active {
+            transform: scale(0.9);
+        }
     }
 }
 
@@ -106,7 +114,7 @@ $setting-height: 1.5rem;
     display: inline-block;
     width: $setting-height * 2;
     height: $setting-height;
-    margin-right: 0.65em;
+    margin-right: s.$medium;
 
     input {
         display: none;
@@ -120,6 +128,10 @@ $setting-height: 1.5rem;
                 transform: translateX($setting-height);
                 background-color: c.$checkbox-selected;
             }
+
+            &:hover {
+                background-color: c.$text-mid;
+            }
         }
     }
 
@@ -128,22 +140,22 @@ $setting-height: 1.5rem;
         inset: 0;
         cursor: pointer;
         background-color: c.$text-mid;
-        transition: all 0.2s ease-in-out;
+        @include m.default-animate;
         border-radius: $setting-height;
-        box-shadow: 0 0 0.5em 0.1em rgba(0, 0, 0, 0.2);
+        @include m.pretty-shadow;
 
         &::before {
-            position: absolute;
-            content: "";
+            @include m.pseudo;
             height: $setting-height;
             width: $setting-height;
-            $position: 0em;
-            left: $position;
-            bottom: $position;
             background-color: c.$checkbox-unselected;
-            transition: all 0.2s ease-in-out;
+            @include m.default-animate;
             border-radius: 50%;
             border: 1px solid c.$text-mid;
+        }
+
+        &:hover {
+            background-color: c.$text-white;
         }
     }
 }

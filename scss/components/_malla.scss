@@ -1,30 +1,25 @@
-@use "../values/colors" as c;
-@use "../values/sizes" as s;
+@use "../abstracts/colors" as c;
+@use "../abstracts/sizes" as s;
+@use "../abstracts/mixins" as m;
 
 #interior {
-    display: flex;
+    @include m.full-size;
+    @include m.flex-center;
     flex-direction: column;
-    align-items: center;
-    height: 100%;
-    width: 100%;
 }
 
 .banner-title {
-    writing-mode: vertical-lr;
-    transform: rotate(180deg);
-    $size: 1.5rem;
-    width: $size; // This is so it works on firefox
-    font-size: $size;
+    @include m.vertical-text;
     text-align: center;
+    width: s.$large; // This is so it works on firefox
+    font-size: s.$large;
     color: c.$phase-color;
-    margin: 8px;
+    margin: s.$very-small;
 
     @media only screen and (max-width: s.$breakpoint-small) {
-        writing-mode: horizontal-tb;
-        transform: rotate(0deg);
-        font-size: 0.8rem;
-        height: 0;
-        width: 0;
+        @include m.horizontal-text;
+        @include m.no-size;
+        font-size: s.$small;
         margin: 0;
         display: flex;
         position: sticky;
@@ -38,7 +33,7 @@
     display: flex;
     flex-direction: row;
 
-    > .banner-title {
+    >.banner-title {
         border-left: 1px solid c.$phase-color-line;
 
         @media only screen and (max-width: s.$breakpoint-medium) {
@@ -55,20 +50,16 @@
 .semester {
     display: flex;
     flex-direction: row;
-    margin-block: 0.4rem;
-
-    @media only screen and (max-width: s.$breakpoint-medium) {
-        margin-block: 0.2rem;
-    }
+    margin-block: s.$very-small;
 
     @media only screen and (max-width: s.$breakpoint-small) {
         flex-direction: column;
         border-top: 1px solid c.$phase-color-line;
-        padding-block: 4px;
+        padding-block: s.$very-small;
         margin-block: 0;
     }
 
-    > .banner-title {
+    >.banner-title {
         @media only screen and (max-width: s.$breakpoint-large) {
             border-left: 1px solid c.$phase-color-line;
         }
@@ -83,9 +74,9 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    gap: s.$very-small;
 
     @media only screen and (max-width: s.$breakpoint-medium) {
-        align-items: center;
-        justify-content: center;
+        @include m.flex-center;
     }
 }

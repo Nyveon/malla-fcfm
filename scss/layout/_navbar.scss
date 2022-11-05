@@ -1,5 +1,5 @@
-@use "../values/colors" as c;
-@use "../values/sizes" as s;
+@use "../abstracts/colors" as c;
+@use "../abstracts/sizes" as s;
 
 nav {
     display: grid;
@@ -28,6 +28,7 @@ nav {
 
 #nav-right {
     justify-content: right;
+    position: relative;
 }
 
 .title {

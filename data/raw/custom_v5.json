@@ -56,6 +56,7 @@
     "----- Plans and electives": 0,
     "XFIPC": {
         "name": "Formación Integral",
+        "plural": "Formaciones Integrales",
         "shortname": "Formación Integral",
         "credits": 3,
         "prerequisites": [],
@@ -74,6 +75,7 @@
     },
     "XFILI": {
         "name": "Formación Integral",
+        "plural": "Formaciones Integrales",
         "shortname": "Formación Integral",
         "credits": 3,
         "prerequisites": [],
@@ -83,6 +85,7 @@
     },
     "XELEC": {
         "name": "Electivo de Licenciatura",
+        "plural": "Electivos de Licenciatura",
         "shortname": "Electivo",
         "credits": 6,
         "prerequisites": [],
@@ -92,6 +95,7 @@
     },
     "XESPE": {
         "name": "Electivo de Especialidad",
+        "plural": "Electivos de Especialidad",
         "shortname": "Electivo Especialidad",
         "credits": 6,
         "prerequisites": [],
@@ -101,6 +105,7 @@
     },
     "XFIES": {
         "name": "Formación Integral de Especialidad",
+        "plural": "Formaciones Integrales de Especialidad",
         "shortname": "Formación Integral Esp.",
         "credits": 3,
         "prerequisites": [],

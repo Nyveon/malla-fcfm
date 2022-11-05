@@ -1,42 +1,43 @@
-@use "../values/colors" as c;
-@use "../values/sizes" as s;
+@use "../abstracts/colors" as c;
+@use "../abstracts/sizes" as s;
+@use "../abstracts/mixins" as m;
+
+@mixin responsive-card($factor, $breakpoint) {
+    @media screen and (max-width: $breakpoint) {
+        grid-template-columns: repeat(auto-fit, minmax(calc(s.$card-width * $factor), 1fr));
+        grid-auto-rows: calc(s.$card-height * $factor);
+    }
+}
+
 
 .card-grid {
     display: grid;
     justify-content: center;
 
     grid: {
-        gap: 1rem;
-        auto-rows: 200px;
+        gap: s.$medium;
+        auto-rows: s.$card-height;
         auto-flow: dense;
-        template-columns: repeat( auto-fit, minmax(s.$card-width , 1fr));
+        template-columns: repeat(auto-fit, minmax(s.$card-width , 1fr));
     }
 
-    padding-inline: 6%;
+    padding-inline: 3%;
     color: c.$text-white;
 
-    @media only screen and (max-width: s.$breakpoint-large) {
-        $factor: 0.8;
-        grid-template-columns: repeat( auto-fit, minmax(calc(s.$card-width * $factor), 1fr));
-        grid-auto-rows: calc(200px * $factor);
-        padding-inline: 3%;
-        font-size: 0.9em;
-    }
+    @include responsive-card(0.8, s.$breakpoint-large);
+    @include responsive-card(0.7, s.$breakpoint-medium);
+    @include responsive-card(0.6, s.$breakpoint-small);
 
-    @media only screen and (max-width: s.$breakpoint-small) {
-        $factor: 0.5;
-        grid-template-columns: repeat( auto-fit, minmax(calc(s.$card-width  * $factor), 1fr));
-        grid-auto-rows: calc(200px * $factor);
-        padding-inline: 1%;
-        font-size: 0.8em;
+    a {
+        @include m.u-link;
     }
 }
 
 .card {
-    border-radius: 8px;
+    @include m.pretty-shadow-strong;
+    border-radius: s.$very-small;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
     height: 100%;
 
     &:hover {
@@ -61,22 +62,21 @@
 
 .card-image {
     width: 100%;
-    height: 200px;
+    height: s.$card-height;
     object-fit: cover;
     transition: transform .25s;
     filter: contrast(120%);
 }
 
 .card-text {
+    @include m.flex-center;
     position: absolute;
-    display: flex;
     flex-direction: column;
-    justify-content: center;
     top: 0;
     backdrop-filter: blur(4px) brightness(66%);
     width: 100%;
     height: 25%;
-    transition: height .25s;
+    transition: height .25s ease;
 
     @media only screen and (max-width: s.$breakpoint-small) {
         height: auto;
@@ -84,17 +84,17 @@
 }
 
 .card-name {
-    margin: 0.8rem;
+    margin: s.$small;
     display: block;
 }
 
 .card-fullname {
-    margin: 0.8rem;
+    margin: s.$small;
+    font-size: s.$large;
     display: none;
-    font-size: 1.5em;
 }
 
 .card-title {
+    @include m.basic-shadow;
     font-weight: 900;
-    filter: drop-shadow(0 0 8px #000);
 }

@@ -1,5 +1,5 @@
-@use "../values/colors" as c;
-@use "../values/sizes" as s;
+@use "../abstracts/colors" as c;
+@use "../abstracts/sizes" as s;
 
 footer {
     width: 100%;
@@ -8,17 +8,16 @@ footer {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-inline: 1.5rem;
-    padding-block: 1rem;
+    padding-inline: s.$large;
+    padding-block: s.$medium;
     color: c.$text-dark;
 }
 
 .footer-credit {
-    font-size: 1.2rem;
+    font-size: s.$medium;
 
     @media screen and (max-width: s.$breakpoint-small) {
         span {
-            font-size: 1rem;
             display: none;
         }
     }
@@ -27,7 +26,14 @@ footer {
 .footer-links {
     display: flex;
     justify-content: right;
+    align-items: center;
+
     a {
-        margin-inline: 1rem;
+        margin-inline: s.$medium;
+
+        img {
+            width: s.$large;
+            height: s.$large;
+        }
     }
 }

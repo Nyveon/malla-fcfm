@@ -23,6 +23,7 @@ ES: Visualización interactiva de mallas académicas de la Facultad de Ciencias 
 ## Resources & References
 
 - Cover images: [Pexels](https://www.pexels.com).
+- Icons: [Uxwing](https://uxwing.com).
 - Fonts: [Google Fonts](https://fonts.google.com).
 - Mallas v3: [Ingeniería U-Chile](https://ingenieria.uchile.cl/escuela/pregrado/mallas-curriculares/mallas-curriculares-2007)
 - Mallas v5: [Ingeniería U-Chile](https://ingenieria.uchile.cl/escuela/pregrado/mallas-curriculares/mallas-curriculares-2019)
@@ -39,10 +40,14 @@ ES: Visualización interactiva de mallas académicas de la Facultad de Ciencias 
 - [ ] Check load times and accesibility data.
 - [x] Perfect color palettes.
 - [x] Fix 404 page flashing on load.
+- [ ] Make "Mallas FCFM" link to home page.
 - [x] Fix tap on mobile.
 - [x] Fix incompatiability with firefox due to navigation api.
-- [x] Fix firefox writing orientation causing sizing issues
+- [x] Fix firefox writing orientation causing sizing issues.
 - [x] Fix leader lines being drawn after leaving.
+- [x] Set up composition classes and consistent spacing sizes.
+- [ ] Optimize image file format and sizes.
+- [ ] Abstract CSS variables for theme colors.
 
 #### Data processing
 
@@ -59,7 +64,9 @@ ES: Visualización interactiva de mallas académicas de la Facultad de Ciencias 
 - [ ] About modal.
 - [ ] Theme selector (Expand this into actual color themes as well).
 - [ ] v3/v5 selector.
-- [x] Basic footer
+- [x] Basic footer.
+- [x] Github Icon.
+- [ ] Fix clamp on number input values.
 
 ### Homepage features
 
@@ -79,13 +86,13 @@ ES: Visualización interactiva de mallas académicas de la Facultad de Ciencias 
 - [ ] Altprequisite highlighting.
 - [x] Postrequisite highlighting.
 - [x] ~~Corequisite highlighting.~~ No longer exists!
-- [ ] Color code legend.
+- [x] ~~Color code legend.~~ No ambiguous colors needing explanation.
 - [x] Fix: Click to keep highlighted.
 - [x] Multiple course layer propagation.
 - [x] Propagation depth configuration.
 - [x] Hide/show 0 credit courses.
 - [ ] Semester alternating color.
-- [ ] Combine same-code courses into one card.
+- [ ] Combine same-code courses into one card. (Whole new data structure needed)
 - [x] Fix: On mobile you can select multiple courses
 - [x] Leader lines for prerequisites.
 - [x] Hide/show leader-lines
@@ -93,7 +100,7 @@ ES: Visualización interactiva de mallas académicas de la Facultad de Ciencias 
 
 ### Mallas
 
-- [ ] Fix IQ2211, FI2001, MA2001 Post reuqisites
+- [ ] Fix IQ2211, FI2001, MA2001 Post requisites.
 
 #### v5
 

@@ -1,8 +1,11 @@
-@use 'base';
+@use 'base/reset';
+@use 'base/typography';
+@use 'base/base';
 
 @use 'components/cards';
 @use 'components/malla';
 @use 'components/courses';
-@use 'components/navbar';
-@use 'components/footer';
 @use 'components/settings';
+
+@use 'layout/navbar';
+@use 'layout/footer';

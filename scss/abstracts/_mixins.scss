@@ -1,0 +1,63 @@
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin full-size {
+    width: 100%;
+    height: 100%;
+}
+
+@mixin no-size {
+    width: 0;
+    height: 0;
+}
+
+@mixin pseudo($display: block, $position: absolute, $content: '', $inset: 0) {
+    content: $content;
+    display: $display;
+    position: $position;
+    inset: $inset;
+}
+
+@mixin u-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+@mixin pretty-shadow {
+    box-shadow:
+        0 1px 1px hsla(45deg, 0%, 0%, 0.075),
+        0 2px 2px hsla(45deg, 0%, 0%, 0.075),
+        0 4px 4px hsla(45deg, 0%, 0%, 0.075),
+        0 8px 8px hsla(45deg, 0%, 0%, 0.075),
+    ;
+}
+
+@mixin pretty-shadow-strong {
+    box-shadow:
+        0 1px 1px hsla(45deg, 0%, 0%, 0.2),
+        0 3px 3px hsla(45deg, 0%, 0%, 0.2),
+        0 6px 6px hsla(45deg, 0%, 0%, 0.2),
+        0 12px 12px hsla(45deg, 0%, 0%, 0.2),
+    ;
+}
+
+@mixin basic-shadow {
+    filter: drop-shadow(0 0 8px #000);
+}
+
+@mixin default-animate($property: all) {
+    transition: $property .3s ease-in-out;
+}
+
+@mixin vertical-text {
+    writing-mode: vertical-lr;
+    transform: rotate(180deg);
+}
+
+@mixin horizontal-text {
+    writing-mode: horizontal-tb;
+    transform: rotate(0deg);
+}
