@@ -66,7 +66,7 @@ ES: Visualización interactiva de mallas académicas de la Facultad de Ciencias 
 - [ ] v3/v5 selector.
 - [x] Basic footer.
 - [x] Github Icon.
-- [ ] Fix clamp on number input values.
+- [x] Fix clamp on number input values.
 
 ### Homepage features
 

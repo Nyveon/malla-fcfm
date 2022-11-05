@@ -1,5 +1,6 @@
 @use "../abstracts/colors" as c;
 @use "../abstracts/sizes" as s;
+@use "../abstracts/mixins" as m;
 
 *,
 *:before,
@@ -29,4 +30,8 @@ main {
     &:hover {
         color: c.$link-color-hover;
     }
+}
+
+.ulink {
+    @include m.u-link;
 }

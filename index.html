@@ -60,6 +60,9 @@
             redirect(el) {
                 navigate(el);
                 $dispatch('pushstate');
+            },
+            depthStep(value, increment) {
+              return Math.max(0, Math.min(8, value + increment));
             }
         }"
     x-init="degrees = await (await fetch('/data/degrees.json')).json();"
@@ -79,9 +82,18 @@
       <div id="nav-mid" class="nav-col">
         <span
           class="title"
-          x-text="path in degrees ? `Malla ${degrees[path].code}` : 'Mallas FCFM'"
+          x-text="`Malla ${degrees[path].code}`"
+          x-show="path in degrees"
+          x-transition
         >
         </span>
+        <a
+          class="title ulink"
+          x-text="'Mallas FCFM'"
+          x-show="!(path in degrees)"
+          href="/"
+        >
+        </a>
       </div>
 
       <div id="nav-right" class="nav-col">
@@ -103,7 +115,7 @@
           <li class="setting number-input">
             <label for="depthpre">↓ Requisitos:</label>
             <div class="setting-input">
-              <button @click="depthpre--;">-</button>
+              <button @click="depthpre = depthStep(depthpre, -1);">-</button>
               <input
                 type="number"
                 id="depthpre"
@@ -112,13 +124,13 @@
                 max="10"
                 x-model.number="depthpre"
               />
-              <button @click="depthpre++;">+</button>
+              <button @click="depthpre = depthStep(depthpre, 1);">+</button>
             </div>
           </li>
           <li class="setting number-input">
             <label for="depthpost">↑ Requerientes:</label>
             <div class="setting-input">
-              <button @click="depthpost--;">-</button>
+              <button @click="depthpost = depthStep(depthpost, -1);">-</button>
               <input
                 type="number"
                 id="depthpost"
@@ -127,7 +139,7 @@
                 max="10"
                 x-model.number="depthpost"
               />
-              <button @click="depthpost++;">+</button>
+              <button @click="depthpost = depthStep(depthpost, 1);">+</button>
             </div>
           </li>
           <hr />
