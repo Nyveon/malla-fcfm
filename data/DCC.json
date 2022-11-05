@@ -82,7 +82,8 @@
                             "name": "Cálculo Diferencial e Integral",
                             "credits": 6,
                             "prerequisites": [
-                                "MA1001"
+                                "MA1001",
+                                "MA100"
                             ],
                             "type": "course",
                             "postrequisites": [
@@ -98,7 +99,8 @@
                             "name": "Álgebra Lineal",
                             "credits": 6,
                             "prerequisites": [
-                                "MA1101"
+                                "MA1101",
+                                "MA110"
                             ],
                             "type": "course",
                             "postrequisites": [
@@ -128,7 +130,9 @@
                             "code": "CC1002",
                             "name": "Introducción a la Programación",
                             "credits": 6,
-                            "prerequisites": [],
+                            "prerequisites": [
+                                "CR3"
+                            ],
                             "type": "course",
                             "postrequisites": [
                                 "CC3501",
@@ -150,8 +154,9 @@
                             ],
                             "department": "CD"
                         },
-                        "XFIPC5": {
+                        "XFIPC11": {
                             "name": "Formación Integral",
+                            "plural": "Formaciones Integrales",
                             "shortname": "Formación Integral",
                             "credits": 3,
                             "prerequisites": [],
@@ -179,7 +184,9 @@
                             "credits": 6,
                             "prerequisites": [
                                 "MA1002",
-                                "MA1102"
+                                "MA1A2",
+                                "MA1102",
+                                "MA1B2"
                             ],
                             "type": "course",
                             "postrequisites": [
@@ -197,7 +204,9 @@
                             "credits": 6,
                             "prerequisites": [
                                 "MA1002",
-                                "MA1102"
+                                "MA1A2",
+                                "MA1102",
+                                "MA1B2"
                             ],
                             "type": "course",
                             "postrequisites": [
@@ -213,8 +222,11 @@
                             "credits": 6,
                             "prerequisites": [
                                 "FI1100",
+                                "FI1002",
                                 "MA1002",
-                                "MA1102"
+                                "MA1A2",
+                                "MA1102",
+                                "MA1B2"
                             ],
                             "type": "course",
                             "postrequisites": [
@@ -228,7 +240,9 @@
                             "credits": 6,
                             "prerequisites": [
                                 "MA1002",
-                                "FI1100"
+                                "MA1A2",
+                                "FI1100",
+                                "FI2A1"
                             ],
                             "type": "course",
                             "postrequisites": [
@@ -240,7 +254,9 @@
                             "code": "IQ2211",
                             "name": "Química",
                             "credits": 6,
-                            "prerequisites": [],
+                            "prerequisites": [
+                                "CR48"
+                            ],
                             "type": "course",
                             "postrequisites": [],
                             "department": "IQ"
@@ -256,7 +272,9 @@
                             "credits": 6,
                             "prerequisites": [
                                 "MA2001",
-                                "MA2601"
+                                "MA2A1",
+                                "MA2601",
+                                "MA2G1"
                             ],
                             "type": "course",
                             "postrequisites": [],
@@ -281,14 +299,16 @@
                             "credits": 6,
                             "prerequisites": [
                                 "FI2003",
+                                "FI2A3",
                                 "MA2001",
+                                "MA2A1",
                                 "MA2601"
                             ],
                             "type": "course",
                             "postrequisites": [],
                             "department": "FI"
                         },
-                        "XTQTF3": {
+                        "XTQTF20": {
                             "name": "Termodinámica o Termodinámica Química",
                             "shortname": "Termo",
                             "credits": 6,
@@ -320,8 +340,9 @@
                             ],
                             "department": "CD"
                         },
-                        "XFIPC5": {
+                        "XFIPC22": {
                             "name": "Formación Integral",
+                            "plural": "Formaciones Integrales",
                             "shortname": "Formación Integral",
                             "credits": 3,
                             "prerequisites": [],
@@ -353,7 +374,8 @@
                             "name": "Probabilidades y Estadística",
                             "credits": 6,
                             "prerequisites": [
-                                "MA2001"
+                                "MA2001",
+                                "MA2A1"
                             ],
                             "type": "course",
                             "postrequisites": [
@@ -406,13 +428,14 @@
                             ],
                             "department": "CC"
                         },
-                        "XFILI4": {
+                        "XFILI27": {
                             "name": "Formación Integral",
+                            "plural": "Cursos de Formación Integral",
                             "shortname": "Formación Integral",
                             "credits": 3,
                             "prerequisites": [],
                             "corequisites": [],
-                            "type": "plan",
+                            "type": "compactable",
                             "codes": [
                                 "EH",
                                 "FG"
@@ -421,13 +444,30 @@
                             "code": "EH/FG",
                             "department": "XF"
                         },
-                        "XFILI5": {
+                        "XFILI28": {
                             "name": "Formación Integral",
+                            "plural": "Cursos de Formación Integral",
                             "shortname": "Formación Integral",
                             "credits": 3,
                             "prerequisites": [],
                             "corequisites": [],
-                            "type": "plan",
+                            "type": "compactable",
+                            "codes": [
+                                "EH",
+                                "FG"
+                            ],
+                            "postrequisites": [],
+                            "code": "EH/FG",
+                            "department": "XF"
+                        },
+                        "XFILI-C": {
+                            "name": "Cursos de Formación Integral",
+                            "plural": "Cursos de Formación Integral",
+                            "shortname": "Formación Integral",
+                            "credits": 6,
+                            "prerequisites": [],
+                            "corequisites": [],
+                            "type": "compacted",
                             "codes": [
                                 "EH",
                                 "FG"
@@ -460,7 +500,8 @@
                             "name": "Metodologías de Diseño y Programación",
                             "credits": 6,
                             "prerequisites": [
-                                "CC3001"
+                                "CC3001",
+                                "CC30A"
                             ],
                             "type": "course",
                             "postrequisites": [
@@ -497,8 +538,9 @@
                             ],
                             "department": "CC"
                         },
-                        "XELEC4": {
+                        "XELEC33": {
                             "name": "Electivo de Licenciatura",
+                            "plural": "Electivos de Licenciatura",
                             "shortname": "Electivo",
                             "credits": 6,
                             "prerequisites": [],
@@ -582,8 +624,9 @@
                             ],
                             "department": "CC"
                         },
-                        "XELEC4": {
+                        "XELEC39": {
                             "name": "Electivo de Licenciatura",
+                            "plural": "Electivos de Licenciatura",
                             "shortname": "Electivo",
                             "credits": 6,
                             "prerequisites": [],
@@ -604,7 +647,8 @@
                                 "CC3002",
                                 "CC3201",
                                 "CC3301",
-                                "CC4900"
+                                "CC4900",
+                                "AUTOR"
                             ],
                             "postrequisites": [
                                 "CC5901"
@@ -658,13 +702,14 @@
                             ],
                             "department": "CC"
                         },
-                        "XELEC3": {
+                        "XELEC44": {
                             "name": "Electivo de Licenciatura",
+                            "plural": "Electivos de Licenciatura",
                             "shortname": "Electivo",
                             "credits": 6,
                             "prerequisites": [],
                             "corequisites": [],
-                            "type": "plan",
+                            "type": "compactable",
                             "codes": [
                                 "Electivo"
                             ],
@@ -672,13 +717,14 @@
                             "code": "Electivo",
                             "department": "XE"
                         },
-                        "XELEC4": {
+                        "XELEC45": {
                             "name": "Electivo de Licenciatura",
+                            "plural": "Electivos de Licenciatura",
                             "shortname": "Electivo",
                             "credits": 6,
                             "prerequisites": [],
                             "corequisites": [],
-                            "type": "plan",
+                            "type": "compactable",
                             "codes": [
                                 "Electivo"
                             ],
@@ -707,6 +753,21 @@
                                 "CC5901"
                             ],
                             "department": "CC"
+                        },
+                        "XELEC-C": {
+                            "name": "Electivos de Licenciatura",
+                            "plural": "Electivos de Licenciatura",
+                            "shortname": "Electivo",
+                            "credits": 12,
+                            "prerequisites": [],
+                            "corequisites": [],
+                            "type": "compacted",
+                            "codes": [
+                                "Electivo"
+                            ],
+                            "postrequisites": [],
+                            "code": "Electivo",
+                            "department": "XE"
                         }
                     }
                 }
@@ -718,13 +779,14 @@
                 "9": {
                     "number": 9,
                     "courses": {
-                        "XESPE0": {
+                        "XESPE48": {
                             "name": "Electivo de Especialidad",
+                            "plural": "Electivos de Especialidad",
                             "shortname": "Electivo Especialidad",
                             "credits": 6,
                             "prerequisites": [],
                             "corequisites": [],
-                            "type": "plan",
+                            "type": "compactable",
                             "codes": [
                                 "Electivo"
                             ],
@@ -732,13 +794,14 @@
                             "code": "Electivo",
                             "department": "XE"
                         },
-                        "XESPE1": {
+                        "XESPE49": {
                             "name": "Electivo de Especialidad",
+                            "plural": "Electivos de Especialidad",
                             "shortname": "Electivo Especialidad",
                             "credits": 6,
                             "prerequisites": [],
                             "corequisites": [],
-                            "type": "plan",
+                            "type": "compactable",
                             "codes": [
                                 "Electivo"
                             ],
@@ -746,13 +809,14 @@
                             "code": "Electivo",
                             "department": "XE"
                         },
-                        "XESPE2": {
+                        "XESPE50": {
                             "name": "Electivo de Especialidad",
+                            "plural": "Electivos de Especialidad",
                             "shortname": "Electivo Especialidad",
                             "credits": 6,
                             "prerequisites": [],
                             "corequisites": [],
-                            "type": "plan",
+                            "type": "compactable",
                             "codes": [
                                 "Electivo"
                             ],
@@ -760,7 +824,7 @@
                             "code": "Electivo",
                             "department": "XE"
                         },
-                        "XNGPE3": {
+                        "XNGPE51": {
                             "name": "Núcleo Gestión para Ingenieros",
                             "shortname": "Núcleo Gestión",
                             "credits": 6,
@@ -774,13 +838,14 @@
                             "code": "Electivo",
                             "department": "XN"
                         },
-                        "XFIES4": {
+                        "XFIES52": {
                             "name": "Formación Integral de Especialidad",
+                            "plural": "Cursos de Formacion Integral de Especialidad",
                             "shortname": "Formación Integral Esp.",
                             "credits": 3,
                             "prerequisites": [],
                             "corequisites": [],
-                            "type": "plan",
+                            "type": "compactable",
                             "codes": [
                                 "Electivo"
                             ],
@@ -788,13 +853,14 @@
                             "code": "Electivo",
                             "department": "XF"
                         },
-                        "XFIES5": {
+                        "XFIES53": {
                             "name": "Formación Integral de Especialidad",
+                            "plural": "Cursos de Formacion Integral de Especialidad",
                             "shortname": "Formación Integral Esp.",
                             "credits": 3,
                             "prerequisites": [],
                             "corequisites": [],
-                            "type": "plan",
+                            "type": "compactable",
                             "codes": [
                                 "Electivo"
                             ],
@@ -815,6 +881,36 @@
                             "postrequisites": [],
                             "type": "course",
                             "department": "CC"
+                        },
+                        "XESPE-C": {
+                            "name": "Electivos de Especialidad",
+                            "plural": "Electivos de Especialidad",
+                            "shortname": "Electivo Especialidad",
+                            "credits": 18,
+                            "prerequisites": [],
+                            "corequisites": [],
+                            "type": "compacted",
+                            "codes": [
+                                "Electivo"
+                            ],
+                            "postrequisites": [],
+                            "code": "Electivo",
+                            "department": "XE"
+                        },
+                        "XFIES-C": {
+                            "name": "Cursos de Formacion Integral de Especialidad",
+                            "plural": "Cursos de Formacion Integral de Especialidad",
+                            "shortname": "Formación Integral Esp.",
+                            "credits": 6,
+                            "prerequisites": [],
+                            "corequisites": [],
+                            "type": "compacted",
+                            "codes": [
+                                "Electivo"
+                            ],
+                            "postrequisites": [],
+                            "code": "Electivo",
+                            "department": "XF"
                         }
                     }
                 },
@@ -836,13 +932,14 @@
                             "code": "CC6907",
                             "department": "CC"
                         },
-                        "XESPE1": {
+                        "XESPE56": {
                             "name": "Electivo de Especialidad",
+                            "plural": "Electivos de Especialidad",
                             "shortname": "Electivo Especialidad",
                             "credits": 6,
                             "prerequisites": [],
                             "corequisites": [],
-                            "type": "plan",
+                            "type": "compactable",
                             "codes": [
                                 "Electivo"
                             ],
@@ -850,13 +947,14 @@
                             "code": "Electivo",
                             "department": "XE"
                         },
-                        "XESPE2": {
+                        "XESPE57": {
                             "name": "Electivo de Especialidad",
+                            "plural": "Electivos de Especialidad",
                             "shortname": "Electivo Especialidad",
                             "credits": 6,
                             "prerequisites": [],
                             "corequisites": [],
-                            "type": "plan",
+                            "type": "compactable",
                             "codes": [
                                 "Electivo"
                             ],
@@ -869,12 +967,29 @@
                             "name": "Proyecto de Software",
                             "credits": 12,
                             "prerequisites": [
+                                "IN3301",
+                                "CC5401",
                                 "CC4303",
                                 "CC4102"
                             ],
                             "type": "course",
                             "postrequisites": [],
                             "department": "CC"
+                        },
+                        "XESPE-C": {
+                            "name": "Electivos de Especialidad",
+                            "plural": "Electivos de Especialidad",
+                            "shortname": "Electivo Especialidad",
+                            "credits": 12,
+                            "prerequisites": [],
+                            "corequisites": [],
+                            "type": "compacted",
+                            "codes": [
+                                "Electivo"
+                            ],
+                            "postrequisites": [],
+                            "code": "Electivo",
+                            "department": "XE"
                         }
                     }
                 },
@@ -894,8 +1009,9 @@
                             "code": "CC6919",
                             "department": "CC"
                         },
-                        "XESPE1": {
+                        "XESPE60": {
                             "name": "Electivo de Especialidad",
+                            "plural": "Electivos de Especialidad",
                             "shortname": "Electivo Especialidad",
                             "credits": 6,
                             "prerequisites": [],

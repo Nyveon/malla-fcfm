@@ -44,6 +44,7 @@
       }
     </style>
   </head>
+
   <body
     x-data="{
             path: getPathname(),
@@ -54,6 +55,8 @@
             settingsOpen: false,
             showLines: $persist(true),
             showZeros: $persist(false),
+            showCompacts: $persist(true),
+            showPhases: $persist(true),
             redirect(el) {
                 navigate(el);
                 $dispatch('pushstate');
@@ -142,7 +145,7 @@
             </label>
           </li>
           <li class="setting">
-            <span class="setting-label">0 Creditos:</span>
+            <span class="setting-label">Cursos 0 Creditos:</span>
             <label class="setting-input checkbox-input" for="showZeros">
               <input
                 type="checkbox"
@@ -153,11 +156,35 @@
               <div class="slider"></div>
             </label>
           </li>
+          <li class="setting">
+            <span class="setting-label">Electivos compactos:</span>
+            <label class="setting-input checkbox-input" for="showCompacts">
+              <input
+                type="checkbox"
+                id="showCompacts"
+                name="showCompacts"
+                x-model="showCompacts"
+              />
+              <div class="slider"></div>
+            </label>
+          </li>
+          <li class="setting">
+            <span class="setting-label">Nombres de planes:</span>
+            <label class="setting-input checkbox-input" for="showPhases">
+              <input
+                type="checkbox"
+                id="showPhases"
+                name="showPhases"
+                x-model="showPhases"
+              />
+              <div class="slider"></div>
+            </label>
+          </li>
         </ul>
       </div>
     </nav>
 
-    <main>
+    <main x-cloak>
       <template x-if="getPageState(path, degrees) == 0">
         <div class="card-grid">
           <template x-for="item in degrees">
@@ -197,25 +224,39 @@
             <div id="malla">
               <template x-for="phase in malla[version]">
                 <section class="phase">
-                  <span class="banner-title" x-text="phase.name"></span>
+                  <span
+                    class="banner-title"
+                    x-text="phase.name"
+                    x-show="showPhases"
+                    >
+                  </span>
                   <div class="semesters">
                     <template x-for="semester in phase.semesters">
                       <section class="semester">
                         <span
                           class="banner-title"
                           x-text="semester.number"
+                          :class="showPhases ? '' : 'horizontal-text'"
                         ></span>
                         <div class="courses">
-                          <template x-for="course in semester.courses">
+                          <template x-for="(course, index) in semester.courses">
                             <div
                               class="course"
-                              :id="course.code"
+                              :id="index"
                               x-data="{
                                     prerequisites: course.prerequisites,
                                     postrequisites: course.postrequisites,
                                     element: $el,
                                     shown() {
-                                        return !(course.credits == 0 && !showZeros);
+                                      if (course.credits == 0 && !showZeros) {
+                                        return false;
+                                      } else if (course.type == 'compacted' && !showCompacts) {
+                                        return false;
+                                      } else if (course.type == 'compactable' && showCompacts) {
+                                        return false;
+                                      } else {
+                                        return true;
+                                      }
                                     },
                                     select(event) {
                                         courseSelected($data, event, showLines, depthpre, depthpost);
@@ -232,7 +273,6 @@
                               <div
                                 class="course-bar"
                                 x-show="shown()"
-                                x-transition
                               >
                                 <span
                                   class="course-code"
@@ -246,7 +286,6 @@
                               <div
                                 class="course-body"
                                 x-show="shown()"
-                                x-transition
                               >
                                 <span
                                   class="course-name"

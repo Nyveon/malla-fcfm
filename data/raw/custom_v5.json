@@ -75,7 +75,7 @@
     },
     "XFILI": {
         "name": "Formación Integral",
-        "plural": "Formaciones Integrales",
+        "plural": "Cursos de Formación Integral",
         "shortname": "Formación Integral",
         "credits": 3,
         "prerequisites": [],
@@ -105,7 +105,7 @@
     },
     "XFIES": {
         "name": "Formación Integral de Especialidad",
-        "plural": "Formaciones Integrales de Especialidad",
+        "plural": "Cursos de Formacion Integral de Especialidad",
         "shortname": "Formación Integral Esp.",
         "credits": 3,
         "prerequisites": [],
