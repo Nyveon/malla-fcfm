@@ -48,8 +48,14 @@ ES: Visualización interactiva de mallas académicas de la Facultad de Ciencias 
 - [x] Fix leader lines being drawn after leaving.
 - [x] Set up composition classes and consistent spacing sizes.
 
-- [ ] Change to Static Generation v/s SPA with Alpine.
+- [ ] Change to Static Generation v/s SPA with Alpine:
+  - [x] Change to NPM package.
+  - [x] Install Eleventy.
+  - [ ] Move Alpine and LeaderLine to NPM instead of CDN.
+  - [ ] Refactor mallas to statically generate.
+  - [ ] Make 404 redirect to simulate case insensitive URL.
 - [ ] JS/HTML/CSS contribution documentation.
+  - [ ] Folder/file structure documentation.
 - [ ] Data contribution documentation.
 - [ ] Check load times and accesibility data.
 - [ ] Optimize image file format and sizes.

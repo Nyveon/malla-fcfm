@@ -1,0 +1,23 @@
+{
+    "name": "malla-fcfm",
+    "version": "1.0.0",
+    "description": "Interactive visualization for the degree roadmaps at the Faculty of Physical Sciences and Mathematics of the University of Chile.",
+    "main": "index.js",
+    "devDependencies": {
+        "@11ty/eleventy": "^2.0.1"
+    },
+    "scripts": {
+        "start": "eleventy --serve",
+        "build": "eleventy"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Nyveon/malla-fcfm.git"
+    },
+    "author": "Nyveon",
+    "license": "GPL-3.0-or-later",
+    "bugs": {
+        "url": "https://github.com/Nyveon/malla-fcfm/issues"
+    },
+    "homepage": "https://github.com/Nyveon/malla-fcfm#readme"
+}
