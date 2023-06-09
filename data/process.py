@@ -86,28 +86,27 @@ def main():
                             semester]["courses"]:
                 course_data = malla[version][phase]["semesters"][
                             semester]["courses"][course].copy()
-                if course_data["type"] == "course":
-                    for prereq in course_data["prerequisites"]:
-                        prereq_data = None
-                        for phase2 in malla[version]:
-                            for semester2 in malla[version][
-                                    phase2]["semesters"]:
-                                for course2 in malla[version][
+                for prereq in course_data["prerequisites"]:
+                    prereq_data = None
+                    for phase2 in malla[version]:
+                        for semester2 in malla[version][
+                                phase2]["semesters"]:
+                            for course2 in malla[version][
+                                    phase2]["semesters"][
+                                        semester2]["courses"]:
+                                if course2 == prereq:
+                                    prereq_data = malla[version][
                                         phase2]["semesters"][
-                                            semester2]["courses"]:
-                                    if course2 == prereq:
-                                        prereq_data = malla[version][
-                                            phase2]["semesters"][
-                                                semester2]["courses"][course2]
-                                        break
-                                if prereq_data:
+                                            semester2]["courses"][course2]
                                     break
                             if prereq_data:
                                 break
                         if prereq_data:
-                            if "postrequisites" not in prereq_data:
-                                prereq_data["postrequisites"] = []
-                            prereq_data["postrequisites"].append(course)
+                            break
+                    if prereq_data:
+                        if "postrequisites" not in prereq_data:
+                            prereq_data["postrequisites"] = []
+                        prereq_data["postrequisites"].append(course)
 
     # Add compacted courses
     for phase in malla[version]:

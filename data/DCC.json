@@ -193,6 +193,7 @@
                                 "MA2002",
                                 "IN2201",
                                 "FI2002",
+                                "XTQTF20",
                                 "MA3403",
                                 "CC3501"
                             ],
@@ -230,6 +231,7 @@
                             ],
                             "type": "course",
                             "postrequisites": [
+                                "XTQTF20",
                                 "CC3501"
                             ],
                             "department": "FI"
@@ -258,7 +260,9 @@
                                 "CR48"
                             ],
                             "type": "course",
-                            "postrequisites": [],
+                            "postrequisites": [
+                                "XTQTF20"
+                            ],
                             "department": "IQ"
                         }
                     }
