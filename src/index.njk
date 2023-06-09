@@ -1,1 +1,19 @@
-howdy
+---
+layout: base.njk
+title: "Mallas FCFM"
+name: "index"
+---
+
+<div class="card-grid">
+	{% for code, degree in degrees %}
+    <a href="{{ code }}">
+        <article class="card">
+            <img src="./images/splashes/{{ code }}.jpg" class="card-image" />
+            <div class="card-text">
+                <span class="card-title card-name">{{ degree.name }}</span>
+                <span class="card-title card-fullname">{{ degree.fullName }}</span>
+            </div>
+        </article>
+    </a>
+	{% endfor %}
+</div>

@@ -11,28 +11,28 @@ nav {
     padding-block: s.$medium;
     background-color: c.$navbar-color;
     color: c.$text-dark;
+
+    > div {
+        display: flex;
+        align-items: center;
+
+        &:first-child {
+            justify-content: left;
+        }
+
+        &:nth-child(2) {
+            justify-content: center;
+        }
+
+        &:last-child {
+            position: relative;
+            justify-content: right;
+        }
+    }
 }
 
-.nav-col {
-    width: 100%;
-    display: flex;
-    align-items: center;
-}
 
-#nav-left {
-    justify-content: left;
-}
-
-#nav-mid {
-    justify-content: center;
-}
-
-#nav-right {
-    justify-content: right;
-    position: relative;
-}
-
-.title {
+#title {
     font-size: 2em;
     font-weight: 100;
     text-align: center;
@@ -42,12 +42,16 @@ nav {
     }
 }
 
-.breadcrumb {
+#breadcrumb {
     font-size: 1.3em;
 
     @include m.media-small {
         span {
             display: none;
         }
+    }
+
+    span {
+        text-transform: uppercase;
     }
 }

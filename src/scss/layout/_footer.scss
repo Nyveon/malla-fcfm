@@ -14,7 +14,7 @@ footer {
     color: c.$text-dark;
 }
 
-.footer-credit {
+#footer-credit {
     font-size: s.$medium;
 
     @include m.media-small {
@@ -24,7 +24,7 @@ footer {
     }
 }
 
-.footer-links {
+#footer-links {
     display: flex;
     justify-content: right;
     align-items: center;
