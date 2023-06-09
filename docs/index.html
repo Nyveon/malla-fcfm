@@ -46,7 +46,15 @@
 		</style>
 	</head>
 
-	<body>
+	<body x-data="{
+            depthpre: $persist(1),
+            depthpost: $persist(1),
+            showLines: $persist(true),
+            showZeros: $persist(false),
+            showCompacts: $persist(true),
+            showPhases: $persist(true),
+        }"
+    >
 		<header>
 			<nav>
 				<div></div>
@@ -60,6 +68,7 @@
 		</header>
 
 		<main>
+            
 <div class="card-grid">
 	
     <a href="CI1">
@@ -213,7 +222,9 @@
     </a>
 	
 </div>
-</main>
+
+            
+        </main>
 
 		<footer>
 			<div id="footer-credit">

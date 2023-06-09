@@ -46,7 +46,15 @@
 		</style>
 	</head>
 
-	<body>
+	<body x-data="{
+            depthpre: $persist(1),
+            depthpost: $persist(1),
+            showLines: $persist(true),
+            showZeros: $persist(false),
+            showCompacts: $persist(true),
+            showPhases: $persist(true),
+        }"
+    >
 		<header>
 			<nav>
 				<div>{% block navleft %}{% endblock %}</div>
@@ -59,7 +67,10 @@
 			</nav>
 		</header>
 
-		<main>{{ content | safe }}</main>
+		<main>
+            {{ content | safe }}
+            {% block content %}{% endblock %}
+        </main>
 
 		<footer>
 			<div id="footer-credit">

@@ -48,29 +48,2326 @@
 		</style>
 	</head>
 
-	<body>
+	<body x-data="{
+            depthpre: $persist(1),
+            depthpost: $persist(1),
+            showLines: $persist(true),
+            showZeros: $persist(false),
+            showCompacts: $persist(true),
+            showPhases: $persist(true),
+        }"
+    >
 		<header>
 			<nav>
-				<div>
-<div id="breadcrumb">
+				<div> <div id="breadcrumb">
     <a class="link" href="/">Mallas</a>
     <span>> dcc</span>
-</div>
-</div>
+</div> </div>
 				<div>
 					<span id="title">
 						Malla DCC
 					</span>
 				</div>
-				<div>
-test2
-</div>
+				<div> Placeholder - Hamburger </div>
 			</nav>
 		</header>
 
 		<main>
-howdy?
-</main>
+            
+            
+<div id="interior">
+	<div id="malla">
+		
+		<section class="phase">
+			<span class="banner-title" x-show="showPhases">Plan Común</span>
+			<div class="semesters">
+				
+				<section class="semester">
+					<span
+						class="banner-title"
+						:class="showPhases ? '' : 'horizontal-text'"
+						>1
+					</span>
+					<div class="courses">
+						
+						<div
+							class="course MA"
+							id="MA1001"
+							x-data="{
+                                prerequisites: [],
+                                postrequisites: [&quot;MA1002&quot;,&quot;FI1100&quot;],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[]"
+							data-postreqs="[&quot;MA1002&quot;,&quot;FI1100&quot;]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">MA1001</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Introducción al Cálculo</span>
+							</div>
+						</div>
+						
+						<div
+							class="course MA"
+							id="MA1101"
+							x-data="{
+                                prerequisites: [],
+                                postrequisites: [&quot;MA1102&quot;,&quot;FI1100&quot;,&quot;CC3101&quot;],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[]"
+							data-postreqs="[&quot;MA1102&quot;,&quot;FI1100&quot;,&quot;CC3101&quot;]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">MA1101</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Introducción al Álgebra</span>
+							</div>
+						</div>
+						
+						<div
+							class="course FI"
+							id="FI1000"
+							x-data="{
+                                prerequisites: [],
+                                postrequisites: [&quot;FI1100&quot;],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[]"
+							data-postreqs="[&quot;FI1100&quot;]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">FI1000</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Introducción a la Física Clásica</span>
+							</div>
+						</div>
+						
+						<div
+							class="course CC"
+							id="CC1000"
+							x-data="{
+                                prerequisites: [],
+                                postrequisites: [],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[]"
+							data-postreqs="[]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">CC1000</span>
+								<span class="course-credits">3</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Herramientas Computacionales para Ingeniería y Ciencias</span>
+							</div>
+						</div>
+						
+						<div
+							class="course CD"
+							id="CD1100"
+							x-data="{
+                                prerequisites: [],
+                                postrequisites: [&quot;CD1201&quot;],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[]"
+							data-postreqs="[&quot;CD1201&quot;]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">CD1100</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Desafíos de Innovación en Ingeniería y Ciencias</span>
+							</div>
+						</div>
+						
+						<div
+							class="course BT"
+							id="BT1211"
+							x-data="{
+                                prerequisites: [],
+                                postrequisites: [],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[]"
+							data-postreqs="[]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">BT1211</span>
+								<span class="course-credits">3</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Aplicaciones de la Biología a la Ingeniería y Ciencias</span>
+							</div>
+						</div>
+						
+					</div>
+				</section>
+				
+				<section class="semester">
+					<span
+						class="banner-title"
+						:class="showPhases ? '' : 'horizontal-text'"
+						>2
+					</span>
+					<div class="courses">
+						
+						<div
+							class="course MA"
+							id="MA1002"
+							x-data="{
+                                prerequisites: [&quot;MA1001&quot;,&quot;MA100&quot;],
+                                postrequisites: [&quot;MA2001&quot;,&quot;MA2601&quot;,&quot;FI2001&quot;,&quot;FI2003&quot;],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[&quot;MA1001&quot;,&quot;MA100&quot;]"
+							data-postreqs="[&quot;MA2001&quot;,&quot;MA2601&quot;,&quot;FI2001&quot;,&quot;FI2003&quot;]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">MA1002</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Cálculo Diferencial e Integral</span>
+							</div>
+						</div>
+						
+						<div
+							class="course MA"
+							id="MA1102"
+							x-data="{
+                                prerequisites: [&quot;MA1101&quot;,&quot;MA110&quot;],
+                                postrequisites: [&quot;MA2001&quot;,&quot;MA2601&quot;,&quot;FI2001&quot;],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[&quot;MA1101&quot;,&quot;MA110&quot;]"
+							data-postreqs="[&quot;MA2001&quot;,&quot;MA2601&quot;,&quot;FI2001&quot;]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">MA1102</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Álgebra Lineal</span>
+							</div>
+						</div>
+						
+						<div
+							class="course FI"
+							id="FI1100"
+							x-data="{
+                                prerequisites: [&quot;FI1000&quot;,&quot;MA1101&quot;,&quot;MA1001&quot;],
+                                postrequisites: [&quot;FI2001&quot;,&quot;FI2003&quot;],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[&quot;FI1000&quot;,&quot;MA1101&quot;,&quot;MA1001&quot;]"
+							data-postreqs="[&quot;FI2001&quot;,&quot;FI2003&quot;]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">FI1100</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Introducción a la Física Moderna</span>
+							</div>
+						</div>
+						
+						<div
+							class="course CC"
+							id="CC1002"
+							x-data="{
+                                prerequisites: [&quot;CR3&quot;],
+                                postrequisites: [&quot;CC3501&quot;,&quot;CC3001&quot;,&quot;CC3101&quot;],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[&quot;CR3&quot;]"
+							data-postreqs="[&quot;CC3501&quot;,&quot;CC3001&quot;,&quot;CC3101&quot;]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">CC1002</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Introducción a la Programación</span>
+							</div>
+						</div>
+						
+						<div
+							class="course CD"
+							id="CD1201"
+							x-data="{
+                                prerequisites: [&quot;CD1100&quot;],
+                                postrequisites: [&quot;CD2201&quot;],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[&quot;CD1100&quot;]"
+							data-postreqs="[&quot;CD2201&quot;]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">CD1201</span>
+								<span class="course-credits">3</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Proyecto de Innovación en Ingeniería y Ciencias</span>
+							</div>
+						</div>
+						
+						<div
+							class="course XF"
+							id="XFIPC11"
+							x-data="{
+                                prerequisites: [],
+                                postrequisites: [],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[]"
+							data-postreqs="[]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">EH/FG/DR/EI/FT</span>
+								<span class="course-credits">3</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Formación Integral</span>
+							</div>
+						</div>
+						
+					</div>
+				</section>
+				
+				<section class="semester">
+					<span
+						class="banner-title"
+						:class="showPhases ? '' : 'horizontal-text'"
+						>3
+					</span>
+					<div class="courses">
+						
+						<div
+							class="course MA"
+							id="MA2001"
+							x-data="{
+                                prerequisites: [&quot;MA1002&quot;,&quot;MA1A2&quot;,&quot;MA1102&quot;,&quot;MA1B2&quot;],
+                                postrequisites: [&quot;MA2002&quot;,&quot;IN2201&quot;,&quot;FI2002&quot;,&quot;XTQTF20&quot;,&quot;MA3403&quot;,&quot;CC3501&quot;],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[&quot;MA1002&quot;,&quot;MA1A2&quot;,&quot;MA1102&quot;,&quot;MA1B2&quot;]"
+							data-postreqs="[&quot;MA2002&quot;,&quot;IN2201&quot;,&quot;FI2002&quot;,&quot;XTQTF20&quot;,&quot;MA3403&quot;,&quot;CC3501&quot;]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">MA2001</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Cálculo en Varias Variables</span>
+							</div>
+						</div>
+						
+						<div
+							class="course MA"
+							id="MA2601"
+							x-data="{
+                                prerequisites: [&quot;MA1002&quot;,&quot;MA1A2&quot;,&quot;MA1102&quot;,&quot;MA1B2&quot;],
+                                postrequisites: [&quot;MA2002&quot;,&quot;FI2002&quot;,&quot;CC3501&quot;],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[&quot;MA1002&quot;,&quot;MA1A2&quot;,&quot;MA1102&quot;,&quot;MA1B2&quot;]"
+							data-postreqs="[&quot;MA2002&quot;,&quot;FI2002&quot;,&quot;CC3501&quot;]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">MA2601</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Ecuaciones Diferenciales Ordinarias</span>
+							</div>
+						</div>
+						
+						<div
+							class="course FI"
+							id="FI2001"
+							x-data="{
+                                prerequisites: [&quot;FI1100&quot;,&quot;FI1002&quot;,&quot;MA1002&quot;,&quot;MA1A2&quot;,&quot;MA1102&quot;,&quot;MA1B2&quot;],
+                                postrequisites: [&quot;XTQTF20&quot;,&quot;CC3501&quot;],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[&quot;FI1100&quot;,&quot;FI1002&quot;,&quot;MA1002&quot;,&quot;MA1A2&quot;,&quot;MA1102&quot;,&quot;MA1B2&quot;]"
+							data-postreqs="[&quot;XTQTF20&quot;,&quot;CC3501&quot;]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">FI2001</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Mecánica</span>
+							</div>
+						</div>
+						
+						<div
+							class="course FI"
+							id="FI2003"
+							x-data="{
+                                prerequisites: [&quot;MA1002&quot;,&quot;MA1A2&quot;,&quot;FI1100&quot;,&quot;FI2A1&quot;],
+                                postrequisites: [&quot;FI2002&quot;],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[&quot;MA1002&quot;,&quot;MA1A2&quot;,&quot;FI1100&quot;,&quot;FI2A1&quot;]"
+							data-postreqs="[&quot;FI2002&quot;]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">FI2003</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Métodos Experimentales</span>
+							</div>
+						</div>
+						
+						<div
+							class="course IQ"
+							id="IQ2211"
+							x-data="{
+                                prerequisites: [&quot;CR48&quot;],
+                                postrequisites: [&quot;XTQTF20&quot;],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[&quot;CR48&quot;]"
+							data-postreqs="[&quot;XTQTF20&quot;]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">IQ2211</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Química</span>
+							</div>
+						</div>
+						
+					</div>
+				</section>
+				
+				<section class="semester">
+					<span
+						class="banner-title"
+						:class="showPhases ? '' : 'horizontal-text'"
+						>4
+					</span>
+					<div class="courses">
+						
+						<div
+							class="course MA"
+							id="MA2002"
+							x-data="{
+                                prerequisites: [&quot;MA2001&quot;,&quot;MA2A1&quot;,&quot;MA2601&quot;,&quot;MA2G1&quot;],
+                                postrequisites: [],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[&quot;MA2001&quot;,&quot;MA2A1&quot;,&quot;MA2601&quot;,&quot;MA2G1&quot;]"
+							data-postreqs="[]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">MA2002</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Cálculo Avanzado y Aplicaciones</span>
+							</div>
+						</div>
+						
+						<div
+							class="course IN"
+							id="IN2201"
+							x-data="{
+                                prerequisites: [&quot;MA2001&quot;],
+                                postrequisites: [&quot;CC4402&quot;],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[&quot;MA2001&quot;]"
+							data-postreqs="[&quot;CC4402&quot;]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">IN2201</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Economía</span>
+							</div>
+						</div>
+						
+						<div
+							class="course FI"
+							id="FI2002"
+							x-data="{
+                                prerequisites: [&quot;FI2003&quot;,&quot;FI2A3&quot;,&quot;MA2001&quot;,&quot;MA2A1&quot;,&quot;MA2601&quot;],
+                                postrequisites: [],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[&quot;FI2003&quot;,&quot;FI2A3&quot;,&quot;MA2001&quot;,&quot;MA2A1&quot;,&quot;MA2601&quot;]"
+							data-postreqs="[]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">FI2002</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Electromagnetismo</span>
+							</div>
+						</div>
+						
+						<div
+							class="course XT"
+							id="XTQTF20"
+							x-data="{
+                                prerequisites: [&quot;IQ2211&quot;,&quot;MA2001&quot;,&quot;FI2001&quot;],
+                                postrequisites: [],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[&quot;IQ2211&quot;,&quot;MA2001&quot;,&quot;FI2001&quot;]"
+							data-postreqs="[]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">FI2004/IQ2212</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Termodinámica o Termodinámica Química</span>
+							</div>
+						</div>
+						
+						<div
+							class="course CD"
+							id="CD2201"
+							x-data="{
+                                prerequisites: [&quot;CD1201&quot;],
+                                postrequisites: [&quot;CC4402&quot;],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[&quot;CD1201&quot;]"
+							data-postreqs="[&quot;CC4402&quot;]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">CD2201</span>
+								<span class="course-credits">3</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Módulo Interdisciplinario</span>
+							</div>
+						</div>
+						
+						<div
+							class="course XF"
+							id="XFIPC22"
+							x-data="{
+                                prerequisites: [],
+                                postrequisites: [],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[]"
+							data-postreqs="[]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">EH/FG/DR/EI/FT</span>
+								<span class="course-credits">3</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Formación Integral</span>
+							</div>
+						</div>
+						
+					</div>
+				</section>
+				
+			</div>
+		</section>
+		
+		<section class="phase">
+			<span class="banner-title" x-show="showPhases">Licenciatura</span>
+			<div class="semesters">
+				
+				<section class="semester">
+					<span
+						class="banner-title"
+						:class="showPhases ? '' : 'horizontal-text'"
+						>5
+					</span>
+					<div class="courses">
+						
+						<div
+							class="course MA"
+							id="MA3403"
+							x-data="{
+                                prerequisites: [&quot;MA2001&quot;,&quot;MA2A1&quot;],
+                                postrequisites: [&quot;CC4102&quot;],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[&quot;MA2001&quot;,&quot;MA2A1&quot;]"
+							data-postreqs="[&quot;CC4102&quot;]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">MA3403</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Probabilidades y Estadística</span>
+							</div>
+						</div>
+						
+						<div
+							class="course CC"
+							id="CC3501"
+							x-data="{
+                                prerequisites: [&quot;CC1002&quot;,&quot;MA2001&quot;,&quot;MA2601&quot;,&quot;FI2001&quot;],
+                                postrequisites: [],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[&quot;CC1002&quot;,&quot;MA2001&quot;,&quot;MA2601&quot;,&quot;FI2001&quot;]"
+							data-postreqs="[]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">CC3501</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Modelación y Computación Gráfica para Ingenieros</span>
+							</div>
+						</div>
+						
+						<div
+							class="course CC"
+							id="CC3001"
+							x-data="{
+                                prerequisites: [&quot;CC1002&quot;],
+                                postrequisites: [&quot;CC3201&quot;,&quot;CC3002&quot;,&quot;CC3301&quot;,&quot;CC5205&quot;,&quot;CC4102&quot;],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[&quot;CC1002&quot;]"
+							data-postreqs="[&quot;CC3201&quot;,&quot;CC3002&quot;,&quot;CC3301&quot;,&quot;CC5205&quot;,&quot;CC4102&quot;]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">CC3001</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Algoritmos y Estructuras de Datos</span>
+							</div>
+						</div>
+						
+						<div
+							class="course CC"
+							id="CC3101"
+							x-data="{
+                                prerequisites: [&quot;CC1002&quot;,&quot;MA1101&quot;],
+                                postrequisites: [&quot;CC3102&quot;],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[&quot;CC1002&quot;,&quot;MA1101&quot;]"
+							data-postreqs="[&quot;CC3102&quot;]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">CC3101</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Matemáticas Discretas para la Computación</span>
+							</div>
+						</div>
+						
+						<div
+							class="course XF"
+							id="XFILI27"
+							x-data="{
+                                prerequisites: [],
+                                postrequisites: [],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    if (showCompacts) return false;
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[]"
+							data-postreqs="[]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">EH/FG</span>
+								<span class="course-credits">3</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Formación Integral</span>
+							</div>
+						</div>
+						
+						<div
+							class="course XF"
+							id="XFILI28"
+							x-data="{
+                                prerequisites: [],
+                                postrequisites: [],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    if (showCompacts) return false;
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[]"
+							data-postreqs="[]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">EH/FG</span>
+								<span class="course-credits">3</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Formación Integral</span>
+							</div>
+						</div>
+						
+						<div
+							class="course XF"
+							id="XFILI-C"
+							x-data="{
+                                prerequisites: [],
+                                postrequisites: [],
+                                element: $el,
+                                shown() {
+                                    
+                                    if (!showCompacts) return false;
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[]"
+							data-postreqs="[]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">EH/FG</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Cursos de Formación Integral</span>
+							</div>
+						</div>
+						
+					</div>
+				</section>
+				
+				<section class="semester">
+					<span
+						class="banner-title"
+						:class="showPhases ? '' : 'horizontal-text'"
+						>6
+					</span>
+					<div class="courses">
+						
+						<div
+							class="course CC"
+							id="CC3201"
+							x-data="{
+                                prerequisites: [&quot;CC3001&quot;],
+                                postrequisites: [&quot;CC4401&quot;,&quot;CC4901&quot;],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[&quot;CC3001&quot;]"
+							data-postreqs="[&quot;CC4401&quot;,&quot;CC4901&quot;]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">CC3201</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Bases de Datos</span>
+							</div>
+						</div>
+						
+						<div
+							class="course CC"
+							id="CC3002"
+							x-data="{
+                                prerequisites: [&quot;CC3001&quot;,&quot;CC30A&quot;],
+                                postrequisites: [&quot;CC4401&quot;,&quot;CC4901&quot;],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[&quot;CC3001&quot;,&quot;CC30A&quot;]"
+							data-postreqs="[&quot;CC4401&quot;,&quot;CC4901&quot;]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">CC3002</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Metodologías de Diseño y Programación</span>
+							</div>
+						</div>
+						
+						<div
+							class="course CC"
+							id="CC3102"
+							x-data="{
+                                prerequisites: [&quot;CC3101&quot;],
+                                postrequisites: [&quot;CC4102&quot;,&quot;CC4101&quot;],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[&quot;CC3101&quot;]"
+							data-postreqs="[&quot;CC4102&quot;,&quot;CC4101&quot;]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">CC3102</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Teoría de la Computación</span>
+							</div>
+						</div>
+						
+						<div
+							class="course CC"
+							id="CC3301"
+							x-data="{
+                                prerequisites: [&quot;CC3001&quot;],
+                                postrequisites: [&quot;CC4302&quot;,&quot;CC4901&quot;],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[&quot;CC3001&quot;]"
+							data-postreqs="[&quot;CC4302&quot;,&quot;CC4901&quot;]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">CC3301</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Programación de Software de Sistemas</span>
+							</div>
+						</div>
+						
+						<div
+							class="course XE"
+							id="XELEC33"
+							x-data="{
+                                prerequisites: [],
+                                postrequisites: [],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[]"
+							data-postreqs="[]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">Electivo</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Electivo de Licenciatura</span>
+							</div>
+						</div>
+						
+						<div
+							class="course CC"
+							id="CC4900"
+							x-data="{
+                                prerequisites: [],
+                                postrequisites: [&quot;CC4901&quot;],
+                                element: $el,
+                                shown() {
+                                    if (!showZeros) return false;
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[]"
+							data-postreqs="[&quot;CC4901&quot;]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">CC4900</span>
+								<span class="course-credits">0</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Taller de Práctica Profesional I</span>
+							</div>
+						</div>
+						
+					</div>
+				</section>
+				
+				<section class="semester">
+					<span
+						class="banner-title"
+						:class="showPhases ? '' : 'horizontal-text'"
+						>7
+					</span>
+					<div class="courses">
+						
+						<div
+							class="course CC"
+							id="CC5205"
+							x-data="{
+                                prerequisites: [&quot;CC3001&quot;],
+                                postrequisites: [],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[&quot;CC3001&quot;]"
+							data-postreqs="[]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">CC5205</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Minería de Datos</span>
+							</div>
+						</div>
+						
+						<div
+							class="course CC"
+							id="CC4401"
+							x-data="{
+                                prerequisites: [&quot;CC3002&quot;,&quot;CC3201&quot;],
+                                postrequisites: [&quot;CC4402&quot;,&quot;CC5901&quot;],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[&quot;CC3002&quot;,&quot;CC3201&quot;]"
+							data-postreqs="[&quot;CC4402&quot;,&quot;CC5901&quot;]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">CC4401</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Ingeniería de Software</span>
+							</div>
+						</div>
+						
+						<div
+							class="course CC"
+							id="CC4102"
+							x-data="{
+                                prerequisites: [&quot;MA3403&quot;,&quot;CC3001&quot;,&quot;CC3102&quot;],
+                                postrequisites: [&quot;CC5402&quot;],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[&quot;MA3403&quot;,&quot;CC3001&quot;,&quot;CC3102&quot;]"
+							data-postreqs="[&quot;CC5402&quot;]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">CC4102</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Diseño y Análisis de Algoritmos</span>
+							</div>
+						</div>
+						
+						<div
+							class="course CC"
+							id="CC4302"
+							x-data="{
+                                prerequisites: [&quot;CC3301&quot;],
+                                postrequisites: [&quot;CC4303&quot;],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[&quot;CC3301&quot;]"
+							data-postreqs="[&quot;CC4303&quot;]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">CC4302</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Sistemas Operativos</span>
+							</div>
+						</div>
+						
+						<div
+							class="course XE"
+							id="XELEC39"
+							x-data="{
+                                prerequisites: [],
+                                postrequisites: [],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[]"
+							data-postreqs="[]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">Electivo</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Electivo de Licenciatura</span>
+							</div>
+						</div>
+						
+						<div
+							class="course CC"
+							id="CC4901"
+							x-data="{
+                                prerequisites: [&quot;CC3002&quot;,&quot;CC3201&quot;,&quot;CC3301&quot;,&quot;CC4900&quot;,&quot;AUTOR&quot;],
+                                postrequisites: [&quot;CC5901&quot;],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[&quot;CC3002&quot;,&quot;CC3201&quot;,&quot;CC3301&quot;,&quot;CC4900&quot;,&quot;AUTOR&quot;]"
+							data-postreqs="[&quot;CC5901&quot;]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">CC4901</span>
+								<span class="course-credits">7</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Práctica Profesional I</span>
+							</div>
+						</div>
+						
+					</div>
+				</section>
+				
+				<section class="semester">
+					<span
+						class="banner-title"
+						:class="showPhases ? '' : 'horizontal-text'"
+						>8
+					</span>
+					<div class="courses">
+						
+						<div
+							class="course CC"
+							id="CC4402"
+							x-data="{
+                                prerequisites: [&quot;CC4401&quot;,&quot;CD2201&quot;,&quot;IN2201&quot;],
+                                postrequisites: [&quot;CC6907&quot;],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[&quot;CC4401&quot;,&quot;CD2201&quot;,&quot;IN2201&quot;]"
+							data-postreqs="[&quot;CC6907&quot;]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">CC4402</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Formulación, Evaluación y Gestión de Proyectos</span>
+							</div>
+						</div>
+						
+						<div
+							class="course CC"
+							id="CC4101"
+							x-data="{
+                                prerequisites: [&quot;CC3102&quot;],
+                                postrequisites: [&quot;CC5901&quot;],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[&quot;CC3102&quot;]"
+							data-postreqs="[&quot;CC5901&quot;]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">CC4101</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Lenguajes de Programación</span>
+							</div>
+						</div>
+						
+						<div
+							class="course CC"
+							id="CC4303"
+							x-data="{
+                                prerequisites: [&quot;CC4302&quot;],
+                                postrequisites: [&quot;CC5402&quot;],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[&quot;CC4302&quot;]"
+							data-postreqs="[&quot;CC5402&quot;]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">CC4303</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Redes</span>
+							</div>
+						</div>
+						
+						<div
+							class="course XE"
+							id="XELEC44"
+							x-data="{
+                                prerequisites: [],
+                                postrequisites: [],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    if (showCompacts) return false;
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[]"
+							data-postreqs="[]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">Electivo</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Electivo de Licenciatura</span>
+							</div>
+						</div>
+						
+						<div
+							class="course XE"
+							id="XELEC45"
+							x-data="{
+                                prerequisites: [],
+                                postrequisites: [],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    if (showCompacts) return false;
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[]"
+							data-postreqs="[]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">Electivo</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Electivo de Licenciatura</span>
+							</div>
+						</div>
+						
+						<div
+							class="course EI"
+							id="EI1090"
+							x-data="{
+                                prerequisites: [],
+                                postrequisites: [&quot;EI2090&quot;],
+                                element: $el,
+                                shown() {
+                                    if (!showZeros) return false;
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[]"
+							data-postreqs="[&quot;EI2090&quot;]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">EI1090</span>
+								<span class="course-credits">0</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Examen de Suficiencia en Inglés I</span>
+							</div>
+						</div>
+						
+						<div
+							class="course CC"
+							id="CC5900"
+							x-data="{
+                                prerequisites: [],
+                                postrequisites: [&quot;CC5901&quot;],
+                                element: $el,
+                                shown() {
+                                    if (!showZeros) return false;
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[]"
+							data-postreqs="[&quot;CC5901&quot;]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">CC5900</span>
+								<span class="course-credits">0</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Taller de Práctica Profesional II</span>
+							</div>
+						</div>
+						
+						<div
+							class="course XE"
+							id="XELEC-C"
+							x-data="{
+                                prerequisites: [],
+                                postrequisites: [],
+                                element: $el,
+                                shown() {
+                                    
+                                    if (!showCompacts) return false;
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[]"
+							data-postreqs="[]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">Electivo</span>
+								<span class="course-credits">12</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Electivos de Licenciatura</span>
+							</div>
+						</div>
+						
+					</div>
+				</section>
+				
+			</div>
+		</section>
+		
+		<section class="phase">
+			<span class="banner-title" x-show="showPhases">Especialidad</span>
+			<div class="semesters">
+				
+				<section class="semester">
+					<span
+						class="banner-title"
+						:class="showPhases ? '' : 'horizontal-text'"
+						>9
+					</span>
+					<div class="courses">
+						
+						<div
+							class="course XE"
+							id="XESPE48"
+							x-data="{
+                                prerequisites: [],
+                                postrequisites: [],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    if (showCompacts) return false;
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[]"
+							data-postreqs="[]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">Electivo</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Electivo de Especialidad</span>
+							</div>
+						</div>
+						
+						<div
+							class="course XE"
+							id="XESPE49"
+							x-data="{
+                                prerequisites: [],
+                                postrequisites: [],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    if (showCompacts) return false;
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[]"
+							data-postreqs="[]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">Electivo</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Electivo de Especialidad</span>
+							</div>
+						</div>
+						
+						<div
+							class="course XE"
+							id="XESPE50"
+							x-data="{
+                                prerequisites: [],
+                                postrequisites: [],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    if (showCompacts) return false;
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[]"
+							data-postreqs="[]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">Electivo</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Electivo de Especialidad</span>
+							</div>
+						</div>
+						
+						<div
+							class="course XN"
+							id="XNGPE51"
+							x-data="{
+                                prerequisites: [],
+                                postrequisites: [],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[]"
+							data-postreqs="[]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">Electivo</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Núcleo Gestión para Ingenieros</span>
+							</div>
+						</div>
+						
+						<div
+							class="course XF"
+							id="XFIES52"
+							x-data="{
+                                prerequisites: [],
+                                postrequisites: [],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    if (showCompacts) return false;
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[]"
+							data-postreqs="[]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">Electivo</span>
+								<span class="course-credits">3</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Formación Integral de Especialidad</span>
+							</div>
+						</div>
+						
+						<div
+							class="course XF"
+							id="XFIES53"
+							x-data="{
+                                prerequisites: [],
+                                postrequisites: [],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    if (showCompacts) return false;
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[]"
+							data-postreqs="[]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">Electivo</span>
+								<span class="course-credits">3</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Formación Integral de Especialidad</span>
+							</div>
+						</div>
+						
+						<div
+							class="course CC"
+							id="CC5901"
+							x-data="{
+                                prerequisites: [&quot;CC4901&quot;,&quot;CC4401&quot;,&quot;CC4101&quot;,&quot;CC5900&quot;],
+                                postrequisites: [],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[&quot;CC4901&quot;,&quot;CC4401&quot;,&quot;CC4101&quot;,&quot;CC5900&quot;]"
+							data-postreqs="[]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">CC5901</span>
+								<span class="course-credits">7</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Práctica Profesional II</span>
+							</div>
+						</div>
+						
+						<div
+							class="course XE"
+							id="XESPE-C"
+							x-data="{
+                                prerequisites: [],
+                                postrequisites: [],
+                                element: $el,
+                                shown() {
+                                    
+                                    if (!showCompacts) return false;
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[]"
+							data-postreqs="[]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">Electivo</span>
+								<span class="course-credits">18</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Electivos de Especialidad</span>
+							</div>
+						</div>
+						
+						<div
+							class="course XF"
+							id="XFIES-C"
+							x-data="{
+                                prerequisites: [],
+                                postrequisites: [],
+                                element: $el,
+                                shown() {
+                                    
+                                    if (!showCompacts) return false;
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[]"
+							data-postreqs="[]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">Electivo</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Cursos de Formacion Integral de Especialidad</span>
+							</div>
+						</div>
+						
+					</div>
+				</section>
+				
+				<section class="semester">
+					<span
+						class="banner-title"
+						:class="showPhases ? '' : 'horizontal-text'"
+						>10
+					</span>
+					<div class="courses">
+						
+						<div
+							class="course CC"
+							id="CC6907"
+							x-data="{
+                                prerequisites: [&quot;CC4402&quot;],
+                                postrequisites: [&quot;CC6919&quot;],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[&quot;CC4402&quot;]"
+							data-postreqs="[&quot;CC6919&quot;]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">CC6907</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Introducción al Trabajo de Título</span>
+							</div>
+						</div>
+						
+						<div
+							class="course XE"
+							id="XESPE56"
+							x-data="{
+                                prerequisites: [],
+                                postrequisites: [],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    if (showCompacts) return false;
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[]"
+							data-postreqs="[]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">Electivo</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Electivo de Especialidad</span>
+							</div>
+						</div>
+						
+						<div
+							class="course XE"
+							id="XESPE57"
+							x-data="{
+                                prerequisites: [],
+                                postrequisites: [],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    if (showCompacts) return false;
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[]"
+							data-postreqs="[]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">Electivo</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Electivo de Especialidad</span>
+							</div>
+						</div>
+						
+						<div
+							class="course CC"
+							id="CC5402"
+							x-data="{
+                                prerequisites: [&quot;IN3301&quot;,&quot;CC5401&quot;,&quot;CC4303&quot;,&quot;CC4102&quot;],
+                                postrequisites: [],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[&quot;IN3301&quot;,&quot;CC5401&quot;,&quot;CC4303&quot;,&quot;CC4102&quot;]"
+							data-postreqs="[]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">CC5402</span>
+								<span class="course-credits">12</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Proyecto de Software</span>
+							</div>
+						</div>
+						
+						<div
+							class="course XE"
+							id="XESPE-C"
+							x-data="{
+                                prerequisites: [],
+                                postrequisites: [],
+                                element: $el,
+                                shown() {
+                                    
+                                    if (!showCompacts) return false;
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[]"
+							data-postreqs="[]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">Electivo</span>
+								<span class="course-credits">12</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Electivos de Especialidad</span>
+							</div>
+						</div>
+						
+					</div>
+				</section>
+				
+				<section class="semester">
+					<span
+						class="banner-title"
+						:class="showPhases ? '' : 'horizontal-text'"
+						>11
+					</span>
+					<div class="courses">
+						
+						<div
+							class="course CC"
+							id="CC6919"
+							x-data="{
+                                prerequisites: [&quot;CC6907&quot;],
+                                postrequisites: [],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[&quot;CC6907&quot;]"
+							data-postreqs="[]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">CC6919</span>
+								<span class="course-credits">24</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Trabajo de Título</span>
+							</div>
+						</div>
+						
+						<div
+							class="course XE"
+							id="XESPE60"
+							x-data="{
+                                prerequisites: [],
+                                postrequisites: [],
+                                element: $el,
+                                shown() {
+                                    
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[]"
+							data-postreqs="[]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">Electivo</span>
+								<span class="course-credits">6</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Electivo de Especialidad</span>
+							</div>
+						</div>
+						
+						<div
+							class="course EI"
+							id="EI2090"
+							x-data="{
+                                prerequisites: [&quot;EI1090&quot;],
+                                postrequisites: [],
+                                element: $el,
+                                shown() {
+                                    if (!showZeros) return false;
+                                    
+                                    
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="[&quot;EI1090&quot;]"
+							data-postreqs="[]"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">EI2090</span>
+								<span class="course-credits">0</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">Examen de Suficiencia en Inglés II</span>
+							</div>
+						</div>
+						
+					</div>
+				</section>
+				
+			</div>
+		</section>
+		
+	</div>
+</div>
+
+        </main>
 
 		<footer>
 			<div id="footer-credit">
