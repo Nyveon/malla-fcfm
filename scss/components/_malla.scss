@@ -16,7 +16,7 @@
     color: c.$phase-color;
     margin: s.$very-small;
 
-    @media only screen and (max-width: s.$breakpoint-small) {
+    @include m.media-small {
         @include m.horizontal-text;
         @include m.no-size;
         font-size: s.$small;
@@ -30,29 +30,26 @@
 }
 
 .phase {
-    display: flex;
-    flex-direction: row;
+    @include m.flex-row;
 
     >.banner-title {
         border-left: 1px solid c.$phase-color-line;
 
-        @media only screen and (max-width: s.$breakpoint-medium) {
+        @include m.media-medium {
             display: none;
         }
     }
 }
 
 .semesters {
-    display: flex;
-    flex-direction: column;
+    @include m.flex-col;
 }
 
 .semester {
-    display: flex;
-    flex-direction: row;
+    @include m.flex-row;
     margin-block: s.$very-small;
 
-    @media only screen and (max-width: s.$breakpoint-small) {
+    @include m.media-small {
         flex-direction: column;
         border-top: 1px solid c.$phase-color-line;
         padding-block: s.$very-small;
@@ -67,7 +64,7 @@
             border-left: none;
         }
 
-        @media only screen and (max-width: s.$breakpoint-large) {
+        @include m.media-large {
             border-left: 1px solid c.$phase-color-line;
 
             &.horizontal-text {
@@ -76,19 +73,18 @@
             }
         }
 
-        @media only screen and (max-width: s.$breakpoint-small) {
+        @include m.media-small {
             border-left: none;
         }
     }
 }
 
 .courses {
-    display: flex;
-    flex-direction: row;
+    @include m.flex-row;
     flex-wrap: wrap;
     gap: s.$very-small;
 
-    @media only screen and (max-width: s.$breakpoint-medium) {
+    @include m.media-medium {
         @include m.flex-center;
     }
 }

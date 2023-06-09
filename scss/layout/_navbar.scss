@@ -1,13 +1,14 @@
 @use "../abstracts/colors" as c;
 @use "../abstracts/sizes" as s;
+@use "../abstracts/mixins" as m;
 
 nav {
     display: grid;
     justify-content: center;
     align-items: center;
     grid-template-columns: repeat(3, 1fr);
-    padding-inline: 2em;
-    padding-block: 1.2em;
+    padding-inline: s.$very-large;
+    padding-block: s.$medium;
     background-color: c.$navbar-color;
     color: c.$text-dark;
 }
@@ -36,7 +37,7 @@ nav {
     font-weight: 100;
     text-align: center;
 
-    @media screen and (max-width: s.$breakpoint-small) {
+    @include m.media-small {
         font-size: 1.5em;
     }
 }
@@ -44,7 +45,7 @@ nav {
 .breadcrumb {
     font-size: 1.3em;
 
-    @media screen and (max-width: s.$breakpoint-small) {
+    @include m.media-small {
         span {
             display: none;
         }

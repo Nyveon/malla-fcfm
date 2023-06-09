@@ -1,5 +1,6 @@
 @use "../abstracts/colors" as c;
 @use "../abstracts/sizes" as s;
+@use "../abstracts/mixins" as m;
 
 footer {
     width: 100%;
@@ -16,7 +17,7 @@ footer {
 .footer-credit {
     font-size: s.$medium;
 
-    @media screen and (max-width: s.$breakpoint-small) {
+    @include m.media-small {
         span {
             display: none;
         }

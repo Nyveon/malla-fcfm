@@ -3,14 +3,14 @@
 @use "../abstracts/mixins" as m;
 
 .open-settings {
+    @include m.flex-center;
+    @include m.default-animate;
     width: s.$very-large;
     height: s.$very-large;
     background: transparent;
     border: none;
     border-radius: 25%;
-    @include m.flex-center;
     cursor: pointer;
-    @include m.default-animate;
 
     &:hover {
         background-color: c.$settings-color;
@@ -65,14 +65,12 @@
 
 .setting {
     width: s.$setting-size;
-    display: flex;
-    flex-direction: row;
+    @include m.flex-row;
     justify-content: space-between;
 }
 
 .setting-input {
-    display: flex;
-    flex-direction: row;
+    @include m.flex-row;
     justify-content: right;
     align-items: center;
 }

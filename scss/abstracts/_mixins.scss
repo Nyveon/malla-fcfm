@@ -1,7 +1,21 @@
+@use 'sizes' as s;
+
+// Composition
+
 @mixin flex-center {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@mixin flex-row {
+    display: flex;
+    flex-direction: row;
+}
+
+@mixin flex-col {
+    display: flex;
+    flex-direction: column;
 }
 
 @mixin full-size {
@@ -21,10 +35,8 @@
     inset: $inset;
 }
 
-@mixin u-link {
-    text-decoration: none;
-    color: inherit;
-}
+
+// Effects
 
 @mixin pretty-shadow {
     box-shadow:
@@ -52,6 +64,9 @@
     transition: $property .3s ease-in-out;
 }
 
+
+// Text
+
 @mixin vertical-text {
     writing-mode: vertical-lr;
     transform: rotate(180deg);
@@ -60,4 +75,30 @@
 @mixin horizontal-text {
     writing-mode: horizontal-tb;
     transform: rotate(0deg);
+}
+
+@mixin u-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+// Media queries
+
+@mixin media-large {
+    @media only screen and (max-width: s.$breakpoint-large) {
+        @content;
+    }
+}
+
+@mixin media-medium {
+    @media only screen and (max-width: s.$breakpoint-medium) {
+        @content;
+    }
+}
+
+@mixin media-small {
+    @media only screen and (max-width: s.$breakpoint-small) {
+        @content;
+    }
 }

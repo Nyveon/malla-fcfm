@@ -18,15 +18,14 @@
 
 .course {
     @include m.pretty-shadow;
+    @include m.flex-col;
     min-width: s.$course-width;
     max-width: s.$course-width;
     height: s.$course-height;
-    display: flex;
-    flex-direction: column;
     position: relative;
     background-color: c.$course-color;
 
-    @media only screen and (max-width: s.$breakpoint-medium) {
+    @include m.media-medium {
         min-width: s.$course-width-small;
         max-width: s.$course-width-small;
         font-size: 0.9em;
@@ -97,7 +96,7 @@
         @include m.default-animate;
     }
 
-    @media only screen and (max-width: s.$breakpoint-small) {
+    @include m.media-small {
         font-size: s.$small
     }
 }
