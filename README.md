@@ -10,7 +10,6 @@ ES: Visualización interactiva de mallas académicas de la Facultad de Ciencias 
   - **Framework:** [AlpineJS](https://alpinejs.dev) (*3.10.5*)
   - **Library:** [LeaderLine](https://github.com/anseki/leader-line/) (*1.0.7*)
 - **CSS:** [SASS](https://sass-lang.com)
-- **Hosting:** [SPA Github Pages](https://github.com/rafgraph/spa-github-pages)
 - **CDN:** [jsDelivr](https://www.jsdelivr.com)
 - **Data:** [Python](https://www.python.org) (and lots of manual data entry).
 
@@ -28,6 +27,10 @@ ES: Visualización interactiva de mallas académicas de la Facultad de Ciencias 
 - Mallas v3: [Ingeniería U-Chile](https://ingenieria.uchile.cl/escuela/pregrado/mallas-curriculares/mallas-curriculares-2007)
 - Mallas v5: [Ingeniería U-Chile](https://ingenieria.uchile.cl/escuela/pregrado/mallas-curriculares/mallas-curriculares-2019)
 
+## Development
+
+- placeholder
+
 ## TO-DO
 
 ### General features
@@ -35,45 +38,50 @@ ES: Visualización interactiva de mallas académicas de la Facultad de Ciencias 
 - [x] SASS for repetitive CSS.
 - [x] ~~Typescript for better code quality.~~ (not needed at current scope?)
 - [x] Maybe look into a templating engine. (Looked into it, not necessary for the scope of this project)
-- [ ] Installation and contribution documentation.
 - [x] Perfect responsive design.
-- [ ] Check load times and accesibility data.
 - [x] Perfect color palettes.
 - [x] Fix 404 page flashing on load.
-- [ ] Make "Mallas FCFM" link to home page.
+- [x] Make "Mallas FCFM" link to home page.
 - [x] Fix tap on mobile.
 - [x] Fix incompatiability with firefox due to navigation api.
 - [x] Fix firefox writing orientation causing sizing issues.
 - [x] Fix leader lines being drawn after leaving.
 - [x] Set up composition classes and consistent spacing sizes.
+
+- [ ] Change to Static Generation v/s SPA with Alpine.
+- [ ] JS/HTML/CSS contribution documentation.
+- [ ] Data contribution documentation.
+- [ ] Check load times and accesibility data.
 - [ ] Optimize image file format and sizes.
 - [ ] Abstract CSS variables for theme colors.
+- [ ] Figure out course show/hide animations
 
 #### Data processing
 
 - [x] Basic single degree data processing.
 - [x] Postrequisite processing.
-- [ ] Automatic data processing for all degrees.
 - [x] Webscraping for course data
+
+- [ ] Automatic data processing for all degrees.
 
 #### UI
 
 - [x] Basic navbar.
-- [ ] Improve breadcrumb.
 - [x] Settings hamburger menu.
-- [ ] About modal.
-- [ ] Theme selector (Expand this into actual color themes as well).
-- [ ] v3/v5 selector.
 - [x] Basic footer.
 - [x] Github Icon.
 - [x] Fix clamp on number input values.
+
+- [ ] About modal.
+- [ ] Improve breadcrumb.
+- [ ] Credits to contributors for specific mallas.
+- [ ] Theme selector (Expand this into actual color themes as well).
 
 ### Homepage features
 
 - [x] Static SPA Routing.
 - [x] Degree catalogue.
 - [x] Redirects and 404.
-- [ ] v3/v5 prompt.
 
 ### Malla features
 
@@ -83,7 +91,6 @@ ES: Visualización interactiva de mallas académicas de la Facultad de Ciencias 
 - [x] Phase and semester indicators.
 - [x] Responsive phases and semesters.
 - [x] Prerequisite highlighting.
-- [ ] Altprequisite highlighting.
 - [x] Postrequisite highlighting.
 - [x] ~~Corequisite highlighting.~~ No longer exists!
 - [x] ~~Color code legend.~~ No ambiguous colors needing explanation.
@@ -91,42 +98,24 @@ ES: Visualización interactiva de mallas académicas de la Facultad de Ciencias 
 - [x] Multiple course layer propagation.
 - [x] Propagation depth configuration.
 - [x] Hide/show 0 credit courses.
-- [ ] Semester alternating color.
 - [x] Combine same-code courses into one card. (Whole new data structure needed)
 - [x] Fix: On mobile you can select multiple courses
 - [x] Leader lines for prerequisites.
 - [x] Hide/show leader-lines
 - [x] High quality pre/postrequisite highlighting
 
+- [ ] Semester alternating colors.
+- [ ] Altprequisite highlighting. (To be implemented when a malla with altprequisites is added)
+- [ ] Sources for mallas.
+
 ### Mallas
 
 - [ ] Fix IQ2211, FI2001, MA2001 Post requisites.
 
-#### v5
-
 - [ ] Civil ECG.
 - [ ] Civil HSA.
 - [ ] Civil Transporte.
-- [x] Computación (first).
-  - [ ] Double check requisites
-- [ ] Electrica.
-- [ ] Industrial.
-- [ ] Matemática.
-- [ ] Mecánica.
-- [ ] Minas.
-- [ ] Química.
-- [ ] Biotecnología.
-- [ ] Geología.
-- [ ] Astronomía.
-- [ ] Física.
-- [ ] Geofísica.
-
-#### v3
-
-- [ ] Civil ECG.
-- [ ] Civil HSA.
-- [ ] Civil Transporte.
-- [ ] Computación.
+- [x] Computación
 - [ ] Electrica.
 - [ ] Industrial.
 - [ ] Matemática.
