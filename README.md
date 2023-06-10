@@ -51,8 +51,7 @@ ES: Visualización interactiva de mallas académicas de la Facultad de Ciencias 
 - [ ] Change to Static Generation v/s SPA with Alpine:
   - [x] Change to NPM package.
   - [x] Install Eleventy.
-  - [ ] Move Alpine and LeaderLine to NPM instead of CDN.
-  - [ ] Refactor mallas to statically generate.
+  - [x] Refactor mallas to statically generate.
   - [ ] Make 404 redirect to simulate case insensitive URL.
 - [ ] JS/HTML/CSS contribution documentation.
   - [ ] Folder/file structure documentation.
