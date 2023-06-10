@@ -49,6 +49,8 @@ function courseSelected({prerequisites, postrequisites, element}, event, showing
     let selected = element.classList.contains('selected');
     showLines = showingLines;
 
+    console.log(depthpre, depthpost)
+
     if (isTouchEvent()) {
         if (event === 'click') {
             if (selected) {
@@ -173,6 +175,7 @@ function getPostreqs(element) {
  * @param {element} element element to propagate from
  */
 function propagatePrereq(prerequisites, depth, maxdepth, state, element) {
+    console.log(depth, maxdepth)
     if (depth == maxdepth) {return;}
 
     for (let i = 0; i < prerequisites.length; i++) {

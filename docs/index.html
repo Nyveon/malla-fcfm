@@ -46,29 +46,180 @@
 		</style>
 	</head>
 
-	<body x-data="{
+	<body
+		x-data="{
             depthpre: $persist(1),
             depthpost: $persist(1),
             showLines: $persist(true),
             showZeros: $persist(false),
             showCompacts: $persist(true),
             showPhases: $persist(true),
+            settingsOpen: false,
         }"
-    >
+	>
 		<header>
 			<nav>
-				<div></div>
+				<div id="breadcrumb">
+    
+</div>
 				<div>
-					<span id="title">
-						Mallas FCFM
-					</span>
+					<span id="title">Mallas FCFM</span>
 				</div>
-				<div></div>
+				<!-- prettier-ignore -->
+
+
+<!-- prettier-ignore -->
+
+
+<div>
+	<button
+		id="open-settings"
+		@click="settingsOpen = !settingsOpen;"
+		:class="settingsOpen ? 'open' : '';"
+	>
+		<img src="/images/icons/settings-gear-icon.svg" />
+	</button>
+
+	<ul
+		id="settings"
+		x-show="settingsOpen"
+		@click.away="settingsOpen = false;"
+        x-transition:enter="transition ease-out duration-300"
+        x-cloak
+	>
+		
+		<li class="setting-section">Propagación del arbol</li>
+		
+		<li class="setting number-input">
+			<label for="depthpre">
+                <span>↓ Requisitos</span>
+                <div>
+                    
+                    
+<button @click="depthpre = Math.max(depthpre - 1, 1);">-</button>
+<input
+	type="number"
+	id="depthpre"
+	name="depthpre"
+	min="1"
+	max="10"
+	x-model.number="depthpre"
+/>
+<button @click="depthpre = Math.min(depthpre + 1, 10);">+</button>
+
+                    
+                </div>
+            </label>
+		</li>
+		
+		<li class="setting number-input">
+			<label for="depthpost">
+                <span>↑ Desbloqueados</span>
+                <div>
+                    
+                    
+<button @click="depthpost = Math.max(depthpost - 1, 1);">-</button>
+<input
+	type="number"
+	id="depthpost"
+	name="depthpost"
+	min="1"
+	max="10"
+	x-model.number="depthpost"
+/>
+<button @click="depthpost = Math.min(depthpost + 1, 10);">+</button>
+
+                    
+                </div>
+            </label>
+		</li>
+		 
+		<li class="setting-section">Visualización</li>
+		
+		<li class="setting checkbox-input">
+			<label for="showLines">
+                <span>⇅ Flechas</span>
+                <div>
+                    
+                    
+<input
+    type="checkbox"
+    id="showLines"
+    name="showLines"
+    x-model="showLines"
+/>
+<div class="slider"></div>
+
+                    
+                </div>
+            </label>
+		</li>
+		
+		<li class="setting checkbox-input">
+			<label for="showZeros">
+                <span>Cursos sin Créditos</span>
+                <div>
+                    
+                    
+<input
+    type="checkbox"
+    id="showZeros"
+    name="showZeros"
+    x-model="showZeros"
+/>
+<div class="slider"></div>
+
+                    
+                </div>
+            </label>
+		</li>
+		
+		<li class="setting checkbox-input">
+			<label for="showCompacts">
+                <span>Electivos Compactos</span>
+                <div>
+                    
+                    
+<input
+    type="checkbox"
+    id="showCompacts"
+    name="showCompacts"
+    x-model="showCompacts"
+/>
+<div class="slider"></div>
+
+                    
+                </div>
+            </label>
+		</li>
+		
+		<li class="setting checkbox-input">
+			<label for="showPhases">
+                <span>Etiquetas de Planes</span>
+                <div>
+                    
+                    
+<input
+    type="checkbox"
+    id="showPhases"
+    name="showPhases"
+    x-model="showPhases"
+/>
+<div class="slider"></div>
+
+                    
+                </div>
+            </label>
+		</li>
+		 
+	</ul>
+</div>
+
 			</nav>
 		</header>
 
-		<main>
-            
+		<main x-cloak>
+			
 <div class="card-grid">
 	
     <a href="CI1">
@@ -223,8 +374,8 @@
 	
 </div>
 
-            
-        </main>
+			
+		</main>
 
 		<footer>
 			<div id="footer-credit">

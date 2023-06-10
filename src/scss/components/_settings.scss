@@ -2,7 +2,7 @@
 @use "../abstracts/sizes" as s;
 @use "../abstracts/mixins" as m;
 
-.open-settings {
+#open-settings {
     @include m.flex-center;
     @include m.default-animate;
     width: s.$very-large;
@@ -25,7 +25,7 @@
     }
 }
 
-.settings {
+#settings {
     @include m.basic-shadow;
     position: absolute;
     list-style-type: none;
@@ -61,99 +61,89 @@
     }
 }
 
-
-
-.setting {
-    width: s.$setting-size;
-    @include m.flex-row;
-    justify-content: space-between;
-}
-
-.setting-input {
-    @include m.flex-row;
-    justify-content: right;
-    align-items: center;
-}
-
 .setting-section {
     font-weight: bold;
 }
 
 $setting-height: s.$large;
 
-.number-input {
-    input {
-        width: s.$very-large;
-        text-align: center;
-        background: transparent;
-        border: none;
-        color: c.$text-white;
+.setting {
+    width: s.$setting-size;
+
+    label {
+        @include m.flex-row;
+        justify-content: space-between;
     }
 
-    button {
-        width: $setting-height;
-        height: $setting-height;
-        border-radius: s.$space-thick;
-        @include m.flex-center;
-
-        &:hover {
-            background-color: c.$text-white;
-            color: c.$settings-color;
+    &.number-input {
+        input {
+            width: s.$very-large;
+            text-align: center;
+            background: transparent;
+            border: none;
+            color: c.$text-white;
         }
 
-        &:active {
-            transform: scale(0.9);
-        }
-    }
-}
-
-.checkbox-input {
-    position: relative;
-    display: inline-block;
-    width: $setting-height * 2;
-    height: $setting-height;
-    margin-right: s.$medium;
-
-    input {
-        display: none;
-    }
-
-    input:checked {
-        &+.slider {
-            background-color: c.$text-white;
-
-            &::before {
-                transform: translateX($setting-height);
-                background-color: c.$checkbox-selected;
-            }
+        button {
+            width: $setting-height;
+            height: $setting-height;
+            border-radius: s.$space-thick;
 
             &:hover {
-                background-color: c.$text-mid;
+                background-color: c.$text-white;
+                color: c.$settings-color;
+            }
+
+            &:active {
+                transform: scale(0.9);
             }
         }
     }
 
-    .slider {
-        position: absolute;
-        inset: 0;
-        cursor: pointer;
-        background-color: c.$text-mid;
-        @include m.default-animate;
-        border-radius: $setting-height;
-        @include m.pretty-shadow;
-
-        &::before {
-            @include m.pseudo;
-            height: $setting-height;
-            width: $setting-height;
-            background-color: c.$checkbox-unselected;
-            @include m.default-animate;
-            border-radius: 50%;
-            border: 1px solid c.$text-mid;
+    &.checkbox-input {    
+        input {
+            display: none;
         }
-
-        &:hover {
-            background-color: c.$text-white;
+    
+        input:checked {
+            &+.slider {
+                background-color: c.$text-white;
+    
+                &::before {
+                    transform: translateX($setting-height);
+                    background-color: c.$checkbox-selected;
+                }
+    
+                &:hover {
+                    background-color: c.$text-mid;
+                }
+            }
+        }
+    
+        .slider {
+            cursor: pointer;
+            @include m.default-animate;
+            @include m.pretty-shadow;
+            position: relative;
+            background-color: c.$text-mid;
+            border-radius: $setting-height;
+            width: $setting-height * 2;
+            height: $setting-height;
+            margin-right: s.$medium;
+    
+            &::before {
+                @include m.pseudo;
+                @include m.default-animate;
+                height: $setting-height;
+                width: $setting-height;
+                background-color: c.$checkbox-unselected;
+                border-radius: 50%;
+                border: 1px solid c.$text-mid;
+            }
+    
+            &:hover {
+                background-color: c.$text-white;
+            }
         }
     }
 }

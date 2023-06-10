@@ -46,31 +46,31 @@
 		</style>
 	</head>
 
-	<body x-data="{
+	<body
+		x-data="{
             depthpre: $persist(1),
             depthpost: $persist(1),
             showLines: $persist(true),
             showZeros: $persist(false),
             showCompacts: $persist(true),
             showPhases: $persist(true),
+            settingsOpen: false,
         }"
-    >
+	>
 		<header>
 			<nav>
-				<div>{% block navleft %}{% endblock %}</div>
+				{% include "_breadcrumb.njk" %}
 				<div>
-					<span id="title">
-						{{ title }}
-					</span>
+					<span id="title">{{ title }}</span>
 				</div>
-				<div>{% block navright %}{% endblock %}</div>
+				{% include "_settings.njk" %}
 			</nav>
 		</header>
 
-		<main>
-            {{ content | safe }}
-            {% block content %}{% endblock %}
-        </main>
+		<main x-cloak>
+			{{ content | safe }}
+			{% block content %}{% endblock %}
+		</main>
 
 		<footer>
 			<div id="footer-credit">

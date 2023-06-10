@@ -1,1 +1,59 @@
-Placeholder - Hamburger
+<!-- prettier-ignore -->
+{% macro numberInput(id, min, max) %}
+<button @click="{{ id }} = Math.max({{ id }} - 1, {{ min }});">-</button>
+<input
+	type="number"
+	id="{{ id }}"
+	name="{{ id }}"
+	min="{{ min }}"
+	max="{{ max }}"
+	x-model.number="{{ id }}"
+/>
+<button @click="{{ id }} = Math.min({{ id }} + 1, {{ max }});">+</button>
+{% endmacro %}
+
+<!-- prettier-ignore -->
+{% macro checkboxInput(id) %}
+<input
+    type="checkbox"
+    id="{{ id }}"
+    name="{{ id }}"
+    x-model="{{ id }}"
+/>
+<div class="slider"></div>
+{% endmacro %}
+
+<div>
+	<button
+		id="open-settings"
+		@click="settingsOpen = !settingsOpen;"
+		:class="settingsOpen ? 'open' : '';"
+	>
+		<img src="/images/icons/settings-gear-icon.svg" />
+	</button>
+
+	<ul
+		id="settings"
+		x-show="settingsOpen"
+		@click.away="settingsOpen = false;"
+        x-transition:enter="transition ease-out duration-300"
+        x-cloak
+	>
+		{% for section in settings %}
+		<li class="setting-section">{{ section.name }}</li>
+		{% for setting in section.settings %}
+		<li class="setting {{ setting.type }}-input">
+			<label for="{{ setting.id }}">
+                <span>{{ setting.name }}</span>
+                <div>
+                    {% if setting.type == "number" %}
+                    {{ numberInput(setting.id, setting.min, setting.max) }}
+                    {% elif setting.type == "checkbox" %}
+                    {{ checkboxInput(setting.id) }}
+                    {% endif %}
+                </div>
+            </label>
+		</li>
+		{% endfor %} {% endfor %}
+	</ul>
+</div>

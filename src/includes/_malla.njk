@@ -1,0 +1,59 @@
+<div id="interior">
+	<div id="malla">
+		{% for phaseName, phase in (name | getGlobalData).v5 %}
+		<section class="phase">
+			<span class="banner-title" x-show="showPhases">{{ phaseName }}</span>
+			<div class="semesters">
+				{% for index, semester in phase.semesters %}
+				<section class="semester">
+					<span
+						class="banner-title"
+						:class="showPhases ? '' : 'horizontal-text'"
+						>{{ semester.number }}
+					</span>
+					<div class="courses">
+						{% for index, course in semester.courses %}
+						<div
+							class="course {{ course.department }}"
+							id="{{ index }}"
+							x-data="{
+                                prerequisites: {{
+								course.prerequisites | dump
+							}},
+                                postrequisites: {{
+								course.postrequisites | dump
+							}},
+                                element: $el,
+                                shown() {
+                                    {%- if course.credits == 0 %}if (!showZeros) return false;{% endif %}
+                                    {%- if course.type == 'compacted' %}if (!showCompacts) return false;{% endif %}
+                                    {%- if course.type == 'compactable' %}if (showCompacts) return false;{% endif %}
+                                    return true;
+                                },
+                                select(event) {
+                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                }
+                            }"
+							@mouseenter="select('mouseenter');"
+							@mouseleave="select('mouseleave');"
+							x-show="shown()"
+							data-prereqs="{{ course.prerequisites }}"
+							data-postreqs="{{ course.postrequisites }}"
+						>
+							<div class="course-bar" x-show="shown()">
+								<span class="course-code">{{ course.code }}</span>
+								<span class="course-credits">{{ course.credits }}</span>
+							</div>
+							<div class="course-body">
+								<span class="course-name">{{ course.name }}</span>
+							</div>
+						</div>
+						{% endfor %}
+					</div>
+				</section>
+				{% endfor %}
+			</div>
+		</section>
+		{% endfor %}
+	</div>
+</div>

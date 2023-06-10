@@ -37,9 +37,7 @@
 
 		<script src="/js/page.js" type="text/javascript"></script>
 
-		
-<script src="/js/malla.js" type="text/javascript"></script>
-
+		<script src="/js/malla.js" type="text/javascript"></script>
 
 		<style>
 			[x-cloak] {
@@ -48,34 +46,184 @@
 		</style>
 	</head>
 
-	<body x-data="{
+	<body
+		x-data="{
             depthpre: $persist(1),
             depthpost: $persist(1),
             showLines: $persist(true),
             showZeros: $persist(false),
             showCompacts: $persist(true),
             showPhases: $persist(true),
+            settingsOpen: false,
         }"
-    >
+	>
 		<header>
 			<nav>
-				<div> <div id="breadcrumb">
-    <a class="link" href="/">Mallas</a>
-    <span>> dcc</span>
-</div> </div>
+				<div id="breadcrumb">
+    
+        <a class="link" href="/">Mallas</a>
+        <span>> dcc</span>
+    
+</div>
 				<div>
-					<span id="title">
-						Malla DCC
-					</span>
+					<span id="title">Malla DCC</span>
 				</div>
-				<div> Placeholder - Hamburger </div>
+				<!-- prettier-ignore -->
+
+
+<!-- prettier-ignore -->
+
+
+<div>
+	<button
+		id="open-settings"
+		@click="settingsOpen = !settingsOpen;"
+		:class="settingsOpen ? 'open' : '';"
+	>
+		<img src="/images/icons/settings-gear-icon.svg" />
+	</button>
+
+	<ul
+		id="settings"
+		x-show="settingsOpen"
+		@click.away="settingsOpen = false;"
+        x-transition:enter="transition ease-out duration-300"
+        x-cloak
+	>
+		
+		<li class="setting-section">Propagación del arbol</li>
+		
+		<li class="setting number-input">
+			<label for="depthpre">
+                <span>↓ Requisitos</span>
+                <div>
+                    
+                    
+<button @click="depthpre = Math.max(depthpre - 1, 1);">-</button>
+<input
+	type="number"
+	id="depthpre"
+	name="depthpre"
+	min="1"
+	max="10"
+	x-model.number="depthpre"
+/>
+<button @click="depthpre = Math.min(depthpre + 1, 10);">+</button>
+
+                    
+                </div>
+            </label>
+		</li>
+		
+		<li class="setting number-input">
+			<label for="depthpost">
+                <span>↑ Desbloqueados</span>
+                <div>
+                    
+                    
+<button @click="depthpost = Math.max(depthpost - 1, 1);">-</button>
+<input
+	type="number"
+	id="depthpost"
+	name="depthpost"
+	min="1"
+	max="10"
+	x-model.number="depthpost"
+/>
+<button @click="depthpost = Math.min(depthpost + 1, 10);">+</button>
+
+                    
+                </div>
+            </label>
+		</li>
+		 
+		<li class="setting-section">Visualización</li>
+		
+		<li class="setting checkbox-input">
+			<label for="showLines">
+                <span>⇅ Flechas</span>
+                <div>
+                    
+                    
+<input
+    type="checkbox"
+    id="showLines"
+    name="showLines"
+    x-model="showLines"
+/>
+<div class="slider"></div>
+
+                    
+                </div>
+            </label>
+		</li>
+		
+		<li class="setting checkbox-input">
+			<label for="showZeros">
+                <span>Cursos sin Créditos</span>
+                <div>
+                    
+                    
+<input
+    type="checkbox"
+    id="showZeros"
+    name="showZeros"
+    x-model="showZeros"
+/>
+<div class="slider"></div>
+
+                    
+                </div>
+            </label>
+		</li>
+		
+		<li class="setting checkbox-input">
+			<label for="showCompacts">
+                <span>Electivos Compactos</span>
+                <div>
+                    
+                    
+<input
+    type="checkbox"
+    id="showCompacts"
+    name="showCompacts"
+    x-model="showCompacts"
+/>
+<div class="slider"></div>
+
+                    
+                </div>
+            </label>
+		</li>
+		
+		<li class="setting checkbox-input">
+			<label for="showPhases">
+                <span>Etiquetas de Planes</span>
+                <div>
+                    
+                    
+<input
+    type="checkbox"
+    id="showPhases"
+    name="showPhases"
+    x-model="showPhases"
+/>
+<div class="slider"></div>
+
+                    
+                </div>
+            </label>
+		</li>
+		 
+	</ul>
+</div>
+
 			</nav>
 		</header>
 
-		<main>
-            
-            
-<div id="interior">
+		<main x-cloak>
+			
+			<div id="interior">
 	<div id="malla">
 		
 		<section class="phase">
@@ -98,9 +246,6 @@
                                 postrequisites: [&quot;MA1002&quot;,&quot;FI1100&quot;],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -110,8 +255,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[]"
-							data-postreqs="[&quot;MA1002&quot;,&quot;FI1100&quot;]"
+							data-prereqs=""
+							data-postreqs="MA1002,FI1100"
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">MA1001</span>
@@ -130,9 +275,6 @@
                                 postrequisites: [&quot;MA1102&quot;,&quot;FI1100&quot;,&quot;CC3101&quot;],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -142,8 +284,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[]"
-							data-postreqs="[&quot;MA1102&quot;,&quot;FI1100&quot;,&quot;CC3101&quot;]"
+							data-prereqs=""
+							data-postreqs="MA1102,FI1100,CC3101"
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">MA1101</span>
@@ -162,9 +304,6 @@
                                 postrequisites: [&quot;FI1100&quot;],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -174,8 +313,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[]"
-							data-postreqs="[&quot;FI1100&quot;]"
+							data-prereqs=""
+							data-postreqs="FI1100"
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">FI1000</span>
@@ -194,9 +333,6 @@
                                 postrequisites: [],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -206,8 +342,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[]"
-							data-postreqs="[]"
+							data-prereqs=""
+							data-postreqs=""
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC1000</span>
@@ -226,9 +362,6 @@
                                 postrequisites: [&quot;CD1201&quot;],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -238,8 +371,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[]"
-							data-postreqs="[&quot;CD1201&quot;]"
+							data-prereqs=""
+							data-postreqs="CD1201"
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CD1100</span>
@@ -258,9 +391,6 @@
                                 postrequisites: [],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -270,8 +400,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[]"
-							data-postreqs="[]"
+							data-prereqs=""
+							data-postreqs=""
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">BT1211</span>
@@ -301,9 +431,6 @@
                                 postrequisites: [&quot;MA2001&quot;,&quot;MA2601&quot;,&quot;FI2001&quot;,&quot;FI2003&quot;],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -313,8 +440,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[&quot;MA1001&quot;,&quot;MA100&quot;]"
-							data-postreqs="[&quot;MA2001&quot;,&quot;MA2601&quot;,&quot;FI2001&quot;,&quot;FI2003&quot;]"
+							data-prereqs="MA1001,MA100"
+							data-postreqs="MA2001,MA2601,FI2001,FI2003"
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">MA1002</span>
@@ -333,9 +460,6 @@
                                 postrequisites: [&quot;MA2001&quot;,&quot;MA2601&quot;,&quot;FI2001&quot;],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -345,8 +469,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[&quot;MA1101&quot;,&quot;MA110&quot;]"
-							data-postreqs="[&quot;MA2001&quot;,&quot;MA2601&quot;,&quot;FI2001&quot;]"
+							data-prereqs="MA1101,MA110"
+							data-postreqs="MA2001,MA2601,FI2001"
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">MA1102</span>
@@ -365,9 +489,6 @@
                                 postrequisites: [&quot;FI2001&quot;,&quot;FI2003&quot;],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -377,8 +498,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[&quot;FI1000&quot;,&quot;MA1101&quot;,&quot;MA1001&quot;]"
-							data-postreqs="[&quot;FI2001&quot;,&quot;FI2003&quot;]"
+							data-prereqs="FI1000,MA1101,MA1001"
+							data-postreqs="FI2001,FI2003"
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">FI1100</span>
@@ -397,9 +518,6 @@
                                 postrequisites: [&quot;CC3501&quot;,&quot;CC3001&quot;,&quot;CC3101&quot;],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -409,8 +527,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[&quot;CR3&quot;]"
-							data-postreqs="[&quot;CC3501&quot;,&quot;CC3001&quot;,&quot;CC3101&quot;]"
+							data-prereqs="CR3"
+							data-postreqs="CC3501,CC3001,CC3101"
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC1002</span>
@@ -429,9 +547,6 @@
                                 postrequisites: [&quot;CD2201&quot;],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -441,8 +556,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[&quot;CD1100&quot;]"
-							data-postreqs="[&quot;CD2201&quot;]"
+							data-prereqs="CD1100"
+							data-postreqs="CD2201"
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CD1201</span>
@@ -461,9 +576,6 @@
                                 postrequisites: [],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -473,8 +585,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[]"
-							data-postreqs="[]"
+							data-prereqs=""
+							data-postreqs=""
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">EH/FG/DR/EI/FT</span>
@@ -504,9 +616,6 @@
                                 postrequisites: [&quot;MA2002&quot;,&quot;IN2201&quot;,&quot;FI2002&quot;,&quot;XTQTF20&quot;,&quot;MA3403&quot;,&quot;CC3501&quot;],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -516,8 +625,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[&quot;MA1002&quot;,&quot;MA1A2&quot;,&quot;MA1102&quot;,&quot;MA1B2&quot;]"
-							data-postreqs="[&quot;MA2002&quot;,&quot;IN2201&quot;,&quot;FI2002&quot;,&quot;XTQTF20&quot;,&quot;MA3403&quot;,&quot;CC3501&quot;]"
+							data-prereqs="MA1002,MA1A2,MA1102,MA1B2"
+							data-postreqs="MA2002,IN2201,FI2002,XTQTF20,MA3403,CC3501"
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">MA2001</span>
@@ -536,9 +645,6 @@
                                 postrequisites: [&quot;MA2002&quot;,&quot;FI2002&quot;,&quot;CC3501&quot;],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -548,8 +654,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[&quot;MA1002&quot;,&quot;MA1A2&quot;,&quot;MA1102&quot;,&quot;MA1B2&quot;]"
-							data-postreqs="[&quot;MA2002&quot;,&quot;FI2002&quot;,&quot;CC3501&quot;]"
+							data-prereqs="MA1002,MA1A2,MA1102,MA1B2"
+							data-postreqs="MA2002,FI2002,CC3501"
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">MA2601</span>
@@ -568,9 +674,6 @@
                                 postrequisites: [&quot;XTQTF20&quot;,&quot;CC3501&quot;],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -580,8 +683,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[&quot;FI1100&quot;,&quot;FI1002&quot;,&quot;MA1002&quot;,&quot;MA1A2&quot;,&quot;MA1102&quot;,&quot;MA1B2&quot;]"
-							data-postreqs="[&quot;XTQTF20&quot;,&quot;CC3501&quot;]"
+							data-prereqs="FI1100,FI1002,MA1002,MA1A2,MA1102,MA1B2"
+							data-postreqs="XTQTF20,CC3501"
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">FI2001</span>
@@ -600,9 +703,6 @@
                                 postrequisites: [&quot;FI2002&quot;],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -612,8 +712,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[&quot;MA1002&quot;,&quot;MA1A2&quot;,&quot;FI1100&quot;,&quot;FI2A1&quot;]"
-							data-postreqs="[&quot;FI2002&quot;]"
+							data-prereqs="MA1002,MA1A2,FI1100,FI2A1"
+							data-postreqs="FI2002"
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">FI2003</span>
@@ -632,9 +732,6 @@
                                 postrequisites: [&quot;XTQTF20&quot;],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -644,8 +741,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[&quot;CR48&quot;]"
-							data-postreqs="[&quot;XTQTF20&quot;]"
+							data-prereqs="CR48"
+							data-postreqs="XTQTF20"
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">IQ2211</span>
@@ -675,9 +772,6 @@
                                 postrequisites: [],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -687,8 +781,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[&quot;MA2001&quot;,&quot;MA2A1&quot;,&quot;MA2601&quot;,&quot;MA2G1&quot;]"
-							data-postreqs="[]"
+							data-prereqs="MA2001,MA2A1,MA2601,MA2G1"
+							data-postreqs=""
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">MA2002</span>
@@ -707,9 +801,6 @@
                                 postrequisites: [&quot;CC4402&quot;],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -719,8 +810,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[&quot;MA2001&quot;]"
-							data-postreqs="[&quot;CC4402&quot;]"
+							data-prereqs="MA2001"
+							data-postreqs="CC4402"
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">IN2201</span>
@@ -739,9 +830,6 @@
                                 postrequisites: [],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -751,8 +839,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[&quot;FI2003&quot;,&quot;FI2A3&quot;,&quot;MA2001&quot;,&quot;MA2A1&quot;,&quot;MA2601&quot;]"
-							data-postreqs="[]"
+							data-prereqs="FI2003,FI2A3,MA2001,MA2A1,MA2601"
+							data-postreqs=""
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">FI2002</span>
@@ -771,9 +859,6 @@
                                 postrequisites: [],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -783,8 +868,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[&quot;IQ2211&quot;,&quot;MA2001&quot;,&quot;FI2001&quot;]"
-							data-postreqs="[]"
+							data-prereqs="IQ2211,MA2001,FI2001"
+							data-postreqs=""
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">FI2004/IQ2212</span>
@@ -803,9 +888,6 @@
                                 postrequisites: [&quot;CC4402&quot;],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -815,8 +897,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[&quot;CD1201&quot;]"
-							data-postreqs="[&quot;CC4402&quot;]"
+							data-prereqs="CD1201"
+							data-postreqs="CC4402"
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CD2201</span>
@@ -835,9 +917,6 @@
                                 postrequisites: [],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -847,8 +926,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[]"
-							data-postreqs="[]"
+							data-prereqs=""
+							data-postreqs=""
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">EH/FG/DR/EI/FT</span>
@@ -885,9 +964,6 @@
                                 postrequisites: [&quot;CC4102&quot;],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -897,8 +973,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[&quot;MA2001&quot;,&quot;MA2A1&quot;]"
-							data-postreqs="[&quot;CC4102&quot;]"
+							data-prereqs="MA2001,MA2A1"
+							data-postreqs="CC4102"
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">MA3403</span>
@@ -917,9 +993,6 @@
                                 postrequisites: [],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -929,8 +1002,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[&quot;CC1002&quot;,&quot;MA2001&quot;,&quot;MA2601&quot;,&quot;FI2001&quot;]"
-							data-postreqs="[]"
+							data-prereqs="CC1002,MA2001,MA2601,FI2001"
+							data-postreqs=""
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC3501</span>
@@ -949,9 +1022,6 @@
                                 postrequisites: [&quot;CC3201&quot;,&quot;CC3002&quot;,&quot;CC3301&quot;,&quot;CC5205&quot;,&quot;CC4102&quot;],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -961,8 +1031,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[&quot;CC1002&quot;]"
-							data-postreqs="[&quot;CC3201&quot;,&quot;CC3002&quot;,&quot;CC3301&quot;,&quot;CC5205&quot;,&quot;CC4102&quot;]"
+							data-prereqs="CC1002"
+							data-postreqs="CC3201,CC3002,CC3301,CC5205,CC4102"
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC3001</span>
@@ -981,9 +1051,6 @@
                                 postrequisites: [&quot;CC3102&quot;],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -993,8 +1060,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[&quot;CC1002&quot;,&quot;MA1101&quot;]"
-							data-postreqs="[&quot;CC3102&quot;]"
+							data-prereqs="CC1002,MA1101"
+							data-postreqs="CC3102"
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC3101</span>
@@ -1012,10 +1079,7 @@
                                 prerequisites: [],
                                 postrequisites: [],
                                 element: $el,
-                                shown() {
-                                    
-                                    
-                                    if (showCompacts) return false;
+                                shown() {if (showCompacts) return false;
                                     return true;
                                 },
                                 select(event) {
@@ -1025,8 +1089,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[]"
-							data-postreqs="[]"
+							data-prereqs=""
+							data-postreqs=""
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">EH/FG</span>
@@ -1044,10 +1108,7 @@
                                 prerequisites: [],
                                 postrequisites: [],
                                 element: $el,
-                                shown() {
-                                    
-                                    
-                                    if (showCompacts) return false;
+                                shown() {if (showCompacts) return false;
                                     return true;
                                 },
                                 select(event) {
@@ -1057,8 +1118,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[]"
-							data-postreqs="[]"
+							data-prereqs=""
+							data-postreqs=""
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">EH/FG</span>
@@ -1076,10 +1137,7 @@
                                 prerequisites: [],
                                 postrequisites: [],
                                 element: $el,
-                                shown() {
-                                    
-                                    if (!showCompacts) return false;
-                                    
+                                shown() {if (!showCompacts) return false;
                                     return true;
                                 },
                                 select(event) {
@@ -1089,8 +1147,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[]"
-							data-postreqs="[]"
+							data-prereqs=""
+							data-postreqs=""
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">EH/FG</span>
@@ -1120,9 +1178,6 @@
                                 postrequisites: [&quot;CC4401&quot;,&quot;CC4901&quot;],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -1132,8 +1187,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[&quot;CC3001&quot;]"
-							data-postreqs="[&quot;CC4401&quot;,&quot;CC4901&quot;]"
+							data-prereqs="CC3001"
+							data-postreqs="CC4401,CC4901"
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC3201</span>
@@ -1152,9 +1207,6 @@
                                 postrequisites: [&quot;CC4401&quot;,&quot;CC4901&quot;],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -1164,8 +1216,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[&quot;CC3001&quot;,&quot;CC30A&quot;]"
-							data-postreqs="[&quot;CC4401&quot;,&quot;CC4901&quot;]"
+							data-prereqs="CC3001,CC30A"
+							data-postreqs="CC4401,CC4901"
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC3002</span>
@@ -1184,9 +1236,6 @@
                                 postrequisites: [&quot;CC4102&quot;,&quot;CC4101&quot;],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -1196,8 +1245,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[&quot;CC3101&quot;]"
-							data-postreqs="[&quot;CC4102&quot;,&quot;CC4101&quot;]"
+							data-prereqs="CC3101"
+							data-postreqs="CC4102,CC4101"
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC3102</span>
@@ -1216,9 +1265,6 @@
                                 postrequisites: [&quot;CC4302&quot;,&quot;CC4901&quot;],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -1228,8 +1274,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[&quot;CC3001&quot;]"
-							data-postreqs="[&quot;CC4302&quot;,&quot;CC4901&quot;]"
+							data-prereqs="CC3001"
+							data-postreqs="CC4302,CC4901"
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC3301</span>
@@ -1248,9 +1294,6 @@
                                 postrequisites: [],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -1260,8 +1303,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[]"
-							data-postreqs="[]"
+							data-prereqs=""
+							data-postreqs=""
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">Electivo</span>
@@ -1279,10 +1322,7 @@
                                 prerequisites: [],
                                 postrequisites: [&quot;CC4901&quot;],
                                 element: $el,
-                                shown() {
-                                    if (!showZeros) return false;
-                                    
-                                    
+                                shown() {if (!showZeros) return false;
                                     return true;
                                 },
                                 select(event) {
@@ -1292,8 +1332,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[]"
-							data-postreqs="[&quot;CC4901&quot;]"
+							data-prereqs=""
+							data-postreqs="CC4901"
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC4900</span>
@@ -1323,9 +1363,6 @@
                                 postrequisites: [],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -1335,8 +1372,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[&quot;CC3001&quot;]"
-							data-postreqs="[]"
+							data-prereqs="CC3001"
+							data-postreqs=""
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC5205</span>
@@ -1355,9 +1392,6 @@
                                 postrequisites: [&quot;CC4402&quot;,&quot;CC5901&quot;],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -1367,8 +1401,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[&quot;CC3002&quot;,&quot;CC3201&quot;]"
-							data-postreqs="[&quot;CC4402&quot;,&quot;CC5901&quot;]"
+							data-prereqs="CC3002,CC3201"
+							data-postreqs="CC4402,CC5901"
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC4401</span>
@@ -1387,9 +1421,6 @@
                                 postrequisites: [&quot;CC5402&quot;],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -1399,8 +1430,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[&quot;MA3403&quot;,&quot;CC3001&quot;,&quot;CC3102&quot;]"
-							data-postreqs="[&quot;CC5402&quot;]"
+							data-prereqs="MA3403,CC3001,CC3102"
+							data-postreqs="CC5402"
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC4102</span>
@@ -1419,9 +1450,6 @@
                                 postrequisites: [&quot;CC4303&quot;],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -1431,8 +1459,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[&quot;CC3301&quot;]"
-							data-postreqs="[&quot;CC4303&quot;]"
+							data-prereqs="CC3301"
+							data-postreqs="CC4303"
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC4302</span>
@@ -1451,9 +1479,6 @@
                                 postrequisites: [],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -1463,8 +1488,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[]"
-							data-postreqs="[]"
+							data-prereqs=""
+							data-postreqs=""
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">Electivo</span>
@@ -1483,9 +1508,6 @@
                                 postrequisites: [&quot;CC5901&quot;],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -1495,8 +1517,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[&quot;CC3002&quot;,&quot;CC3201&quot;,&quot;CC3301&quot;,&quot;CC4900&quot;,&quot;AUTOR&quot;]"
-							data-postreqs="[&quot;CC5901&quot;]"
+							data-prereqs="CC3002,CC3201,CC3301,CC4900,AUTOR"
+							data-postreqs="CC5901"
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC4901</span>
@@ -1526,9 +1548,6 @@
                                 postrequisites: [&quot;CC6907&quot;],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -1538,8 +1557,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[&quot;CC4401&quot;,&quot;CD2201&quot;,&quot;IN2201&quot;]"
-							data-postreqs="[&quot;CC6907&quot;]"
+							data-prereqs="CC4401,CD2201,IN2201"
+							data-postreqs="CC6907"
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC4402</span>
@@ -1558,9 +1577,6 @@
                                 postrequisites: [&quot;CC5901&quot;],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -1570,8 +1586,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[&quot;CC3102&quot;]"
-							data-postreqs="[&quot;CC5901&quot;]"
+							data-prereqs="CC3102"
+							data-postreqs="CC5901"
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC4101</span>
@@ -1590,9 +1606,6 @@
                                 postrequisites: [&quot;CC5402&quot;],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -1602,8 +1615,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[&quot;CC4302&quot;]"
-							data-postreqs="[&quot;CC5402&quot;]"
+							data-prereqs="CC4302"
+							data-postreqs="CC5402"
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC4303</span>
@@ -1621,10 +1634,7 @@
                                 prerequisites: [],
                                 postrequisites: [],
                                 element: $el,
-                                shown() {
-                                    
-                                    
-                                    if (showCompacts) return false;
+                                shown() {if (showCompacts) return false;
                                     return true;
                                 },
                                 select(event) {
@@ -1634,8 +1644,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[]"
-							data-postreqs="[]"
+							data-prereqs=""
+							data-postreqs=""
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">Electivo</span>
@@ -1653,10 +1663,7 @@
                                 prerequisites: [],
                                 postrequisites: [],
                                 element: $el,
-                                shown() {
-                                    
-                                    
-                                    if (showCompacts) return false;
+                                shown() {if (showCompacts) return false;
                                     return true;
                                 },
                                 select(event) {
@@ -1666,8 +1673,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[]"
-							data-postreqs="[]"
+							data-prereqs=""
+							data-postreqs=""
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">Electivo</span>
@@ -1685,10 +1692,7 @@
                                 prerequisites: [],
                                 postrequisites: [&quot;EI2090&quot;],
                                 element: $el,
-                                shown() {
-                                    if (!showZeros) return false;
-                                    
-                                    
+                                shown() {if (!showZeros) return false;
                                     return true;
                                 },
                                 select(event) {
@@ -1698,8 +1702,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[]"
-							data-postreqs="[&quot;EI2090&quot;]"
+							data-prereqs=""
+							data-postreqs="EI2090"
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">EI1090</span>
@@ -1717,10 +1721,7 @@
                                 prerequisites: [],
                                 postrequisites: [&quot;CC5901&quot;],
                                 element: $el,
-                                shown() {
-                                    if (!showZeros) return false;
-                                    
-                                    
+                                shown() {if (!showZeros) return false;
                                     return true;
                                 },
                                 select(event) {
@@ -1730,8 +1731,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[]"
-							data-postreqs="[&quot;CC5901&quot;]"
+							data-prereqs=""
+							data-postreqs="CC5901"
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC5900</span>
@@ -1749,10 +1750,7 @@
                                 prerequisites: [],
                                 postrequisites: [],
                                 element: $el,
-                                shown() {
-                                    
-                                    if (!showCompacts) return false;
-                                    
+                                shown() {if (!showCompacts) return false;
                                     return true;
                                 },
                                 select(event) {
@@ -1762,8 +1760,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[]"
-							data-postreqs="[]"
+							data-prereqs=""
+							data-postreqs=""
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">Electivo</span>
@@ -1799,10 +1797,7 @@
                                 prerequisites: [],
                                 postrequisites: [],
                                 element: $el,
-                                shown() {
-                                    
-                                    
-                                    if (showCompacts) return false;
+                                shown() {if (showCompacts) return false;
                                     return true;
                                 },
                                 select(event) {
@@ -1812,8 +1807,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[]"
-							data-postreqs="[]"
+							data-prereqs=""
+							data-postreqs=""
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">Electivo</span>
@@ -1831,10 +1826,7 @@
                                 prerequisites: [],
                                 postrequisites: [],
                                 element: $el,
-                                shown() {
-                                    
-                                    
-                                    if (showCompacts) return false;
+                                shown() {if (showCompacts) return false;
                                     return true;
                                 },
                                 select(event) {
@@ -1844,8 +1836,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[]"
-							data-postreqs="[]"
+							data-prereqs=""
+							data-postreqs=""
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">Electivo</span>
@@ -1863,10 +1855,7 @@
                                 prerequisites: [],
                                 postrequisites: [],
                                 element: $el,
-                                shown() {
-                                    
-                                    
-                                    if (showCompacts) return false;
+                                shown() {if (showCompacts) return false;
                                     return true;
                                 },
                                 select(event) {
@@ -1876,8 +1865,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[]"
-							data-postreqs="[]"
+							data-prereqs=""
+							data-postreqs=""
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">Electivo</span>
@@ -1896,9 +1885,6 @@
                                 postrequisites: [],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -1908,8 +1894,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[]"
-							data-postreqs="[]"
+							data-prereqs=""
+							data-postreqs=""
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">Electivo</span>
@@ -1927,10 +1913,7 @@
                                 prerequisites: [],
                                 postrequisites: [],
                                 element: $el,
-                                shown() {
-                                    
-                                    
-                                    if (showCompacts) return false;
+                                shown() {if (showCompacts) return false;
                                     return true;
                                 },
                                 select(event) {
@@ -1940,8 +1923,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[]"
-							data-postreqs="[]"
+							data-prereqs=""
+							data-postreqs=""
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">Electivo</span>
@@ -1959,10 +1942,7 @@
                                 prerequisites: [],
                                 postrequisites: [],
                                 element: $el,
-                                shown() {
-                                    
-                                    
-                                    if (showCompacts) return false;
+                                shown() {if (showCompacts) return false;
                                     return true;
                                 },
                                 select(event) {
@@ -1972,8 +1952,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[]"
-							data-postreqs="[]"
+							data-prereqs=""
+							data-postreqs=""
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">Electivo</span>
@@ -1992,9 +1972,6 @@
                                 postrequisites: [],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -2004,8 +1981,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[&quot;CC4901&quot;,&quot;CC4401&quot;,&quot;CC4101&quot;,&quot;CC5900&quot;]"
-							data-postreqs="[]"
+							data-prereqs="CC4901,CC4401,CC4101,CC5900"
+							data-postreqs=""
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC5901</span>
@@ -2023,10 +2000,7 @@
                                 prerequisites: [],
                                 postrequisites: [],
                                 element: $el,
-                                shown() {
-                                    
-                                    if (!showCompacts) return false;
-                                    
+                                shown() {if (!showCompacts) return false;
                                     return true;
                                 },
                                 select(event) {
@@ -2036,8 +2010,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[]"
-							data-postreqs="[]"
+							data-prereqs=""
+							data-postreqs=""
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">Electivo</span>
@@ -2055,10 +2029,7 @@
                                 prerequisites: [],
                                 postrequisites: [],
                                 element: $el,
-                                shown() {
-                                    
-                                    if (!showCompacts) return false;
-                                    
+                                shown() {if (!showCompacts) return false;
                                     return true;
                                 },
                                 select(event) {
@@ -2068,8 +2039,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[]"
-							data-postreqs="[]"
+							data-prereqs=""
+							data-postreqs=""
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">Electivo</span>
@@ -2099,9 +2070,6 @@
                                 postrequisites: [&quot;CC6919&quot;],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -2111,8 +2079,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[&quot;CC4402&quot;]"
-							data-postreqs="[&quot;CC6919&quot;]"
+							data-prereqs="CC4402"
+							data-postreqs="CC6919"
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC6907</span>
@@ -2130,10 +2098,7 @@
                                 prerequisites: [],
                                 postrequisites: [],
                                 element: $el,
-                                shown() {
-                                    
-                                    
-                                    if (showCompacts) return false;
+                                shown() {if (showCompacts) return false;
                                     return true;
                                 },
                                 select(event) {
@@ -2143,8 +2108,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[]"
-							data-postreqs="[]"
+							data-prereqs=""
+							data-postreqs=""
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">Electivo</span>
@@ -2162,10 +2127,7 @@
                                 prerequisites: [],
                                 postrequisites: [],
                                 element: $el,
-                                shown() {
-                                    
-                                    
-                                    if (showCompacts) return false;
+                                shown() {if (showCompacts) return false;
                                     return true;
                                 },
                                 select(event) {
@@ -2175,8 +2137,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[]"
-							data-postreqs="[]"
+							data-prereqs=""
+							data-postreqs=""
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">Electivo</span>
@@ -2195,9 +2157,6 @@
                                 postrequisites: [],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -2207,8 +2166,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[&quot;IN3301&quot;,&quot;CC5401&quot;,&quot;CC4303&quot;,&quot;CC4102&quot;]"
-							data-postreqs="[]"
+							data-prereqs="IN3301,CC5401,CC4303,CC4102"
+							data-postreqs=""
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC5402</span>
@@ -2226,10 +2185,7 @@
                                 prerequisites: [],
                                 postrequisites: [],
                                 element: $el,
-                                shown() {
-                                    
-                                    if (!showCompacts) return false;
-                                    
+                                shown() {if (!showCompacts) return false;
                                     return true;
                                 },
                                 select(event) {
@@ -2239,8 +2195,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[]"
-							data-postreqs="[]"
+							data-prereqs=""
+							data-postreqs=""
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">Electivo</span>
@@ -2270,9 +2226,6 @@
                                 postrequisites: [],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -2282,8 +2235,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[&quot;CC6907&quot;]"
-							data-postreqs="[]"
+							data-prereqs="CC6907"
+							data-postreqs=""
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC6919</span>
@@ -2302,9 +2255,6 @@
                                 postrequisites: [],
                                 element: $el,
                                 shown() {
-                                    
-                                    
-                                    
                                     return true;
                                 },
                                 select(event) {
@@ -2314,8 +2264,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[]"
-							data-postreqs="[]"
+							data-prereqs=""
+							data-postreqs=""
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">Electivo</span>
@@ -2333,10 +2283,7 @@
                                 prerequisites: [&quot;EI1090&quot;],
                                 postrequisites: [],
                                 element: $el,
-                                shown() {
-                                    if (!showZeros) return false;
-                                    
-                                    
+                                shown() {if (!showZeros) return false;
                                     return true;
                                 },
                                 select(event) {
@@ -2346,8 +2293,8 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="[&quot;EI1090&quot;]"
-							data-postreqs="[]"
+							data-prereqs="EI1090"
+							data-postreqs=""
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">EI2090</span>
@@ -2366,8 +2313,7 @@
 		
 	</div>
 </div>
-
-        </main>
+		</main>
 
 		<footer>
 			<div id="footer-credit">
