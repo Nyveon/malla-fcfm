@@ -6,12 +6,12 @@ ES: Visualización interactiva de mallas académicas de la Facultad de Ciencias 
 
 ## Implementation
 
-- **JS & HTML:**
-  - **Framework:** [AlpineJS](https://alpinejs.dev) (*3.10.5*)
-  - **Library:** [LeaderLine](https://github.com/anseki/leader-line/) (*1.0.7*)
-- **CSS:** [SASS](https://sass-lang.com)
-- **CDN:** [jsDelivr](https://www.jsdelivr.com)
-- **Data:** [Python](https://www.python.org) (and lots of manual data entry).
+- [AlpineJS](https://alpinejs.dev) (*3.10.5*) - For adding interactivity to the pages.
+- [LeaderLine](https://github.com/anseki/leader-line/) (*1.0.7*) - For drawing lines between courses.
+- [SASS](https://sass-lang.com) - CSS preprocessor.
+- [jsDelivr](https://www.jsdelivr.com) - CDN for JS libraries.
+- [Eleventy](https://www.11ty.dev) - Static site generator.
+- [Python](https://www.python.org) (and lots of manual data entry).
 
 ## Agradecimientos (ES)
 
@@ -29,7 +29,67 @@ ES: Visualización interactiva de mallas académicas de la Facultad de Ciencias 
 
 ## Development
 
-- placeholder
+### Installation & Building
+
+1. Clone the repository.
+2. Install Python dependencies with `pip install -r requirements.txt`. (If you don't have python, install it [here](https://www.python.org/downloads/))
+3. Install JS dependencies with `npm install`. (If you don't have npm, install it [here](https://www.npmjs.com/get-npm))
+4. `npm build` to build the project to the `docs` folder.
+5. `npm start` to run the project locally. This should watch for changes and rebuild the project automatically.
+
+### Structure
+
+```bash
+malla-fcfm/
+├─ docs/
+├─ src/
+│  ├─ css/  # Compiled CSS, do not edit directly
+│  ├─ data/
+│  │  ├─ raw/       # Raw course data
+│  ├─ {xyz}.json    # Processed malla+course data
+|  ├─ degrees.json  # List of degrees
+|  ├─ settings.json # Dropdown settings
+|  ├─ process.py    # Script to process raw data
+|  ├─ scrape.py     # Script to get data from UCampus
+│  ├─ images/     # Images and icons
+│  ├─ includes/
+│  │  ├─ {name}.njk    # Reusable components
+│  │  ├─ base.njk       # Base page template
+│  │  ├─ malla.njk      # Malla page template
+│  ├─ js/
+│  │  ├─ malla.js   # JS for mallas
+│  │  ├─ page.js    # JS for all pages
+│  ├─ scss/
+│  │  ├─ abstracts/  # Colors, mixins, sizes
+│  │  ├─ base/       # Base styles
+│  │  ├─ components/ # Reusable components
+│  │  ├─ layout/     # Page layout
+│  │  ├─ main.scss   # Main stylesheet
+│  ├─ {xyz}.njk     # Mallas
+│  ├─ index.njk     # Homepage
+├─ .eleventy.js    # Eleventy config
+├─ package.json    # Project dependencies and scripts
+├─ README.md       # You are here!
+```
+
+### Contributing data
+
+-- TODO --
+
+### Contributing code
+
+**HTML:** All the HTML is rendered by Eleventy using the [Nunjucks](https://mozilla.github.io/nunjucks/templating.html) templating engine.
+
+**Styles:** The project uses [SASS](https://sass-lang.com). I'd recommend you set it up so it watches the `.scss` files automatically. I use [Live Sass Compiler](https://marketplace.visualstudio.com/items?itemName=glenn2223.live-sass) for VSCode.
+
+**Code formatting:** The project's HTML, CSS and JS is generally formatted with [Prettier](https://prettier.io). I'd recommend you set it up so it formats the files automatically. I use [Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) for VSCode.
+
+**Before comitting code:**
+
+1. Run `npm run clean:windows` or `npm run clean:linux` to clean the `docs` folder, depending on your OS (macOS can just use `npm run clean:linux`).
+2. Run `npm run build` to build the project.
+3. If you added any python dependencies, run `pipreqs . --encoding=utf8 --force` to update the `requirements.txt` file.
+4. Make your pull request. Try to describe everything you did (and the reasoning behind it) as best as you can.
 
 ## TO-DO
 
@@ -53,8 +113,8 @@ ES: Visualización interactiva de mallas académicas de la Facultad de Ciencias 
   - [x] Install Eleventy.
   - [x] Refactor mallas to statically generate.
   - [ ] Make 404 redirect to simulate case insensitive URL.
-- [ ] JS/HTML/CSS contribution documentation.
-  - [ ] Folder/file structure documentation.
+- [x] JS/HTML/CSS contribution documentation.
+  - [x] Folder/file structure documentation.
 - [ ] Data contribution documentation.
 - [ ] Check load times and accesibility data.
 - [ ] Optimize image file format and sizes.
