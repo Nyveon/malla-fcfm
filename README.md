@@ -116,7 +116,7 @@ malla-fcfm/
 - [x] JS/HTML/CSS contribution documentation.
   - [x] Folder/file structure documentation.
 - [ ] Data contribution documentation.
-- [ ] Check load times and accesibility data.
+- [x] Check load times and accesibility data.
 - [ ] Optimize image file format and sizes.
 - [ ] Abstract CSS variables for theme colors.
 - [ ] Figure out course show/hide animations

@@ -1,21 +1,24 @@
-<div id="interior">
+<div id="interior" tabindex="0" aria-label="Malla Curricular">
 	<div id="malla">
 		{% for phaseName, phase in (name | getGlobalData).v5 %}
-		<section class="phase">
+		<section class="phase" tabindex="0" aria-label="{{ phaseName }}">
 			<span class="banner-title" x-show="showPhases">{{ phaseName }}</span>
 			<div class="semesters">
 				{% for index, semester in phase.semesters %}
-				<section class="semester">
-					<span
+				<section class="semester" aria-label="Semestre {{ semester.number }}" tabindex="0">
+					<h2
 						class="banner-title"
-						:class="showPhases ? '' : 'horizontal-text'"
-						>{{ semester.number }}
-					</span>
-					<div class="courses">
+						:class="showPhases ? '' : 'horizontal-text'"    
+					>
+						{{ semester.number }}
+					</h2>
+					<div class="courses" role="list" aria-label="Cursos">
 						{% for index, course in semester.courses %}
 						<div
 							class="course {{ course.department }}"
 							id="{{ index }}"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: {{
 								course.prerequisites | dump
@@ -34,6 +37,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -42,7 +47,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">{{ course.code }}</span>
-								<span class="course-credits">{{ course.credits }}</span>
+								<span
+									class="course-credits"
+									aria-label="{{ course.credits }} créditos"
+									>{{ course.credits }}</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">{{ course.name }}</span>

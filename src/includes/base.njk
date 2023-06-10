@@ -61,7 +61,7 @@
 			<nav>
 				{% include "_breadcrumb.njk" %}
 				<div>
-					<span id="title">{{ title }}</span>
+					<h1 id="title">{{ title }}</h1>
 				</div>
 				{% include "_settings.njk" %}
 			</nav>
@@ -72,27 +72,7 @@
 			{% block content %}{% endblock %}
 		</main>
 
-		<footer>
-			<div id="footer-credit">
-				<span>Página por:</span>
-				<a class="link" href="https://eri.cl" target="_blank">Eric K.</a>
-			</div>
-			<div id="footer-links">
-				<a
-					class="link"
-					href="https://github.com/Nyveon/malla-fcfm/issues"
-					target="_blank"
-					>Reportes/Sugerencias</a
-				>
-				<a
-					class="link"
-					href="https://github.com/Nyveon/malla-fcfm/"
-					target="_blank"
-				>
-					<img src="/images/icons/github-icon.svg" />
-				</a>
-			</div>
-		</footer>
+		{% include "_footer.njk" %}
 	</body>
 
 	<!-- Site by Eric K. -->

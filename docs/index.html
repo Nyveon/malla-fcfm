@@ -63,7 +63,7 @@
     
 </div>
 				<div>
-					<span id="title">Mallas FCFM</span>
+					<h1 id="title">Mallas FCFM</h1>
 				</div>
 				<!-- prettier-ignore -->
 
@@ -76,27 +76,33 @@
 		id="open-settings"
 		@click="settingsOpen = !settingsOpen;"
 		:class="settingsOpen ? 'open' : '';"
+		aria-label="Configuración"
 	>
-		<img src="/images/icons/settings-gear-icon.svg" />
+		<img src="/images/icons/settings-gear-icon.svg" alt="" />
 	</button>
 
 	<ul
 		id="settings"
 		x-show="settingsOpen"
 		@click.away="settingsOpen = false;"
-        x-transition:enter="transition ease-out duration-300"
-        x-cloak
+		x-transition:enter="transition ease-out duration-300"
+		x-cloak
 	>
 		
 		<li class="setting-section">Propagación del arbol</li>
 		
 		<li class="setting number-input">
 			<label for="depthpre">
-                <span>↓ Requisitos</span>
-                <div>
-                    
-                    
-<button @click="depthpre = Math.max(depthpre - 1, 1);">-</button>
+				<span>↓ Requisitos</span>
+				<div>
+					
+					
+<button
+	@click="depthpre = Math.max(depthpre - 1, 1);"
+	aria-label="Menos uno"
+>
+	-
+</button>
 <input
 	type="number"
 	id="depthpre"
@@ -105,20 +111,30 @@
 	max="10"
 	x-model.number="depthpre"
 />
-<button @click="depthpre = Math.min(depthpre + 1, 10);">+</button>
+<button
+	@click="depthpre = Math.min(depthpre + 1, 10);"
+	aria-label="Más uno"
+>
+	+
+</button>
 
-                    
-                </div>
-            </label>
+					
+				</div>
+			</label>
 		</li>
 		
 		<li class="setting number-input">
 			<label for="depthpost">
-                <span>↑ Desbloqueados</span>
-                <div>
-                    
-                    
-<button @click="depthpost = Math.max(depthpost - 1, 1);">-</button>
+				<span>↑ Desbloqueados</span>
+				<div>
+					
+					
+<button
+	@click="depthpost = Math.max(depthpost - 1, 1);"
+	aria-label="Menos uno"
+>
+	-
+</button>
 <input
 	type="number"
 	id="depthpost"
@@ -127,89 +143,82 @@
 	max="10"
 	x-model.number="depthpost"
 />
-<button @click="depthpost = Math.min(depthpost + 1, 10);">+</button>
+<button
+	@click="depthpost = Math.min(depthpost + 1, 10);"
+	aria-label="Más uno"
+>
+	+
+</button>
 
-                    
-                </div>
-            </label>
+					
+				</div>
+			</label>
 		</li>
 		 
 		<li class="setting-section">Visualización</li>
 		
 		<li class="setting checkbox-input">
 			<label for="showLines">
-                <span>⇅ Flechas</span>
-                <div>
-                    
-                    
-<input
-    type="checkbox"
-    id="showLines"
-    name="showLines"
-    x-model="showLines"
-/>
-<div class="slider"></div>
+				<span>⇅ Flechas</span>
+				<div>
+					
+					
+<div role="checkbox" :aria-checked="showLines" aria-label="⇅ Flechas">
+	<input type="checkbox" id="showLines" name="showLines" x-model="showLines" />
+	<div class="slider"></div>
+</div>
 
-                    
-                </div>
-            </label>
+					
+				</div>
+			</label>
 		</li>
 		
 		<li class="setting checkbox-input">
 			<label for="showZeros">
-                <span>Cursos sin Créditos</span>
-                <div>
-                    
-                    
-<input
-    type="checkbox"
-    id="showZeros"
-    name="showZeros"
-    x-model="showZeros"
-/>
-<div class="slider"></div>
+				<span>Cursos sin Créditos</span>
+				<div>
+					
+					
+<div role="checkbox" :aria-checked="showZeros" aria-label="Cursos sin Créditos">
+	<input type="checkbox" id="showZeros" name="showZeros" x-model="showZeros" />
+	<div class="slider"></div>
+</div>
 
-                    
-                </div>
-            </label>
+					
+				</div>
+			</label>
 		</li>
 		
 		<li class="setting checkbox-input">
 			<label for="showCompacts">
-                <span>Electivos Compactos</span>
-                <div>
-                    
-                    
-<input
-    type="checkbox"
-    id="showCompacts"
-    name="showCompacts"
-    x-model="showCompacts"
-/>
-<div class="slider"></div>
+				<span>Electivos Compactos</span>
+				<div>
+					
+					
+<div role="checkbox" :aria-checked="showCompacts" aria-label="Electivos Compactos">
+	<input type="checkbox" id="showCompacts" name="showCompacts" x-model="showCompacts" />
+	<div class="slider"></div>
+</div>
 
-                    
-                </div>
-            </label>
+					
+				</div>
+			</label>
 		</li>
 		
 		<li class="setting checkbox-input">
 			<label for="showPhases">
-                <span>Etiquetas de Planes</span>
-                <div>
-                    
-                    
-<input
-    type="checkbox"
-    id="showPhases"
-    name="showPhases"
-    x-model="showPhases"
-/>
-<div class="slider"></div>
+				<span>Etiquetas de Planes</span>
+				<div>
+					
+					
+<div role="checkbox" :aria-checked="showPhases" aria-label="Etiquetas de Planes">
+	<input type="checkbox" id="showPhases" name="showPhases" x-model="showPhases" />
+	<div class="slider"></div>
+</div>
 
-                    
-                </div>
-            </label>
+					
+				</div>
+			</label>
 		</li>
 		 
 	</ul>
@@ -222,9 +231,9 @@
 			
 <div class="card-grid">
 	
-    <a href="CI1">
+    <a href="CI1" aria-label="Estructura, Construcción y Geotecnia">
         <article class="card">
-            <img src="./images/splashes/CI1.jpg" class="card-image" />
+            <img src="./images/splashes/CI1.jpg" class="card-image" alt="" />
             <div class="card-text">
                 <span class="card-title card-name">Estructura, Construcción y Geotecnia</span>
                 <span class="card-title card-fullname">Ingeniería Civil en Estructura, Construcción y Geotecnia</span>
@@ -232,9 +241,9 @@
         </article>
     </a>
 	
-    <a href="CI2">
+    <a href="CI2" aria-label="Hidráulica, Sanitaria y Ambiental">
         <article class="card">
-            <img src="./images/splashes/CI2.jpg" class="card-image" />
+            <img src="./images/splashes/CI2.jpg" class="card-image" alt="" />
             <div class="card-text">
                 <span class="card-title card-name">Hidráulica, Sanitaria y Ambiental</span>
                 <span class="card-title card-fullname">Ingeniería Civil en Hidráulica, Sanitaria y Ambiental</span>
@@ -242,9 +251,9 @@
         </article>
     </a>
 	
-    <a href="CI3">
+    <a href="CI3" aria-label="Transporte">
         <article class="card">
-            <img src="./images/splashes/CI3.jpg" class="card-image" />
+            <img src="./images/splashes/CI3.jpg" class="card-image" alt="" />
             <div class="card-text">
                 <span class="card-title card-name">Transporte</span>
                 <span class="card-title card-fullname">Ingeniería Civil en Transporte</span>
@@ -252,9 +261,9 @@
         </article>
     </a>
 	
-    <a href="DCC">
+    <a href="DCC" aria-label="Computación">
         <article class="card">
-            <img src="./images/splashes/DCC.jpg" class="card-image" />
+            <img src="./images/splashes/DCC.jpg" class="card-image" alt="" />
             <div class="card-text">
                 <span class="card-title card-name">Computación</span>
                 <span class="card-title card-fullname">Ingeniería Civil en Computación</span>
@@ -262,9 +271,9 @@
         </article>
     </a>
 	
-    <a href="EL">
+    <a href="EL" aria-label="Electrica">
         <article class="card">
-            <img src="./images/splashes/EL.jpg" class="card-image" />
+            <img src="./images/splashes/EL.jpg" class="card-image" alt="" />
             <div class="card-text">
                 <span class="card-title card-name">Electrica</span>
                 <span class="card-title card-fullname">Ingeniería Civil Eléctrica</span>
@@ -272,9 +281,9 @@
         </article>
     </a>
 	
-    <a href="IN">
+    <a href="IN" aria-label="Industrial">
         <article class="card">
-            <img src="./images/splashes/IN.jpg" class="card-image" />
+            <img src="./images/splashes/IN.jpg" class="card-image" alt="" />
             <div class="card-text">
                 <span class="card-title card-name">Industrial</span>
                 <span class="card-title card-fullname">Ingeniería Civil Industrial</span>
@@ -282,9 +291,9 @@
         </article>
     </a>
 	
-    <a href="MA">
+    <a href="MA" aria-label="Matemática">
         <article class="card">
-            <img src="./images/splashes/MA.jpg" class="card-image" />
+            <img src="./images/splashes/MA.jpg" class="card-image" alt="" />
             <div class="card-text">
                 <span class="card-title card-name">Matemática</span>
                 <span class="card-title card-fullname">Ingeniería Civil Matemática</span>
@@ -292,9 +301,9 @@
         </article>
     </a>
 	
-    <a href="ME">
+    <a href="ME" aria-label="Mecánica">
         <article class="card">
-            <img src="./images/splashes/ME.jpg" class="card-image" />
+            <img src="./images/splashes/ME.jpg" class="card-image" alt="" />
             <div class="card-text">
                 <span class="card-title card-name">Mecánica</span>
                 <span class="card-title card-fullname">Ingeniería Civil Mecánica</span>
@@ -302,9 +311,9 @@
         </article>
     </a>
 	
-    <a href="MI">
+    <a href="MI" aria-label="Minas">
         <article class="card">
-            <img src="./images/splashes/MI.jpg" class="card-image" />
+            <img src="./images/splashes/MI.jpg" class="card-image" alt="" />
             <div class="card-text">
                 <span class="card-title card-name">Minas</span>
                 <span class="card-title card-fullname">Ingeniería Civil Minas</span>
@@ -312,9 +321,9 @@
         </article>
     </a>
 	
-    <a href="QB1">
+    <a href="QB1" aria-label="Química">
         <article class="card">
-            <img src="./images/splashes/QB1.jpg" class="card-image" />
+            <img src="./images/splashes/QB1.jpg" class="card-image" alt="" />
             <div class="card-text">
                 <span class="card-title card-name">Química</span>
                 <span class="card-title card-fullname">Ingeniería Civil Química</span>
@@ -322,9 +331,9 @@
         </article>
     </a>
 	
-    <a href="QB2">
+    <a href="QB2" aria-label="Biotecnología">
         <article class="card">
-            <img src="./images/splashes/QB2.jpg" class="card-image" />
+            <img src="./images/splashes/QB2.jpg" class="card-image" alt="" />
             <div class="card-text">
                 <span class="card-title card-name">Biotecnología</span>
                 <span class="card-title card-fullname">Ingeniería Civil en Biotecnología</span>
@@ -332,9 +341,9 @@
         </article>
     </a>
 	
-    <a href="GL">
+    <a href="GL" aria-label="Geología">
         <article class="card">
-            <img src="./images/splashes/GL.jpg" class="card-image" />
+            <img src="./images/splashes/GL.jpg" class="card-image" alt="" />
             <div class="card-text">
                 <span class="card-title card-name">Geología</span>
                 <span class="card-title card-fullname">Geología</span>
@@ -342,9 +351,9 @@
         </article>
     </a>
 	
-    <a href="AS">
+    <a href="AS" aria-label="Astronomía">
         <article class="card">
-            <img src="./images/splashes/AS.jpg" class="card-image" />
+            <img src="./images/splashes/AS.jpg" class="card-image" alt="" />
             <div class="card-text">
                 <span class="card-title card-name">Astronomía</span>
                 <span class="card-title card-fullname">Licenciatura en Ciencias, mención Astronomía</span>
@@ -352,9 +361,9 @@
         </article>
     </a>
 	
-    <a href="FI">
+    <a href="FI" aria-label="Física">
         <article class="card">
-            <img src="./images/splashes/FI.jpg" class="card-image" />
+            <img src="./images/splashes/FI.jpg" class="card-image" alt="" />
             <div class="card-text">
                 <span class="card-title card-name">Física</span>
                 <span class="card-title card-fullname">Licenciatura en Ciencias, mención Física</span>
@@ -362,9 +371,9 @@
         </article>
     </a>
 	
-    <a href="GF">
+    <a href="GF" aria-label="Geofísica">
         <article class="card">
-            <img src="./images/splashes/GF.jpg" class="card-image" />
+            <img src="./images/splashes/GF.jpg" class="card-image" alt="" />
             <div class="card-text">
                 <span class="card-title card-name">Geofísica</span>
                 <span class="card-title card-fullname">Licenciatura en Ciencias, mención Geofísica</span>
@@ -378,26 +387,28 @@
 		</main>
 
 		<footer>
-			<div id="footer-credit">
-				<span>Página por:</span>
-				<a class="link" href="https://eri.cl" target="_blank">Eric K.</a>
-			</div>
-			<div id="footer-links">
-				<a
-					class="link"
-					href="https://github.com/Nyveon/malla-fcfm/issues"
-					target="_blank"
-					>Reportes/Sugerencias</a
-				>
-				<a
-					class="link"
-					href="https://github.com/Nyveon/malla-fcfm/"
-					target="_blank"
-				>
-					<img src="/images/icons/github-icon.svg" />
-				</a>
-			</div>
-		</footer>
+    <div id="footer-credit">
+        <span>Página por:</span
+        ><a class="link" href="https://eri.cl" target="_blank">Eric K.</a>
+    </div>
+    <div id="footer-links">
+        <a
+            class="link"
+            href="https://github.com/Nyveon/malla-fcfm/issues"
+            target="_blank"
+            >Reportes/Sugerencias</a
+        >
+        <a
+            class="link"
+            href="https://github.com/Nyveon/malla-fcfm/"
+            target="_blank"
+            aria-label="Github"
+        >
+            <img src="/images/icons/github-icon.svg" alt="" />
+        </a>
+    </div>
+</footer>
+
 	</body>
 
 	<!-- Site by Eric K. -->

@@ -66,7 +66,7 @@
     
 </div>
 				<div>
-					<span id="title">Malla DCC</span>
+					<h1 id="title">Malla DCC</h1>
 				</div>
 				<!-- prettier-ignore -->
 
@@ -79,27 +79,33 @@
 		id="open-settings"
 		@click="settingsOpen = !settingsOpen;"
 		:class="settingsOpen ? 'open' : '';"
+		aria-label="Configuración"
 	>
-		<img src="/images/icons/settings-gear-icon.svg" />
+		<img src="/images/icons/settings-gear-icon.svg" alt="" />
 	</button>
 
 	<ul
 		id="settings"
 		x-show="settingsOpen"
 		@click.away="settingsOpen = false;"
-        x-transition:enter="transition ease-out duration-300"
-        x-cloak
+		x-transition:enter="transition ease-out duration-300"
+		x-cloak
 	>
 		
 		<li class="setting-section">Propagación del arbol</li>
 		
 		<li class="setting number-input">
 			<label for="depthpre">
-                <span>↓ Requisitos</span>
-                <div>
-                    
-                    
-<button @click="depthpre = Math.max(depthpre - 1, 1);">-</button>
+				<span>↓ Requisitos</span>
+				<div>
+					
+					
+<button
+	@click="depthpre = Math.max(depthpre - 1, 1);"
+	aria-label="Menos uno"
+>
+	-
+</button>
 <input
 	type="number"
 	id="depthpre"
@@ -108,20 +114,30 @@
 	max="10"
 	x-model.number="depthpre"
 />
-<button @click="depthpre = Math.min(depthpre + 1, 10);">+</button>
+<button
+	@click="depthpre = Math.min(depthpre + 1, 10);"
+	aria-label="Más uno"
+>
+	+
+</button>
 
-                    
-                </div>
-            </label>
+					
+				</div>
+			</label>
 		</li>
 		
 		<li class="setting number-input">
 			<label for="depthpost">
-                <span>↑ Desbloqueados</span>
-                <div>
-                    
-                    
-<button @click="depthpost = Math.max(depthpost - 1, 1);">-</button>
+				<span>↑ Desbloqueados</span>
+				<div>
+					
+					
+<button
+	@click="depthpost = Math.max(depthpost - 1, 1);"
+	aria-label="Menos uno"
+>
+	-
+</button>
 <input
 	type="number"
 	id="depthpost"
@@ -130,89 +146,82 @@
 	max="10"
 	x-model.number="depthpost"
 />
-<button @click="depthpost = Math.min(depthpost + 1, 10);">+</button>
+<button
+	@click="depthpost = Math.min(depthpost + 1, 10);"
+	aria-label="Más uno"
+>
+	+
+</button>
 
-                    
-                </div>
-            </label>
+					
+				</div>
+			</label>
 		</li>
 		 
 		<li class="setting-section">Visualización</li>
 		
 		<li class="setting checkbox-input">
 			<label for="showLines">
-                <span>⇅ Flechas</span>
-                <div>
-                    
-                    
-<input
-    type="checkbox"
-    id="showLines"
-    name="showLines"
-    x-model="showLines"
-/>
-<div class="slider"></div>
+				<span>⇅ Flechas</span>
+				<div>
+					
+					
+<div role="checkbox" :aria-checked="showLines" aria-label="⇅ Flechas">
+	<input type="checkbox" id="showLines" name="showLines" x-model="showLines" />
+	<div class="slider"></div>
+</div>
 
-                    
-                </div>
-            </label>
+					
+				</div>
+			</label>
 		</li>
 		
 		<li class="setting checkbox-input">
 			<label for="showZeros">
-                <span>Cursos sin Créditos</span>
-                <div>
-                    
-                    
-<input
-    type="checkbox"
-    id="showZeros"
-    name="showZeros"
-    x-model="showZeros"
-/>
-<div class="slider"></div>
+				<span>Cursos sin Créditos</span>
+				<div>
+					
+					
+<div role="checkbox" :aria-checked="showZeros" aria-label="Cursos sin Créditos">
+	<input type="checkbox" id="showZeros" name="showZeros" x-model="showZeros" />
+	<div class="slider"></div>
+</div>
 
-                    
-                </div>
-            </label>
+					
+				</div>
+			</label>
 		</li>
 		
 		<li class="setting checkbox-input">
 			<label for="showCompacts">
-                <span>Electivos Compactos</span>
-                <div>
-                    
-                    
-<input
-    type="checkbox"
-    id="showCompacts"
-    name="showCompacts"
-    x-model="showCompacts"
-/>
-<div class="slider"></div>
+				<span>Electivos Compactos</span>
+				<div>
+					
+					
+<div role="checkbox" :aria-checked="showCompacts" aria-label="Electivos Compactos">
+	<input type="checkbox" id="showCompacts" name="showCompacts" x-model="showCompacts" />
+	<div class="slider"></div>
+</div>
 
-                    
-                </div>
-            </label>
+					
+				</div>
+			</label>
 		</li>
 		
 		<li class="setting checkbox-input">
 			<label for="showPhases">
-                <span>Etiquetas de Planes</span>
-                <div>
-                    
-                    
-<input
-    type="checkbox"
-    id="showPhases"
-    name="showPhases"
-    x-model="showPhases"
-/>
-<div class="slider"></div>
+				<span>Etiquetas de Planes</span>
+				<div>
+					
+					
+<div role="checkbox" :aria-checked="showPhases" aria-label="Etiquetas de Planes">
+	<input type="checkbox" id="showPhases" name="showPhases" x-model="showPhases" />
+	<div class="slider"></div>
+</div>
 
-                    
-                </div>
-            </label>
+					
+				</div>
+			</label>
 		</li>
 		 
 	</ul>
@@ -223,24 +232,27 @@
 
 		<main x-cloak>
 			
-			<div id="interior">
+			<div id="interior" tabindex="0" aria-label="Malla Curricular">
 	<div id="malla">
 		
-		<section class="phase">
+		<section class="phase" tabindex="0" aria-label="Plan Común">
 			<span class="banner-title" x-show="showPhases">Plan Común</span>
 			<div class="semesters">
 				
-				<section class="semester">
-					<span
+				<section class="semester" aria-label="Semestre 1" tabindex="0">
+					<h2
 						class="banner-title"
-						:class="showPhases ? '' : 'horizontal-text'"
-						>1
-					</span>
-					<div class="courses">
+						:class="showPhases ? '' : 'horizontal-text'"    
+					>
+						1
+					</h2>
+					<div class="courses" role="list" aria-label="Cursos">
 						
 						<div
 							class="course MA"
 							id="MA1001"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [],
                                 postrequisites: [&quot;MA1002&quot;,&quot;FI1100&quot;],
@@ -252,6 +264,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -260,7 +274,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">MA1001</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Introducción al Cálculo</span>
@@ -270,6 +288,8 @@
 						<div
 							class="course MA"
 							id="MA1101"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [],
                                 postrequisites: [&quot;MA1102&quot;,&quot;FI1100&quot;,&quot;CC3101&quot;],
@@ -281,6 +301,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -289,7 +311,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">MA1101</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Introducción al Álgebra</span>
@@ -299,6 +325,8 @@
 						<div
 							class="course FI"
 							id="FI1000"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [],
                                 postrequisites: [&quot;FI1100&quot;],
@@ -310,6 +338,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -318,7 +348,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">FI1000</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Introducción a la Física Clásica</span>
@@ -328,6 +362,8 @@
 						<div
 							class="course CC"
 							id="CC1000"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [],
                                 postrequisites: [],
@@ -339,6 +375,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -347,7 +385,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC1000</span>
-								<span class="course-credits">3</span>
+								<span
+									class="course-credits"
+									aria-label="3 créditos"
+									>3</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Herramientas Computacionales para Ingeniería y Ciencias</span>
@@ -357,6 +399,8 @@
 						<div
 							class="course CD"
 							id="CD1100"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [],
                                 postrequisites: [&quot;CD1201&quot;],
@@ -368,6 +412,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -376,7 +422,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CD1100</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Desafíos de Innovación en Ingeniería y Ciencias</span>
@@ -386,6 +436,8 @@
 						<div
 							class="course BT"
 							id="BT1211"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [],
                                 postrequisites: [],
@@ -397,6 +449,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -405,7 +459,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">BT1211</span>
-								<span class="course-credits">3</span>
+								<span
+									class="course-credits"
+									aria-label="3 créditos"
+									>3</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Aplicaciones de la Biología a la Ingeniería y Ciencias</span>
@@ -415,17 +473,20 @@
 					</div>
 				</section>
 				
-				<section class="semester">
-					<span
+				<section class="semester" aria-label="Semestre 2" tabindex="0">
+					<h2
 						class="banner-title"
-						:class="showPhases ? '' : 'horizontal-text'"
-						>2
-					</span>
-					<div class="courses">
+						:class="showPhases ? '' : 'horizontal-text'"    
+					>
+						2
+					</h2>
+					<div class="courses" role="list" aria-label="Cursos">
 						
 						<div
 							class="course MA"
 							id="MA1002"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [&quot;MA1001&quot;,&quot;MA100&quot;],
                                 postrequisites: [&quot;MA2001&quot;,&quot;MA2601&quot;,&quot;FI2001&quot;,&quot;FI2003&quot;],
@@ -437,6 +498,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -445,7 +508,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">MA1002</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Cálculo Diferencial e Integral</span>
@@ -455,6 +522,8 @@
 						<div
 							class="course MA"
 							id="MA1102"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [&quot;MA1101&quot;,&quot;MA110&quot;],
                                 postrequisites: [&quot;MA2001&quot;,&quot;MA2601&quot;,&quot;FI2001&quot;],
@@ -466,6 +535,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -474,7 +545,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">MA1102</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Álgebra Lineal</span>
@@ -484,6 +559,8 @@
 						<div
 							class="course FI"
 							id="FI1100"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [&quot;FI1000&quot;,&quot;MA1101&quot;,&quot;MA1001&quot;],
                                 postrequisites: [&quot;FI2001&quot;,&quot;FI2003&quot;],
@@ -495,6 +572,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -503,7 +582,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">FI1100</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Introducción a la Física Moderna</span>
@@ -513,6 +596,8 @@
 						<div
 							class="course CC"
 							id="CC1002"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [&quot;CR3&quot;],
                                 postrequisites: [&quot;CC3501&quot;,&quot;CC3001&quot;,&quot;CC3101&quot;],
@@ -524,6 +609,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -532,7 +619,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC1002</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Introducción a la Programación</span>
@@ -542,6 +633,8 @@
 						<div
 							class="course CD"
 							id="CD1201"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [&quot;CD1100&quot;],
                                 postrequisites: [&quot;CD2201&quot;],
@@ -553,6 +646,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -561,7 +656,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CD1201</span>
-								<span class="course-credits">3</span>
+								<span
+									class="course-credits"
+									aria-label="3 créditos"
+									>3</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Proyecto de Innovación en Ingeniería y Ciencias</span>
@@ -571,6 +670,8 @@
 						<div
 							class="course XF"
 							id="XFIPC11"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [],
                                 postrequisites: [],
@@ -582,6 +683,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -590,7 +693,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">EH/FG/DR/EI/FT</span>
-								<span class="course-credits">3</span>
+								<span
+									class="course-credits"
+									aria-label="3 créditos"
+									>3</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Formación Integral</span>
@@ -600,17 +707,20 @@
 					</div>
 				</section>
 				
-				<section class="semester">
-					<span
+				<section class="semester" aria-label="Semestre 3" tabindex="0">
+					<h2
 						class="banner-title"
-						:class="showPhases ? '' : 'horizontal-text'"
-						>3
-					</span>
-					<div class="courses">
+						:class="showPhases ? '' : 'horizontal-text'"    
+					>
+						3
+					</h2>
+					<div class="courses" role="list" aria-label="Cursos">
 						
 						<div
 							class="course MA"
 							id="MA2001"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [&quot;MA1002&quot;,&quot;MA1A2&quot;,&quot;MA1102&quot;,&quot;MA1B2&quot;],
                                 postrequisites: [&quot;MA2002&quot;,&quot;IN2201&quot;,&quot;FI2002&quot;,&quot;XTQTF20&quot;,&quot;MA3403&quot;,&quot;CC3501&quot;],
@@ -622,6 +732,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -630,7 +742,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">MA2001</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Cálculo en Varias Variables</span>
@@ -640,6 +756,8 @@
 						<div
 							class="course MA"
 							id="MA2601"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [&quot;MA1002&quot;,&quot;MA1A2&quot;,&quot;MA1102&quot;,&quot;MA1B2&quot;],
                                 postrequisites: [&quot;MA2002&quot;,&quot;FI2002&quot;,&quot;CC3501&quot;],
@@ -651,6 +769,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -659,7 +779,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">MA2601</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Ecuaciones Diferenciales Ordinarias</span>
@@ -669,6 +793,8 @@
 						<div
 							class="course FI"
 							id="FI2001"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [&quot;FI1100&quot;,&quot;FI1002&quot;,&quot;MA1002&quot;,&quot;MA1A2&quot;,&quot;MA1102&quot;,&quot;MA1B2&quot;],
                                 postrequisites: [&quot;XTQTF20&quot;,&quot;CC3501&quot;],
@@ -680,6 +806,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -688,7 +816,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">FI2001</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Mecánica</span>
@@ -698,6 +830,8 @@
 						<div
 							class="course FI"
 							id="FI2003"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [&quot;MA1002&quot;,&quot;MA1A2&quot;,&quot;FI1100&quot;,&quot;FI2A1&quot;],
                                 postrequisites: [&quot;FI2002&quot;],
@@ -709,6 +843,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -717,7 +853,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">FI2003</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Métodos Experimentales</span>
@@ -727,6 +867,8 @@
 						<div
 							class="course IQ"
 							id="IQ2211"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [&quot;CR48&quot;],
                                 postrequisites: [&quot;XTQTF20&quot;],
@@ -738,6 +880,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -746,7 +890,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">IQ2211</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Química</span>
@@ -756,17 +904,20 @@
 					</div>
 				</section>
 				
-				<section class="semester">
-					<span
+				<section class="semester" aria-label="Semestre 4" tabindex="0">
+					<h2
 						class="banner-title"
-						:class="showPhases ? '' : 'horizontal-text'"
-						>4
-					</span>
-					<div class="courses">
+						:class="showPhases ? '' : 'horizontal-text'"    
+					>
+						4
+					</h2>
+					<div class="courses" role="list" aria-label="Cursos">
 						
 						<div
 							class="course MA"
 							id="MA2002"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [&quot;MA2001&quot;,&quot;MA2A1&quot;,&quot;MA2601&quot;,&quot;MA2G1&quot;],
                                 postrequisites: [],
@@ -778,6 +929,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -786,7 +939,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">MA2002</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Cálculo Avanzado y Aplicaciones</span>
@@ -796,6 +953,8 @@
 						<div
 							class="course IN"
 							id="IN2201"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [&quot;MA2001&quot;],
                                 postrequisites: [&quot;CC4402&quot;],
@@ -807,6 +966,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -815,7 +976,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">IN2201</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Economía</span>
@@ -825,6 +990,8 @@
 						<div
 							class="course FI"
 							id="FI2002"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [&quot;FI2003&quot;,&quot;FI2A3&quot;,&quot;MA2001&quot;,&quot;MA2A1&quot;,&quot;MA2601&quot;],
                                 postrequisites: [],
@@ -836,6 +1003,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -844,7 +1013,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">FI2002</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Electromagnetismo</span>
@@ -854,6 +1027,8 @@
 						<div
 							class="course XT"
 							id="XTQTF20"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [&quot;IQ2211&quot;,&quot;MA2001&quot;,&quot;FI2001&quot;],
                                 postrequisites: [],
@@ -865,6 +1040,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -873,7 +1050,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">FI2004/IQ2212</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Termodinámica o Termodinámica Química</span>
@@ -883,6 +1064,8 @@
 						<div
 							class="course CD"
 							id="CD2201"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [&quot;CD1201&quot;],
                                 postrequisites: [&quot;CC4402&quot;],
@@ -894,6 +1077,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -902,7 +1087,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CD2201</span>
-								<span class="course-credits">3</span>
+								<span
+									class="course-credits"
+									aria-label="3 créditos"
+									>3</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Módulo Interdisciplinario</span>
@@ -912,6 +1101,8 @@
 						<div
 							class="course XF"
 							id="XFIPC22"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [],
                                 postrequisites: [],
@@ -923,6 +1114,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -931,7 +1124,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">EH/FG/DR/EI/FT</span>
-								<span class="course-credits">3</span>
+								<span
+									class="course-credits"
+									aria-label="3 créditos"
+									>3</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Formación Integral</span>
@@ -944,21 +1141,24 @@
 			</div>
 		</section>
 		
-		<section class="phase">
+		<section class="phase" tabindex="0" aria-label="Licenciatura">
 			<span class="banner-title" x-show="showPhases">Licenciatura</span>
 			<div class="semesters">
 				
-				<section class="semester">
-					<span
+				<section class="semester" aria-label="Semestre 5" tabindex="0">
+					<h2
 						class="banner-title"
-						:class="showPhases ? '' : 'horizontal-text'"
-						>5
-					</span>
-					<div class="courses">
+						:class="showPhases ? '' : 'horizontal-text'"    
+					>
+						5
+					</h2>
+					<div class="courses" role="list" aria-label="Cursos">
 						
 						<div
 							class="course MA"
 							id="MA3403"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [&quot;MA2001&quot;,&quot;MA2A1&quot;],
                                 postrequisites: [&quot;CC4102&quot;],
@@ -970,6 +1170,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -978,7 +1180,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">MA3403</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Probabilidades y Estadística</span>
@@ -988,6 +1194,8 @@
 						<div
 							class="course CC"
 							id="CC3501"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [&quot;CC1002&quot;,&quot;MA2001&quot;,&quot;MA2601&quot;,&quot;FI2001&quot;],
                                 postrequisites: [],
@@ -999,6 +1207,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -1007,7 +1217,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC3501</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Modelación y Computación Gráfica para Ingenieros</span>
@@ -1017,6 +1231,8 @@
 						<div
 							class="course CC"
 							id="CC3001"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [&quot;CC1002&quot;],
                                 postrequisites: [&quot;CC3201&quot;,&quot;CC3002&quot;,&quot;CC3301&quot;,&quot;CC5205&quot;,&quot;CC4102&quot;],
@@ -1028,6 +1244,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -1036,7 +1254,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC3001</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Algoritmos y Estructuras de Datos</span>
@@ -1046,6 +1268,8 @@
 						<div
 							class="course CC"
 							id="CC3101"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [&quot;CC1002&quot;,&quot;MA1101&quot;],
                                 postrequisites: [&quot;CC3102&quot;],
@@ -1057,6 +1281,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -1065,7 +1291,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC3101</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Matemáticas Discretas para la Computación</span>
@@ -1075,6 +1305,8 @@
 						<div
 							class="course XF"
 							id="XFILI27"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [],
                                 postrequisites: [],
@@ -1086,6 +1318,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -1094,7 +1328,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">EH/FG</span>
-								<span class="course-credits">3</span>
+								<span
+									class="course-credits"
+									aria-label="3 créditos"
+									>3</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Formación Integral</span>
@@ -1104,6 +1342,8 @@
 						<div
 							class="course XF"
 							id="XFILI28"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [],
                                 postrequisites: [],
@@ -1115,6 +1355,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -1123,7 +1365,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">EH/FG</span>
-								<span class="course-credits">3</span>
+								<span
+									class="course-credits"
+									aria-label="3 créditos"
+									>3</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Formación Integral</span>
@@ -1133,6 +1379,8 @@
 						<div
 							class="course XF"
 							id="XFILI-C"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [],
                                 postrequisites: [],
@@ -1144,6 +1392,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -1152,7 +1402,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">EH/FG</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Cursos de Formación Integral</span>
@@ -1162,17 +1416,20 @@
 					</div>
 				</section>
 				
-				<section class="semester">
-					<span
+				<section class="semester" aria-label="Semestre 6" tabindex="0">
+					<h2
 						class="banner-title"
-						:class="showPhases ? '' : 'horizontal-text'"
-						>6
-					</span>
-					<div class="courses">
+						:class="showPhases ? '' : 'horizontal-text'"    
+					>
+						6
+					</h2>
+					<div class="courses" role="list" aria-label="Cursos">
 						
 						<div
 							class="course CC"
 							id="CC3201"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [&quot;CC3001&quot;],
                                 postrequisites: [&quot;CC4401&quot;,&quot;CC4901&quot;],
@@ -1184,6 +1441,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -1192,7 +1451,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC3201</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Bases de Datos</span>
@@ -1202,6 +1465,8 @@
 						<div
 							class="course CC"
 							id="CC3002"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [&quot;CC3001&quot;,&quot;CC30A&quot;],
                                 postrequisites: [&quot;CC4401&quot;,&quot;CC4901&quot;],
@@ -1213,6 +1478,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -1221,7 +1488,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC3002</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Metodologías de Diseño y Programación</span>
@@ -1231,6 +1502,8 @@
 						<div
 							class="course CC"
 							id="CC3102"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [&quot;CC3101&quot;],
                                 postrequisites: [&quot;CC4102&quot;,&quot;CC4101&quot;],
@@ -1242,6 +1515,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -1250,7 +1525,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC3102</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Teoría de la Computación</span>
@@ -1260,6 +1539,8 @@
 						<div
 							class="course CC"
 							id="CC3301"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [&quot;CC3001&quot;],
                                 postrequisites: [&quot;CC4302&quot;,&quot;CC4901&quot;],
@@ -1271,6 +1552,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -1279,7 +1562,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC3301</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Programación de Software de Sistemas</span>
@@ -1289,6 +1576,8 @@
 						<div
 							class="course XE"
 							id="XELEC33"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [],
                                 postrequisites: [],
@@ -1300,6 +1589,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -1308,7 +1599,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">Electivo</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Electivo de Licenciatura</span>
@@ -1318,6 +1613,8 @@
 						<div
 							class="course CC"
 							id="CC4900"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [],
                                 postrequisites: [&quot;CC4901&quot;],
@@ -1329,6 +1626,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -1337,7 +1636,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC4900</span>
-								<span class="course-credits">0</span>
+								<span
+									class="course-credits"
+									aria-label="0 créditos"
+									>0</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Taller de Práctica Profesional I</span>
@@ -1347,17 +1650,20 @@
 					</div>
 				</section>
 				
-				<section class="semester">
-					<span
+				<section class="semester" aria-label="Semestre 7" tabindex="0">
+					<h2
 						class="banner-title"
-						:class="showPhases ? '' : 'horizontal-text'"
-						>7
-					</span>
-					<div class="courses">
+						:class="showPhases ? '' : 'horizontal-text'"    
+					>
+						7
+					</h2>
+					<div class="courses" role="list" aria-label="Cursos">
 						
 						<div
 							class="course CC"
 							id="CC5205"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [&quot;CC3001&quot;],
                                 postrequisites: [],
@@ -1369,6 +1675,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -1377,7 +1685,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC5205</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Minería de Datos</span>
@@ -1387,6 +1699,8 @@
 						<div
 							class="course CC"
 							id="CC4401"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [&quot;CC3002&quot;,&quot;CC3201&quot;],
                                 postrequisites: [&quot;CC4402&quot;,&quot;CC5901&quot;],
@@ -1398,6 +1712,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -1406,7 +1722,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC4401</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Ingeniería de Software</span>
@@ -1416,6 +1736,8 @@
 						<div
 							class="course CC"
 							id="CC4102"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [&quot;MA3403&quot;,&quot;CC3001&quot;,&quot;CC3102&quot;],
                                 postrequisites: [&quot;CC5402&quot;],
@@ -1427,6 +1749,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -1435,7 +1759,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC4102</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Diseño y Análisis de Algoritmos</span>
@@ -1445,6 +1773,8 @@
 						<div
 							class="course CC"
 							id="CC4302"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [&quot;CC3301&quot;],
                                 postrequisites: [&quot;CC4303&quot;],
@@ -1456,6 +1786,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -1464,7 +1796,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC4302</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Sistemas Operativos</span>
@@ -1474,6 +1810,8 @@
 						<div
 							class="course XE"
 							id="XELEC39"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [],
                                 postrequisites: [],
@@ -1485,6 +1823,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -1493,7 +1833,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">Electivo</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Electivo de Licenciatura</span>
@@ -1503,6 +1847,8 @@
 						<div
 							class="course CC"
 							id="CC4901"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [&quot;CC3002&quot;,&quot;CC3201&quot;,&quot;CC3301&quot;,&quot;CC4900&quot;,&quot;AUTOR&quot;],
                                 postrequisites: [&quot;CC5901&quot;],
@@ -1514,6 +1860,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -1522,7 +1870,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC4901</span>
-								<span class="course-credits">7</span>
+								<span
+									class="course-credits"
+									aria-label="7 créditos"
+									>7</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Práctica Profesional I</span>
@@ -1532,17 +1884,20 @@
 					</div>
 				</section>
 				
-				<section class="semester">
-					<span
+				<section class="semester" aria-label="Semestre 8" tabindex="0">
+					<h2
 						class="banner-title"
-						:class="showPhases ? '' : 'horizontal-text'"
-						>8
-					</span>
-					<div class="courses">
+						:class="showPhases ? '' : 'horizontal-text'"    
+					>
+						8
+					</h2>
+					<div class="courses" role="list" aria-label="Cursos">
 						
 						<div
 							class="course CC"
 							id="CC4402"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [&quot;CC4401&quot;,&quot;CD2201&quot;,&quot;IN2201&quot;],
                                 postrequisites: [&quot;CC6907&quot;],
@@ -1554,6 +1909,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -1562,7 +1919,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC4402</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Formulación, Evaluación y Gestión de Proyectos</span>
@@ -1572,6 +1933,8 @@
 						<div
 							class="course CC"
 							id="CC4101"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [&quot;CC3102&quot;],
                                 postrequisites: [&quot;CC5901&quot;],
@@ -1583,6 +1946,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -1591,7 +1956,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC4101</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Lenguajes de Programación</span>
@@ -1601,6 +1970,8 @@
 						<div
 							class="course CC"
 							id="CC4303"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [&quot;CC4302&quot;],
                                 postrequisites: [&quot;CC5402&quot;],
@@ -1612,6 +1983,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -1620,7 +1993,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC4303</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Redes</span>
@@ -1630,6 +2007,8 @@
 						<div
 							class="course XE"
 							id="XELEC44"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [],
                                 postrequisites: [],
@@ -1641,6 +2020,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -1649,7 +2030,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">Electivo</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Electivo de Licenciatura</span>
@@ -1659,6 +2044,8 @@
 						<div
 							class="course XE"
 							id="XELEC45"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [],
                                 postrequisites: [],
@@ -1670,6 +2057,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -1678,7 +2067,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">Electivo</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Electivo de Licenciatura</span>
@@ -1688,6 +2081,8 @@
 						<div
 							class="course EI"
 							id="EI1090"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [],
                                 postrequisites: [&quot;EI2090&quot;],
@@ -1699,6 +2094,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -1707,7 +2104,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">EI1090</span>
-								<span class="course-credits">0</span>
+								<span
+									class="course-credits"
+									aria-label="0 créditos"
+									>0</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Examen de Suficiencia en Inglés I</span>
@@ -1717,6 +2118,8 @@
 						<div
 							class="course CC"
 							id="CC5900"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [],
                                 postrequisites: [&quot;CC5901&quot;],
@@ -1728,6 +2131,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -1736,7 +2141,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC5900</span>
-								<span class="course-credits">0</span>
+								<span
+									class="course-credits"
+									aria-label="0 créditos"
+									>0</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Taller de Práctica Profesional II</span>
@@ -1746,6 +2155,8 @@
 						<div
 							class="course XE"
 							id="XELEC-C"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [],
                                 postrequisites: [],
@@ -1757,6 +2168,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -1765,7 +2178,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">Electivo</span>
-								<span class="course-credits">12</span>
+								<span
+									class="course-credits"
+									aria-label="12 créditos"
+									>12</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Electivos de Licenciatura</span>
@@ -1778,21 +2195,24 @@
 			</div>
 		</section>
 		
-		<section class="phase">
+		<section class="phase" tabindex="0" aria-label="Especialidad">
 			<span class="banner-title" x-show="showPhases">Especialidad</span>
 			<div class="semesters">
 				
-				<section class="semester">
-					<span
+				<section class="semester" aria-label="Semestre 9" tabindex="0">
+					<h2
 						class="banner-title"
-						:class="showPhases ? '' : 'horizontal-text'"
-						>9
-					</span>
-					<div class="courses">
+						:class="showPhases ? '' : 'horizontal-text'"    
+					>
+						9
+					</h2>
+					<div class="courses" role="list" aria-label="Cursos">
 						
 						<div
 							class="course XE"
 							id="XESPE48"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [],
                                 postrequisites: [],
@@ -1804,6 +2224,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -1812,7 +2234,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">Electivo</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Electivo de Especialidad</span>
@@ -1822,6 +2248,8 @@
 						<div
 							class="course XE"
 							id="XESPE49"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [],
                                 postrequisites: [],
@@ -1833,6 +2261,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -1841,7 +2271,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">Electivo</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Electivo de Especialidad</span>
@@ -1851,6 +2285,8 @@
 						<div
 							class="course XE"
 							id="XESPE50"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [],
                                 postrequisites: [],
@@ -1862,6 +2298,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -1870,7 +2308,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">Electivo</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Electivo de Especialidad</span>
@@ -1880,6 +2322,8 @@
 						<div
 							class="course XN"
 							id="XNGPE51"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [],
                                 postrequisites: [],
@@ -1891,6 +2335,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -1899,7 +2345,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">Electivo</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Núcleo Gestión para Ingenieros</span>
@@ -1909,6 +2359,8 @@
 						<div
 							class="course XF"
 							id="XFIES52"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [],
                                 postrequisites: [],
@@ -1920,6 +2372,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -1928,7 +2382,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">Electivo</span>
-								<span class="course-credits">3</span>
+								<span
+									class="course-credits"
+									aria-label="3 créditos"
+									>3</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Formación Integral de Especialidad</span>
@@ -1938,6 +2396,8 @@
 						<div
 							class="course XF"
 							id="XFIES53"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [],
                                 postrequisites: [],
@@ -1949,6 +2409,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -1957,7 +2419,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">Electivo</span>
-								<span class="course-credits">3</span>
+								<span
+									class="course-credits"
+									aria-label="3 créditos"
+									>3</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Formación Integral de Especialidad</span>
@@ -1967,6 +2433,8 @@
 						<div
 							class="course CC"
 							id="CC5901"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [&quot;CC4901&quot;,&quot;CC4401&quot;,&quot;CC4101&quot;,&quot;CC5900&quot;],
                                 postrequisites: [],
@@ -1978,6 +2446,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -1986,7 +2456,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC5901</span>
-								<span class="course-credits">7</span>
+								<span
+									class="course-credits"
+									aria-label="7 créditos"
+									>7</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Práctica Profesional II</span>
@@ -1996,6 +2470,8 @@
 						<div
 							class="course XE"
 							id="XESPE-C"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [],
                                 postrequisites: [],
@@ -2007,6 +2483,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -2015,7 +2493,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">Electivo</span>
-								<span class="course-credits">18</span>
+								<span
+									class="course-credits"
+									aria-label="18 créditos"
+									>18</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Electivos de Especialidad</span>
@@ -2025,6 +2507,8 @@
 						<div
 							class="course XF"
 							id="XFIES-C"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [],
                                 postrequisites: [],
@@ -2036,6 +2520,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -2044,7 +2530,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">Electivo</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Cursos de Formacion Integral de Especialidad</span>
@@ -2054,17 +2544,20 @@
 					</div>
 				</section>
 				
-				<section class="semester">
-					<span
+				<section class="semester" aria-label="Semestre 10" tabindex="0">
+					<h2
 						class="banner-title"
-						:class="showPhases ? '' : 'horizontal-text'"
-						>10
-					</span>
-					<div class="courses">
+						:class="showPhases ? '' : 'horizontal-text'"    
+					>
+						10
+					</h2>
+					<div class="courses" role="list" aria-label="Cursos">
 						
 						<div
 							class="course CC"
 							id="CC6907"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [&quot;CC4402&quot;],
                                 postrequisites: [&quot;CC6919&quot;],
@@ -2076,6 +2569,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -2084,7 +2579,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC6907</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Introducción al Trabajo de Título</span>
@@ -2094,6 +2593,8 @@
 						<div
 							class="course XE"
 							id="XESPE56"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [],
                                 postrequisites: [],
@@ -2105,6 +2606,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -2113,7 +2616,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">Electivo</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Electivo de Especialidad</span>
@@ -2123,6 +2630,8 @@
 						<div
 							class="course XE"
 							id="XESPE57"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [],
                                 postrequisites: [],
@@ -2134,6 +2643,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -2142,7 +2653,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">Electivo</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Electivo de Especialidad</span>
@@ -2152,6 +2667,8 @@
 						<div
 							class="course CC"
 							id="CC5402"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [&quot;IN3301&quot;,&quot;CC5401&quot;,&quot;CC4303&quot;,&quot;CC4102&quot;],
                                 postrequisites: [],
@@ -2163,6 +2680,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -2171,7 +2690,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC5402</span>
-								<span class="course-credits">12</span>
+								<span
+									class="course-credits"
+									aria-label="12 créditos"
+									>12</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Proyecto de Software</span>
@@ -2181,6 +2704,8 @@
 						<div
 							class="course XE"
 							id="XESPE-C"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [],
                                 postrequisites: [],
@@ -2192,6 +2717,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -2200,7 +2727,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">Electivo</span>
-								<span class="course-credits">12</span>
+								<span
+									class="course-credits"
+									aria-label="12 créditos"
+									>12</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Electivos de Especialidad</span>
@@ -2210,17 +2741,20 @@
 					</div>
 				</section>
 				
-				<section class="semester">
-					<span
+				<section class="semester" aria-label="Semestre 11" tabindex="0">
+					<h2
 						class="banner-title"
-						:class="showPhases ? '' : 'horizontal-text'"
-						>11
-					</span>
-					<div class="courses">
+						:class="showPhases ? '' : 'horizontal-text'"    
+					>
+						11
+					</h2>
+					<div class="courses" role="list" aria-label="Cursos">
 						
 						<div
 							class="course CC"
 							id="CC6919"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [&quot;CC6907&quot;],
                                 postrequisites: [],
@@ -2232,6 +2766,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -2240,7 +2776,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC6919</span>
-								<span class="course-credits">24</span>
+								<span
+									class="course-credits"
+									aria-label="24 créditos"
+									>24</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Trabajo de Título</span>
@@ -2250,6 +2790,8 @@
 						<div
 							class="course XE"
 							id="XESPE60"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [],
                                 postrequisites: [],
@@ -2261,6 +2803,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -2269,7 +2813,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">Electivo</span>
-								<span class="course-credits">6</span>
+								<span
+									class="course-credits"
+									aria-label="6 créditos"
+									>6</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Electivo de Especialidad</span>
@@ -2279,6 +2827,8 @@
 						<div
 							class="course EI"
 							id="EI2090"
+							tabindex="0"
+							role="listitem"
 							x-data="{
                                 prerequisites: [&quot;EI1090&quot;],
                                 postrequisites: [],
@@ -2290,6 +2840,8 @@
                                     courseSelected($data, event, showLines, depthpre, depthpost);
                                 }
                             }"
+							@focus="select('mouseenter');"
+							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
@@ -2298,7 +2850,11 @@
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">EI2090</span>
-								<span class="course-credits">0</span>
+								<span
+									class="course-credits"
+									aria-label="0 créditos"
+									>0</span
+								>
 							</div>
 							<div class="course-body">
 								<span class="course-name">Examen de Suficiencia en Inglés II</span>
@@ -2313,29 +2869,32 @@
 		
 	</div>
 </div>
+
 		</main>
 
 		<footer>
-			<div id="footer-credit">
-				<span>Página por:</span>
-				<a class="link" href="https://eri.cl" target="_blank">Eric K.</a>
-			</div>
-			<div id="footer-links">
-				<a
-					class="link"
-					href="https://github.com/Nyveon/malla-fcfm/issues"
-					target="_blank"
-					>Reportes/Sugerencias</a
-				>
-				<a
-					class="link"
-					href="https://github.com/Nyveon/malla-fcfm/"
-					target="_blank"
-				>
-					<img src="/images/icons/github-icon.svg" />
-				</a>
-			</div>
-		</footer>
+    <div id="footer-credit">
+        <span>Página por:</span
+        ><a class="link" href="https://eri.cl" target="_blank">Eric K.</a>
+    </div>
+    <div id="footer-links">
+        <a
+            class="link"
+            href="https://github.com/Nyveon/malla-fcfm/issues"
+            target="_blank"
+            >Reportes/Sugerencias</a
+        >
+        <a
+            class="link"
+            href="https://github.com/Nyveon/malla-fcfm/"
+            target="_blank"
+            aria-label="Github"
+        >
+            <img src="/images/icons/github-icon.svg" alt="" />
+        </a>
+    </div>
+</footer>
+
 	</body>
 
 	<!-- Site by Eric K. -->
