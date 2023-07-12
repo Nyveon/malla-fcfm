@@ -582,7 +582,9 @@
                                 "CC3001"
                             ],
                             "type": "course",
-                            "postrequisites": [],
+                            "postrequisites": [
+                                "CC5402"
+                            ],
                             "department": "CC"
                         },
                         "CC4401": {
@@ -676,7 +678,8 @@
                             ],
                             "type": "course",
                             "postrequisites": [
-                                "CC6907"
+                                "CC6907",
+                                "CC5402"
                             ],
                             "department": "CC"
                         },
@@ -971,14 +974,13 @@
                             "name": "Proyecto de Software",
                             "credits": 12,
                             "prerequisites": [
-                                "IN3301",
-                                "CC5401",
-                                "CC4303",
-                                "CC4102"
+                                "CC5205",
+                                "CC4402"
                             ],
                             "type": "course",
                             "postrequisites": [],
-                            "department": "CC"
+                            "department": "CC",
+                            "warn": "Los requisitos de malla nueva aún no se implementan en la IA 2023-2. Requisitos según UCampus: IN3301, CC5401, CC4303 y CC4102."
                         },
                         "XESPE-C": {
                             "name": "Electivos de Especialidad",

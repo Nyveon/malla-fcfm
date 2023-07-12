@@ -55,10 +55,6 @@ function courseSelected(
 	let selected = element.classList.contains("selected");
 	showLines = showingLines;
 
-	console.log("test");
-
-	console.log(event);
-
 	if (isTouchEvent() && event === "click") {
 		if (selected) {
 			element.classList.remove("selected");

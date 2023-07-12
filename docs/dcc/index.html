@@ -1666,7 +1666,7 @@
 							role="listitem"
 							x-data="{
                                 prerequisites: [&quot;CC3001&quot;],
-                                postrequisites: [],
+                                postrequisites: [&quot;CC5402&quot;],
                                 element: $el,
                                 shown() {
                                     return true;
@@ -1681,7 +1681,7 @@
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
 							data-prereqs="CC3001"
-							data-postreqs=""
+							data-postreqs="CC5402"
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC5205</span>
@@ -1900,7 +1900,7 @@
 							role="listitem"
 							x-data="{
                                 prerequisites: [&quot;CC4401&quot;,&quot;CD2201&quot;,&quot;IN2201&quot;],
-                                postrequisites: [&quot;CC6907&quot;],
+                                postrequisites: [&quot;CC6907&quot;,&quot;CC5402&quot;],
                                 element: $el,
                                 shown() {
                                     return true;
@@ -1915,7 +1915,7 @@
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
 							data-prereqs="CC4401,CD2201,IN2201"
-							data-postreqs="CC6907"
+							data-postreqs="CC6907,CC5402"
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC4402</span>
@@ -2670,7 +2670,7 @@
 							tabindex="0"
 							role="listitem"
 							x-data="{
-                                prerequisites: [&quot;IN3301&quot;,&quot;CC5401&quot;,&quot;CC4303&quot;,&quot;CC4102&quot;],
+                                prerequisites: [&quot;CC5205&quot;,&quot;CC4402&quot;],
                                 postrequisites: [],
                                 element: $el,
                                 shown() {
@@ -2685,7 +2685,7 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
 							x-show="shown()"
-							data-prereqs="IN3301,CC5401,CC4303,CC4102"
+							data-prereqs="CC5205,CC4402"
 							data-postreqs=""
 						>
 							<div class="course-bar" x-show="shown()">
@@ -2698,6 +2698,10 @@
 							</div>
 							<div class="course-body">
 								<span class="course-name">Proyecto de Software</span>
+                                    <div class="warning">
+                                        <span>Los requisitos de malla nueva aún no se implementan en la IA 2023-2. Requisitos según UCampus: IN3301, CC5401, CC4303 y CC4102.</span>
+                                        <img src="/images/icons/warning.svg" alt="warning" />
+                                    </div>
 							</div>
 						</div>
 						

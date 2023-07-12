@@ -1,0 +1,40 @@
+@use "../abstracts/sizes" as s;
+@use "../abstracts/colors" as c;
+
+// This is placeholder stuff, should be removed eventually.
+
+.warning {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin-right: 2px;
+    cursor: pointer;
+
+    img {
+        height: s.$large;
+        width: s.$large; 
+    }
+
+    span {
+        width: 200px;
+        bottom: s.$large;
+        padding: s.$small;
+        right: 0;
+
+        position: absolute;
+        visibility: hidden;
+        display: none;
+
+        z-index: 1;
+        text-align: center;
+        background-color: c.$grey1;
+        border: 1px solid c.$grey3;
+    }
+
+    &:hover {
+        span {
+            display: block;
+            visibility: visible;
+        }
+    }
+}
