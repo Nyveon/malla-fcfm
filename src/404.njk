@@ -1,0 +1,24 @@
+---
+layout: base.njk
+title: Mallas FCFM
+permalink: 404.html
+name: 404
+---
+
+<script type="text/javascript">
+    const pathSplit = window.location.pathname.split('/');
+
+    if (pathSplit.length == 2) {
+        const path = pathSplit[1];
+
+        if (path.length == 3 && (path.toLowerCase() != path)) {
+            window.location.replace(`/${path.toLowerCase()}`);
+        }
+    }
+</script>
+
+<h2 id="fof">
+    404: Página no encontrada
+</h2>
+
+

@@ -108,11 +108,11 @@ malla-fcfm/
 - [x] Fix leader lines being drawn after leaving.
 - [x] Set up composition classes and consistent spacing sizes.
 
-- [ ] Change to Static Generation v/s SPA with Alpine:
+- [x] Change to Static Generation v/s SPA with Alpine:
   - [x] Change to NPM package.
   - [x] Install Eleventy.
   - [x] Refactor mallas to statically generate.
-  - [ ] Make 404 redirect to simulate case insensitive URL.
+  - [x] Make 404 redirect to simulate case insensitive URL.
 - [x] JS/HTML/CSS contribution documentation.
   - [x] Folder/file structure documentation.
 - [ ] Data contribution documentation.

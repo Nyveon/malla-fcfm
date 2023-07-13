@@ -34,3 +34,12 @@ main {
 .ulink {
     @include m.u-link;
 }
+
+#fof {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 400;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
