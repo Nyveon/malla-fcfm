@@ -1,0 +1,8 @@
+{
+    "v3": {},
+    "v5": {
+        "Plan Común": "sub_v5/PC.json",
+        "Licenciatura": "sub_v5/DIE_L.json",
+        "Especialidad": "sub_v5/DIE_E.json"
+    }
+}

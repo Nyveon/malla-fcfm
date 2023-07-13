@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="author" content="Eric K. (Nyveon)" />
+		<meta
+			name="description"
+			content="Mallas curriculares FCFM Universidad de Chile"
+		/>
+		<title>{{ title }}</title>
+
+		<script
+			defer
+			src="https://cdn.jsdelivr.net/npm/@alpinejs/persist@3.10.5/dist/cdn.min.js"
+		></script>
+		<script
+			defer
+			src="https://cdn.jsdelivr.net/npm/alpinejs@3.10.5/dist/cdn.min.js"
+		></script>
+		<script
+			defer
+			src="https://cdn.jsdelivr.net/npm/leader-line@1.0.7/leader-line.min.js"
+			integrity="sha256-iKeFRzcz3iPVPlQcZXB/1wesZwIwnrY41rN7yaFvVB4="
+			crossorigin="anonymous"
+		></script>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Lato:wght@400;900&display=swap"
+			rel="stylesheet"
+		/>
+
+		<link rel="stylesheet" href="/css/main.css" />
+
+		<script src="/js/page.js" type="text/javascript"></script>
+
+		{% block head %}{% endblock %}
+
+		<style>
+			[x-cloak] {
+				display: none !important;
+			}
+		</style>
+	</head>
+
+	<body
+		x-data="{
+            depthpre: $persist(1),
+            depthpost: $persist(1),
+            showLines: $persist(true),
+            showZeros: $persist(false),
+            showCompacts: $persist(true),
+            showPhases: $persist(true),
+            settingsOpen: false,
+        }"
+	>
+		<header>
+			<nav>
+				{% include "_breadcrumb.njk" %}
+				<div>
+					<h1 id="title">{{ title }}</h1>
+				</div>
+				{% include "_settings.njk" %}
+			</nav>
+		</header>
+
+		<main x-cloak>
+			{{ content | safe }}
+			{% block content %}{% endblock %}
+		</main>
+
+		{% include "_footer.njk" %}
+	</body>
+
+	<!-- Site by Eric K. -->
+</html>

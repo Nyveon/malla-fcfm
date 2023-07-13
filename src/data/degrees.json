@@ -1,0 +1,78 @@
+{
+    "CI1": {
+        "code": "CI1",
+        "name": "Estructura, Construcción y Geotecnia",
+        "fullName": "Ingeniería Civil en Estructura, Construcción y Geotecnia"
+    },
+    "CI2": {
+        "code": "CI2",
+        "name": "Hidráulica, Sanitaria y Ambiental",
+        "fullName": "Ingeniería Civil en Hidráulica, Sanitaria y Ambiental"
+    },
+    "CI3": {
+        "code": "CI3",
+        "name": "Transporte",
+        "fullName": "Ingeniería Civil en Transporte"
+    },
+    "DCC": {
+        "code": "DCC",
+        "name": "Computación",
+        "fullName": "Ingeniería Civil en Computación",
+        "department": "CC"
+    },
+    "EL": {
+        "code": "DIE",
+        "name": "Electrica",
+        "fullName": "Ingeniería Civil Eléctrica"
+    },
+    "IN": {
+        "code": "IN",
+        "name": "Industrial",
+        "fullName": "Ingeniería Civil Industrial"
+    },
+    "MA": {
+        "code": "MA",
+        "name": "Matemática",
+        "fullName": "Ingeniería Civil Matemática"
+    },
+    "ME": {
+        "code": "ME",
+        "name": "Mecánica",
+        "fullName": "Ingeniería Civil Mecánica"
+    },
+    "MI": {
+        "code": "MI",
+        "name": "Minas",
+        "fullName": "Ingeniería Civil Minas"
+    },
+    "QB1": {
+        "code": "QB1",
+        "name": "Química",
+        "fullName": "Ingeniería Civil Química"
+    },
+    "QB2": {
+        "code": "QB2",
+        "name": "Biotecnología",
+        "fullName": "Ingeniería Civil en Biotecnología"
+    },
+    "GL": {
+        "code": "GL",
+        "name": "Geología",
+        "fullName": "Geología"
+    },
+    "AS": {
+        "code": "AS",
+        "name": "Astronomía",
+        "fullName": "Licenciatura en Ciencias, mención Astronomía"
+    },
+    "FI": {
+        "code": "FI",
+        "name": "Física",
+        "fullName": "Licenciatura en Ciencias, mención Física"
+    },
+    "GF": {
+        "code": "GF",
+        "name": "Geofísica",
+        "fullName": "Licenciatura en Ciencias, mención Geofísica"
+    }
+}

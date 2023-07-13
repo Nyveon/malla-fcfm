@@ -1,0 +1,57 @@
+@use "../abstracts/colors" as c;
+@use "../abstracts/sizes" as s;
+@use "../abstracts/mixins" as m;
+
+nav {
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    padding-inline: s.$very-large;
+    padding-block: s.$medium;
+    background-color: c.$navbar-color;
+    color: c.$text-dark;
+
+    > div {
+        display: flex;
+        align-items: center;
+
+        &:first-child {
+            justify-content: left;
+        }
+
+        &:nth-child(2) {
+            justify-content: center;
+        }
+
+        &:last-child {
+            position: relative;
+            justify-content: right;
+        }
+    }
+}
+
+
+#title {
+    font-size: 2em;
+    font-weight: 100;
+    text-align: center;
+
+    @include m.media-small {
+        font-size: 1.5em;
+    }
+}
+
+#breadcrumb {
+    font-size: 1.3em;
+
+    @include m.media-small {
+        span {
+            display: none;
+        }
+    }
+
+    span {
+        text-transform: uppercase;
+    }
+}

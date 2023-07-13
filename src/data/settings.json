@@ -1,0 +1,46 @@
+[
+    {
+        "name": "Propagación del arbol",
+        "settings": [
+            {
+                "name": "↓ Requisitos",
+                "id": "depthpre",
+                "type": "number",
+                "min": 1,
+                "max": 10
+            },
+            {
+                "name": "↑ Desbloqueados",
+                "id": "depthpost",
+                "type": "number",
+                "min": 1,
+                "max": 10
+            }
+        ]
+    },
+    {
+        "name": "Visualización",
+        "settings": [
+            {
+                "name": "⇅ Flechas", 
+                "id": "showLines",
+                "type": "checkbox"
+            },
+            {
+                "name": "Cursos sin Créditos",
+                "id": "showZeros",
+                "type": "checkbox"
+            },
+            {
+                "name": "Electivos Compactos",
+                "id": "showCompacts",
+                "type": "checkbox"
+            },
+            {
+                "name": "Etiquetas de Planes",
+                "id": "showPhases",
+                "type": "checkbox"
+            }
+        ]
+    }
+]

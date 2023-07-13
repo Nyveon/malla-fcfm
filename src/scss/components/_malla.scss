@@ -1,0 +1,90 @@
+@use "../abstracts/colors" as c;
+@use "../abstracts/sizes" as s;
+@use "../abstracts/mixins" as m;
+
+#interior {
+    @include m.full-size;
+    @include m.flex-center;
+    flex-direction: column;
+}
+
+.banner-title {
+    @include m.vertical-text;
+    text-align: center;
+    width: s.$large; // This is so it works on firefox
+    font-size: s.$large;
+    color: c.$phase-color;
+    margin: s.$very-small;
+
+    @include m.media-small {
+        @include m.horizontal-text;
+        @include m.no-size;
+        font-size: s.$small;
+        margin: 0;
+        display: flex;
+        position: sticky;
+        top: 0;
+        color: c.$text-dark;
+        z-index: 1;
+    }
+}
+
+.phase {
+    @include m.flex-row;
+
+    >.banner-title {
+        border-left: 1px solid c.$phase-color-line;
+
+        @include m.media-medium {
+            display: none;
+        }
+    }
+}
+
+.semesters {
+    @include m.flex-col;
+}
+
+.semester {
+    @include m.flex-row;
+    margin-block: s.$very-small;
+
+    @include m.media-small {
+        flex-direction: column;
+        border-top: 1px solid c.$phase-color-line;
+        padding-block: s.$very-small;
+        margin-block: 0;
+    }
+
+    >.banner-title {
+        &.horizontal-text {
+            @include m.horizontal-text;
+            @include m.flex-center;
+            margin-right: s.$medium;
+            border-left: none;
+        }
+
+        @include m.media-large {
+            border-left: 1px solid c.$phase-color-line;
+
+            &.horizontal-text {
+                border-right: 1px solid c.$phase-color-line;
+                margin-right: s.$small;
+            }
+        }
+
+        @include m.media-small {
+            border-left: none;
+        }
+    }
+}
+
+.courses {
+    @include m.flex-row;
+    flex-wrap: wrap;
+    gap: s.$very-small;
+
+    @include m.media-medium {
+        @include m.flex-center;
+    }
+}

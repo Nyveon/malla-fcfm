@@ -1,0 +1,100 @@
+@use "../abstracts/colors" as c;
+@use "../abstracts/sizes" as s;
+@use "../abstracts/mixins" as m;
+
+@mixin responsive-card($factor, $breakpoint) {
+    @media screen and (max-width: $breakpoint) {
+        grid-template-columns: repeat(auto-fit, minmax(calc(s.$card-width * $factor), 1fr));
+        grid-auto-rows: calc(s.$card-height * $factor);
+    }
+}
+
+
+.card-grid {
+    display: grid;
+    justify-content: center;
+
+    grid: {
+        gap: s.$medium;
+        auto-rows: s.$card-height;
+        auto-flow: dense;
+        template-columns: repeat(auto-fit, minmax(s.$card-width , 1fr));
+    }
+
+    padding-inline: 3%;
+    color: c.$text-white;
+
+    @include responsive-card(0.8, s.$breakpoint-large);
+    @include responsive-card(0.7, s.$breakpoint-medium);
+    @include responsive-card(0.6, s.$breakpoint-small);
+
+    a {
+        @include m.u-link;
+    }
+}
+
+.card {
+    @include m.pretty-shadow-strong;
+    border-radius: s.$very-small;
+    position: relative;
+    overflow: hidden;
+    height: 100%;
+
+    &:hover {
+        .card-image {
+            transform: scale(1.2);
+        }
+
+        .card-text {
+            height: 100%;
+        }
+
+        .card-name {
+            display: none;
+        }
+
+        .card-fullname {
+            text-align: center;
+            display: block;
+        }
+    }
+}
+
+.card-image {
+    width: 100%;
+    height: s.$card-height;
+    object-fit: cover;
+    transition: transform .25s;
+    filter: contrast(120%);
+}
+
+.card-text {
+    @include m.flex-center;
+    flex-direction: column;
+    position: absolute;
+    top: 0;
+    backdrop-filter: blur(4px) brightness(66%);
+    width: 100%;
+    height: 25%;
+    transition: height .25s ease;
+
+    @include m.media-small {
+        height: auto;
+    }
+}
+
+.card-name {
+    margin: s.$small;
+    display: block;
+}
+
+.card-fullname {
+    margin: s.$small;
+    font-size: s.$large;
+    display: none;
+}
+
+.card-title {
+    @include m.basic-shadow;
+    font-weight: 900;
+}

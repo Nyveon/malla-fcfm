@@ -1,0 +1,17 @@
+# Generated files
+package/generated*
+package-lock.json
+
+# Ignore installed npm modules
+node_modules/
+
+# Ignore build tool output, e.g. code coverage
+.nyc_output/
+coverage/
+
+# Ignore API documentation
+api-docs/
+
+# Ignore test files
+.cache
+test/stubs-layout-cache/_includes/*.js

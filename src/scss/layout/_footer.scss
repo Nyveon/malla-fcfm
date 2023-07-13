@@ -1,0 +1,40 @@
+@use "../abstracts/colors" as c;
+@use "../abstracts/sizes" as s;
+@use "../abstracts/mixins" as m;
+
+footer {
+    width: 100%;
+    background-color: c.$footer-color;
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: s.$large;
+    padding-block: s.$medium;
+    color: c.$text-dark;
+}
+
+#footer-credit {
+    font-size: s.$medium;
+
+    @include m.media-small {
+        span {
+            display: none;
+        }
+    }
+}
+
+#footer-links {
+    display: flex;
+    justify-content: right;
+    align-items: center;
+
+    a {
+        margin-inline: s.$medium;
+
+        img {
+            width: s.$large;
+            height: s.$large;
+        }
+    }
+}

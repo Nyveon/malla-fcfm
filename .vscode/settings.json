@@ -3,10 +3,10 @@
     {
             "format": "compressed",
             "extensionName": ".css",
-            "savePath": "/css"
+            "savePath": "/src/css"
         }
     ],
     "python.linting.banditEnabled": false,
     "python.linting.flake8Enabled": true,
-    "python.linting.enabled": true
+    "python.linting.enabled": true,
 }
