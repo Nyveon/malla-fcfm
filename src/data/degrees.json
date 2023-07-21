@@ -2,7 +2,8 @@
     "CI1": {
         "code": "CI1",
         "name": "Estructura, Construcción y Geotecnia",
-        "fullName": "Ingeniería Civil en Estructura, Construcción y Geotecnia"
+        "fullName": "Ingeniería Civil en Estructura, Construcción y Geotecnia",
+        "department": "CI"
     },
     "CI2": {
         "code": "CI2",
