@@ -63,6 +63,8 @@ $shine-width: 4rem;
     }
 
     &.marked {
+        outline: c.$courses-color-marked-outline solid s.$space-thin;
+
         > .course-bar {
             background-color: c.$course-color-marked !important;
 
@@ -84,6 +86,23 @@ $shine-width: 4rem;
                 transition: 0.35s ease-in-out;
             }
         }
+
+        &:hover {
+            outline: c.$courses-color-marked-hover-outline solid s.$space-thin;
+
+            > .course-body {
+                filter: brightness(1.1);
+            }
+
+            > .course-bar {
+                filter: brightness(1.1);
+            }
+        }
+    }
+
+    &:hover {
+        background: c.$background-gradient;
+        outline: c.$course-outline solid s.$space-thin;
     }
 }
 
@@ -159,7 +178,6 @@ $shine-width: 4rem;
 $base-opacity: 80%;
 
 @for $i from 0 through 9 {
-
     .course.prerequisite.depth-#{$i},
     .course.postrequisite.depth-#{$i} {
         &::after {

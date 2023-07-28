@@ -34,7 +34,7 @@
                                     return true;
                                 },
                                 select(event) {
-                                    courseSelected($data, event, showLines, depthpre, depthpost);
+                                    courseSelected($data, event, showLines, depthpre, depthpost, editMode);
                                 },
                                 mark() {
                                     courseMarked($el, editMode);
@@ -59,12 +59,6 @@
 							</div>
 							<div class="course-body">
 								<span class="course-name">{{ course.name }}</span>
-                                {%- if course.warn %}
-                                    <div class="warning">
-                                        <span>{{ course.warn }}</span>
-                                        <img src="/images/icons/warning.svg" alt="warning" />
-                                    </div>
-                                {%- endif %}
 							</div>
 						</div>
 						{% endfor %}

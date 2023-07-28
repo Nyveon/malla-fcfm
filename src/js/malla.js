@@ -5,23 +5,12 @@
 /* jshint browser: true */
 /* globals navigation */
 
+const touchDevice = matchMedia("(hover: none)").matches;
 const lines = [];
 let currentSelected = null;
 let showLines = true;
 
 /* Course interaction --------------------------------------------- */
-
-/**
- * Returns if the window is a touch device
- * @returns {boolean} true if the window is a touch device, else false
- */
-function isTouchEvent() {
-	return (
-		"ontouchstart" in document.documentElement ||
-		navigator.maxTouchPoints > 0 ||
-		navigator.msMaxTouchPoints > 0
-	);
-}
 
 /**
  * Removes all leader lines from the page
@@ -50,12 +39,17 @@ function courseSelected(
 	event,
 	showingLines,
 	depthpre,
-	depthpost
+	depthpost,
+	editMode
 ) {
 	let selected = element.classList.contains("selected");
 	showLines = showingLines;
 
-	if (isTouchEvent() && event === "click") {
+	if (editMode) {
+		return;
+	}
+
+	if (touchDevice && event === "click") {
 		if (selected) {
 			element.classList.remove("selected");
 			propagatePrereq(prerequisites, 0, 12, false, element);
@@ -65,7 +59,6 @@ function courseSelected(
 		} else {
 			element.classList.add("selected");
 			if (currentSelected) {
-				// Unpropagate and unselect whatever was already selected
 				currentSelected.classList.remove("selected");
 				propagatePrereq(
 					getPrereqs(currentSelected),
@@ -255,9 +248,11 @@ function propagatePostreq(postrequisites, depth, maxdepth, state, element) {
 }
 
 function courseMarked(element, editMode) {
-	if (editMode) {
-		element.classList.toggle("marked");
+	if (!editMode) {
+		return;
 	}
+
+	element.classList.toggle("marked");
 
 	const markedElements = document.querySelectorAll(
 		".marked:not([style*='display: none'])"
@@ -267,9 +262,7 @@ function courseMarked(element, editMode) {
 		".course:not([style*='display: none'])"
 	);
 	const courseCount = courseElements.length;
-	console.log(markedCount, courseCount);
 
-	// Canvas confetti
 	if (markedCount == courseCount) {
 		var duration = 8 * 1000;
 		var animationEnd = Date.now() + duration;
