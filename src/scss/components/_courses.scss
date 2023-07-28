@@ -2,6 +2,8 @@
 @use "../abstracts/sizes" as s;
 @use "../abstracts/mixins" as m;
 
+$shine-width: 4rem;
+
 @mixin hide-bar {
     .course-bar {
         background: transparent;
@@ -19,6 +21,8 @@
 .course {
     @include m.pretty-shadow;
     @include m.flex-col;
+    cursor: pointer;
+    overflow: hidden;
     min-width: s.$course-width;
     max-width: s.$course-width;
     height: s.$course-height;
@@ -56,6 +60,30 @@
         }
 
         @include hide-bar;
+    }
+
+    &.marked {
+        > .course-bar {
+            background-color: c.$course-color-marked !important;
+
+            &::before {
+                background: transparent;
+            }
+
+            span {
+                color: c.$text-black;
+            }
+        }
+
+        > .course-body {
+            background-color: c.$course-color-marked;
+            font-style: italic;
+
+            &::after {
+                transform: translateX(s.$course-width + $shine-width) rotate(45deg);
+                transition: 0.35s ease-in-out;
+            }
+        }
     }
 }
 
@@ -102,8 +130,23 @@
 }
 
 .course-body {
+    position: relative;
     @include m.flex-center;
     height: 100%;
+
+    &::after {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: -$shine-width;
+        width: $shine-width * 3;
+        height: 100%;
+        content: "";
+        transform: translateX(-100%) rotate(45deg);
+        background-color: white;
+        transition: 0s ease-in-out;
+    }
 }
 
 .course-name {

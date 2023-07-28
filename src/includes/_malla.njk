@@ -35,12 +35,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs="{{ course.prerequisites }}"
 							data-postreqs="{{ course.postrequisites }}"

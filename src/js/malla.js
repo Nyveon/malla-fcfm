@@ -253,3 +253,10 @@ function propagatePostreq(postrequisites, depth, maxdepth, state, element) {
 		propagatePostreq(postreqPostreqsList, depth + 1, maxdepth, state, postreq);
 	}
 }
+
+
+function courseMarked(element, editMode) {
+    if (editMode) {
+        element.classList.toggle("marked");
+    }
+}

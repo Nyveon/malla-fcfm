@@ -2,15 +2,15 @@
 @use "../abstracts/sizes" as s;
 @use "../abstracts/mixins" as m;
 
-#open-settings {
+.icon-button {
     @include m.flex-center;
     @include m.default-animate;
+    cursor: pointer;
     width: s.$very-large;
     height: s.$very-large;
     background: transparent;
     border: none;
     border-radius: 25%;
-    cursor: pointer;
 
     &:hover {
         background-color: c.$settings-color;
@@ -19,9 +19,17 @@
     &>img {
         @include m.default-animate;
     }
+}
 
-    &.open>img {
-        transform: rotate(180deg);
+#open-settings.open > img {
+    transform: rotate(180deg);
+}
+
+#edit-mode.active {
+    background-color: c.$settings-color;
+
+    > img {
+        filter: invert(1);
     }
 }
 

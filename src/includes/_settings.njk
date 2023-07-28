@@ -31,9 +31,20 @@
 {% endmacro %}
 
 <div>
+    <button
+        id="edit-mode"
+        @click="editMode = !editMode;"
+        class="icon-button"
+        :class="editMode ? 'active' : '';"
+        aria-label="Edición"
+    >
+        <img src="/images/icons/pencil-icon.svg" alt="" />
+    </button>
+
 	<button
 		id="open-settings"
 		@click="settingsOpen = !settingsOpen;"
+        class="icon-button"
 		:class="settingsOpen ? 'open' : '';"
 		aria-label="Configuración"
 	>

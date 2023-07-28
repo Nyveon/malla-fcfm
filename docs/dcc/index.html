@@ -55,6 +55,7 @@
             showCompacts: $persist(true),
             showPhases: $persist(true),
             settingsOpen: false,
+            editMode: false,
         }"
 	>
 		<header>
@@ -68,6 +69,7 @@
 				<div>
 					<h1 id="title">Malla DCC</h1>
 				</div>
+
 				<!-- prettier-ignore -->
 
 
@@ -75,9 +77,20 @@
 
 
 <div>
+    <button
+        id="edit-mode"
+        @click="editMode = !editMode;"
+        class="icon-button"
+        :class="editMode ? 'active' : '';"
+        aria-label="Edición"
+    >
+        <img src="/images/icons/pencil-icon.svg" alt="" />
+    </button>
+
 	<button
 		id="open-settings"
 		@click="settingsOpen = !settingsOpen;"
+        class="icon-button"
 		:class="settingsOpen ? 'open' : '';"
 		aria-label="Configuración"
 	>
@@ -262,12 +275,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs=""
 							data-postreqs="MA1002,FI1100"
@@ -299,12 +316,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs=""
 							data-postreqs="MA1102,FI1100,CC3101"
@@ -336,12 +357,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs=""
 							data-postreqs="FI1100"
@@ -373,12 +398,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs=""
 							data-postreqs=""
@@ -410,12 +439,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs=""
 							data-postreqs="CD1201"
@@ -447,12 +480,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs=""
 							data-postreqs=""
@@ -496,12 +533,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs="MA1001,MA100"
 							data-postreqs="MA2001,MA2601,FI2001,FI2003"
@@ -533,12 +574,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs="MA1101,MA110"
 							data-postreqs="MA2001,MA2601,FI2001"
@@ -570,12 +615,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs="FI1000,MA1101,MA1001"
 							data-postreqs="FI2001,FI2003"
@@ -607,12 +656,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs="CR3"
 							data-postreqs="CC3501,CC3001,CC3101"
@@ -644,12 +697,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs="CD1100"
 							data-postreqs="CD2201"
@@ -681,12 +738,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs=""
 							data-postreqs=""
@@ -730,12 +791,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs="MA1002,MA1A2,MA1102,MA1B2"
 							data-postreqs="MA2002,IN2201,FI2002,XTQTF20,MA3403,CC3501"
@@ -767,12 +832,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs="MA1002,MA1A2,MA1102,MA1B2"
 							data-postreqs="MA2002,FI2002,CC3501"
@@ -804,12 +873,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs="FI1100,FI1002,MA1002,MA1A2,MA1102,MA1B2"
 							data-postreqs="XTQTF20,CC3501"
@@ -841,12 +914,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs="MA1002,MA1A2,FI1100,FI2A1"
 							data-postreqs="FI2002"
@@ -878,12 +955,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs="CR48"
 							data-postreqs="XTQTF20"
@@ -927,12 +1008,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs="MA2001,MA2A1,MA2601,MA2G1"
 							data-postreqs=""
@@ -964,12 +1049,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs="MA2001"
 							data-postreqs="CC4402"
@@ -1001,12 +1090,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs="FI2003,FI2A3,MA2001,MA2A1,MA2601"
 							data-postreqs=""
@@ -1038,12 +1131,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs="IQ2211,MA2001,FI2001"
 							data-postreqs=""
@@ -1075,12 +1172,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs="CD1201"
 							data-postreqs="CC4402"
@@ -1112,12 +1213,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs=""
 							data-postreqs=""
@@ -1168,12 +1273,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs="MA2001,MA2A1"
 							data-postreqs="CC4102"
@@ -1205,12 +1314,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs="CC1002,MA2001,MA2601,FI2001"
 							data-postreqs=""
@@ -1242,12 +1355,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs="CC1002"
 							data-postreqs="CC3201,CC3002,CC3301,CC5205,CC4102"
@@ -1279,12 +1396,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs="CC1002,MA1101"
 							data-postreqs="CC3102"
@@ -1316,12 +1437,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs=""
 							data-postreqs=""
@@ -1353,12 +1478,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs=""
 							data-postreqs=""
@@ -1390,12 +1519,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs=""
 							data-postreqs=""
@@ -1439,12 +1572,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs="CC3001"
 							data-postreqs="CC4401,CC4901"
@@ -1476,12 +1613,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs="CC3001,CC30A"
 							data-postreqs="CC4401,CC4901"
@@ -1513,12 +1654,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs="CC3101"
 							data-postreqs="CC4102,CC4101"
@@ -1550,12 +1695,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs="CC3001"
 							data-postreqs="CC4302,CC4901"
@@ -1587,12 +1736,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs=""
 							data-postreqs=""
@@ -1624,12 +1777,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs=""
 							data-postreqs="CC4901"
@@ -1673,12 +1830,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs="CC3001"
 							data-postreqs="CC5402"
@@ -1710,12 +1871,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs="CC3002,CC3201"
 							data-postreqs="CC4402,CC5901"
@@ -1747,12 +1912,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs="MA3403,CC3001,CC3102"
 							data-postreqs="CC5402"
@@ -1784,12 +1953,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs="CC3301"
 							data-postreqs="CC4303"
@@ -1821,12 +1994,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs=""
 							data-postreqs=""
@@ -1858,12 +2035,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs="CC3002,CC3201,CC3301,CC4900,AUTOR"
 							data-postreqs="CC5901"
@@ -1907,12 +2088,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs="CC4401,CD2201,IN2201"
 							data-postreqs="CC6907,CC5402"
@@ -1944,12 +2129,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs="CC3102"
 							data-postreqs="CC5901"
@@ -1981,12 +2170,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs="CC4302"
 							data-postreqs="CC5402"
@@ -2018,12 +2211,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs=""
 							data-postreqs=""
@@ -2055,12 +2252,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs=""
 							data-postreqs=""
@@ -2092,12 +2293,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs=""
 							data-postreqs="EI2090"
@@ -2129,12 +2334,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs=""
 							data-postreqs="CC5901"
@@ -2166,12 +2375,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs=""
 							data-postreqs=""
@@ -2222,12 +2435,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs=""
 							data-postreqs=""
@@ -2259,12 +2476,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs=""
 							data-postreqs=""
@@ -2296,12 +2517,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs=""
 							data-postreqs=""
@@ -2333,12 +2558,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs=""
 							data-postreqs=""
@@ -2370,12 +2599,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs=""
 							data-postreqs=""
@@ -2407,12 +2640,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs=""
 							data-postreqs=""
@@ -2444,12 +2681,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs="CC4901,CC4401,CC4101,CC5900"
 							data-postreqs=""
@@ -2481,12 +2722,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs=""
 							data-postreqs=""
@@ -2518,12 +2763,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs=""
 							data-postreqs=""
@@ -2567,12 +2816,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs="CC4402"
 							data-postreqs="CC6919"
@@ -2604,12 +2857,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs=""
 							data-postreqs=""
@@ -2641,12 +2898,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs=""
 							data-postreqs=""
@@ -2678,12 +2939,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs="CC5205,CC4402"
 							data-postreqs=""
@@ -2719,12 +2984,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs=""
 							data-postreqs=""
@@ -2768,12 +3037,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs="CC6907"
 							data-postreqs=""
@@ -2805,12 +3078,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs=""
 							data-postreqs=""
@@ -2842,12 +3119,16 @@
                                 },
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost);
+                                },
+                                mark() {
+                                    courseMarked($el, editMode);
                                 }
                             }"
 							@focus="select('mouseenter');"
 							@blur="select('mouseleave');"
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
+                            @click="mark();"
 							x-show="shown()"
 							data-prereqs="EI1090"
 							data-postreqs=""

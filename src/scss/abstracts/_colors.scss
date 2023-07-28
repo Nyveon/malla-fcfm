@@ -7,8 +7,11 @@ $black1: #413a52;
 $black2: #0b0b1d;
 $purple1: #706fd3;
 $purple2: #474787;
+$green0: #93bf8d;
 $green1: #509e44;
 $green2: #2b7442;
+$orange1: #dc9242;
+$orange2: #cd7c3e;
 
 // Element colors and gradients
 $text-white: $white;
@@ -17,7 +20,7 @@ $text-dark: $black1;
 $text-black: $black2;
 
 $line-color-pre: $purple1;
-$line-color-post: $green1;
+$line-color-post: $orange1;
 
 $background-color: #f7f1e3;
 $background-gradient: linear-gradient(to bottom, #f7f1e3, #f6e7d6);
@@ -31,6 +34,7 @@ $phase-color: $grey2;
 $phase-color-line: $grey1;
 
 $course-color: $grey1;
+$course-color-marked: $green0;
 
 $settings-color: $grey3;
 $checkbox-selected: $green1;
@@ -38,7 +42,7 @@ $checkbox-unselected: $grey2;
 $checkbox-back: $grey1;
 
 $highlight-gradient-1: linear-gradient(to bottom, #{$purple1}, #{$purple2});
-$highlight-gradient-2: linear-gradient(to bottom, #{$green1}, #{$green2});
+$highlight-gradient-2: linear-gradient(to bottom, #{$orange1}, #{$orange2});
 
 // Department gradients
 // https://uigradients.com
