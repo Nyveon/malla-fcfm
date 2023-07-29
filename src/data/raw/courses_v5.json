@@ -514,10 +514,8 @@
         "name": "Proyecto de Software",
         "credits": 12,
         "prerequisites": [
-            "IN3301",
-            "CC5401",
-            "CC4303",
-            "CC4102"
+            "CC4402",
+            "CC5205"
         ],
         "type": "course"
     },

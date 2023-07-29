@@ -1909,7 +1909,7 @@
 							role="listitem"
 							x-data="{
                                 prerequisites: [&quot;MA3403&quot;,&quot;CC3001&quot;,&quot;CC3102&quot;],
-                                postrequisites: [&quot;CC5402&quot;],
+                                postrequisites: [],
                                 element: $el,
                                 shown() {
                                     return true;
@@ -1928,7 +1928,7 @@
                             @click="mark();"
 							x-show="shown()"
 							data-prereqs="MA3403,CC3001,CC3102"
-							data-postreqs="CC5402"
+							data-postreqs=""
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC4102</span>
@@ -2167,7 +2167,7 @@
 							role="listitem"
 							x-data="{
                                 prerequisites: [&quot;CC4302&quot;],
-                                postrequisites: [&quot;CC5402&quot;],
+                                postrequisites: [],
                                 element: $el,
                                 shown() {
                                     return true;
@@ -2186,7 +2186,7 @@
                             @click="mark();"
 							x-show="shown()"
 							data-prereqs="CC4302"
-							data-postreqs="CC5402"
+							data-postreqs=""
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">CC4303</span>
@@ -2935,7 +2935,7 @@
 							tabindex="0"
 							role="listitem"
 							x-data="{
-                                prerequisites: [&quot;CC5205&quot;,&quot;CC4402&quot;],
+                                prerequisites: [&quot;CC4402&quot;,&quot;CC5205&quot;],
                                 postrequisites: [],
                                 element: $el,
                                 shown() {
@@ -2954,7 +2954,7 @@
 							@mouseleave="select('mouseleave');"
                             @click="mark();"
 							x-show="shown()"
-							data-prereqs="CC5205,CC4402"
+							data-prereqs="CC4402,CC5205"
 							data-postreqs=""
 						>
 							<div class="course-bar" x-show="shown()">
