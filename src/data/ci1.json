@@ -1,0 +1,1021 @@
+{
+    "v3": {},
+    "v5": {
+        "Plan Común": {
+            "name": "Plan Común",
+            "semesters": {
+                "1": {
+                    "number": 1,
+                    "courses": {
+                        "MA1001": {
+                            "code": "MA1001",
+                            "name": "Introducción al Cálculo",
+                            "credits": 6,
+                            "prerequisites": [],
+                            "type": "course",
+                            "postrequisites": [
+                                "MA1002",
+                                "FI1100"
+                            ],
+                            "department": "MA"
+                        },
+                        "MA1101": {
+                            "code": "MA1101",
+                            "name": "Introducción al Álgebra",
+                            "credits": 6,
+                            "prerequisites": [],
+                            "type": "course",
+                            "postrequisites": [
+                                "MA1102",
+                                "FI1100"
+                            ],
+                            "department": "MA"
+                        },
+                        "FI1000": {
+                            "code": "FI1000",
+                            "name": "Introducción a la Física Clásica",
+                            "credits": 6,
+                            "prerequisites": [],
+                            "type": "course",
+                            "postrequisites": [
+                                "FI1100"
+                            ],
+                            "department": "FI"
+                        },
+                        "CC1000": {
+                            "code": "CC1000",
+                            "name": "Herramientas Computacionales para Ingeniería y Ciencias",
+                            "credits": 3,
+                            "prerequisites": [],
+                            "type": "course",
+                            "postrequisites": [],
+                            "department": "CC"
+                        },
+                        "CD1100": {
+                            "code": "CD1100",
+                            "name": "Desafíos de Innovación en Ingeniería y Ciencias",
+                            "credits": 6,
+                            "prerequisites": [],
+                            "type": "course",
+                            "postrequisites": [
+                                "CD1201"
+                            ],
+                            "department": "CD"
+                        },
+                        "BT1211": {
+                            "code": "BT1211",
+                            "name": "Aplicaciones de la Biología a la Ingeniería y Ciencias",
+                            "credits": 3,
+                            "prerequisites": [],
+                            "type": "course",
+                            "postrequisites": [],
+                            "department": "BT"
+                        }
+                    }
+                },
+                "2": {
+                    "number": 2,
+                    "courses": {
+                        "MA1002": {
+                            "code": "MA1002",
+                            "name": "Cálculo Diferencial e Integral",
+                            "credits": 6,
+                            "prerequisites": [
+                                "MA1001"
+                            ],
+                            "type": "course",
+                            "postrequisites": [
+                                "MA2001",
+                                "MA2601",
+                                "FI2001",
+                                "FI2003"
+                            ],
+                            "department": "MA"
+                        },
+                        "MA1102": {
+                            "code": "MA1102",
+                            "name": "Álgebra Lineal",
+                            "credits": 6,
+                            "prerequisites": [
+                                "MA1101"
+                            ],
+                            "type": "course",
+                            "postrequisites": [
+                                "MA2001",
+                                "MA2601",
+                                "FI2001"
+                            ],
+                            "department": "MA"
+                        },
+                        "FI1100": {
+                            "code": "FI1100",
+                            "name": "Introducción a la Física Moderna",
+                            "credits": 6,
+                            "prerequisites": [
+                                "FI1000",
+                                "MA1101",
+                                "MA1001"
+                            ],
+                            "type": "course",
+                            "postrequisites": [
+                                "FI2001",
+                                "FI2003"
+                            ],
+                            "department": "FI"
+                        },
+                        "CC1002": {
+                            "code": "CC1002",
+                            "name": "Introducción a la Programación",
+                            "credits": 6,
+                            "prerequisites": [
+                                "CR3"
+                            ],
+                            "type": "course",
+                            "postrequisites": [],
+                            "department": "CC"
+                        },
+                        "CD1201": {
+                            "code": "CD1201",
+                            "name": "Proyecto de Innovación en Ingeniería y Ciencias",
+                            "credits": 3,
+                            "prerequisites": [
+                                "CD1100"
+                            ],
+                            "type": "course",
+                            "postrequisites": [
+                                "CD2201"
+                            ],
+                            "department": "CD"
+                        },
+                        "XFIPC11": {
+                            "name": "Formación Integral",
+                            "plural": "Formaciones Integrales",
+                            "shortname": "Formación Integral",
+                            "credits": 3,
+                            "prerequisites": [],
+                            "corequisites": [],
+                            "type": "plan",
+                            "codes": [
+                                "EH",
+                                "FG",
+                                "DR",
+                                "EI",
+                                "FT"
+                            ],
+                            "postrequisites": [],
+                            "code": "EH/FG/DR/EI/FT",
+                            "department": "XF"
+                        }
+                    }
+                },
+                "3": {
+                    "number": 3,
+                    "courses": {
+                        "MA2001": {
+                            "code": "MA2001",
+                            "name": "Cálculo en Varias Variables",
+                            "credits": 6,
+                            "prerequisites": [
+                                "MA1002",
+                                "MA1102"
+                            ],
+                            "type": "course",
+                            "postrequisites": [
+                                "MA2002",
+                                "IN2201",
+                                "FI2002",
+                                "MA3403"
+                            ],
+                            "department": "MA"
+                        },
+                        "MA2601": {
+                            "code": "MA2601",
+                            "name": "Ecuaciones Diferenciales Ordinarias",
+                            "credits": 6,
+                            "prerequisites": [
+                                "MA1002",
+                                "MA1A2",
+                                "MA1102",
+                                "MA1B2"
+                            ],
+                            "type": "course",
+                            "postrequisites": [
+                                "MA2002",
+                                "FI2002"
+                            ],
+                            "department": "MA"
+                        },
+                        "FI2001": {
+                            "code": "FI2001",
+                            "name": "Mecánica",
+                            "credits": 6,
+                            "prerequisites": [
+                                "FI1100",
+                                "MA1002",
+                                "MA1A2",
+                                "MA1102",
+                                "MA1B2"
+                            ],
+                            "type": "course",
+                            "postrequisites": [
+                                "FI2004",
+                                "IQ2212",
+                                "CI3111"
+                            ],
+                            "department": "FI"
+                        },
+                        "FI2003": {
+                            "code": "FI2003",
+                            "name": "Métodos Experimentales",
+                            "credits": 6,
+                            "prerequisites": [
+                                "MA1002",
+                                "MA1A2",
+                                "FI1100",
+                                "FI2A1"
+                            ],
+                            "type": "course",
+                            "postrequisites": [
+                                "FI2002",
+                                "CI3162",
+                                "CI3252"
+                            ],
+                            "department": "FI"
+                        },
+                        "IQ2211": {
+                            "code": "IQ2211",
+                            "name": "Química",
+                            "credits": 6,
+                            "prerequisites": [],
+                            "type": "course",
+                            "postrequisites": [
+                                "CI3162"
+                            ],
+                            "department": "IQ"
+                        }
+                    }
+                },
+                "4": {
+                    "number": 4,
+                    "courses": {
+                        "MA2002": {
+                            "code": "MA2002",
+                            "name": "Cálculo Avanzado y Aplicaciones",
+                            "credits": 6,
+                            "prerequisites": [
+                                "MA2001",
+                                "MA2A1",
+                                "MA2601",
+                                "MA2G1"
+                            ],
+                            "type": "course",
+                            "postrequisites": [
+                                "MA3701",
+                                "IN3171",
+                                "CI3141",
+                                "CI3162",
+                                "CI3251",
+                                "CI3252"
+                            ],
+                            "department": "MA"
+                        },
+                        "IN2201": {
+                            "code": "IN2201",
+                            "name": "Economía",
+                            "credits": 6,
+                            "prerequisites": [
+                                "MA2001"
+                            ],
+                            "type": "course",
+                            "postrequisites": [
+                                "CI3141",
+                                "CI4152"
+                            ],
+                            "department": "IN"
+                        },
+                        "FI2002": {
+                            "code": "FI2002",
+                            "name": "Electromagnetismo",
+                            "credits": 6,
+                            "prerequisites": [
+                                "FI2003",
+                                "FI2A3",
+                                "MA2001",
+                                "MA2A1",
+                                "MA2601"
+                            ],
+                            "type": "course",
+                            "postrequisites": [
+                                "CI3111"
+                            ],
+                            "department": "FI"
+                        },
+                        "XTQTF20": {
+                            "name": "Termodinámica o Termodinámica Química",
+                            "shortname": "Termo",
+                            "credits": 6,
+                            "prerequisites": [
+                                "IQ2211",
+                                "MA2001",
+                                "FI2001"
+                            ],
+                            "corequisites": [],
+                            "type": "plan",
+                            "codes": [
+                                "FI2004",
+                                "IQ2212"
+                            ],
+                            "postrequisites": [
+                                "CI3162"
+                            ],
+                            "code": "FI2004/IQ2212",
+                            "department": "XT"
+                        },
+                        "CD2201": {
+                            "code": "CD2201",
+                            "name": "Módulo Interdisciplinario",
+                            "credits": 3,
+                            "prerequisites": [
+                                "CD1201"
+                            ],
+                            "type": "course",
+                            "postrequisites": [],
+                            "department": "CD"
+                        },
+                        "XFIPC22": {
+                            "name": "Formación Integral",
+                            "plural": "Formaciones Integrales",
+                            "shortname": "Formación Integral",
+                            "credits": 3,
+                            "prerequisites": [],
+                            "corequisites": [],
+                            "type": "plan",
+                            "codes": [
+                                "EH",
+                                "FG",
+                                "DR",
+                                "EI",
+                                "FT"
+                            ],
+                            "postrequisites": [],
+                            "code": "EH/FG/DR/EI/FT",
+                            "department": "XF"
+                        }
+                    }
+                }
+            }
+        },
+        "Licenciatura": {
+            "name": "Licenciatura",
+            "semesters": {
+                "5": {
+                    "number": 5,
+                    "courses": {
+                        "MA3403": {
+                            "code": "MA3403",
+                            "name": "Probabilidades y Estadística",
+                            "credits": 6,
+                            "prerequisites": [
+                                "MA2001",
+                                "MA2A1"
+                            ],
+                            "type": "course",
+                            "postrequisites": [
+                                "CI4152",
+                                "CI4112"
+                            ],
+                            "department": "MA"
+                        },
+                        "XOPMO20": {
+                            "name": "Optimización o Modelamiento y Optimización",
+                            "shortname": "Termo",
+                            "credits": 6,
+                            "prerequisites": [
+                                "MA2002"
+                            ],
+                            "corequisites": [],
+                            "type": "plan",
+                            "codes": [
+                                "MA3701",
+                                "IN3171"
+                            ],
+                            "postrequisites": [],
+                            "code": "MA3701/IN3171",
+                            "department": "XO"
+                        },
+                        "CI3111": {
+                            "code": "CI3111",
+                            "name": "Mecánica Estructural",
+                            "credits": 6,
+                            "prerequisites": [
+                                "FI2001"
+                            ],
+                            "type": "course",
+                            "postrequisites": [
+                                "CI3211",
+                                "CI4121",
+                                "CI4112",
+                                "CI4151"
+                            ],
+                            "department": "CI"
+                        },
+                        "CI3141": {
+                            "code": "CI3141",
+                            "name": "Análisis de Sistemas de Transporte",
+                            "credits": 6,
+                            "prerequisites": [
+                                "IN2201",
+                                "MA2002"
+                            ],
+                            "type": "course",
+                            "postrequisites": [
+                                "CI4151"
+                            ],
+                            "department": "CI"
+                        },
+                        "CI3162": {
+                            "code": "CI3162",
+                            "name": "Mecánica de Fluidos",
+                            "credits": 6,
+                            "prerequisites": [
+                                "FI2003",
+                                "XTQTF20",
+                                "MA2002"
+                            ],
+                            "type": "course",
+                            "postrequisites": [
+                                "CI3262",
+                                "CI3262",
+                                "CI4121",
+                                "CI4151"
+                            ],
+                            "department": "CI"
+                        }
+                    }
+                },
+                "6": {
+                    "number": 6,
+                    "courses": {
+                        "CI3251": {
+                            "code": "CI3251",
+                            "name": "Cálculo Numérico para Ingeniería Civil",
+                            "credits": 6,
+                            "prerequisites": [
+                                "MA2002"
+                            ],
+                            "type": "course",
+                            "postrequisites": [
+                                "CI4111"
+                            ],
+                            "department": "CI"
+                        },
+                        "CI3262": {
+                            "code": "CI3262",
+                            "name": "Ingeniería Hidráulica",
+                            "credits": 6,
+                            "prerequisites": [
+                                "CI3162"
+                            ],
+                            "type": "course",
+                            "postrequisites": [
+                                "CI5151"
+                            ],
+                            "department": "CI"
+                        },
+                        "CI3211": {
+                            "code": "CI3211",
+                            "name": "Ingeniería Estructural",
+                            "credits": 6,
+                            "prerequisites": [
+                                "CI3111"
+                            ],
+                            "type": "course",
+                            "postrequisites": [
+                                "CI4111",
+                                "CI4212",
+                                "CI5122"
+                            ],
+                            "department": "CI"
+                        },
+                        "CI3261": {
+                            "code": "CI3261",
+                            "name": "Ingeniería Ambiental",
+                            "credits": 6,
+                            "prerequisites": [
+                                "CI3162"
+                            ],
+                            "type": "course",
+                            "postrequisites": [],
+                            "department": "CI"
+                        },
+                        "CI3252": {
+                            "code": "CI3252",
+                            "name": "Topografía",
+                            "credits": 6,
+                            "prerequisites": [
+                                "MA2002",
+                                "FI2003"
+                            ],
+                            "type": "course",
+                            "postrequisites": [
+                                "CI4231"
+                            ],
+                            "department": "CI"
+                        }
+                    }
+                },
+                "7": {
+                    "number": 7,
+                    "courses": {
+                        "CI4152": {
+                            "code": "CI4152",
+                            "name": "Evaluación de Proyectos",
+                            "credits": 6,
+                            "prerequisites": [
+                                "IN2201",
+                                "MA3403"
+                            ],
+                            "type": "course",
+                            "postrequisites": [
+                                "CI4231",
+                                "CI4251"
+                            ],
+                            "department": "CI"
+                        },
+                        "CI4121": {
+                            "code": "CI4121",
+                            "name": "Ingeniería Geotécnica",
+                            "credits": 6,
+                            "prerequisites": [
+                                "CI3111",
+                                "CI3162"
+                            ],
+                            "type": "course",
+                            "postrequisites": [
+                                "CI4211",
+                                "CI5121"
+                            ],
+                            "department": "CI"
+                        },
+                        "CI4111": {
+                            "code": "CI4111",
+                            "name": "Dinámica de Estructuras",
+                            "credits": 6,
+                            "prerequisites": [
+                                "CI3211",
+                                "CI3251"
+                            ],
+                            "type": "course",
+                            "postrequisites": [
+                                "CI4211"
+                            ],
+                            "department": "CI"
+                        },
+                        "CI4112": {
+                            "code": "CI4112",
+                            "name": "Ingeniería de Materiales",
+                            "credits": 6,
+                            "prerequisites": [
+                                "CI3111",
+                                "MA3403"
+                            ],
+                            "type": "course",
+                            "postrequisites": [
+                                "CI4212",
+                                "CI5122"
+                            ],
+                            "department": "CI"
+                        },
+                        "XELEC39": {
+                            "name": "Electivo de Licenciatura",
+                            "plural": "Electivos de Licenciatura",
+                            "shortname": "Electivo",
+                            "credits": 6,
+                            "prerequisites": [],
+                            "corequisites": [],
+                            "type": "plan",
+                            "codes": [
+                                "Electivo"
+                            ],
+                            "postrequisites": [],
+                            "code": "Electivo",
+                            "department": "XE"
+                        },
+                        "CI4151": {
+                            "code": "CI4151",
+                            "name": "Práctica I Topografía",
+                            "credits": 7,
+                            "prerequisites": [
+                                "CI3111",
+                                "CI3141",
+                                "CI3162",
+                                "AUTOR"
+                            ],
+                            "postrequisites": [
+                                "CI5151"
+                            ],
+                            "type": "course",
+                            "department": "CI"
+                        }
+                    }
+                },
+                "8": {
+                    "number": 8,
+                    "courses": {
+                        "CI4231": {
+                            "code": "CI4231",
+                            "name": "Construcción",
+                            "credits": 6,
+                            "prerequisites": [
+                                "CI3252",
+                                "CI4152"
+                            ],
+                            "type": "course",
+                            "postrequisites": [
+                                "CI5131"
+                            ],
+                            "department": "CI"
+                        },
+                        "CI4251": {
+                            "code": "CI4251",
+                            "name": "Planificación y Gestión de Proyectos",
+                            "credits": 6,
+                            "prerequisites": [
+                                "CI4152"
+                            ],
+                            "type": "course",
+                            "postrequisites": [],
+                            "department": "CI"
+                        },
+                        "CI4211": {
+                            "code": "CI4211",
+                            "name": "Diseño Sísmico de Estructuras",
+                            "credits": 6,
+                            "prerequisites": [
+                                "CI4121",
+                                "CI4111"
+                            ],
+                            "type": "course",
+                            "postrequisites": [
+                                "CI5123",
+                                "CI5322"
+                            ],
+                            "department": "CI"
+                        },
+                        "CI4212": {
+                            "code": "CI4212",
+                            "name": "Diseño Hormigón Armado",
+                            "credits": 6,
+                            "prerequisites": [
+                                "CI3211",
+                                "CI4112"
+                            ],
+                            "type": "course",  
+                            "postrequisites": [
+                                "CI5123"
+                            ],
+                            "department": "CI"
+                        },
+                        "XFILI27": {
+                            "name": "Formación Integral",
+                            "plural": "Cursos de Formación Integral",
+                            "shortname": "Formación Integral",
+                            "credits": 3,
+                            "prerequisites": [],
+                            "corequisites": [],
+                            "type": "compactable",
+                            "codes": [
+                                "EH",
+                                "FG"
+                            ],
+                            "postrequisites": [],
+                            "code": "EH/FG",
+                            "department": "XF"
+                        },
+                        "XFILI28": {
+                            "name": "Formación Integral",
+                            "plural": "Cursos de Formación Integral",
+                            "shortname": "Formación Integral",
+                            "credits": 3,
+                            "prerequisites": [],
+                            "corequisites": [],
+                            "type": "compactable",
+                            "codes": [   
+                                "EH",
+                                "FG"
+                            ],
+                            "postrequisites": [],
+                            "code": "EH/FG",
+                            "department": "XF"
+                        },
+                        "XFILI-C": {
+                            "name": "Cursos de Formación Integral",
+                            "plural": "Cursos de Formación Integral",
+                            "shortname": "Formación Integral",
+                            "credits": 6,
+                            "prerequisites": [],
+                            "corequisites": [],
+                            "type": "compacted",
+                            "codes": [
+                                "EH",
+                                "FG"
+                            ],
+                            "postrequisites": [],
+                            "code": "EH/FG",
+                            "department": "XF"
+                        },
+                        "EI1090": {
+                            "code": "EI1090",
+                            "name": "Examen de Suficiencia en Inglés I",
+                            "credits": 0,
+                            "prerequisites": [],
+                            "type": "course",
+                            "postrequisites": [
+                                "EI2090"
+                            ],
+                            "department": "EI"
+                        }
+                    }
+                }
+            }
+        },
+        "Especialidad": {
+            "name": "Especialidad",
+            "semesters": {
+                "9": {
+                    "number": 9,
+                    "courses": {
+                        "CI5121": {
+                            "code": "CI5121",
+                            "name": "Diseño Geotécnico",
+                            "credits": 6,
+                            "prerequisites": [
+                                "CI4121"
+                            ],
+                            "type": "course",
+                            "postrequisites": [
+                                "CI5321"
+                            ],
+                            "department": "CI"
+                        },
+                        "CI5122": {
+                            "code": "CI5122",
+                            "name": "Diseño de Estructuras de Acero",
+                            "credits": 6,
+                            "prerequisites": [   
+                                "CI3211",
+                                "CI4112"
+                            ],
+                            "type": "course",
+                            "postrequisites": [  
+                                "CI5322"
+                            ],
+                            "department": "CI"
+                        },
+                        "CI5123": {
+                            "code": "CI5123",
+                            "name": "Proyecto de Hormigón Armado",
+                            "credits": 6,
+                            "prerequisites": [   
+                                "CI4211",
+                                "CI4212"
+                            ],
+                            "type": "course",
+                            "postrequisites": [  
+                                "CI5323"
+                            ],
+                            "department": "CI"
+                        },
+                        "CI5131": {
+                            "code": "CI5131",
+                            "name": "Proyecto de Construcción",
+                            "credits": 6,
+                            "prerequisites": [   
+                                "CI4112",
+                                "CI4231"
+                            ],
+                            "type": "course",
+                            "postrequisites": [],
+                            "department": "CI"
+                        },
+                        "XESPE48": {
+                            "name": "Electivo de Especialidad",
+                            "plural": "Electivos de Especialidad",
+                            "shortname": "Electivo Especialidad",
+                            "credits": 6,
+                            "prerequisites": [],
+                            "corequisites": [],
+                            "type": "plan",
+                            "codes": [   
+                                "Electivo"
+                            ],
+                            "postrequisites": [],
+                            "code": "Electivo",
+                            "department": "XE"
+                        },
+                        "CI5151": {
+                            "code": "CC5151",
+                            "name": "Práctica II",
+                            "credits": 14,
+                            "prerequisites": [
+                                "CI4151",
+                                "CI3262"
+                            ],
+                            "postrequisites": [
+                                "CI6161"
+                            ],
+                            "type": "course",
+                            "department": "CI"
+                        }
+                    }
+                },
+                "10": {
+                    "number": 10,
+                    "courses": {
+                        "CI5321": {
+                            "name": "Mecánica de Suelos Avanzada",
+                            "credits": 6,
+                            "prerequisites": [
+                                "CI5121"
+                            ],
+                            "corequisites": [],
+                            "postrequisites": [],
+                            "type": "course",
+                            "code": "CI5321",
+                            "department": "CI"
+                        },
+                        "CI5322": {
+                            "name": "Proyecto de Estructuras de Acero",
+                            "credits": 6,
+                            "prerequisites": [
+                                "CI4211",
+                                "CI5122"
+                            ],
+                            "corequisites": [],
+                            "postrequisites": [],
+                            "type": "course",
+                            "code": "CI5322",
+                            "department": "CI"
+                        },
+                        "CI5323": {
+                            "name": "Ingeniería Estructural Avanzada",
+                            "credits": 6,
+                            "prerequisites": [
+                                "CI5123"
+                            ],
+                            "corequisites": [],
+                            "postrequisites": [],
+                            "type": "course",
+                            "code": "CI5323",
+                            "department": "CI"
+                        },
+                        "XELEC56": {
+                            "name": "Electivo de Licenciatura",
+                            "plural": "Electivos de Licenciatura",
+                            "shortname": "Electivo",
+                            "credits": 6,
+                            "prerequisites": [],
+                            "corequisites": [],
+                            "type": "compactable",
+                            "codes": [
+                                "Electivo"   
+                            ],
+                            "postrequisites": [],
+                            "code": "Electivo",
+                            "department": "XE"
+                        },
+                        "XELEC57": {
+                            "name": "Electivo de Licenciatura",
+                            "plural": "Electivos de Licenciatura",
+                            "shortname": "Electivo",
+                            "credits": 6,
+                            "prerequisites": [],
+                            "corequisites": [],
+                            "type": "compactable",
+                            "codes": [
+                                "Electivo"
+                            ],
+                            "postrequisites": [],
+                            "code": "Electivo",
+                            "department": "XE"
+                        },
+                        "XESPE-C": {
+                            "name": "Electivos de Especialidad",
+                            "plural": "Electivos de Especialidad",
+                            "shortname": "Electivo Especialidad",
+                            "credits": 12,
+                            "prerequisites": [],
+                            "corequisites": [],
+                            "type": "compacted",
+                            "codes": [
+                                "Electivo"
+                            ],
+                            "postrequisites": [],
+                            "code": "Electivo",
+                            "department": "XE"
+                        }
+                    }
+                },
+                "11": {
+                    "number": 11,
+                    "courses": {
+                        "CI6162": {
+                            "name": "Actividad de Habilitación Profesional",
+                            "credits": 9,
+                            "prerequisites": [
+                                "CR300"
+                            ],
+                            "corequisites": [],
+                            "postrequisites": [],
+                            "type": "course",
+                            "code": "CI6162",
+                            "department": "CI"
+                        },
+                        "XESPE60": {
+                            "name": "Electivo de Especialidad",
+                            "plural": "Electivos de Especialidad",
+                            "shortname": "Electivo Especialidad",
+                            "credits": 6,
+                            "prerequisites": [],
+                            "corequisites": [],
+                            "type": "compactable",
+                            "codes": [
+                                "Electivo"
+                            ],
+                            "postrequisites": [],
+                            "code": "Electivo",
+                            "department": "XE"
+                        },
+                        "XELEC61": {
+                            "name": "Electivo de Licenciatura",
+                            "plural": "Electivos de Licenciatura",
+                            "shortname": "Electivo",
+                            "credits": 6,
+                            "prerequisites": [],
+                            "corequisites": [],
+                            "type": "compactable",
+                            "codes": [
+                                "Electivo"   
+                            ],
+                            "postrequisites": [],
+                            "code": "Electivo",
+                            "department": "XE"
+                        },
+                        "XELEC62": {
+                            "name": "Electivo de Licenciatura",
+                            "plural": "Electivos de Licenciatura",
+                            "shortname": "Electivo",
+                            "credits": 6,
+                            "prerequisites": [],
+                            "corequisites": [],
+                            "type": "compactable",
+                            "codes": [
+                                "Electivo"
+                            ],
+                            "postrequisites": [],
+                            "code": "Electivo",
+                            "department": "XE"
+                        },
+                        "XELEC-C": {
+                            "name": "Electivos de Licenciatura",
+                            "plural": "Electivos de Licenciatura",
+                            "shortname": "Electivo",
+                            "credits": 18,
+                            "prerequisites": [],
+                            "corequisites": [],
+                            "type": "compacted",
+                            "codes": [
+                                "Electivo"
+                            ],
+                            "postrequisites": [],
+                            "code": "Electivo",
+                            "department": "XE"
+                        },
+                        "CI6161": {
+                            "code": "CC6161",
+                            "name": "Práctica III",
+                            "credits": 14,
+                            "prerequisites": [
+                                "CI5151"
+                            ],
+                            "postrequisites": [],
+                            "type": "course",
+                            "department": "CI"
+                        },
+                        "EI2090": {
+                            "code": "EI2090",
+                            "name": "Examen de Suficiencia en Inglés II",
+                            "credits": 0,
+                            "prerequisites": [
+                                "EI1090"
+                            ],
+                            "type": "course",
+                            "postrequisites": [],
+                            "department": "EI"
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

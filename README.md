@@ -177,8 +177,7 @@ malla-fcfm/
 ### Mallas
 
 - [x] Fix IQ2211, FI2001, MA2001 Post requisites.
-
-- [ ] Civil ECG.
+- [x] Civil ECG.
 - [ ] Civil HSA.
 - [ ] Civil Transporte.
 - [x] Computación
