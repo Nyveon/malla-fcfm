@@ -15,3 +15,6 @@ api-docs/
 # Ignore test files
 .cache
 test/stubs-layout-cache/_includes/*.js
+
+# Ignore docs folder (eleventy output)
+docs/
