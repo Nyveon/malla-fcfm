@@ -25,7 +25,7 @@ def main():
     os.chdir(os.path.dirname(__file__))
     # todo get course list from degrees.json
 
-    malla_code = "DCC"
+    malla_code = "dcc"
     version = "v5"
 
     courses_v5 = read_json("raw/courses_v5.json")
