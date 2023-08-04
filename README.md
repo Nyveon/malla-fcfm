@@ -96,8 +96,8 @@ malla-fcfm/
 
 ### Repository and Management
 
-- [ ] Move this to-do list to issues.
 - [x] Switch to Cloudflare pages.
+- [ ] Move this to-do list to issues.
 - [ ] Data contribution documentation.
 - [ ] Credits to contributors for specific mallas.
 - [ ] Custom Logo/Icon.
@@ -140,7 +140,7 @@ malla-fcfm/
 
 ## Previous versions
 
-### Beta to Version 1.0
+### Beta to Version 1.0 (Release: August 3, 2023)
 
 - [x] Malla: Computación
 - [x] Base page.
@@ -195,3 +195,5 @@ malla-fcfm/
 - [x] Improve breadcrumb.
 - [x] Differentiate unimplemented mallas in index.
 - [x] Mark whole semester as taken. Thanks [@tampueroc](https://github.com/tampueroc) for the suggestion!
+
+Project started Jan 7, 2022.
