@@ -176,7 +176,7 @@ function getPostreqs(element) {
 }
 
 /**
- * Propagaste classes for prerequisites tree
+ * Propagates classes for prerequisites tree
  * @param {list} prerequisites list of string IDs of prerequisite courses
  * @param {int} depth current depth of the tree
  * @param {int} maxdepth maximum depth of the tree
@@ -212,7 +212,7 @@ function propagatePrereq(prerequisites, depth, maxdepth, state, element) {
 }
 
 /**
- * Propagaste classes for postrequisites tree
+ * Propagates classes for postrequisites tree
  * @param {list} prerequisites list of string IDs of postrequisites courses
  * @param {int} depth current depth of the tree
  * @param {int} maxdepth maximum depth of the tree
@@ -247,6 +247,11 @@ function propagatePostreq(postrequisites, depth, maxdepth, state, element) {
 	}
 }
 
+/**
+ * Marks a course as selected or unselected
+ * @param {element} element Course element
+ * @param {bool} editMode If edit mode is enabled
+ */
 function courseMarked(element, editMode) {
 	if (!editMode) {
 		return;
@@ -294,4 +299,22 @@ function courseMarked(element, editMode) {
 			);
 		}, 250);
 	}
+}
+
+/**
+ * Marks an entire semester's courses as selected or unselected
+ * @param {element} element Semester number element
+ * @param {boolean} editMode If edit mode is enabled
+ */
+function semesterMarked(element, editMode) {
+    if (!editMode) {
+		return;
+	}
+
+    const semesterCourses = element.nextElementSibling;
+    const courses = semesterCourses.querySelectorAll(".course");
+
+    courses.forEach(course => {
+        courseMarked(course, editMode);
+    });
 }

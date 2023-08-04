@@ -27,6 +27,18 @@
         color: c.$text-dark;
         z-index: 1;
     }
+
+    &.editable {
+        cursor: pointer;
+        border: 1px solid c.$course-outline;
+        border-radius: s.$small;
+        padding: s.$very-small;
+
+        &:hover {
+            color: c.$text-white;
+            background-color: c.$course-outline;
+        }
+    }
 }
 
 .phase {

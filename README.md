@@ -92,65 +92,57 @@ malla-fcfm/
 3. If you added any python dependencies, run `pipreqs . --encoding=utf8 --force` to update the `requirements.txt` file.
 4. Make your pull request. Try to describe everything you did (and the reasoning behind it) as best as you can.
 
-## TO-DO
+## TO-DO and Future Versions
 
-### General features
+### Repository and Management
 
-- [x] SASS for repetitive CSS.
-- [x] ~~Typescript for better code quality.~~ (not needed at current scope?)
-- [x] Maybe look into a templating engine. (Looked into it, not necessary for the scope of this project)
-- [x] Perfect responsive design.
-- [x] Perfect color palettes.
-- [x] Fix 404 page flashing on load.
-- [x] Make "Mallas FCFM" link to home page.
-- [x] Fix tap on mobile.
-- [x] Fix incompatiability with firefox due to navigation api.
-- [x] Fix firefox writing orientation causing sizing issues.
-- [x] Fix leader lines being drawn after leaving.
-- [x] Set up composition classes and consistent spacing sizes.
-
-- [x] Change to Static Generation v/s SPA with Alpine:
-  - [x] Change to NPM package.
-  - [x] Install Eleventy.
-  - [x] Refactor mallas to statically generate.
-  - [x] Make 404 redirect to simulate case insensitive URL.
-- [x] JS/HTML/CSS contribution documentation.
-  - [x] Folder/file structure documentation.
+- [ ] Move this to-do list to issues.
+- [x] Switch to Cloudflare pages.
 - [ ] Data contribution documentation.
-- [x] Check load times and accesibility data.
-- [ ] Optimize image file format and sizes.
-- [ ] Abstract CSS variables for theme colors.
-- [ ] Figure out course show/hide animations
+- [ ] Credits to contributors for specific mallas.
+- [ ] Custom Logo/Icon.
 
-#### Data processing
-
-- [x] Basic single degree data processing.
-- [x] Postrequisite processing.
-- [x] Webscraping for course data
+### Version 1.1: All data
 
 - [ ] Automatic data processing for all degrees.
+  - [ ] Try out OpenCV type solution for image processing.
+  - [ ] Bot for warning when the official mallas change.
+- [ ] Source link for mallas + disclaimer that the site is not official.
+- [ ] Mallas:
+  - [ ] Civil ECG.
+  - [ ] Civil HSA.
+  - [ ] Civil Transporte.
+  - [ ] Electrica.
+  - [ ] Industrial.
+  - [ ] Matemática.
+  - [ ] Mecánica.
+  - [ ] Minas.
+  - [ ] Química.
+  - [ ] Biotecnología.
+  - [ ] Geología.
+  - [ ] Astronomía.
+  - [ ] Física.
+  - [ ] Geofísica.
 
-#### UI
+### Version 1.2: Themes
 
-- [x] Basic navbar.
-- [x] Settings hamburger menu.
-- [x] Basic footer.
-- [x] Github Icon.
-- [x] Fix clamp on number input values.
+- [ ] Optimize image file format and sizes.
+- [ ] Abstract CSS variables for theme colors.
+- [ ] Figure out course show/hide animations.
+- [ ] Semester alternating colors.
+- [ ] Pickable themes:
+  - [x] Toquipapel (current theme)
+  - [ ] Dark theme equivalent
+  - [ ] Console theme (Green on black, hard lines)
+  - [ ] Black and white (For printing)
+- [ ] Print button + Print CSS styles (hide all UI).
+- [ ] Theme editor and easy sharing (no back-end, just serialized settings).
 
-- [ ] About modal.
-- [ ] Improve breadcrumb.
-- [ ] Credits to contributors for specific mallas.
-- [ ] Theme selector (Expand this into actual color themes as well).
+## Previous versions
 
-### Homepage features
+### Beta to Version 1.0
 
-- [x] Static SPA Routing.
-- [x] Degree catalogue.
-- [x] Redirects and 404.
-
-### Malla features
-
+- [x] Malla: Computación
 - [x] Base page.
 - [x] Basic course rendering.
 - [x] Course credits and code.
@@ -169,27 +161,37 @@ malla-fcfm/
 - [x] Leader lines for prerequisites.
 - [x] Hide/show leader-lines
 - [x] High quality pre/postrequisite highlighting
-
-- [ ] Semester alternating colors.
-- [ ] Altprequisite highlighting. (To be implemented when a malla with altprequisites is added)
-- [ ] Sources for mallas.
-
-### Mallas
-
-- [x] Fix IQ2211, FI2001, MA2001 Post requisites.
-
-- [ ] Civil ECG.
-- [ ] Civil HSA.
-- [ ] Civil Transporte.
-- [x] Computación
-- [ ] Electrica.
-- [ ] Industrial.
-- [ ] Matemática.
-- [ ] Mecánica.
-- [ ] Minas.
-- [ ] Química.
-- [ ] Biotecnología.
-- [ ] Geología.
-- [ ] Astronomía.
-- [ ] Física.
-- [ ] Geofísica.
+- [x] Static SPA Routing.
+- [x] Degree catalogue.
+- [x] Redirects and 404.
+- [x] Basic navbar.
+- [x] Settings hamburger menu.
+- [x] Basic footer.
+- [x] Github Icon.
+- [x] Fix clamp on number input values.
+- [x] Basic single degree data processing.
+- [x] Postrequisite processing.
+- [x] Webscraping for course data
+- [x] SASS for repetitive CSS.
+- [x] ~~Typescript for better code quality.~~ (not needed at current scope?)
+- [x] Maybe look into a templating engine. (Looked into it, not necessary for the scope of this project)
+- [x] Perfect responsive design.
+- [x] Perfect color palettes.
+- [x] Fix 404 page flashing on load.
+- [x] Make "Mallas FCFM" link to home page.
+- [x] Fix tap on mobile.
+- [x] Fix incompatiability with firefox due to navigation api.
+- [x] Fix firefox writing orientation causing sizing issues.
+- [x] Fix leader lines being drawn after leaving.
+- [x] Set up composition classes and consistent spacing sizes.
+- [x] Change to Static Generation v/s SPA with Alpine:
+  - [x] Change to NPM package.
+  - [x] Install Eleventy.
+  - [x] Refactor mallas to statically generate.
+  - [x] Make 404 redirect to simulate case insensitive URL.
+- [x] JS/HTML/CSS contribution documentation.
+  - [x] Folder/file structure documentation.
+- [x] Check load times and accesibility data.
+- [x] Improve breadcrumb.
+- [x] Differentiate unimplemented mallas in index.
+- [x] Mark whole semester as taken. Thanks [@tampueroc](https://github.com/tampueroc) for the suggestion!

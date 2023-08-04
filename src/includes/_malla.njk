@@ -8,7 +8,17 @@
 				<section class="semester" aria-label="Semestre {{ semester.number }}" tabindex="0">
 					<h2
 						class="banner-title"
-						:class="showPhases ? '' : 'horizontal-text'"    
+						:class="{
+                            'horizontal-text': showPhases,
+                            'editable': editMode
+                        }"
+                        x-data="{
+                            element: $el,
+                            mark() {
+                                semesterMarked($el, editMode);
+                            }
+                        }"
+                        @click="mark();"
 					>
 						{{ semester.number }}
 					</h2>
@@ -45,7 +55,7 @@
 							@mouseenter="select('mouseenter');"
 							@mouseleave="select('mouseleave');"
                             @click="mark();"
-							x-show="shown()"
+							x-show="shown();"
 							data-prereqs="{{ course.prerequisites }}"
 							data-postreqs="{{ course.postrequisites }}"
 						>
