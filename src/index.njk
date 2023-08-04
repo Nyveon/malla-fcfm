@@ -6,7 +6,7 @@ name: "index"
 
 <div class="card-grid">
 	{% for code, degree in degrees %}
-    <a href="{{ code | lower }}" aria-label="{{ degree.name }}">
+    <a href="{{ code | lower }}" aria-label="{{ degree.name }}" class="{{ "unimplemented" if not degree.implemented }}">
         <article class="card">
             <img src="./images/splashes/{{ code }}.jpg" class="card-image" alt="" />
             <div class="card-text">

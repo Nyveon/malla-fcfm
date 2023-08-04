@@ -1,4 +1,11 @@
 {
+    "DCC": {
+        "code": "DCC",
+        "name": "Computación",
+        "fullName": "Ingeniería Civil en Computación",
+        "department": "CC",
+        "implemented": "true"
+    },
     "CI1": {
         "code": "CI1",
         "name": "Estructura, Construcción y Geotecnia",
@@ -13,12 +20,6 @@
         "code": "CI3",
         "name": "Transporte",
         "fullName": "Ingeniería Civil en Transporte"
-    },
-    "DCC": {
-        "code": "DCC",
-        "name": "Computación",
-        "fullName": "Ingeniería Civil en Computación",
-        "department": "CC"
     },
     "EL": {
         "code": "DIE",
