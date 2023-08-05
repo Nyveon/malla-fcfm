@@ -11,7 +11,7 @@
 .banner-title {
     @include m.vertical-text;
     text-align: center;
-    width: s.$large; // This is so it works on firefox
+    width: s.$very-large;
     font-size: s.$large;
     color: c.$phase-color;
     margin: s.$very-small;
@@ -31,6 +31,7 @@
     &.editable {
         cursor: pointer;
         border: 1px solid c.$course-outline;
+        border-right: none;
         border-radius: s.$small;
         padding: s.$very-small;
 
