@@ -263,8 +263,6 @@ function courseMarked(el, editMode, editModeColor, currentMark) {
 
     let result = editModeColor;
 
-    console.log("cm", currentMark)
-
     if (currentMark == editModeColor) {
         result = 0;
     } else if (currentMark == 0) {
@@ -285,7 +283,7 @@ function semesterMarked(element, editMode, editModeColor) {
 	}
 
     const semesterCourses = element.nextElementSibling;
-    const courses = semesterCourses.querySelectorAll(".course");
+    const courses = semesterCourses.querySelectorAll(".course:not([style*='display: none'])");
 
     let marked = 0
     let swapped = 0
@@ -304,17 +302,30 @@ function semesterMarked(element, editMode, editModeColor) {
         countMarks(marked);
     } else if (swapped > 0) {
         countMarks(0);
+    } else {
+        courses.forEach(course => {
+            course.click();
+        });
     }
 }
 
 /**
  * Un-marks all marked courses
+ * @param {number} editModeColor Index of marker color
  */
-function clearAllMarks() {
+function clearAllMarks(editModeColor) {
     if (window.confirm("¿Des-marcar todos los cursos marcados?")) {
-        const markedElements = document.querySelectorAll(".marked");
-        markedElements.forEach(element => {
-            element.classList.remove("marked");
+        const markedCourses = document.querySelectorAll(".marked");
+        markedCourses.forEach(course => {
+            if (course.dataset.markColor == 0) {
+                return
+            }
+            
+            if (course.dataset.markColor != editModeColor) {
+                course.click();
+            }
+
+            course.click();
         });
     }
 }
@@ -364,6 +375,4 @@ function countMarks(offset) {
     		);
     	}, 250);
     }
-
-    console.log(markedCount);
 }
