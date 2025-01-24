@@ -258,9 +258,17 @@ function courseMarked(element, editMode, editModeColor) {
 		return;
 	}
 
-    //todo: swap color instead of un-mark if different color is selected
-	element.classList.toggle("marked");
-    element.dataset.markColor = editModeColor;
+    if (element.classList.contains("marked")) {
+        console.log(element.dataset.markColor, editModeColor)
+        if (element.dataset.markColor == editModeColor) {
+            element.classList.remove("marked");
+        } else {
+            element.dataset.markColor = editModeColor;
+        }
+    } else {
+        element.classList.add("marked");
+        element.dataset.markColor = editModeColor;
+    }
 
 	const markedElements = document.querySelectorAll(
 		".marked:not([style*='display: none'])"
