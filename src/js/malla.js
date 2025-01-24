@@ -329,3 +329,15 @@ function semesterMarked(element, editMode) {
         courseMarked(course, editMode);
     });
 }
+
+/**
+ * Un-marks all marked courses
+ */
+function clearAllMarks() {
+    if (window.confirm("¿Des-marcar todos los cursos marcados?")) {
+        const markedElements = document.querySelectorAll(".marked");
+        markedElements.forEach(element => {
+            element.classList.remove("marked");
+        });
+    }
+}
