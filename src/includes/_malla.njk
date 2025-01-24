@@ -9,16 +9,8 @@
 					<h2
 						class="banner-title"
 						:class="{
-                            'horizontal-text': showPhases,
-                            'editable': editMode
+                            'horizontal-text': showPhases
                         }"
-                        x-data="{
-                            element: $el,
-                            mark() {
-                                semesterMarked($el, editMode);
-                            }
-                        }"
-                        @click="mark();"
 					>
 						{{ semester.number }}
 					</h2>
@@ -26,6 +18,7 @@
 						{% for index, course in semester.courses %}
 						<div
 							class="course {{ course.department }}"
+                            :class="courseMark && 'marked'"
 							id="{{ index }}"
 							tabindex="0"
 							role="listitem"
@@ -46,8 +39,13 @@
                                 select(event) {
                                     courseSelected($data, event, showLines, depthpre, depthpost, editMode);
                                 },
+                                courseMark: $persist(0).as('course-mark-{{ index }}'),
                                 mark() {
-                                    courseMarked($el, editMode, editModeColor);
+                                    const result = courseMarked(editMode, editModeColor, this.courseMark);
+                                    if (result != -1) {
+                                        this.courseMark = result;
+                                        countMarks();
+                                    }
                                 }
                             }"
 							@focus="select('mouseenter');"
@@ -58,6 +56,7 @@
 							x-show="shown();"
 							data-prereqs="{{ course.prerequisites }}"
 							data-postreqs="{{ course.postrequisites }}"
+                            :data-mark-color="courseMark"
 						>
 							<div class="course-bar" x-show="shown()">
 								<span class="course-code">{{ course.code }}</span>

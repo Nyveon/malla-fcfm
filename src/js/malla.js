@@ -249,67 +249,27 @@ function propagatePostreq(postrequisites, depth, maxdepth, state, element) {
 
 /**
  * Marks a course as selected or unselected
- * @param {element} element Course element
  * @param {string} editMode Edit mode status
  * @param {number} editModeColor Index of marker color
+ * @param {number} currentMark Course's current mark (0 if none)
+ * 
+ * @returns {number} -1 if no change, 0 if not marked, editModeColor otherwise
  */
-function courseMarked(element, editMode, editModeColor) {
+function courseMarked(editMode, editModeColor, currentMark) {
 	if (!editMode) {
-		return;
+		return -1;
 	}
 
-    if (element.classList.contains("marked")) {
-        console.log(element.dataset.markColor, editModeColor)
-        if (element.dataset.markColor == editModeColor) {
-            element.classList.remove("marked");
-        } else {
-            element.dataset.markColor = editModeColor;
-        }
+    if  (currentMark == 0) {
+        return editModeColor;
     } else {
-        element.classList.add("marked");
-        element.dataset.markColor = editModeColor;
+        console.log(currentMark, editModeColor)
+        if (currentMark == editModeColor) { //
+            return 0;
+        } else {
+            return editModeColor;
+        }
     }
-
-	const markedElements = document.querySelectorAll(
-		".marked:not([style*='display: none'])"
-	);
-	const markedCount = markedElements.length;
-	const courseElements = document.querySelectorAll(
-		".course:not([style*='display: none'])"
-	);
-	const courseCount = courseElements.length;
-
-	if (markedCount == courseCount) {
-		var duration = 8 * 1000;
-		var animationEnd = Date.now() + duration;
-		var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
-
-		function randomInRange(min, max) {
-			return Math.random() * (max - min) + min;
-		}
-
-		var interval = setInterval(function () {
-			var timeLeft = animationEnd - Date.now();
-
-			if (timeLeft <= 0) {
-				return clearInterval(interval);
-			}
-
-			var particleCount = 50 * (timeLeft / duration);
-			confetti(
-				Object.assign({}, defaults, {
-					particleCount,
-					origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
-				})
-			);
-			confetti(
-				Object.assign({}, defaults, {
-					particleCount,
-					origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
-				})
-			);
-		}, 250);
-	}
 }
 
 /**
@@ -325,9 +285,11 @@ function semesterMarked(element, editMode) {
     const semesterCourses = element.nextElementSibling;
     const courses = semesterCourses.querySelectorAll(".course");
 
-    courses.forEach(course => {
-        courseMarked(course, editMode);
-    });
+    console.log($data);
+
+    // courses.forEach(course => {
+    //     courseMarked(course, editMode);
+    // });
 }
 
 /**
@@ -340,4 +302,52 @@ function clearAllMarks() {
             element.classList.remove("marked");
         });
     }
+}
+
+/**
+ * Count all marked courses, and trigger confetti if all courses are marked
+ */
+function countMarks() {
+    const markedElements = document.querySelectorAll(
+    	".marked:not([style*='display: none'])"
+    );
+    const markedCount = markedElements.length;
+    const courseElements = document.querySelectorAll(
+    	".course:not([style*='display: none'])"
+    );
+    const courseCount = courseElements.length;
+
+    if (markedCount == courseCount - 1) {
+    	var duration = 8 * 1000;
+    	var animationEnd = Date.now() + duration;
+    	var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+    	function randomInRange(min, max) {
+    		return Math.random() * (max - min) + min;
+    	}
+
+    	var interval = setInterval(function () {
+    		var timeLeft = animationEnd - Date.now();
+
+    		if (timeLeft <= 0) {
+    			return clearInterval(interval);
+    		}
+
+    		var particleCount = 50 * (timeLeft / duration);
+    		confetti(
+    			Object.assign({}, defaults, {
+    				particleCount,
+    				origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
+    			})
+    		);
+    		confetti(
+    			Object.assign({}, defaults, {
+    				particleCount,
+    				origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
+    			})
+    		);
+    	}, 250);
+    }
+
+    console.log(markedCount);
 }
