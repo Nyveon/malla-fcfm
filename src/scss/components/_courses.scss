@@ -62,23 +62,30 @@ $shine-width: 4rem;
         @include hide-bar;
     }
 
+    @each $index, $color in c.$mark-colors {
+        &[data-mark-color="#{$index}"] {
+          --mark-color: #{$color};
+
+        }
+    }
+
     &.marked {
-        outline: c.$courses-color-marked-outline solid s.$space-thin;
+        --mark-color-dark: color-mix(in oklch, var(--mark-color) 75%, black 25%);
+        --mark-color-light: color-mix(in oklch, var(--mark-color) 75%, white 25%);
+
+        outline: var(--mark-color-dark) solid s.$space-thin;
 
         > .course-bar {
-            background-color: c.$course-color-marked !important;
+            color: c.$text-white;
+            background-color: var(--mark-color-light) !important;
 
             &::before {
-                background: transparent;
-            }
-
-            span {
-                color: c.$text-black;
+                background: var(--mark-color-dark);
             }
         }
 
         > .course-body {
-            background-color: c.$course-color-marked;
+            background-color: var(--mark-color);
             font-style: italic;
 
             &::after {
@@ -88,14 +95,14 @@ $shine-width: 4rem;
         }
 
         &:hover {
-            outline: c.$courses-color-marked-hover-outline solid s.$space-thin;
+            outline: var(--mark-color-hover-outline) solid s.$space-thin;
 
             > .course-body {
                 filter: brightness(1.1);
             }
 
             > .course-bar {
-                filter: brightness(1.1);
+                color: c.$text-black;
             }
         }
     }

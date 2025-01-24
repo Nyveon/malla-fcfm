@@ -5,13 +5,22 @@ $grey2: #aaa69d;
 $grey3: #84817a;
 $black1: #413a52;
 $black2: #0b0b1d;
-$purple1: #706fd3;
-$purple2: #474787;
+
+$red1: oklch(63% 0.14 23);
+
+$orange1: oklch(63% 0.14 59);
+$orange2: oklch(58% 0.13 59);
+
 $green0: #93bf8d;
-$green1: #509e44;
+$green1: oklch(63% 0.14 160);
 $green2: #2b7442;
-$orange1: #dc9242;
-$orange2: #cd7c3e;
+
+$blue1: oklch(63% 0.14 230);
+
+$purple1: oklch(63% 0.14 300);
+$purple2: oklch(58% 0.13 300);
+
+$pink1: oklch(63% 0.14 350);
 
 // Element colors and gradients
 $text-white: $white;
@@ -36,10 +45,14 @@ $phase-color-line: $grey1;
 $course-color: $grey1;
 $course-outline: $grey3;
 
-$course-color-marked: $green0;
-$courses-color-marked-outline: $green1;
-$courses-color-marked-hover-outline: $green2;
+$mark-colors: (
+    1: $green1,
+    2: $blue1,
+    3: $red1,
+    4: $pink1
+);
 
+$mark-settings-color: $grey2;
 $settings-color: $grey3;
 $checkbox-selected: $green1;
 $checkbox-unselected: $grey2;

@@ -885,7 +885,7 @@
                             "type": "course",
                             "department": "CC"
                         },
-                        "XESPE-C": {
+                        "XESPE1-C": {
                             "name": "Electivos de Especialidad",
                             "plural": "Electivos de Especialidad",
                             "shortname": "Electivo Especialidad",
@@ -977,7 +977,7 @@
                             "postrequisites": [],
                             "department": "CC"
                         },
-                        "XESPE-C": {
+                        "XESPE2-C": {
                             "name": "Electivos de Especialidad",
                             "plural": "Electivos de Especialidad",
                             "shortname": "Electivo Especialidad",

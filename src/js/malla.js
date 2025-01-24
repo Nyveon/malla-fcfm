@@ -249,56 +249,27 @@ function propagatePostreq(postrequisites, depth, maxdepth, state, element) {
 
 /**
  * Marks a course as selected or unselected
- * @param {element} element Course element
- * @param {bool} editMode If edit mode is enabled
+ * @param {HTMLElement} el Course card
+ * @param {string} editMode Edit mode status
+ * @param {number} editModeColor Index of marker color
+ * @param {number} currentMark Course's current mark (0 if none)
+ * 
+ * @returns {number} -1 if no change, 0 if not marked, editModeColor otherwise
  */
-function courseMarked(element, editMode) {
+function courseMarked(el, editMode, editModeColor, currentMark) {
 	if (!editMode) {
-		return;
+		return -1;
 	}
 
-	element.classList.toggle("marked");
+    let result = editModeColor;
 
-	const markedElements = document.querySelectorAll(
-		".marked:not([style*='display: none'])"
-	);
-	const markedCount = markedElements.length;
-	const courseElements = document.querySelectorAll(
-		".course:not([style*='display: none'])"
-	);
-	const courseCount = courseElements.length;
+    if (currentMark == editModeColor) {
+        result = 0;
+    } else if (currentMark == 0) {
+        countMarks(1);
+    }
 
-	if (markedCount == courseCount) {
-		var duration = 8 * 1000;
-		var animationEnd = Date.now() + duration;
-		var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
-
-		function randomInRange(min, max) {
-			return Math.random() * (max - min) + min;
-		}
-
-		var interval = setInterval(function () {
-			var timeLeft = animationEnd - Date.now();
-
-			if (timeLeft <= 0) {
-				return clearInterval(interval);
-			}
-
-			var particleCount = 50 * (timeLeft / duration);
-			confetti(
-				Object.assign({}, defaults, {
-					particleCount,
-					origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
-				})
-			);
-			confetti(
-				Object.assign({}, defaults, {
-					particleCount,
-					origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
-				})
-			);
-		}, 250);
-	}
+    return result;
 }
 
 /**
@@ -306,15 +277,102 @@ function courseMarked(element, editMode) {
  * @param {element} element Semester number element
  * @param {boolean} editMode If edit mode is enabled
  */
-function semesterMarked(element, editMode) {
+function semesterMarked(element, editMode, editModeColor) {
     if (!editMode) {
 		return;
 	}
 
     const semesterCourses = element.nextElementSibling;
-    const courses = semesterCourses.querySelectorAll(".course");
+    const courses = semesterCourses.querySelectorAll(".course:not([style*='display: none'])");
+
+    let marked = 0
+    let swapped = 0
 
     courses.forEach(course => {
-        courseMarked(course, editMode);
+        if (course.dataset.markColor == 0) {
+            marked += 1;
+            course.click();
+        } else if (course.dataset.markColor != editModeColor) {
+            swapped += 1;
+            course.click();
+        }
     });
+
+    if (marked > 0) {
+        countMarks(marked);
+    } else if (swapped > 0) {
+        countMarks(0);
+    } else {
+        courses.forEach(course => {
+            course.click();
+        });
+    }
+}
+
+/**
+ * Un-marks all marked courses
+ * @param {number} editModeColor Index of marker color
+ */
+function clearAllMarks(editModeColor) {
+    if (window.confirm("¿Des-marcar todos los cursos marcados?")) {
+        const markedCourses = document.querySelectorAll(".marked");
+        markedCourses.forEach(course => {
+            if (course.dataset.markColor == 0) {
+                return
+            }
+            
+            if (course.dataset.markColor != editModeColor) {
+                course.click();
+            }
+
+            course.click();
+        });
+    }
+}
+
+/**
+ * Count all marked courses, and trigger confetti if all courses are marked
+ * @param {number} offset Offset for the count
+ */
+function countMarks(offset) {
+    const markedElements = document.querySelectorAll(
+    	".marked:not([style*='display: none'])"
+    );
+    const markedCount = markedElements.length;
+    const courseElements = document.querySelectorAll(
+    	".course:not([style*='display: none'])"
+    );
+    const courseCount = courseElements.length;
+
+    if (markedCount == courseCount - offset) {
+    	var duration = 8 * 1000;
+    	var animationEnd = Date.now() + duration;
+    	var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+    	function randomInRange(min, max) {
+    		return Math.random() * (max - min) + min;
+    	}
+
+    	var interval = setInterval(function () {
+    		var timeLeft = animationEnd - Date.now();
+
+    		if (timeLeft <= 0) {
+    			return clearInterval(interval);
+    		}
+
+    		var particleCount = 50 * (timeLeft / duration);
+    		confetti(
+    			Object.assign({}, defaults, {
+    				particleCount,
+    				origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
+    			})
+    		);
+    		confetti(
+    			Object.assign({}, defaults, {
+    				particleCount,
+    				origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
+    			})
+    		);
+    	}, 250);
+    }
 }

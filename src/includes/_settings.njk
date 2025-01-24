@@ -31,15 +31,40 @@
 {% endmacro %}
 
 <div>
-    <button
-        id="edit-mode"
-        @click="editMode = !editMode;"
-        class="icon-button"
-        :class="editMode ? 'active' : '';"
-        aria-label="Edición"
-    >
-        <img src="/images/icons/pencil-icon.svg" alt="" />
-    </button>
+    
+    <div id="edit-mode" :class="editMode && 'open'">
+        <button
+            @click="editMode = !editMode;"
+            class="icon-button"
+            aria-label="Edición"
+            title="Marcadores"
+        >
+            <img :src="editMode ? '/images/icons/close-round-icon.svg' : '/images/icons/pencil-icon.svg'" alt="" />
+        </button>
+
+        <div x-show="editMode" x-transition x-cloak id="edit-mode-colors">
+            <template x-for="index in 4">
+                <div
+                    class="color-option"
+                    :class="(editModeColor === index) && 'selected'"
+                    :data-mark-color="index"
+                    @click="editModeColor = index;"
+                ></div>
+            </template>
+
+            <button
+                id="clear-all-marks"
+                class="icon-button"
+                aria-label="Des-marcar todos"
+                title="Des-marcar todos"
+                @click="clearAllMarks(editModeColor);"
+            >
+                <img src="/images/icons/broom-cleaning-icon.svg" alt="" />
+            </button>
+        </div>
+
+    </div>
+
 
 	<button
 		id="open-settings"
@@ -47,6 +72,7 @@
         class="icon-button"
 		:class="settingsOpen ? 'open' : '';"
 		aria-label="Configuración"
+        title="Configuración"
 	>
 		<img src="/images/icons/settings-gear-icon.svg" alt="" />
 	</button>

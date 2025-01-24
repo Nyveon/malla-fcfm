@@ -25,11 +25,73 @@
     transform: rotate(180deg);
 }
 
-#edit-mode.active {
-    background-color: c.$settings-color;
+#edit-mode {
+    display: flex;
+    flex-direction: row-reverse;
+    gap: 0.25rem;
 
-    > img {
-        filter: invert(1);
+    @include m.media-medium {
+        flex-direction: column;
+
+        #edit-mode-colors {
+            display: none;
+        }
+    }
+
+    &.open {
+        border-radius: 0.5rem;
+        background-color: c.$mark-settings-color;
+
+        @include m.media-medium {
+            #edit-mode-colors {
+                display: flex;
+            }
+
+            flex-direction: column;
+            position: fixed;
+            top: 4rem;
+            right: 2rem;
+            z-index: 2;
+        }
+    }
+}
+
+#edit-mode-colors {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 0.5rem;
+
+    @include m.media-medium {
+        flex-direction: column;
+    }
+
+    > .color-option {
+        width: 1rem;
+        height: 1rem;
+        border-radius: 25%;
+        outline: 1px solid c.$text-dark;
+
+        &:hover {
+            outline: 1px solid c.$text-mid;
+            cursor: pointer;
+        }
+
+        &.selected {
+            outline: 1px solid c.$text-white;
+        }
+
+        @each $index, $color in c.$mark-colors {
+            &[data-mark-color="#{$index}"] {
+              background-color: #{$color};
+            }
+        }
+    }
+}
+
+#clear-all-marks {
+    &:hover {
+        background-color: c.$red1;
     }
 }
 
