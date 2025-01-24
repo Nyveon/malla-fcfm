@@ -31,15 +31,27 @@
 {% endmacro %}
 
 <div>
-    <button
-        id="edit-mode"
-        @click="editMode = !editMode;"
-        class="icon-button"
-        :class="editMode ? 'active' : '';"
-        aria-label="Edición"
-    >
-        <img src="/images/icons/pencil-icon.svg" alt="" />
-    </button>
+    
+    <div id="edit-mode" :class="editMode && 'open'">
+        <button
+            @click="editMode = !editMode;"
+            class="icon-button"
+            aria-label="Edición"
+        >
+            <img :src="editMode ? '/images/icons/close-round-icon.svg' : '/images/icons/pencil-icon.svg'" alt="" />
+        </button>
+
+        <template x-for="index in 4">
+            <div
+                x-show="editMode"
+                class="color-option"
+                :class="(editModeColor === index) && 'selected'"
+                :data-index="index"
+                @click="editModeColor = index;"
+            ></div>
+        </template>
+    </div>
+
 
 	<button
 		id="open-settings"
