@@ -65,13 +65,14 @@ $shine-width: 4rem;
     @each $index, $color in c.$mark-colors {
         &[data-mark-color="#{$index}"] {
           --mark-color: #{$color};
-          --mark-color-outline: #{$color};
-          --mark-color-hover-outline: #{$color};
+
         }
     }
 
-
     &.marked {
+        --mark-color-outline: color-mix(in oklch, var(--mark-color) 75%, black 25%);
+        --mark-color-hover-outline: color-mix(in oklch, var(--mark-color) 75%, white 25%);
+
         outline: var(--mark-color-outline) solid s.$space-thin;
 
         > .course-bar {
