@@ -70,20 +70,17 @@ $shine-width: 4rem;
     }
 
     &.marked {
-        --mark-color-outline: color-mix(in oklch, var(--mark-color) 75%, black 25%);
-        --mark-color-hover-outline: color-mix(in oklch, var(--mark-color) 75%, white 25%);
+        --mark-color-dark: color-mix(in oklch, var(--mark-color) 75%, black 25%);
+        --mark-color-light: color-mix(in oklch, var(--mark-color) 75%, white 25%);
 
-        outline: var(--mark-color-outline) solid s.$space-thin;
+        outline: var(--mark-color-dark) solid s.$space-thin;
 
         > .course-bar {
-            background-color: var(--mark-color) !important;
+            color: c.$text-white;
+            background-color: var(--mark-color-light) !important;
 
             &::before {
-                background: transparent;
-            }
-
-            span {
-                color: c.$text-black;
+                background: var(--mark-color-dark);
             }
         }
 
@@ -105,7 +102,7 @@ $shine-width: 4rem;
             }
 
             > .course-bar {
-                filter: brightness(1.1);
+                color: c.$text-black;
             }
         }
     }
