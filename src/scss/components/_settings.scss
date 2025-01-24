@@ -51,20 +51,10 @@
             outline: 1px solid c.$text-white;
         }
 
-        &[data-index="1"] {
-            background-color: c.$mark-color-1;
-        }
-
-        &[data-index="2"] {
-            background-color: c.$mark-color-2;
-        }
-
-        &[data-index="3"] {
-            background-color: c.$mark-color-3;
-        }
-
-        &[data-index="4"] {
-            background-color: c.$mark-color-4;
+        @each $index, $color in c.$mark-colors {
+            &[data-mark-color="#{$index}"] {
+              background-color: #{$color};
+            }
         }
     }
 }

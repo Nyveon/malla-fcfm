@@ -250,14 +250,17 @@ function propagatePostreq(postrequisites, depth, maxdepth, state, element) {
 /**
  * Marks a course as selected or unselected
  * @param {element} element Course element
- * @param {bool} editMode If edit mode is enabled
+ * @param {string} editMode Edit mode status
+ * @param {number} editModeColor Index of marker color
  */
-function courseMarked(element, editMode) {
+function courseMarked(element, editMode, editModeColor) {
 	if (!editMode) {
 		return;
 	}
 
+    //todo: swap color instead of un-mark if different color is selected
 	element.classList.toggle("marked");
+    element.dataset.markColor = editModeColor;
 
 	const markedElements = document.querySelectorAll(
 		".marked:not([style*='display: none'])"

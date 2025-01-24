@@ -62,11 +62,20 @@ $shine-width: 4rem;
         @include hide-bar;
     }
 
+    @each $index, $color in c.$mark-colors {
+        &[data-mark-color="#{$index}"] {
+          --mark-color: #{$color};
+          --mark-color-outline: #{$color};
+          --mark-color-hover-outline: #{$color};
+        }
+    }
+
+
     &.marked {
-        outline: c.$courses-color-marked-outline solid s.$space-thin;
+        outline: var(--mark-color-outline) solid s.$space-thin;
 
         > .course-bar {
-            background-color: c.$course-color-marked !important;
+            background-color: var(--mark-color) !important;
 
             &::before {
                 background: transparent;
@@ -78,7 +87,7 @@ $shine-width: 4rem;
         }
 
         > .course-body {
-            background-color: c.$course-color-marked;
+            background-color: var(--mark-color);
             font-style: italic;
 
             &::after {
@@ -88,7 +97,7 @@ $shine-width: 4rem;
         }
 
         &:hover {
-            outline: c.$courses-color-marked-hover-outline solid s.$space-thin;
+            outline: var(--mark-color-hover-outline) solid s.$space-thin;
 
             > .course-body {
                 filter: brightness(1.1);

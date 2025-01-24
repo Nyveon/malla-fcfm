@@ -45,15 +45,12 @@ $phase-color-line: $grey1;
 $course-color: $grey1;
 $course-outline: $grey3;
 
-//todo: deprecate these
-$course-color-marked: $green0;
-$courses-color-marked-outline: $green1;
-$courses-color-marked-hover-outline: $green2;
-
-$mark-color-1: $green1;
-$mark-color-2: $blue1;
-$mark-color-3: $red1;
-$mark-color-4: $pink1;
+$mark-colors: (
+    1: $green1,
+    2: $blue1,
+    3: $red1,
+    4: $pink1
+);
 
 $mark-settings-color: $grey2;
 $settings-color: $grey3;
