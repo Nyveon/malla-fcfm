@@ -9,8 +9,15 @@
 					<h2
 						class="banner-title"
 						:class="{
-                            'horizontal-text': showPhases
+                            'horizontal-text': showPhases,
+                            'editable': editMode
                         }"
+                        x-data="{
+                            mark() {
+                                semesterMarked(this.$el, editMode, editModeColor);
+                            }
+                        }"
+                        @click="mark();"
 					>
 						{{ semester.number }}
 					</h2>
@@ -41,10 +48,9 @@
                                 },
                                 courseMark: $persist(0).as('course-mark-{{ index }}'),
                                 mark() {
-                                    const result = courseMarked(editMode, editModeColor, this.courseMark);
+                                    const result = courseMarked($el, editMode, editModeColor, this.courseMark);
                                     if (result != -1) {
                                         this.courseMark = result;
-                                        countMarks();
                                     }
                                 }
                             }"

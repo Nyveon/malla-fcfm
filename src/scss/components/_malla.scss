@@ -99,5 +99,6 @@
 
     @include m.media-medium {
         @include m.flex-center;
+        width: 100%;
     }
 }

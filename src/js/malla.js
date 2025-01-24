@@ -249,27 +249,29 @@ function propagatePostreq(postrequisites, depth, maxdepth, state, element) {
 
 /**
  * Marks a course as selected or unselected
+ * @param {HTMLElement} el Course card
  * @param {string} editMode Edit mode status
  * @param {number} editModeColor Index of marker color
  * @param {number} currentMark Course's current mark (0 if none)
  * 
  * @returns {number} -1 if no change, 0 if not marked, editModeColor otherwise
  */
-function courseMarked(editMode, editModeColor, currentMark) {
+function courseMarked(el, editMode, editModeColor, currentMark) {
 	if (!editMode) {
 		return -1;
 	}
 
-    if  (currentMark == 0) {
-        return editModeColor;
-    } else {
-        console.log(currentMark, editModeColor)
-        if (currentMark == editModeColor) { //
-            return 0;
-        } else {
-            return editModeColor;
-        }
+    let result = editModeColor;
+
+    console.log("cm", currentMark)
+
+    if (currentMark == editModeColor) {
+        result = 0;
+    } else if (currentMark == 0) {
+        countMarks(1);
     }
+
+    return result;
 }
 
 /**
@@ -277,7 +279,7 @@ function courseMarked(editMode, editModeColor, currentMark) {
  * @param {element} element Semester number element
  * @param {boolean} editMode If edit mode is enabled
  */
-function semesterMarked(element, editMode) {
+function semesterMarked(element, editMode, editModeColor) {
     if (!editMode) {
 		return;
 	}
@@ -285,11 +287,24 @@ function semesterMarked(element, editMode) {
     const semesterCourses = element.nextElementSibling;
     const courses = semesterCourses.querySelectorAll(".course");
 
-    console.log($data);
+    let marked = 0
+    let swapped = 0
 
-    // courses.forEach(course => {
-    //     courseMarked(course, editMode);
-    // });
+    courses.forEach(course => {
+        if (course.dataset.markColor == 0) {
+            marked += 1;
+            course.click();
+        } else if (course.dataset.markColor != editModeColor) {
+            swapped += 1;
+            course.click();
+        }
+    });
+
+    if (marked > 0) {
+        countMarks(marked);
+    } else if (swapped > 0) {
+        countMarks(0);
+    }
 }
 
 /**
@@ -306,8 +321,9 @@ function clearAllMarks() {
 
 /**
  * Count all marked courses, and trigger confetti if all courses are marked
+ * @param {number} offset Offset for the count
  */
-function countMarks() {
+function countMarks(offset) {
     const markedElements = document.querySelectorAll(
     	".marked:not([style*='display: none'])"
     );
@@ -317,7 +333,7 @@ function countMarks() {
     );
     const courseCount = courseElements.length;
 
-    if (markedCount == courseCount - 1) {
+    if (markedCount == courseCount - offset) {
     	var duration = 8 * 1000;
     	var animationEnd = Date.now() + duration;
     	var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
