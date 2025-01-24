@@ -30,9 +30,29 @@
     flex-direction: row-reverse;
     gap: 0.25rem;
 
+    @include m.media-medium {
+        flex-direction: column;
+
+        #edit-mode-colors {
+            display: none;
+        }
+    }
+
     &.open {
         border-radius: 0.5rem;
         background-color: c.$mark-settings-color;
+
+        @include m.media-medium {
+            #edit-mode-colors {
+                display: flex;
+            }
+
+            flex-direction: column;
+            position: fixed;
+            top: 4rem;
+            right: 2rem;
+            z-index: 2;
+        }
     }
 }
 
@@ -41,6 +61,10 @@
     flex-direction: row-reverse;
     align-items: center;
     gap: 0.5rem;
+
+    @include m.media-medium {
+        flex-direction: column;
+    }
 
     > .color-option {
         width: 1rem;
