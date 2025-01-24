@@ -133,6 +133,8 @@ def main():
                         semester_courses[course_code]["type"] = "compactable"
                     malla[version][phase]["semesters"][
                         semester]["courses"][f"{code}-C"] = course_data
+    
+    #todo: deduplicate compacted codes
 
     # Save dict as json file
     with open(f"{malla_code}.json", "w", encoding="utf-8") as f:
