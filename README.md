@@ -7,7 +7,7 @@ ES: Visualización interactiva de mallas académicas de la Facultad de Ciencias 
 ## Implementation
 
 - [AlpineJS](https://alpinejs.dev) (*3.10.5*) - For adding interactivity to the pages.
-- [LeaderLine](https://github.com/anseki/leader-line/) (*1.0.7*) - For drawing lines between courses.
+- [LeaderLine](https://github.com/anseki/leader-line/) (*1.0.8*) - For drawing lines between courses.
 - [CanvasConfetti](https://www.npmjs.com/package/canvas-confetti) (*1.6.0*) - For the confetti effect.
 - [SASS](https://sass-lang.com) - CSS preprocessor.
 - [jsDelivr](https://www.jsdelivr.com) - CDN for JS libraries.
