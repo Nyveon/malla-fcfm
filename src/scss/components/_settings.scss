@@ -119,7 +119,6 @@
 
     button {
         background-color: transparent;
-        backdrop-filter: brightness(80%);
         border: none;
         color: c.$text-white;
         cursor: pointer;
@@ -129,91 +128,96 @@
     &> * + * {
         margin-top: s.$medium;
     }
-}
-
-.setting-section {
-    font-weight: bold;
-}
-
-$setting-height: s.$large;
-
-.setting {
-    width: s.$setting-size;
-
-    label {
-        @include m.flex-row;
-        justify-content: space-between;
+    .setting-section {
+        font-weight: bold;
     }
-
-    &.number-input {
-        input {
-            width: s.$very-large;
-            text-align: center;
-            background: transparent;
-            border: none;
-            color: c.$text-white;
-        }
-
-        button {
-            width: $setting-height;
-            height: $setting-height;
-            border-radius: s.$space-thick;
-
-            &:hover {
-                background-color: c.$text-white;
-                color: c.$settings-color;
-            }
-
-            &:active {
-                transform: scale(0.9);
-            }
-        }
-    }
-
-    &.checkbox-input {    
-        input {
-            display: none;
+    
+    $setting-height: s.$large;
+    
+    .setting {
+        width: s.$setting-size;
+    
+        label {
+            @include m.flex-row;
+            justify-content: space-between;
         }
     
-        input:checked {
-            &+.slider {
-                background-color: c.$text-white;
+        &.number-input {
+            input {
+                width: s.$very-large;
+                text-align: center;
+                background: transparent;
+                border: none;
+                color: c.$text-white;
+            }
     
-                &::before {
-                    transform: translateX($setting-height);
-                    background-color: c.$checkbox-selected;
-                }
+            button {
+                width: $setting-height;
+                height: $setting-height;
+                border-radius: s.$space-thick;
+                color: c.$text-black;
+                background-color: c.$text-white;
     
                 &:hover {
-                    background-color: c.$text-mid;
+                    background-color: c.$text-dark;
+                    color: c.$text-white;
                 }
+    
+                &:active {
+                    transform: scale(0.9);
+                }
+
+                transition: all 0.15s ease-in-out;
             }
         }
     
-        .slider {
-            cursor: pointer;
-            @include m.default-animate;
-            @include m.pretty-shadow;
-            position: relative;
-            background-color: c.$text-mid;
-            border-radius: $setting-height;
-            width: $setting-height * 2;
-            height: $setting-height;
-            margin-right: s.$medium;
-    
-            &::before {
-                @include m.pseudo;
-                @include m.default-animate;
-                height: $setting-height;
-                width: $setting-height;
-                background-color: c.$checkbox-unselected;
-                border-radius: 50%;
-                border: 1px solid c.$text-mid;
+        &.checkbox-input {    
+            input {
+                display: none;
             }
-    
-            &:hover {
-                background-color: c.$text-white;
+        
+            input:checked {
+                &+.slider {
+                    background-color: c.$text-white;
+        
+                    &::before {
+                        transform: translateX($setting-height);
+                        background-color: c.$checkbox-selected;
+                    }
+        
+                    &:hover {
+                        background-color: c.$text-mid;
+                    }
+                }
+            }
+        
+            .slider {
+                cursor: pointer;
+                @include m.default-animate;
+                @include m.pretty-shadow;
+                position: relative;
+                background-color: c.$text-mid;
+                border-radius: $setting-height;
+                width: $setting-height * 2;
+                height: $setting-height;
+                margin-right: s.$medium;
+                display: block;
+        
+                &::before {
+                    @include m.pseudo;
+                    @include m.default-animate;
+                    height: $setting-height;
+                    width: $setting-height;
+                    background-color: c.$checkbox-unselected;
+                    border-radius: 50%;
+                    border: 1px solid c.$text-mid;
+                }
+        
+                &:hover {
+                    background-color: c.$text-white;
+                }
             }
         }
     }
 }
+
