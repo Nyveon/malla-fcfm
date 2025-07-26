@@ -831,7 +831,7 @@
                             "name": "Núcleo Gestión para Ingenieros",
                             "shortname": "Núcleo Gestión",
                             "credits": 6,
-                            "prerequisites": [],
+                            "prerequisites": ["CC4402"],
                             "corequisites": [],
                             "type": "plan",
                             "codes": [
